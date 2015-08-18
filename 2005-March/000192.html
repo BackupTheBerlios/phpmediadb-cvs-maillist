@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.6,1.7
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/admin%20item-session.php%2C1.6%2C1.7&In-Reply-To=%3C200503242043.j2OKh4h12536%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000191.html">
+   <LINK REL="Next"  HREF="000193.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.6,1.7</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/admin%20item-session.php%2C1.6%2C1.7&In-Reply-To=%3C200503242043.j2OKh4h12536%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.6,1.7">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar 24 21:43:04 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000191.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.3,1.4 class.phpmediadb_business_audios.php,1.4,1.5 class.phpmediadb_business_categories.php,1.3,1.4 class.phpmediadb_business_codecs.php,1.3,1.4 class.phpmediadb_business_formats.php,1.3,1.4 class.phpmediadb_business_inspector.php,1.3,1.4 class.phpmediadb_business.php,1.8,1.9 class.phpmediadb_business_prints.php,1.3,1.4 class.phpmediadb_business_videos.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000193.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.4,1.5 class.phpmediadb_business_audios.php,1.5,1.6 class.phpmediadb_business_categories.php,1.4,1.5 class.phpmediadb_business_codecs.php,1.4,1.5 class.phpmediadb_business_formats.php,1.4,1.5 class.phpmediadb_business_inspector.php,1.4,1.5 class.phpmediadb_business_prints.php,1.4,1.5 class.phpmediadb_business_videos.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#192">[ date ]</a>
+              <a href="thread.html#192">[ thread ]</a>
+              <a href="subject.html#192">[ subject ]</a>
+              <a href="author.html#192">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/admin
+In directory sheep:/tmp/cvs-serv2895/admin
+
+Modified Files:
+	item-session.php 
+Log Message:
+* itemSave: Modified error-check
+
+Index: item-session.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/admin/item-session.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -u -d -r1.6 -r1.7
+--- item-session.php	24 Mar 2005 17:12:17 -0000	1.6
++++ item-session.php	24 Mar 2005 20:43:02 -0000	1.7
+@@ -27,10 +27,10 @@
+ 	
+ 	/* get database-vars */
+ 	/*
+-	$categories				= $PHPMEDIADB-&gt;BUSINESS-&gt;CATEGORIES-&gt;getList();
+-	$formats					= $PHPMEDIADB-&gt;BUSINESS-&gt;FORMAT-&gt;getList();
++	$categories			= $PHPMEDIADB-&gt;BUSINESS-&gt;CATEGORIES-&gt;getList();
++	$formats			= $PHPMEDIADB-&gt;BUSINESS-&gt;FORMAT-&gt;getList();
+ 	$ageRestrictions	= $PHPMEDIADB-&gt;BUSINESS-&gt;AGERESTRICTIONS-&gt;getList();
+-	$codecs						= $PHPMEDIADB-&gt;BUSINESS-&gt;CODECS-&gt;getList();
++	$codecs				= $PHPMEDIADB-&gt;BUSINESS-&gt;CODECS-&gt;getList();
+ 	*/
+ 	
+ 	/* assign database-vars */
+@@ -88,19 +88,21 @@
+ 	switch( $sessionItem['type'] )
+ 	{
+ 		case(PHPMEDIADB_ITEM_AUDIO):
+-		
+-		if( $sessionItem['id'] === NULL )
+-			$errorData = $PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;create( $sessionItem['data'] );
+-		else 
+-			$errorData = $PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;modify( $sessionItem['id'], $sessionItem['data'] );
++		/* check data */
++		$errorData = $PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;check( $sessionItem['data'] );
+ 			
+ 		if( $errorData === NULL || $errorData === TRUE )
+ 		{
+-			/* happy, no error :) */
++			/* no error occurred :) */
++			if( $sessionItem['id'] === NULL )
++				$status = $PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;create( $sessionItem['data'] );
++			else 
++				$status = $PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;modify( $sessionItem['id'], $sessionItem['data'] );
++				
+ 			@$PHPMEDIADB-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'MESSAGE', $PHPMEDIADB-&gt;PRESENTATION-&gt;I18N-&gt;getLanguageString( 'MESSAGE_SUCCESS_SAVE' ) );
+ 			$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( 'body.message.tpl' );
+ 			$PHPMEDIADB-&gt;PRESENTATION-&gt;SESSION-&gt;unregister( 'sessionitem' );
+-			die();
++			die();		
+ 		}
+ 		else
+ 		{
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000191.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.3,1.4 class.phpmediadb_business_audios.php,1.4,1.5 class.phpmediadb_business_categories.php,1.3,1.4 class.phpmediadb_business_codecs.php,1.3,1.4 class.phpmediadb_business_formats.php,1.3,1.4 class.phpmediadb_business_inspector.php,1.3,1.4 class.phpmediadb_business.php,1.8,1.9 class.phpmediadb_business_prints.php,1.3,1.4 class.phpmediadb_business_videos.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000193.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.4,1.5 class.phpmediadb_business_audios.php,1.5,1.6 class.phpmediadb_business_categories.php,1.4,1.5 class.phpmediadb_business_codecs.php,1.4,1.5 class.phpmediadb_business_formats.php,1.4,1.5 class.phpmediadb_business_inspector.php,1.4,1.5 class.phpmediadb_business_prints.php,1.4,1.5 class.phpmediadb_business_videos.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#192">[ date ]</a>
+              <a href="thread.html#192">[ thread ]</a>
+              <a href="subject.html#192">[ subject ]</a>
+              <a href="author.html#192">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

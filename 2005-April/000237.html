@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.print.formular.tpl,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.item.print.formular.tpl%2C1.1%2C1.2&In-Reply-To=%3C200504061353.j36DrFm05191%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000236.html">
+   <LINK REL="Next"  HREF="000238.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.print.formular.tpl,1.1,1.2</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.item.print.formular.tpl%2C1.1%2C1.2&In-Reply-To=%3C200504061353.j36DrFm05191%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.print.formular.tpl,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr  6 15:53:15 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000236.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.formular.tpl,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000238.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.video.formular.tpl,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#237">[ date ]</a>
+              <a href="thread.html#237">[ thread ]</a>
+              <a href="subject.html#237">[ subject ]</a>
+              <a href="author.html#237">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates
+In directory sheep:/tmp/cvs-serv12163/_source/tier.configuration/templates
+
+Modified Files:
+	body.item.print.formular.tpl 
+Log Message:
+* Fixed syntax mistakes
+
+Index: body.item.print.formular.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/body.item.print.formular.tpl,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- body.item.print.formular.tpl	31 Mar 2005 15:53:47 -0000	1.1
++++ body.item.print.formular.tpl	6 Apr 2005 13:53:13 -0000	1.2
+@@ -33,16 +33,16 @@
+ 	&lt;tr&gt;
+ 		&lt;td&gt;{$I18N.MEDIA_IDENTIFICATION|default:&quot;%MEDIA_IDENTIFICATION%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemIdentification]&quot; maxlength=&quot;{$INPUTSIZE.ItemIdentification|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemIdentification}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemIdentification eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemIdentifier]&quot; maxlength=&quot;{$INPUTSIZE.ItemIdentifier|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemIdentifier}&quot; /&gt;
++			{if $INPUTERROR.flag.ItemIdentifier eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+ 		&lt;td&gt;{$I18N.MEDIA_RELEASEYEAR|default:&quot;%MEDIA_RELEASEYEAR%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemRelease]&quot; maxlength=&quot;{$INPUTSIZE.ItemRelease|default:&quot;4&quot;}&quot; value=&quot;{$ITEMDATA.ItemRelease}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemRelease eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemReleaseDate]&quot; maxlength=&quot;{$INPUTSIZE.ItemReleaseDate|default:&quot;4&quot;}&quot; value=&quot;{$ITEMDATA.ItemReleaseDate}&quot; /&gt;
++			{if $INPUTERROR.flag.ItemReleaseDate eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 	
+@@ -144,6 +144,14 @@
+ 		&lt;td&gt;
+ 			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemQuantity]&quot; maxlength=&quot;{$INPUTSIZE.ItemQuantity|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemQuantity}&quot; /&gt;
+ 			{if $INPUTERROR.flag.ItemQuantity eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++		&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;td&gt;{$I18N.MEDIA_COMMENT|default:&quot;%MEDIA_COMMENT%&quot;}&lt;/td&gt;
++		&lt;td&gt;
++			&lt;textarea name=&quot;itemdata[ItemComment]&quot; cols=&quot;40&quot; rows=&quot;10&quot;&gt;{$ITEMDATA.ItemComment}&lt;/textarea&gt;
++			{if $INPUTERROR.flag.ItemComment eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 	
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000236.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.formular.tpl,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000238.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.video.formular.tpl,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#237">[ date ]</a>
+              <a href="thread.html#237">[ thread ]</a>
+              <a href="subject.html#237">[ subject ]</a>
+              <a href="author.html#237">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

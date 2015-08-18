@@ -1,0 +1,313 @@
+From nobody at sheep.berlios.de  Fri May  6 12:49:13 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Fri, 6 May 2005 12:49:13 +0200
+Subject: [phpmediadb-cvs] phpmediadb-cvs/install insert-data.sql,1.7,1.8
+Message-ID: <200505061049.j46AnDm30032@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/install
+In directory sheep:/tmp/cvs-serv29942/install
+
+Modified Files:
+	insert-data.sql 
+Log Message:
+* Added categories for prints
+
+Index: insert-data.sql
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/install/insert-data.sql,v
+retrieving revision 1.7
+retrieving revision 1.8
+diff -u -d -r1.7 -r1.8
+--- insert-data.sql	13 Apr 2005 11:43:17 -0000	1.7
++++ insert-data.sql	6 May 2005 10:49:10 -0000	1.8
+@@ -174,7 +174,35 @@
+ (165, 2, 'Category_Short'),
+ (166, 2, 'Category_Thriller'),
+ (167, 2, 'Category_War'),
+-(168, 2, 'Category_Western');
++(168, 2, 'Category_Western'),
++(169, 3, 'Category_Antiquarian'),
++(170, 3, 'Category_Fiction'),
++(171, 3, 'Category_Biography'),
++(172, 3, 'Category_Business'),
++(173, 3, 'Category_Computer'),
++(174, 3, 'Category_Erotic'),
++(175, 3, 'Category_Technical'),
++(176, 3, 'Category_Movie'),
++(177, 3, 'Category_Comic'),
++(178, 3, 'Category_Children'),
++(179, 3, 'Category_Young'),
++(180, 3, 'Category_Cooking'),
++(181, 3, 'Category_Crime'),
++(182, 3, 'Category_Thriller'),
++(183, 3, 'Category_Learning'),
++(184, 3, 'Category_Music'),
++(185, 3, 'Category_Sciences'),
++(186, 3, 'Category_Politics'),
++(187, 3, 'Category_History'),
++(188, 3, 'Category_Advisory'),
++(189, 3, 'Category_Traveling'),
++(190, 3, 'Category_Sport'),
++(191, 3, 'Category_Religion'),
++(192, 3, 'Category_Esoterism'),
++(193, 3, 'Category_Science-Fiction'),
++(194, 3, 'Category_Fantasy'),
++(195, 3, 'Category_Horror'),
++(196, 3, 'Category_EBook');
+ 
+ --
+ -- Daten f?r Tabelle `itemtypes`
+
+
+
+From nobody at sheep.berlios.de  Tue May 10 16:19:17 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Tue, 10 May 2005 16:19:17 +0200
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.15,1.16
+Message-ID: <200505101419.j4AEJHm31896@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv4319/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_i18n.php 
+Log Message:
+* Added javadoc comment
+
+Index: class.phpmediadb_presentation_i18n.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_i18n.php,v
+retrieving revision 1.15
+retrieving revision 1.16
+diff -u -d -r1.15 -r1.16
+--- class.phpmediadb_presentation_i18n.php	29 Apr 2005 14:11:43 -0000	1.15
++++ class.phpmediadb_presentation_i18n.php	10 May 2005 14:19:14 -0000	1.16
+@@ -132,6 +132,13 @@
+ 	}
+ 
+ //-----------------------------------------------------------------------------
++	/**
++	 * Translates an array or a string
++	 *
++	 * @access public
++	 * @param mixed $langRequest language-i18n-stringcode or array of strings
++	 * @return mixed Internationalized string or array
++	 */
+ 	public function translate( $langRequest )
+ 	{
+ 		/* init */
+@@ -162,7 +169,7 @@
+ 	 * Returns the i18n string specified by the langID
+ 	 *
+ 	 * @access protected
+-	 * @param String Internal language-i18n-stringcode
++	 * @param String $langId language-i18n-stringcode
+ 	 * @return mixed Internationalized string
+ 	 */
+ 	protected function translate_string( $langId )
+
+
+
+From nobody at sheep.berlios.de  Tue May 10 16:36:53 2005
+From: nobody at sheep.berlios.de (bruf)
+Date: Tue, 10 May 2005 16:36:53 +0200
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.13,1.14
+Message-ID: <200505101436.j4AEarm32202@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv5484/_source/tier.configuration/i18n
+
+Modified Files:
+	i18n.de.php 
+Log Message:
+* Added some translations
+
+Index: i18n.de.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.de.php,v
+retrieving revision 1.13
+retrieving revision 1.14
+diff -u -d -r1.13 -r1.14
+--- i18n.de.php	30 Apr 2005 18:22:15 -0000	1.13
++++ i18n.de.php	10 May 2005 14:36:50 -0000	1.14
+@@ -395,7 +395,36 @@
+ 	$i18n['Category_Short']			= 'Short Movie';
+ 	$i18n['Category_Thriller']		= 'Thriller';
+ 	$i18n['Category_War']			= 'Krieg';
+-	$i18n['Category_Western']		= 'Western';
++	$i18n['Category_Western']		= 'Western';	
++	
++	$i18n['Category_Antiquarian']		= 'Antiquarisch';
++	$i18n['Category_Fiction']			= 'Gedichte';
++	$i18n['Category_Biography']			= 'Biography';
++	$i18n['Category_Business']			= 'Gesch?ft';
++	$i18n['Category_Computer']			= 'Computer';
++	$i18n['Category_Erotic']			= 'Erotik';
++	$i18n['Category_Technical']			= 'Technisch';
++	$i18n['Category_Movie']				= 'Filme';
++	$i18n['Category_Comic']				= 'Comic';
++	$i18n['Category_Children']			= 'Kinderbuch';
++	$i18n['Category_Young']				= 'Jugendbuch';
++	$i18n['Category_Cooking']			= 'Kochbuch';
++	$i18n['Category_Crime']				= 'Krimi';
++	$i18n['Category_Thriller']			= 'Thriller';
++	$i18n['Category_Learning']			= 'Lernbuch';
++	$i18n['Category_Music']				= 'Musik';
++	$i18n['Category_Sciences']			= 'Wissenschaft';
++	$i18n['Category_Politics']			= 'Politik';
++	$i18n['Category_History']			= 'Geschichte';
++	$i18n['Category_Advisory']			= 'Beratung';
++	$i18n['Category_Traveling']			= 'Reise';
++	$i18n['Category_Sport']				= 'Sport';
++	$i18n['Category_Religion']			= 'Religion';
++	$i18n['Category_Esoterism']			= 'Esoterik';
++	$i18n['Category_Science-Fiction']	= 'Science-Fiction';
++	$i18n['Category_Fantasy']			= 'Fantasy';
++	$i18n['Category_Horror']			= 'Horror';
++	$i18n['Category_EBook']				= 'Elektronisches Buch';
+ 	
+ 	$i18n['AgeRestriction_Free']		= 'Keine Beschr?nkung';
+ 	$i18n['AgeRestriction_6Years']		= 'Ab 6 Jahre';
+
+
+
+From nobody at sheep.berlios.de  Tue May 10 16:37:30 2005
+From: nobody at sheep.berlios.de (bruf)
+Date: Tue, 10 May 2005 16:37:30 +0200
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.en.php,1.10,1.11
+Message-ID: <200505101437.j4AEbUm32212@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv5536/_source/tier.configuration/i18n
+
+Modified Files:
+	i18n.en.php 
+Log Message:
+* Added some translations
+
+Index: i18n.en.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.en.php,v
+retrieving revision 1.10
+retrieving revision 1.11
+diff -u -d -r1.10 -r1.11
+--- i18n.en.php	30 Apr 2005 18:22:15 -0000	1.10
++++ i18n.en.php	10 May 2005 14:37:27 -0000	1.11
+@@ -387,6 +387,35 @@
+ 	$i18n['Category_War']			= 'War';
+ 	$i18n['Category_Western']		= 'Western';
+ 	
++	$i18n['Category_Antiquarian']		= 'Antiquarian';
++	$i18n['Category_Fiction']			= 'Fiction';
++	$i18n['Category_Biography']			= 'Biography';
++	$i18n['Category_Business']			= 'Business';
++	$i18n['Category_Computer']			= 'Computer';
++	$i18n['Category_Erotic']			= 'Erotic';
++	$i18n['Category_Technical']			= 'Technical';
++	$i18n['Category_Movie']				= 'Movie';
++	$i18n['Category_Comic']				= 'Comic';
++	$i18n['Category_Children']			= 'Children';
++	$i18n['Category_Young']				= 'Young';
++	$i18n['Category_Cooking']			= 'Cooking';
++	$i18n['Category_Crime']				= 'Crime';
++	$i18n['Category_Thriller']			= 'Thriller';
++	$i18n['Category_Learning']			= 'Learning';
++	$i18n['Category_Music']				= 'Music';
++	$i18n['Category_Sciences']			= 'Sciences';
++	$i18n['Category_Politics']			= 'Politics';
++	$i18n['Category_History']			= 'History';
++	$i18n['Category_Advisory']			= 'Advisory';
++	$i18n['Category_Traveling']			= 'Traveling';
++	$i18n['Category_Sport']				= 'Sport';
++	$i18n['Category_Religion']			= 'Religion';
++	$i18n['Category_Esoterism']			= 'Esoterism';
++	$i18n['Category_Science-Fiction']	= 'Science-Fiction';
++	$i18n['Category_Fantasy']			= 'Fantasy';
++	$i18n['Category_Horror']			= 'Horror';
++	$i18n['Category_EBook']				= 'EBook';
++	
+ 	$i18n['AgeRestriction_Free']		= 'No Restriction';
+ 	$i18n['AgeRestriction_6Years']		= '6 Years';
+ 	$i18n['AgeRestriction_12Years']		= '12 Years';
+
+
+
+From nobody at sheep.berlios.de  Tue May 10 20:09:32 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Tue, 10 May 2005 20:09:32 +0200
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.14,1.15 i18n.en.php,1.11,1.12
+Message-ID: <200505101809.j4AI9Wm08004@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv1919/_source/tier.configuration/i18n
+
+Modified Files:
+	i18n.de.php i18n.en.php 
+Log Message:
+* Added HTTP-Error-Strings
+
+Index: i18n.de.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.de.php,v
+retrieving revision 1.14
+retrieving revision 1.15
+diff -u -d -r1.14 -r1.15
+--- i18n.de.php	10 May 2005 14:36:50 -0000	1.14
++++ i18n.de.php	10 May 2005 18:09:30 -0000	1.15
+@@ -59,16 +59,17 @@
+ 	$i18n['ERROR_INPUTREGEX']					= 'Eingabe nicht korrekt.';
+ 	$i18n['ERROR_OCCURRED']						= 'Es sind Eingabefehler auftreten.';
+ 	$i18n['ERROR_LISTLINK']						= '[Fehlerliste]';
+-	$i18n['HTTP_ERROR_401_BODY']				= '';
+-	$i18n['HTTP_ERROR_401_TITLE']				= '';
+-	$i18n['HTTP_ERROR_403_BODY']				= '';
+-	$i18n['HTTP_ERROR_403_TITLE']				= '';
+-	$i18n['HTTP_ERROR_404_BODY']				= '';
+-	$i18n['HTTP_ERROR_404_TITLE']				= '';
+-	$i18n['HTTP_ERROR_500_BODY']				= '';
+-	$i18n['HTTP_ERROR_500_TITLE']				= '';
+-	$i18n['HTTP_ERROR_UNKNOWN_BODY']			= '';
+-	$i18n['HTTP_ERROR_UNKNOWN_TITLE']			= '';
++	$i18n['HTTP_ERROR_401_TITLE']				= 'HTTP 401 - Authentisierung fehlgeschlagen!';
++	$i18n['HTTP_ERROR_401_BODY']				= 'Der Server konnte nicht verifizieren, ob Sie autorisiert sind. Entweder wurden falsche Referenzen (z.B. ein falsches Passwort) angegeben oder ihr Browser versteht nicht, wie die geforderten Referenzen zu ?bermitteln sind.';
++	$i18n['HTTP_ERROR_403_TITLE']				= 'HTTP 403 - Zugriff verweigert!';
++	$i18n['HTTP_ERROR_403_BODY']				= 'Der Zugriff auf das angeforderte Objekt ist nicht m?glich. Entweder kann es vom Server nicht gelesen werden oder es ist zugriffsgesch?tzt.';
++	$i18n['HTTP_ERROR_404_TITLE']				= 'HTTP 404 - Objekt nicht gefunden!';
++	$i18n['HTTP_ERROR_404_BODY']				= 'Der angeforderte URL konnte auf dem Server nicht gefunden werden.';
++	$i18n['HTTP_ERROR_500_TITLE']				= 'HTTP 500 - Serverfehler!';
++	$i18n['HTTP_ERROR_500_BODY']				= 'Die Anfrage kann nicht beantwortet werden, da im Server ein interner Fehler aufgetreten ist. Der Server ist entweder ?berlastet oder ein Fehler in einem CGI-Skript ist aufgetreten.';
++	$i18n['HTTP_ERROR_UNKNOWN_TITLE']			= 'Unbekannter Fehler!';
++	$i18n['HTTP_ERROR_UNKNOWN_BODY']			= 'Es ist ein unbekannter Fehler aufgetreten.';
++
+ 	$i18n['MESSAGE_ITEMID_NOTNUMERICAL']		= 'Die gew?hlte Medien-Nummer ist nicht nummerisch!';
+ 	$i18n['MESSAGE_ITEM_LOADERROR']				= 'Das Medium konnte nicht geladen werden.';
+ 	$i18n['MESSAGE_ITEM_NOTEXISTENT']			= 'Das Medium existiert nicht.';
+
+Index: i18n.en.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.en.php,v
+retrieving revision 1.11
+retrieving revision 1.12
+diff -u -d -r1.11 -r1.12
+--- i18n.en.php	10 May 2005 14:37:27 -0000	1.11
++++ i18n.en.php	10 May 2005 18:09:30 -0000	1.12
+@@ -57,6 +57,16 @@
+ 	$i18n['ERROR_INPUTREGEX']	= 'Input incorrect';
+ 	$i18n['ERROR_OCCURRED']		= 'An inputerror occurred.';
+ 	$i18n['ERROR_LISTLINK']		= '[Errorlist]';
++	$i18n['HTTP_ERROR_401_TITLE']				= 'HTTP 401 - Authentication required!';
++	$i18n['HTTP_ERROR_401_BODY']				= 'This server could not verify that you are authorized. You either supplied the wrong credentials (e.g., bad password), or your browser doesn\'t understand how to supply the credentials required.';
++	$i18n['HTTP_ERROR_403_TITLE']				= 'HTTP 403 - Access forbidden!';
++	$i18n['HTTP_ERROR_403_BODY']				= 'You don\'t have permission to access the requested object. It is either read-protected or not readable by the server.';
++	$i18n['HTTP_ERROR_404_TITLE']				= 'HTTP 404 - Object not found!';
++	$i18n['HTTP_ERROR_404_BODY']				= 'The requested URL was not found on this server.';
++	$i18n['HTTP_ERROR_500_TITLE']				= 'HTTP 500 - Server error!';
++	$i18n['HTTP_ERROR_500_BODY']				= 'The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there was an error in a CGI script.';
++	$i18n['HTTP_ERROR_UNKNOWN_TITLE']			= 'Unknown Error';
++	$i18n['HTTP_ERROR_UNKNOWN_BODY']			= 'Sorry, an unknown error occured. Try again later.';
+ 	
+ /* formular */
+ 	$i18n['FORM_RESET']					= 'Reset';
+
+
+

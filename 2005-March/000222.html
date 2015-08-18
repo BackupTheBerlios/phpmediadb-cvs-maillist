@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_inspector.php,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_inspector.php%2C1.5%2C1.6&In-Reply-To=%3C200503311626.j2VGQcL05527%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000221.html">
+   <LINK REL="Next"  HREF="000223.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_inspector.php,1.5,1.6</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_inspector.php%2C1.5%2C1.6&In-Reply-To=%3C200503311626.j2VGQcL05527%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_inspector.php,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar 31 18:26:38 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000221.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.8,1.9
+</A></li>
+        <LI>Next message: <A HREF="000223.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv16677/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business_inspector.php 
+Log Message:
+phpmediadb_business_inspector::getSize
+ * Added check if data exsists
+phpmediadb_business_inspector::getRegex
+ * Added check if data exsists
+
+Index: class.phpmediadb_business_inspector.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_inspector.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- class.phpmediadb_business_inspector.php	24 Mar 2005 20:43:35 -0000	1.5
++++ class.phpmediadb_business_inspector.php	31 Mar 2005 16:26:36 -0000	1.6
+@@ -169,7 +169,10 @@
+ 		$returnValue = NULL;
+ 		
+ 		/* get size */
+-		$returnValue = $this-&gt;BUSINESS-&gt;configuration['input-size'][$type];
++		if( array_key_exists( $type,  $this-&gt;BUSINESS-&gt;configuration['input-size'] ) )
++			$returnValue = $this-&gt;BUSINESS-&gt;configuration['input-size'][$type];
++		else
++			$returnValue = NULL;
+ 		
+ 		/* return data */
+ 		return $returnValue;
+@@ -190,7 +193,10 @@
+ 		$returnValue = NULL;
+ 		
+ 		/* get size */
+-		$returnValue = $this-&gt;BUSINESS-&gt;configuration['input-regex'][$type];
++		if( array_key_exists( $type,  $this-&gt;BUSINESS-&gt;configuration['input-regex'] ) )
++			$returnValue = $this-&gt;BUSINESS-&gt;configuration['input-regex'][$type];
++		else
++			$returnValue = NULL;
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000221.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.8,1.9
+</A></li>
+	<LI>Next message: <A HREF="000223.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

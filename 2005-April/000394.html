@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.11,1.12 i18n.en.php,1.8,1.9
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/i18n%20i18n.de.php%2C1.11%2C1.12%20i18n.en.php%2C1.8%2C1.9&In-Reply-To=%3C200504271905.j3RJ5Sm00628%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000393.html">
+   <LINK REL="Next"  HREF="000395.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.11,1.12 i18n.en.php,1.8,1.9</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/i18n%20i18n.de.php%2C1.11%2C1.12%20i18n.en.php%2C1.8%2C1.9&In-Reply-To=%3C200504271905.j3RJ5Sm00628%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.11,1.12 i18n.en.php,1.8,1.9">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr 27 21:05:28 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000393.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.20,1.21 class.phpmediadb_data_videos.php,1.19,1.20
+</A></li>
+        <LI>Next message: <A HREF="000395.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.14,1.15
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#394">[ date ]</a>
+              <a href="thread.html#394">[ thread ]</a>
+              <a href="subject.html#394">[ subject ]</a>
+              <a href="author.html#394">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv32178/_source/tier.configuration/i18n
+
+Modified Files:
+	i18n.de.php i18n.en.php 
+Log Message:
+* Fixed some strings
+
+Index: i18n.de.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.de.php,v
+retrieving revision 1.11
+retrieving revision 1.12
+diff -u -d -r1.11 -r1.12
+--- i18n.de.php	26 Apr 2005 20:36:26 -0000	1.11
++++ i18n.de.php	27 Apr 2005 19:05:25 -0000	1.12
+@@ -68,14 +68,15 @@
+ 	$i18n['HTTP_ERROR_500_TITLE']				= '';
+ 	$i18n['HTTP_ERROR_UNKNOWN_BODY']			= '';
+ 	$i18n['HTTP_ERROR_UNKNOWN_TITLE']			= '';
+-	$i18n['MESSAGE_ITEMID_NOTNUMERICAL']		= '';
+-	$i18n['MESSAGE_ITEM_LOADERROR']				= '';
+-	$i18n['MESSAGE_ITEM_NOTEXISTENT']			= '';
++	$i18n['MESSAGE_ITEMID_NOTNUMERICAL']		= 'Die gew&#228;hlte Item-Nummer ist nicht nummerisch!';
++	$i18n['MESSAGE_ITEM_LOADERROR']				= 'Das Medium konnte nicht geladen werden.';
++	$i18n['MESSAGE_ITEM_NOTEXISTENT']			= 'Das Medium existiert nicht.';
+ 	
+ /* formular */
+ 	$i18n['FORM_RESET']					= 'Zur&#252;cksetzen';
+ 	$i18n['FORM_SUBMIT']				= 'Absenden';
+-	$i18n['FORMULAR_OPTION_ITEM_EMPTY']	= ' ';
++	$i18n['FORMULAR_OPTION_ITEM_EMPTY']	= 'Bitte w&#228;hlen / Keine Auswahl';
++	$i18n['HYPERLINK_BACK']				= '&lt;&lt; Zur&#252;ck';
+ 	
+ /* media data */
+ 	$i18n['MEDIA_TITLE']	= 'Medientitel';
+@@ -147,8 +148,6 @@
+ 
+ 	$i18n['MESSAGE']						= 'Nachricht';
+ 	$i18n['NOT_SET']						= 'Nicht gesetzt';
+-	//$i18n['SMARTY_END'] = '';
+-	//$i18n['SMARTY_START'] = '';
+ 	 
+ 	$i18n['BUTTON_ABORT']						= 'Abbrechen';
+ 	$i18n['BUTTON_ITEMDELETE']					= 'L&#246;schen';
+@@ -165,7 +164,7 @@
+ 	$i18n['MEDIA_AUDIO_ITEM_IMAGEURL']			= 'Bildadresse';
+ 	$i18n['MEDIA_AUDIO_ITEM_LOCATION']			= 'Standort';
+ 	$i18n['MEDIA_AUDIO_ITEM_MEDIANAME']			= 'Medienname';
+-	$i18n['MEDIA_AUDIO_ITEM_MEDIASIZE']			= 'Gr&#246;&#223;e';
++	$i18n['MEDIA_AUDIO_ITEM_MEDIASIZE']			= 'L&#228;nge (Min)';
+ 	$i18n['MEDIA_AUDIO_ITEM_ORIGINALTITLE']		= 'Original Titel';
+ 	$i18n['MEDIA_AUDIO_ITEM_PUBLISHER']			= 'Ver&#246;ffentlicher';
+ 	$i18n['MEDIA_AUDIO_ITEM_QUANTITY']			= 'Anzahl';
+@@ -185,7 +184,7 @@
+ 	$i18n['MEDIA_PRINT_ITEM_IMAGEURL']			= 'Bildadresse';
+ 	$i18n['MEDIA_PRINT_ITEM_LOCATION']			= 'Standort';
+ 	$i18n['MEDIA_PRINT_ITEM_MEDIANAME']			= 'Medienname';
+-	$i18n['MEDIA_PRINT_ITEM_MEDIASIZE']			= 'Gr&#246;&#223;e';
++	$i18n['MEDIA_PRINT_ITEM_MEDIASIZE']			= 'Seitenanzahl';
+ 	$i18n['MEDIA_PRINT_ITEM_ORIGINALTITLE']		= 'Original Titel';
+ 	$i18n['MEDIA_PRINT_ITEM_PUBLISHER']			= 'Ver&#246;ffentlicher';
+ 	$i18n['MEDIA_PRINT_ITEM_QUANTITY']			= 'Anzahl';
+@@ -205,7 +204,7 @@
+ 	$i18n['MEDIA_VIDEO_ITEM_IMAGEURL']			= 'Bildadresse';
+ 	$i18n['MEDIA_VIDEO_ITEM_LOCATION']			= 'Standort';
+ 	$i18n['MEDIA_VIDEO_ITEM_MEDIANAME']			= 'Medienname';
+-	$i18n['MEDIA_VIDEO_ITEM_MEDIASIZE']			= 'Gr&#246;&#223;e';
++	$i18n['MEDIA_VIDEO_ITEM_MEDIASIZE']			= 'L&#228;nge (Min)';
+ 	$i18n['MEDIA_VIDEO_ITEM_ORIGINALTITLE']		= 'Original Titel';
+ 	$i18n['MEDIA_VIDEO_ITEM_PUBLISHER']			= 'Ver&#246;ffentlicher';
+ 	$i18n['MEDIA_VIDEO_ITEM_QUANTITY']			= 'Anzahl';
+@@ -394,7 +393,7 @@
+ 	$i18n['Category_Sci-Fi']		= 'Sciene-Fiction';
+ 	$i18n['Category_Short']			= 'Short Movie';
+ 	$i18n['Category_Thriller']		= 'Thriller';
+-	$i18n['Category_War']			= 'Kri';
++	$i18n['Category_War']			= 'Krieg';
+ 	$i18n['Category_Western']		= 'Western';
+ 	
+ 	$i18n['AgeRestriction_Free']		= 'Keine Beschr&#228;nkung';
+
+Index: i18n.en.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.en.php,v
+retrieving revision 1.8
+retrieving revision 1.9
+diff -u -d -r1.8 -r1.9
+--- i18n.en.php	26 Apr 2005 20:36:26 -0000	1.8
++++ i18n.en.php	27 Apr 2005 19:05:25 -0000	1.9
+@@ -59,10 +59,11 @@
+ /* formular */
+ 	$i18n['FORM_RESET']					= 'Reset';
+ 	$i18n['FORM_SUBMIT']				= 'Submit';
+-	$i18n['FORMULAR_OPTION_ITEM_EMPTY']	= ' ';
++	$i18n['FORMULAR_OPTION_ITEM_EMPTY']	= 'Choose please / No choice ';
++	$i18n['HYPERLINK_BACK']				= '&lt;&lt; Back';
+ 	
+ /* media data */
+-	$i18n['MEDIA_TITLE']	= 'Mediatitel';
++	$i18n['MEDIA_TITLE']	= 'Mediatitle';
+ 	$i18n['MEDIA_ARTIST']	= 'Artist';
+ 	$i18n['MEDIA_Category']	= 'Category';
+ 	
+@@ -105,8 +106,6 @@
+ 	$i18n['ACTION_DELETE']					= 'Delete';
+ 	$i18n['ACTION_MODIFY']					= 'Modify';
+ 
+-	//$i18n['SMARTY_END'] = '';
+-	//$i18n['SMARTY_START'] = '';
+ 	 
+ 	$i18n['BUTTON_ABORT']						= 'Cancel';
+ 	$i18n['BUTTON_ITEMDELETE']					= 'Delete';
+@@ -123,7 +122,7 @@
+ 	$i18n['MEDIA_AUDIO_ITEM_IMAGEURL']			= 'Imageaddress';
+ 	$i18n['MEDIA_AUDIO_ITEM_LOCATION']			= 'Location';
+ 	$i18n['MEDIA_AUDIO_ITEM_MEDIANAME']			= 'Medianame';
+-	$i18n['MEDIA_AUDIO_ITEM_MEDIASIZE']			= 'Size';
++	$i18n['MEDIA_AUDIO_ITEM_MEDIASIZE']			= 'Length (Min)';
+ 	$i18n['MEDIA_AUDIO_ITEM_ORIGINALTITLE']		= 'Original Title';
+ 	$i18n['MEDIA_AUDIO_ITEM_PUBLISHER']			= 'Publisher';
+ 	$i18n['MEDIA_AUDIO_ITEM_QUANTITY']			= 'Quantity';
+@@ -143,7 +142,7 @@
+ 	$i18n['MEDIA_PRINT_ITEM_IMAGEURL']			= 'Imageaddress';
+ 	$i18n['MEDIA_PRINT_ITEM_LOCATION']			= 'Location';
+ 	$i18n['MEDIA_PRINT_ITEM_MEDIANAME']			= 'Medianname';
+-	$i18n['MEDIA_PRINT_ITEM_MEDIASIZE']			= 'Size';
++	$i18n['MEDIA_PRINT_ITEM_MEDIASIZE']			= 'Pages';
+ 	$i18n['MEDIA_PRINT_ITEM_ORIGINALTITLE']		= 'Original Title';
+ 	$i18n['MEDIA_PRINT_ITEM_PUBLISHER']			= 'Publisher';
+ 	$i18n['MEDIA_PRINT_ITEM_QUANTITY']			= 'Quantity';
+@@ -163,7 +162,7 @@
+ 	$i18n['MEDIA_VIDEO_ITEM_IMAGEURL']			= 'Imageaddress';
+ 	$i18n['MEDIA_VIDEO_ITEM_LOCATION']			= 'Location';
+ 	$i18n['MEDIA_VIDEO_ITEM_MEDIANAME']			= 'Medianname';
+-	$i18n['MEDIA_VIDEO_ITEM_MEDIASIZE']			= 'Size';
++	$i18n['MEDIA_VIDEO_ITEM_MEDIASIZE']			= 'Length';
+ 	$i18n['MEDIA_VIDEO_ITEM_ORIGINALTITLE']		= 'Original Title';
+ 	$i18n['MEDIA_VIDEO_ITEM_PUBLISHER']			= 'Publisher';
+ 	$i18n['MEDIA_VIDEO_ITEM_QUANTITY']			= 'Quantity';
+@@ -204,12 +203,10 @@
+ 	$i18n['MEDIA_QUANTITY']					= 'Quantity';
+ 	$i18n['MEDIA_RELEASEYEAR']				= 'Release Year';
+ 	$i18n['MEDIA_TITLE']					= 'Title';
+-	$i18n['MENU_ADDITEM']					= 'Add Item';
++	$i18n['MENU_ADDITEM']					= 'Add Media';
+ 	$i18n['MENU_ADMINISTRATION_TITLE']		= 'Administration';
+ 	$i18n['MESSAGE']						= 'Message';
+ 	$i18n['NOT_SET']						= 'Not set';
+-	//$i18n['SMARTY_END'] = '';
+-	//$i18n['SMARTY_START'] = '';
+ 	
+ 
+ /******************************************************************************
+@@ -388,11 +385,11 @@
+ 	$i18n['Category_War']			= 'War';
+ 	$i18n['Category_Western']		= 'Western';
+ 	
+-	$i18n['AgeRestriction_Free']		= 'Keine Beschr&#228;nkung';
+-	$i18n['AgeRestriction_6Years']		= 'Ab 6 Jahre';
+-	$i18n['AgeRestriction_12Years']		= 'Ab 12 Jahre';
+-	$i18n['AgeRestriction_16Years']		= 'Ab 16 Jahre';
+-	$i18n['AgeRestriction_18Years']		= 'Ab 18 Jahre';
++	$i18n['AgeRestriction_Free']		= 'No Restriction';
++	$i18n['AgeRestriction_6Years']		= '6 Years';
++	$i18n['AgeRestriction_12Years']		= '12 Years';
++	$i18n['AgeRestriction_16Years']		= '16 Years';
++	$i18n['AgeRestriction_18Years']		= '18 Years';
+ 	
+ 	$i18n['Codec_MP3']			= 'MP3';
+ 	$i18n['Codec_Vorbis']		= 'Ogg Vorbis';
+@@ -418,7 +415,7 @@
+ 	$i18n['Format_AudioCD']		= 'AudioCD';
+ 	$i18n['Format_AudioDVD']	= 'AudioDVD';
+ 	$i18n['Format_MiniDisc']	= 'MiniDisc';
+-	$i18n['Format_Cassette']	= 'Kassette';
++	$i18n['Format_Cassette']	= 'Cassette';
+ 	$i18n['Format_DV']			= 'DV';
+ 	$i18n['Format_VHS']			= 'VHS';
+ 	$i18n['Format_SVHS']		= 'SVHS';
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000393.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.20,1.21 class.phpmediadb_data_videos.php,1.19,1.20
+</A></li>
+	<LI>Next message: <A HREF="000395.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.14,1.15
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#394">[ date ]</a>
+              <a href="thread.html#394">[ thread ]</a>
+              <a href="subject.html#394">[ subject ]</a>
+              <a href="author.html#394">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs about.php,1.1,1.2 index.php,1.1,1.2 list.php,1.1,1.2 search.php,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs%20about.php%2C1.1%2C1.2%20index.php%2C1.1%2C1.2%20list.php%2C1.1%2C1.2%20search.php%2C1.2%2C1.3&In-Reply-To=%3C200503201715.j2KHFsM04476%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000178.html">
+   <LINK REL="Next"  HREF="000180.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs about.php,1.1,1.2 index.php,1.1,1.2 list.php,1.1,1.2 search.php,1.2,1.3</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs%20about.php%2C1.1%2C1.2%20index.php%2C1.1%2C1.2%20list.php%2C1.1%2C1.2%20search.php%2C1.2%2C1.3&In-Reply-To=%3C200503201715.j2KHFsM04476%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs about.php,1.1,1.2 index.php,1.1,1.2 list.php,1.1,1.2 search.php,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Mar 20 18:15:54 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000178.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.8,1.9
+</A></li>
+        <LI>Next message: <A HREF="000180.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-add.php,1.1,1.2 item-session.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs
+In directory sheep:/tmp/cvs-serv19411
+
+Modified Files:
+	about.php index.php list.php search.php 
+Log Message:
+* Changed HTMLSERVICE-&gt;display to HTMLSERVICE-&gt;displayMain
+
+Index: about.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/about.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- about.php	8 Mar 2005 17:54:14 -0000	1.1
++++ about.php	20 Mar 2005 17:15:52 -0000	1.2
+@@ -8,7 +8,7 @@
+ $PHPMEDIADB	= new phpmediadb();
+ 
+ /* display site */
+-$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( 'body.about.tpl' );
++$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( 'body.about.tpl' );
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+Index: index.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/index.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- index.php	8 Mar 2005 17:54:16 -0000	1.1
++++ index.php	20 Mar 2005 17:15:52 -0000	1.2
+@@ -8,7 +8,7 @@
+ $PHPMEDIADB	= new phpmediadb();
+ 
+ /* display site */
+-$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( 'body.home.tpl' );
++$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( 'body.home.tpl' );
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+Index: list.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/list.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- list.php	8 Mar 2005 17:54:16 -0000	1.1
++++ list.php	20 Mar 2005 17:15:52 -0000	1.2
+@@ -17,25 +17,25 @@
+ 		case 'audio':
+ 				/* display site */
+ 				$templates[] = 'body.list.audio.tpl';
+-				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( $templates );
++				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( $templates );
+ 			break;
+ 			
+ 		case 'video':
+ 				/* display site */
+ 				$templates[] = 'body.list.video.tpl';
+-				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( $templates );
++				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( $templates );
+ 			break;
+ 			
+ 		case 'print':
+ 				/* display site */
+ 				$templates[] = 'body.list.print.tpl';
+-				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( $templates );
++				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( $templates );
+ 			break;
+ 			
+ 		default:
+ 				/* display site */
+ 				$templates[] = 'body.list.tpl';
+-				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( $templates );
++				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( $templates );
+ 			break;
+ }
+ 
+
+Index: search.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/search.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- search.php	8 Mar 2005 20:48:49 -0000	1.2
++++ search.php	20 Mar 2005 17:15:52 -0000	1.3
+@@ -16,13 +16,13 @@
+ 		case 'search':
+ 				/* display site */
+ 				/* TODO */
+-				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( $templates );
++				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( $templates );
+ 			break;
+ 					
+ 		default:
+ 				/* display site */
+ 				/* TODO */
+-				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( $templates );
++				$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;displayMain( $templates );
+ 			break;
+ }
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000178.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.8,1.9
+</A></li>
+	<LI>Next message: <A HREF="000180.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-add.php,1.1,1.2 item-session.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

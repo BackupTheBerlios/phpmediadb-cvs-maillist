@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util/sql SQLStatementExtractor.php,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.lib/creole/util/sql%20SQLStatementExtractor.php%2CNONE%2C1.1&In-Reply-To=%3C200502271615.j1RGFmN19047%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000050.html">
+   <LINK REL="Next"  HREF="000053.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util/sql SQLStatementExtractor.php,NONE,1.1</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.lib/creole/util/sql%20SQLStatementExtractor.php%2CNONE%2C1.1&In-Reply-To=%3C200502271615.j1RGFmN19047%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util/sql SQLStatementExtractor.php,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Feb 27 17:15:48 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000050.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util/sql - New directory
+</A></li>
+        <LI>Next message: <A HREF="000053.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util Blob.php,NONE,1.1 Clob.php,NONE,1.1 Lob.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#52">[ date ]</a>
+              <a href="thread.html#52">[ thread ]</a>
+              <a href="subject.html#52">[ subject ]</a>
+              <a href="author.html#52">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util/sql
+In directory sheep:/tmp/cvs-serv15669/_source/tier.lib/creole/util/sql
+
+Added Files:
+	SQLStatementExtractor.php 
+Log Message:
+* Install creole 1.0.0
+
+--- NEW FILE: SQLStatementExtractor.php ---
+&lt;?php
+/*
+ *  $Id: SQLStatementExtractor.php,v 1.1 2005/02/27 16:15:46 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * &lt;<A HREF="http://creole.phpdb.org">http://creole.phpdb.org</A>&gt;.
+ */
+ 
+/**
+ * Static class for extracting SQL statements from a string or file.
+ *
+ * @author    Hans Lellelid &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">hans at xmpl.org</A>&gt;
+ * @version   $Revision: 1.1 $
+ * @package   creole.util.sql
+ */
+class SQLStatementExtractor {
+    
+    protected static $delimiter = ';';
+    
+    /**
+     * Get SQL statements from file.
+     * 
+     * @param string $filename Path to file to read.
+     * @return array SQL statements
+     */
+    public static function extractFile($filename) {
+        $buffer = file_get_contents($filename);
+        if ($buffer === false) {
+           throw new Exception(&quot;Unable to read file: &quot; . $filename);
+        }
+        return self::extractStatements(self::getLines($buffer));
+    }
+    
+    /**
+     * Extract statements from string.
+     * 
+     * @param string $txt
+     * @return array
+     */
+    public static function extract($buffer) {
+        return self::extractStatements(self::getLines($buffer));
+    }
+    
+    /**
+     * Extract SQL statements from array of lines.
+     *
+     * @param array $lines Lines of the read-in file.
+     * @return string
+     */
+    protected static function extractStatements($lines) {
+        
+        $statements = array();
+        $sql = &quot;&quot;;
+               
+        foreach($lines as $line) {
+        
+                $line = trim($line);
+                
+                if (self::startsWith(&quot;//&quot;, $line) || 
+                    self::startsWith(&quot;--&quot;, $line) ||
+                    self::startsWith(&quot;#&quot;, $line)) {
+                    continue;
+                }
+                
+                if (strlen($line) &gt; 4 &amp;&amp; strtoupper(substr($line,0, 4)) == &quot;REM &quot;) {
+                    continue;
+                }
+
+                $sql .= &quot; &quot; . $line;
+                $sql = trim($sql);
+
+                // SQL defines &quot;--&quot; as a comment to EOL
+                // and in Oracle it may contain a hint
+                // so we cannot just remove it, instead we must end it
+                if (strpos($line, &quot;--&quot;) !== false) {
+                    $sql .= &quot;\n&quot;;
+                }
+    
+                if (self::endsWith(self::$delimiter, $sql)) {
+                    $statements[] = self::substring($sql, 0, strlen($sql)-1 - strlen(self::$delimiter));
+                    $sql = &quot;&quot;;
+                }
+            }
+        return $statements;           
+    }
+    
+    //
+    // Some string helper methods
+    // 
+    
+    /**
+     * Tests if a string starts with a given string.
+     * @param string $check The substring to check.
+     * @param string $string The string to check in (haystack).
+     * @return boolean True if $string starts with $check, or they are equal, or $check is empty.
+     */
+    protected static function startsWith($check, $string) {
+        if ($check === &quot;&quot; || $check === $string) {
+            return true;
+        } else {
+            return (strpos($string, $check) === 0) ? true : false;
+        }
+    }
+    
+    /**
+     * Tests if a string ends with a given string.
+     * @param string $check The substring to check.
+     * @param string $string The string to check in (haystack).
+     * @return boolean True if $string ends with $check, or they are equal, or $check is empty.
+     */
+    protected static function endsWith($check, $string) {
+        if ($check === &quot;&quot; || $check === $string) {
+            return true;
+        } else {
+            return (strpos(strrev($string), strrev($check)) === 0) ? true : false;
+        }
+    } 
+
+    /**
+     * a natural way of getting a subtring, php's circular string buffer and strange
+     * return values suck if you want to program strict as of C or friends 
+     */
+    protected static function substring($string, $startpos, $endpos = -1) {
+        $len    = strlen($string);
+        $endpos = (int) (($endpos === -1) ? $len-1 : $endpos);
+        if ($startpos &gt; $len-1 || $startpos &lt; 0) {
+            trigger_error(&quot;substring(), Startindex out of bounds must be 0&lt;n&lt;$len&quot;, E_USER_ERROR);
+        }
+        if ($endpos &gt; $len-1 || $endpos &lt; $startpos) {
+            trigger_error(&quot;substring(), Endindex out of bounds must be $startpos&lt;n&lt;&quot;.($len-1), E_USER_ERROR);
+        }
+        if ($startpos === $endpos) {
+            return (string) $string{$startpos};
+        } else {
+            $len = $endpos-$startpos;
+        }
+        return substr($string, $startpos, $len+1);
+    }
+    
+    /**
+     * Convert string buffer into array of lines.
+     * 
+     * @param string $filename
+     * @return array string[] lines of file.
+     */
+    protected static function getLines($buffer) {       
+       $lines = preg_split(&quot;/\r?\n|\r/&quot;, $buffer);
+       return $lines;
+    }
+    
+}
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000050.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util/sql - New directory
+</A></li>
+	<LI>Next message: <A HREF="000053.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util Blob.php,NONE,1.1 Clob.php,NONE,1.1 Lob.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#52">[ date ]</a>
+              <a href="thread.html#52">[ thread ]</a>
+              <a href="subject.html#52">[ subject ]</a>
+              <a href="author.html#52">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

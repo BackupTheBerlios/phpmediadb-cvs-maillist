@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_formats.php%2C1.3%2C1.4&In-Reply-To=%3C200503111214.j2BCEBN25843%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000092.html">
+   <LINK REL="Next"  HREF="000094.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.3,1.4</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_formats.php%2C1.3%2C1.4&In-Reply-To=%3C200503111214.j2BCEBN25843%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Mar 11 13:14:11 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000092.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.2,1.3
+</A></li>
+        <LI>Next message: <A HREF="000094.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#93">[ date ]</a>
+              <a href="thread.html#93">[ thread ]</a>
+              <a href="subject.html#93">[ subject ]</a>
+              <a href="author.html#93">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv27435/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_formats.php 
+Log Message:
+* Added method getFormat and getallFormats
+
+Index: class.phpmediadb_data_formats.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_formats.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_data_formats.php	2 Mar 2005 15:29:45 -0000	1.3
++++ class.phpmediadb_data_formats.php	11 Mar 2005 12:14:09 -0000	1.4
+@@ -51,6 +51,48 @@
+ 	{
+ 		/* nothing to do yet */
+ 	}
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns a specified record from the table MediaFormats
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer
++	 * @return String
++	 */
++	public function getFormat( $MediaFormatID )
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;preparedStatement( 'SELECT *
++		FROM MediaFormats,
++		WHERE MediaFormats.MediaFormatID = :mfid' );
++		$stmt-&gt;setString( ':mfid', $MediaFormatID );
++		$stmt-&gt;executeQuery();
++		
++		return $stmt;
++	}
++
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns all records from the table MediaStatus
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @return String
++	 */
++	public function getallStatus()
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;preparedStatement( 'SELECT *
++		FROM MediaFormats,
++		WHERE MediaFormats.MediaFormatID = :mfid' );
++		$stmt-&gt;setString( ':mfid', '%' );
++		$stmt-&gt;executeQuery();
++		
++		return $stmt;
++	}
++
++//-----------------------------------------------------------------------------
+ }
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000092.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.2,1.3
+</A></li>
+	<LI>Next message: <A HREF="000094.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#93">[ date ]</a>
+              <a href="thread.html#93">[ thread ]</a>
+              <a href="subject.html#93">[ subject ]</a>
+              <a href="author.html#93">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

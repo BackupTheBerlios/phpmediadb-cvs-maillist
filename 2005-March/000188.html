@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,1.2,1.3 class.phpmediadb.php,1.4,1.5 constants.phpmediadb.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.global%20class.phpmediadb_exception.php%2C1.2%2C1.3%20class.phpmediadb.php%2C1.4%2C1.5%20constants.phpmediadb.php%2C1.3%2C1.4&In-Reply-To=%3C200503241712.j2OHCoh03969%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000187.html">
+   <LINK REL="Next"  HREF="000189.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,1.2,1.3 class.phpmediadb.php,1.4,1.5 constants.phpmediadb.php,1.3,1.4</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.global%20class.phpmediadb_exception.php%2C1.2%2C1.3%20class.phpmediadb.php%2C1.4%2C1.5%20constants.phpmediadb.php%2C1.3%2C1.4&In-Reply-To=%3C200503241712.j2OHCoh03969%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,1.2,1.3 class.phpmediadb.php,1.4,1.5 constants.phpmediadb.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar 24 18:12:50 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000187.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.9,1.10 class.phpmediadb_presentation_htmlservice.php,1.9,1.10 class.phpmediadb_presentation_i18n.php,1.9,1.10 class.phpmediadb_presentation.php,1.7,1.8 class.phpmediadb_presentation_session.php,1.5,1.6 class.phpmediadb_presentation_xmlservice.php,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000189.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.5,1.6 config.data.php,1.4,1.5 config.postinit.php,1.2,1.3 config.preinit.php,1.2,1.3 config.presentation.php,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#188">[ date ]</a>
+              <a href="thread.html#188">[ thread ]</a>
+              <a href="subject.html#188">[ subject ]</a>
+              <a href="author.html#188">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global
+In directory sheep:/tmp/cvs-serv26610/_source/tier.global
+
+Modified Files:
+	class.phpmediadb_exception.php class.phpmediadb.php 
+	constants.phpmediadb.php 
+Log Message:
+* Changed javadoc comments
+
+Index: class.phpmediadb_exception.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global/class.phpmediadb_exception.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_exception.php	20 Mar 2005 17:18:28 -0000	1.2
++++ class.phpmediadb_exception.php	24 Mar 2005 17:12:48 -0000	1.3
+@@ -3,15 +3,12 @@
+ /* $Id$ */
+ 
+ /**
+- * Main class of the phpMediaDB Project. It contains all other classes in the
+- * PRESENTATION, BUSINESS and DATA.
+- *
+- * @access public
+- * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+- * @package phpmediadb
+- * @since 0.0.0
+- * @subpackage global
+- * @version 1.0.0
++ * This is the class that manages the exceptions.
++ * 
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	global
+  */
+ class phpmediadb_exception extends Exception
+ {
+
+Index: class.phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global/class.phpmediadb.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb.php	20 Mar 2005 17:18:28 -0000	1.4
++++ class.phpmediadb.php	24 Mar 2005 17:12:48 -0000	1.5
+@@ -3,15 +3,14 @@
+ /* $Id$ */
+ 
+ /**
+- * Main class of the phpMediaDB Project. It contains all other classes in the
+- * PRESENTATION, BUSINESS and DATA.
++ * This is the class that manages the whole tiers.
+  *
+- * @access public
+- * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+- * @package phpmediadb
+- * @since 0.0.0
+- * @subpackage global
+- * @version 1.0.0
++ * All tiers can be accessed via the refereces eg. PRESENTATION.
++ * 
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	global
+  */
+ class phpmediadb
+ {
+@@ -52,7 +51,6 @@
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ 	 * @return void
+ 	 */
+ 	public function __construct()
+@@ -74,7 +72,6 @@
+ 	 * etc.
+ 	 *
+ 	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ 	 * @return void
+ 	 */
+ 	public function __destruct()
+
+Index: constants.phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global/constants.phpmediadb.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- constants.phpmediadb.php	15 Mar 2005 18:10:54 -0000	1.3
++++ constants.phpmediadb.php	24 Mar 2005 17:12:48 -0000	1.4
+@@ -1,21 +1,39 @@
+ &lt;?php
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+-
++/**
++ * This files handels all contants
++ * 
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	global
++ */
++ 
+ // --- tier.presentation ---
+-	/*
+-	 * PHPMEDIADB_NODEFORMAT_HTML:
+-	 *   Value is HTML and need no conversion
+-	 *
+-	 * PHPMEDIADB_NODEFORMAT_TEXT:
+-	 *   Value is Plaintext and need conversion to XML rules
+-	 */
++
++    /**
++     * Constant that indicates that the content is already HTML
++     */
+ 	define( 'PHPMEDIADB_NODEFORMAT_HTML', 1 );
++    /**
++     * Constant that indicates that the content is only text
++     * and should be converted. XML/XHTML ruleset is used.
++     */
+ 	define( 'PHPMEDIADB_NODEFORMAT_TEXT', 0 );
+ 
+ // --- tier.business ---
++    /**
++     * Constant that indicated that the item is an audio-media
++     */
+ 	define( 'PHPMEDIADB_ITEM_AUDIO', 1 );
++    /**
++     * Constant that indicated that the item is an video-media
++     */
+ 	define( 'PHPMEDIADB_ITEM_VIDEO', 2 );
++    /**
++     * Constant that indicated that the item is an print-media
++     */
+ 	define( 'PHPMEDIADB_ITEM_PRINT', 3 );
+ 
+ // --- tier.data ---
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000187.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.9,1.10 class.phpmediadb_presentation_htmlservice.php,1.9,1.10 class.phpmediadb_presentation_i18n.php,1.9,1.10 class.phpmediadb_presentation.php,1.7,1.8 class.phpmediadb_presentation_session.php,1.5,1.6 class.phpmediadb_presentation_xmlservice.php,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000189.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.5,1.6 config.data.php,1.4,1.5 config.postinit.php,1.2,1.3 config.preinit.php,1.2,1.3 config.presentation.php,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#188">[ date ]</a>
+              <a href="thread.html#188">[ thread ]</a>
+              <a href="subject.html#188">[ subject ]</a>
+              <a href="author.html#188">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

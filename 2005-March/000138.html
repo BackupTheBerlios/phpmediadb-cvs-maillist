@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.global%20constants.phpmediadb.php%2C1.2%2C1.3&In-Reply-To=%3C200503151810.j2FIAvN09379%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000137.html">
+   <LINK REL="Next"  HREF="000139.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.2,1.3</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.global%20constants.phpmediadb.php%2C1.2%2C1.3&In-Reply-To=%3C200503151810.j2FIAvN09379%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 19:10:57 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000137.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_session.php,1.2,1.3
+</A></li>
+        <LI>Next message: <A HREF="000139.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#138">[ date ]</a>
+              <a href="thread.html#138">[ thread ]</a>
+              <a href="subject.html#138">[ subject ]</a>
+              <a href="author.html#138">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global
+In directory sheep:/tmp/cvs-serv24879/_source/tier.global
+
+Modified Files:
+	constants.phpmediadb.php 
+Log Message:
+* Added itemconstants
+
+Index: constants.phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global/constants.phpmediadb.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- constants.phpmediadb.php	26 Sep 2004 16:08:27 -0000	1.2
++++ constants.phpmediadb.php	15 Mar 2005 18:10:54 -0000	1.3
+@@ -10,10 +10,13 @@
+ 	 * PHPMEDIADB_NODEFORMAT_TEXT:
+ 	 *   Value is Plaintext and need conversion to XML rules
+ 	 */
+-	define(&quot;PHPMEDIADB_NODEFORMAT_HTML&quot;, 1);
+-	define(&quot;PHPMEDIADB_NODEFORMAT_TEXT&quot;, 0);
++	define( 'PHPMEDIADB_NODEFORMAT_HTML', 1 );
++	define( 'PHPMEDIADB_NODEFORMAT_TEXT', 0 );
+ 
+ // --- tier.business ---
++	define( 'PHPMEDIADB_ITEM_AUDIO', 1 );
++	define( 'PHPMEDIADB_ITEM_VIDEO', 2 );
++	define( 'PHPMEDIADB_ITEM_PRINT', 3 );
+ 
+ // --- tier.data ---
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000137.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_session.php,1.2,1.3
+</A></li>
+	<LI>Next message: <A HREF="000139.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#138">[ date ]</a>
+              <a href="thread.html#138">[ thread ]</a>
+              <a href="subject.html#138">[ subject ]</a>
+              <a href="author.html#138">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

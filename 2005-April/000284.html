@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates overall.menu.tpl,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20overall.menu.tpl%2C1.2%2C1.3&In-Reply-To=%3C200504121855.j3CIt1m25743%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000283.html">
+   <LINK REL="Next"  HREF="000285.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates overall.menu.tpl,1.2,1.3</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20overall.menu.tpl%2C1.2%2C1.3&In-Reply-To=%3C200504121855.j3CIt1m25743%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates overall.menu.tpl,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Apr 12 20:55:01 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000283.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.header.tpl,1.2,1.3
+</A></li>
+        <LI>Next message: <A HREF="000285.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.message.tpl,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#284">[ date ]</a>
+              <a href="thread.html#284">[ thread ]</a>
+              <a href="subject.html#284">[ subject ]</a>
+              <a href="author.html#284">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates
+In directory sheep:/tmp/cvs-serv9558/_source/tier.configuration/templates
+
+Modified Files:
+	overall.menu.tpl 
+Log Message:
+* Fixed XHTML-validation errors
+
+Index: overall.menu.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/overall.menu.tpl,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- overall.menu.tpl	5 Apr 2005 21:36:18 -0000	1.2
++++ overall.menu.tpl	12 Apr 2005 18:54:59 -0000	1.3
+@@ -1,28 +1,28 @@
+ &lt;table&gt;
+ 	&lt;tr&gt;&lt;th class=&quot;phpmediadb-menu-title&quot;&gt;{$I18N.MENU_TITLE|default:&quot;%MENU_TITLE%&quot;}&lt;/th&gt;&lt;/tr&gt;
+ 	&lt;tr&gt;&lt;td class=&quot;phpmediadb-menu-item&quot; id=&quot;phpmediadb-menu-item-home&quot;&gt;
+-		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}index.php&quot; onFocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
++		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}index.php&quot; onfocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
+ 			&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/nav-home.png&quot; alt=&quot;{$I18N.MENU_HOME|default:&quot;%MENU_HOME%&quot;}&quot; /&gt;
+ 			{$I18N.MENU_HOME|default:&quot;%MENU_HOME%&quot;}
+ 		&lt;/a&gt;
+ 	&lt;/td&gt;&lt;/tr&gt;
+ 	
+ 	&lt;tr&gt;&lt;td class=&quot;phpmediadb-menu-item&quot; id=&quot;phpmediadb-menu-item-list&quot;&gt;
+-		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}list.php&quot; onFocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
++		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}list.php&quot; onfocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
+ 			&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/nav-list.png&quot; alt=&quot;{$I18N.MENU_LIST|default:&quot;%MENU_LIST%&quot;}&quot; /&gt;
+ 			{$I18N.MENU_LIST|default:&quot;%MENU_LIST%&quot;}
+ 		&lt;/a&gt;
+ 	&lt;/td&gt;&lt;/tr&gt;
+ 	
+ 	&lt;tr&gt;&lt;td class=&quot;phpmediadb-menu-item&quot; id=&quot;phpmediadb-menu-item-search&quot;&gt;
+-		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}search.php&quot; onFocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
++		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}search.php&quot; onfocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
+ 			&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/nav-search.png&quot; alt=&quot;{$I18N.MENU_SEARCH|default:&quot;%MENU_SEARCH%&quot;}&quot; /&gt;
+ 			{$I18N.MENU_SEARCH|default:&quot;%MENU_SEARCH%&quot;}
+ 		&lt;/a&gt;
+ 	&lt;/td&gt;&lt;/tr&gt;
+ 	
+ 	&lt;tr&gt;&lt;td class=&quot;phpmediadb-menu-item&quot; id=&quot;phpmediadb-menu-item-about&quot;&gt;
+-		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}about.php&quot; onFocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
++		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}about.php&quot; onfocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
+ 			&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/nav-about.png&quot; alt=&quot;{$I18N.MENU_ABOUT|default:&quot;%MENU_ABOUT%&quot;}&quot; /&gt;
+ 			{$I18N.MENU_ABOUT|default:&quot;%MENU_ABOUT%&quot;}
+ 		&lt;/a&gt;
+@@ -30,7 +30,7 @@
+ 	&lt;tr&gt;&lt;td&gt;&nbsp;&lt;/td&gt;&lt;/tr&gt;
+ 	&lt;tr&gt;&lt;th class=&quot;phpmediadb-menu-title&quot;&gt;{$I18N.MENU_ADMINISTRATION_TITLE|default:&quot;%MENU_ADMINISTRATION_TITLE%&quot;}&lt;/th&gt;&lt;/tr&gt;
+ 	&lt;tr&gt;&lt;td class=&quot;phpmediadb-menu-item&quot; id=&quot;phpmediadb-menu-item-additem&quot;&gt;
+-		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}admin/item-add.php&quot; onFocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
++		&lt;a href=&quot;{$CONFIGURATION.ROOTPATH}admin/item-add.php&quot; onfocus=&quot;javascript:if(this.blur)this.blur()&quot;&gt;
+ 			&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/nav-additem.png&quot; alt=&quot;{$I18N.MENU_ADDITEM|default:&quot;%MENU_ADDITEM%&quot;}&quot; /&gt;
+ 			{$I18N.MENU_ADDITEM|default:&quot;%MENU_ADDITEM%&quot;}
+ 		&lt;/a&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000283.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.header.tpl,1.2,1.3
+</A></li>
+	<LI>Next message: <A HREF="000285.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.message.tpl,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#284">[ date ]</a>
+              <a href="thread.html#284">[ thread ]</a>
+              <a href="subject.html#284">[ subject ]</a>
+              <a href="author.html#284">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

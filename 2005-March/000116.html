@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/admin item-add.php,NONE,1.1 item-del.php,NONE,1.1 item-mod.php,NONE,1.1 item-session.php,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/admin%20item-add.php%2CNONE%2C1.1%20item-del.php%2CNONE%2C1.1%20item-mod.php%2CNONE%2C1.1%20item-session.php%2CNONE%2C1.1&In-Reply-To=%3C200503151737.j2FHbWN08182%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000115.html">
+   <LINK REL="Next"  HREF="000117.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/admin item-add.php,NONE,1.1 item-del.php,NONE,1.1 item-mod.php,NONE,1.1 item-session.php,NONE,1.1</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/admin%20item-add.php%2CNONE%2C1.1%20item-del.php%2CNONE%2C1.1%20item-mod.php%2CNONE%2C1.1%20item-session.php%2CNONE%2C1.1&In-Reply-To=%3C200503151737.j2FHbWN08182%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/admin item-add.php,NONE,1.1 item-del.php,NONE,1.1 item-mod.php,NONE,1.1 item-session.php,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 18:37:32 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000115.html">[phpmediadb-cvs] phpmediadb-cvs/admin - New directory
+</A></li>
+        <LI>Next message: <A HREF="000117.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,NONE,1.1 class.phpmediadb_business_audios.php,NONE,1.1 class.phpmediadb_business_inspector.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#116">[ date ]</a>
+              <a href="thread.html#116">[ thread ]</a>
+              <a href="subject.html#116">[ subject ]</a>
+              <a href="author.html#116">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/admin
+In directory sheep:/tmp/cvs-serv28039/admin
+
+Added Files:
+	item-add.php item-del.php item-mod.php item-session.php 
+Log Message:
+* Initial revision
+
+--- NEW FILE: item-add.php ---
+&lt;?php
+// phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+/* $Id: item-add.php,v 1.1 2005/03/15 17:37:30 mblaschke Exp $ */
+
+require_once( '../_source/phpmediadb.php' );
+
+/* create object */
+$PHPMEDIADB	= new phpmediadb();
+
+switch( @$_GET['type'] )
+{
+	case('audio'):
+			/* create session-item */
+			$sessionItem = array();
+			$sessionItem['type'] = PHPMEDIADB_ITEM_AUDIO;
+			$sessionItem['id']	 = NULL;
+			$PHPMEDIADB-&gt;PRESENTATION-&gt;SESSION-&gt;register( 'sessionitem' ,$sessionItem );
+			
+			/* redirect */
+			header( 'Location: item-session.php' );
+		break;
+	
+	case('video'):
+			/* create session-item */
+			$sessionItem = array();
+			$sessionItem['type'] = PHPMEDIADB_ITEM_VIDEO;
+			$sessionItem['id']	 = NULL;
+			$sessionItem['data'] = array();
+			$PHPMEDIADB-&gt;PRESENTATION-&gt;SESSION-&gt;register( 'sessionitem' ,$sessionItem );
+			
+			/* redirect */
+			header( 'Location: item-session.php' );
+		break;
+
+	case('print'):
+			/* create session-item */
+			$sessionItem = array();
+			$sessionItem['type'] = PHPMEDIADB_ITEM_PRINT;
+			$sessionItem['id']	 = NULL;
+			$sessionItem['data'] = array();
+			$PHPMEDIADB-&gt;PRESENTATION-&gt;SESSION-&gt;register( 'sessionitem' ,$sessionItem );
+			
+			/* redirect */
+			header( 'Location: item-session.php' );
+		break;
+
+	default:
+			/* display site */
+			$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( 'body.item.add.choice.tpl' );
+		break;
+}
+
+
+
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?&gt;
+--- NEW FILE: item-del.php ---
+
+--- NEW FILE: item-mod.php ---
+
+--- NEW FILE: item-session.php ---
+&lt;?php
+// phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+/* $Id: item-session.php,v 1.1 2005/03/15 17:37:30 mblaschke Exp $ */
+
+require_once( '../_source/phpmediadb.php' );
+
+/* create object */
+$PHPMEDIADB	= new phpmediadb();
+
+//-----------------------------------------------------------------------------
+function itemShow( $sessionItem )
+{
+	global $PHPMEDIADB;
+	
+	/* get and set input-size */
+	$itemSize = $PHPMEDIADB-&gt;BUSINESS-&gt;INSPECTOR-&gt;getSize( $sessionItem['type'] );
+	@$PHPMEDIADB-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'INPUTSIZE', $itemSize );
+	
+	switch( $sessionItem['type'] )
+	{
+		case(PHPMEDIADB_ITEM_AUDIO):
+			/* assign data */
+			@$PHPMEDIADB-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'ITEMDATA', $sessionItem['data'] );
+			/* display site */
+			$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( 'body.item.audio.formular.tpl' );
+		break;
+	
+	
+		case(PHPMEDIADB_ITEM_VIDEO):
+			/* assign data */
+			@$PHPMEDIADB-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'ITEMDATA', $sessionItem['data'] );
+			/* display site */
+			$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( 'body.item.video.formular.tpl' );
+		break;
+	
+	
+		case(PHPMEDIADB_ITEM_PRINT):
+			/* assign data */
+			@$PHPMEDIADB-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'ITEMDATA', $sessionItem['data'] );
+			/* display site */
+			$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( 'body.item.print.formular.tpl' );
+		break;
+	}
+}
+//-----------------------------------------------------------------------------
+function itemGet()
+{
+	global $PHPMEDIADB;
+	/* get session data first*/
+	return $PHPMEDIADB-&gt;PRESENTATION-&gt;SESSION-&gt;get( 'sessionitem' );
+}
+//-----------------------------------------------------------------------------
+function itemSave( $sessionItem )
+{
+	global $PHPMEDIADB;
+	switch( $sessionItem['type'] )
+	{
+		case(PHPMEDIADB_ITEM_AUDIO):
+		
+		if( $sessionItem['id'] === NULL )
+			$errorData = $PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;create( $sessionItem['data'] );
+		else 
+			$errorData = $PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;modify( $sessionItem['id'], $sessionItem['data'] );
+			
+		if( $errorData === NULL || $errorData === TRUE )
+		{
+			/* happy, no error :) */
+			@$PHPMEDIADB-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'MESSAGE', $PHPMEDIADB-&gt;PRESENTATION-&gt;I18N-&gt;getLanguageString( 'MESSAGE_SUCCESS_SAVE' ) );
+			$PHPMEDIADB-&gt;PRESENTATION-&gt;HTMLSERVICE-&gt;display( 'body.message.tpl' );
+			die();
+		}
+		else
+		{
+			/* too bad, error occurred */
+			@$PHPMEDIADB-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'INPUTERROR', $errorData );
+			itemShow( $sessionItem );
+			die();
+		}
+	
+//
+//		/* check data */
+//		$errorData = $PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;check( $sessionItem['data'] );
+//		
+//		/* error occured? */
+//		if( $errorData !== NULL )
+//		{
+//			/* error occurred */
+//			@$PHPMEDIADB-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'INPUTERROR', $errorData );
+//
+//			/* display error-site */
+//			itemShow( $sessionItem );
+//		}
+//		else
+//		{
+//			/* ready to save */
+//			if( $sessionItem['id'] === NULL )
+//				$PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;create( $sessionItem['data'] );
+//			else
+//				$PHPMEDIADB-&gt;BUSINESS-&gt;AUDIOS-&gt;create( $sessionItem['modify'] );
+//		}
+		break;
+	
+	
+		case(PHPMEDIADB_ITEM_VIDEO):
+		break;
+	
+	
+		case(PHPMEDIADB_ITEM_PRINT):
+		break;
+	}
+}
+
+//-----------------------------------------------------------------------------
+
+
+$sessionItem = itemGet();
+if( isset( $_POST['buttonsave'] ) )
+{
+	/* set itemdata to sessionItem */
+	$sessionItem['data'] = $_POST['itemdata'];
+	$PHPMEDIADB-&gt;PRESENTATION-&gt;SESSION-&gt;register( 'sessionitem' ,$sessionItem );
+	
+	
+	/* try to save */
+	itemSave( $sessionItem );
+}
+else
+{
+	/* only show */
+	itemShow( $sessionItem );
+}
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?&gt;
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000115.html">[phpmediadb-cvs] phpmediadb-cvs/admin - New directory
+</A></li>
+	<LI>Next message: <A HREF="000117.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,NONE,1.1 class.phpmediadb_business_audios.php,NONE,1.1 class.phpmediadb_business_inspector.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#116">[ date ]</a>
+              <a href="thread.html#116">[ thread ]</a>
+              <a href="subject.html#116">[ subject ]</a>
+              <a href="author.html#116">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_videos.php,1.14,1.15
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_videos.php%2C1.14%2C1.15&In-Reply-To=%3C200504202017.j3KKH6m19310%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000358.html">
+   <LINK REL="Next"  HREF="000360.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_videos.php,1.14,1.15</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_videos.php%2C1.14%2C1.15&In-Reply-To=%3C200504202017.j3KKH6m19310%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_videos.php,1.14,1.15">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr 20 22:17:06 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000358.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.15,1.16
+</A></li>
+        <LI>Next message: <A HREF="000360.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.11,1.12
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#359">[ date ]</a>
+              <a href="thread.html#359">[ thread ]</a>
+              <a href="subject.html#359">[ subject ]</a>
+              <a href="author.html#359">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv3141/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_videos.php 
+Log Message:
+* Fixed syntax mistake
+* Added ItemLocation
+* Removed ItemPictures
+
+Index: class.phpmediadb_data_videos.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_videos.php,v
+retrieving revision 1.14
+retrieving revision 1.15
+diff -u -d -r1.14 -r1.15
+--- class.phpmediadb_data_videos.php	13 Apr 2005 11:54:36 -0000	1.14
++++ class.phpmediadb_data_videos.php	20 Apr 2005 20:17:04 -0000	1.15
+@@ -73,13 +73,12 @@
+ 		try
+ 		{
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-			$stmt = $conn-&gt;prepareStatement(	'SELECT Items.*, ItemTypes.*, MediaCodecs.*, MediaFormats.*, MediaAgeRestrictions.* ,BinaryDatas.ItemPicturesID
++			$stmt = $conn-&gt;prepareStatement(	'SELECT Items.*, ItemTypes.*, MediaCodecs.*, MediaFormats.*, MediaAgeRestrictions.*
+ 													FROM Items
+ 													LEFT JOIN ItemTypes ON ItemTypes.ItemTypeID=Items.ItemTypeID
+ 													LEFT JOIN MediaCodecs ON MediaCodecs.MediaCodecID=Items.MediaCodecID
+ 													LEFT JOIN MediaFormats ON MediaFormats.MediaFormatID=Items.MediaFormatID
+ 													LEFT JOIN MediaAgeRestrictions ON MediaAgeRestrictions.MediaAgeRestrictionID=Items.MediaAgeRestrictionID
+-													LEFT JOIN BinaryDatas ON  BinaryDatas.ItemPicturesID=Items.ItemPicturesID
+ 													WHERE Items.ItemID = ?' );
+ 			$stmt-&gt;setString( 1, $id );
+ 			$rs = $stmt-&gt;executeQuery();
+@@ -106,13 +105,12 @@
+ 		try
+ 		{
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-			$stmt = $conn-&gt;prepareStatement(	'SELECT Items.*, ItemTypes.*, MediaCodecs.*, MediaFormats.*, MediaAgeRestrictions.* ,BinaryDatas.ItemPicturesID
++			$stmt = $conn-&gt;prepareStatement(	'SELECT Items.*, ItemTypes.*, MediaCodecs.*, MediaFormats.*, MediaAgeRestrictions.*
+ 													FROM Items
+ 													LEFT JOIN ItemTypes ON ItemTypes.ItemTypeID=Items.ItemTypeID
+ 													LEFT JOIN MediaCodecs ON MediaCodecs.MediaCodecID=Items.MediaCodecID
+ 													LEFT JOIN MediaFormats ON MediaFormats.MediaFormatID=Items.MediaFormatID
+ 													LEFT JOIN MediaAgeRestrictions ON MediaAgeRestrictions.MediaAgeRestrictionID=Items.MediaAgeRestrictionID
+-													LEFT JOIN BinaryDatas ON  BinaryDatas.ItemPicturesID=Items.ItemPicturesID
+ 													WHERE Items.ItemTypeID = ?' );
+ 			$stmt-&gt;setString( 1, PHPMEDIADB_ITEM_VIDEO );
+ 			$rs = $stmt-&gt;executeQuery();
+@@ -142,22 +140,24 @@
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+ 			$this-&gt;DATA-&gt;SQL-&gt;openTransaction( $conn );
+ 			$stmt = $conn-&gt;prepareStatement(	'INSERT INTO Items
+-												( ItemTitle, ItemOriginalTitle, ItemReleaseDate, ItemMediaName, ItemCreationDate,
+-												ItemModificationDate, ItemComment, ItemQuantity, ItemIdentifier, ItemTypeID,
++												( ItemTitle, ItemOriginalTitle, ItemReleaseDate, ItemMediaName, ItemLocation, ItemCreationDate,
++												ItemModificationDate, ItemPictureURL, ItemComment, ItemQuantity, ItemIdentifier, ItemTypeID,
+ 												ItemPublisher, MediaCodecID,MediaFormatID,MediaAgeRestrictionID )
+-												VALUES( ?, ?, ?, ?, now(), now(), ?, ?, ?, ?, ?, ?, ?, ? )' );
++												VALUES( ?, ?, ?, ?, ?, now(), now(), ?, ?, ?, ?, ?, ?, ?, ?, ? )' );
+ 			$stmt-&gt;setString( 1, $data['itemtitle'] );
+ 			$stmt-&gt;setString( 2, $data['itemoriginaltitle'] );
+ 			$stmt-&gt;setString( 3, $data['itemreleasedate'] );
+ 			$stmt-&gt;setString( 4, $data['itemmedianame'] );
+-			$stmt-&gt;setString( 5, $data['itemcomment'] );
+-			$stmt-&gt;setString( 6, $data['itemquantity'] );
+-			$stmt-&gt;setString( 7, $data['itemidentifier'] );
+-			$stmt-&gt;setString( 8, PHPMEDIADB_ITEM_VIDEO );
+-			$stmt-&gt;setString( 9, $data['itempublisher'] );
+-			$stmt-&gt;setString( 10, $data['mediacodecid'] );
+-			$stmt-&gt;setString( 11, $data['mediaformatid'] );
+-			$stmt-&gt;setString( 12, $data['mediaagerestrictionid'] );
++			$stmt-&gt;setString( 5, $data['itemlocation'] );
++			$stmt-&gt;setString( 6, $data['itempictureurl'] );
++			$stmt-&gt;setString( 7, $data['itemcomment'] );
++			$stmt-&gt;setString( 8, $data['itemquantity'] );
++			$stmt-&gt;setString( 9, $data['itemidentifier'] );
++			$stmt-&gt;setString( 10, PHPMEDIADB_ITEM_VIDEO );
++			$stmt-&gt;setString( 11, $data['itempublisher'] );
++			$stmt-&gt;setString( 12, $data['mediacodecid'] );
++			$stmt-&gt;setString( 13, $data['mediaformatid'] );
++			$stmt-&gt;setString( 14, $data['mediaagerestrictionid'] );
+ 			$stmt-&gt;executeUpdate();
+ 			
+ 			$id = $this-&gt;DATA-&gt;SQL-&gt;getLastInsert( $conn );
+@@ -194,12 +194,14 @@
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+ 			$this-&gt;DATA-&gt;SQL-&gt;openTransaction( $conn );
+ 			$stmt = $conn-&gt;prepareStatement(	'Update Items
+-													LEFT JOIN VideoDatas ON VideoDatas.ItemID=Items.ItemID
++													LEFT JOIN AudioDatas ON AudioDatas.ItemID=Items.ItemID
+ 													SET Items.ItemTitle = ?,
+ 													Items.ItemOriginalTitle = ?,
+ 													Items.ItemReleaseDate = ?,
+ 													Items.ItemMediaName = ?,
++													Items.ItemLocation = ?,
+ 													Items.ItemModificationDate = now(),
++													Items.ItemPictureURL = ?,
+ 													Items.ItemComment = ?,
+ 													Items.ItemQuantity = ?,
+ 													Items.ItemIdentifier = ?,
+@@ -212,14 +214,16 @@
+ 			$stmt-&gt;setString( 2, $data['itemoriginaltitle'] );
+ 			$stmt-&gt;setString( 3, $data['itemreleasedate'] );
+ 			$stmt-&gt;setString( 4, $data['itemmedianame'] );
+-			$stmt-&gt;setString( 5, $data['itemcomment'] );
+-			$stmt-&gt;setString( 6, $data['itemquantity'] );
+-			$stmt-&gt;setString( 7, $data['itemidentifier'] );
+-			$stmt-&gt;setString( 8, $data['mediacodecid'] );
+-			$stmt-&gt;setString( 9, $data['mediaformatid'] );
+-			$stmt-&gt;setString( 10, $data['mediaagerestrictionid'] );
+-			$stmt-&gt;setString( 11, $data['itempublisher'] );
+-			$stmt-&gt;setString( 12, $id );
++			$stmt-&gt;setString( 5, $data['itemlocation'] );
++			$stmt-&gt;setString( 6, $data['itemcomment'] );
++			$stmt-&gt;setString( 7, $data['itempictureurl'] );
++			$stmt-&gt;setString( 8, $data['itemquantity'] );
++			$stmt-&gt;setString( 9, $data['itemidentifier'] );
++			$stmt-&gt;setString( 10, $data['mediacodecid'] );
++			$stmt-&gt;setString( 11, $data['mediaformatid'] );
++			$stmt-&gt;setString( 12, $data['mediaagerestrictionid'] );
++			$stmt-&gt;setString( 13, $data['itempublisher'] );
++			$stmt-&gt;setString( 14, $id );
+ 			$stmt-&gt;executeUpdate();
+ 			$this-&gt;DATA-&gt;SQL-&gt;commitTransaction( $conn );
+ 		}
+@@ -251,7 +255,7 @@
+ 													FROM Items
+ 													LEFT JOIN VideoDatas ON VideoDatas.ItemID=Items.ItemID
+ 													LEFT JOIN Categories_has_Items ON Categories_has_Items.ItemID=Items.ItemID
+-													LEFT JOIN BinaryDatas ON  BinaryDatas.ItemPicturesID=Items.ItemPicturesID
++													LEFT JOIN BinaryDatas ON  BinaryDatas.ItemID=Items.ItemID
+ 													WHERE Items.ItemID = ?' );
+ 			$stmt-&gt;setString( 1, $id );
+ 			$stmt-&gt;executeUpdate();
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000358.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.15,1.16
+</A></li>
+	<LI>Next message: <A HREF="000360.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.11,1.12
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#359">[ date ]</a>
+              <a href="thread.html#359">[ thread ]</a>
+              <a href="subject.html#359">[ subject ]</a>
+              <a href="author.html#359">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

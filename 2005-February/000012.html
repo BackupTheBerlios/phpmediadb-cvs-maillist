@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation.php%2C1.2%2C1.3&In-Reply-To=%3C200502091620.j19GKlN04675%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000011.html">
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.2,1.3</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation.php%2C1.2%2C1.3&In-Reply-To=%3C200502091620.j19GKlN04675%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Feb  9 17:20:47 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000011.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.2,1.3
+</A></li>
+        <LI>Next message: <A HREF="000013.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv12805/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation.php 
+Log Message:
+* Added configuration-container
+
+Index: class.phpmediadb_presentation.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_presentation.php	26 Sep 2004 16:06:03 -0000	1.2
++++ class.phpmediadb_presentation.php	9 Feb 2005 16:20:45 -0000	1.3
+@@ -60,6 +60,14 @@
+ 	 */
+ 	public $XMLSERVICE = null;
+ 
++	/**
++	 * Configurationcontainer of this tier
++	 *
++	 * @access public
++	 * @var configuration
++	 */
++	public $configuration = null;
++
+ 	// --- OPERATIONS ---
+ 
+ 	/**
+@@ -71,7 +79,10 @@
+ 	 * @return void
+ 	 */
+ 	public function __construct( $sender )
+-  {
++	{
++		/* init */
++		$this-&gt;configuration = array();
++    	 
+ 		/* assign parent */
+ 		$this-&gt;PHPMEDIADB		= $sender;
+ 
+@@ -81,9 +92,9 @@
+ 		$this-&gt;I18N					= new phpmediadb_presentation_i18n( $this );
+ 		$this-&gt;SESSION			= new phpmediadb_presentation_session( $this );
+ 		$this-&gt;XMLSERVICE		= new phpmediadb_presentation_xmlservice( $this );
+-  }
++	}
+ 
+-	/**
++ /**
+ 	 * The destructor __destruct is responsible for closing all open files,
+ 	 * etc.
+ 	 *
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000011.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.2,1.3
+</A></li>
+	<LI>Next message: <A HREF="000013.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

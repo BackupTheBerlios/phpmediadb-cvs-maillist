@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.18,1.19
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/help/development%20erm-model.xml%2C1.18%2C1.19&In-Reply-To=%3C200504161636.j3GGY6m21992%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000333.html">
+   <LINK REL="Next"  HREF="000335.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.18,1.19</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/help/development%20erm-model.xml%2C1.18%2C1.19&In-Reply-To=%3C200504161636.j3GGY6m21992%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.18,1.19">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Apr 16 18:36:28 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000333.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.print.tpl,1.1,1.2 body.list.video.tpl,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000335.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.presentation.php,1.6,1.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#334">[ date ]</a>
+              <a href="thread.html#334">[ thread ]</a>
+              <a href="subject.html#334">[ subject ]</a>
+              <a href="author.html#334">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/help/development
+In directory sheep:/tmp/cvs-serv14308/help/development
+
+Modified Files:
+	erm-model.xml 
+Log Message:
+* Changed ItemCommet type from blob to text
+
+Index: erm-model.xml
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/help/development/erm-model.xml,v
+retrieving revision 1.18
+retrieving revision 1.19
+diff -u -d -r1.18 -r1.19
+--- erm-model.xml	12 Apr 2005 10:16:49 -0000	1.18
++++ erm-model.xml	16 Apr 2005 16:34:00 -0000	1.19
+@@ -258,14 +258,14 @@
+ &lt;/SETTINGS&gt;
+ &lt;METADATA&gt;
+ &lt;REGIONS&gt;
+-&lt;REGION ID=&quot;1809&quot; RegionName=&quot;Language Information&quot; XPos=&quot;356&quot; YPos=&quot;603&quot; Width=&quot;320&quot; Height=&quot;440&quot; RegionColor=&quot;3&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;57&quot; /&gt;
+-&lt;REGION ID=&quot;1808&quot; RegionName=&quot;Track Information&quot; XPos=&quot;14&quot; YPos=&quot;604&quot; Width=&quot;340&quot; Height=&quot;440&quot; RegionColor=&quot;2&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;56&quot; /&gt;
+-&lt;REGION ID=&quot;1744&quot; RegionName=&quot;File Information&quot; XPos=&quot;13&quot; YPos=&quot;1054&quot; Width=&quot;660&quot; Height=&quot;150&quot; RegionColor=&quot;5&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;54&quot; /&gt;
+-&lt;REGION ID=&quot;1686&quot; RegionName=&quot;Media Information&quot; XPos=&quot;1489&quot; YPos=&quot;16&quot; Width=&quot;460&quot; Height=&quot;480&quot; RegionColor=&quot;1&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;51&quot; /&gt;
+-&lt;REGION ID=&quot;1670&quot; RegionName=&quot;Item Specific Information&quot; XPos=&quot;15&quot; YPos=&quot;14&quot; Width=&quot;660&quot; Height=&quot;580&quot; RegionColor=&quot;0&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;44&quot; /&gt;
+-&lt;REGION ID=&quot;1671&quot; RegionName=&quot;General Item Information&quot; XPos=&quot;682&quot; YPos=&quot;15&quot; Width=&quot;800&quot; Height=&quot;700&quot; RegionColor=&quot;2&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;45&quot; /&gt;
+-&lt;REGION ID=&quot;1672&quot; RegionName=&quot;Person Information&quot; XPos=&quot;682&quot; YPos=&quot;721&quot; Width=&quot;1000&quot; Height=&quot;480&quot; RegionColor=&quot;4&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;46&quot; /&gt;
+ &lt;REGION ID=&quot;1690&quot; RegionName=&quot;Binary Data Information&quot; XPos=&quot;1489&quot; YPos=&quot;512&quot; Width=&quot;460&quot; Height=&quot;200&quot; RegionColor=&quot;0&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;53&quot; /&gt;
++&lt;REGION ID=&quot;1672&quot; RegionName=&quot;Person Information&quot; XPos=&quot;682&quot; YPos=&quot;721&quot; Width=&quot;1000&quot; Height=&quot;480&quot; RegionColor=&quot;4&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;46&quot; /&gt;
++&lt;REGION ID=&quot;1671&quot; RegionName=&quot;General Item Information&quot; XPos=&quot;682&quot; YPos=&quot;15&quot; Width=&quot;800&quot; Height=&quot;700&quot; RegionColor=&quot;2&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;45&quot; /&gt;
++&lt;REGION ID=&quot;1670&quot; RegionName=&quot;Item Specific Information&quot; XPos=&quot;15&quot; YPos=&quot;14&quot; Width=&quot;660&quot; Height=&quot;580&quot; RegionColor=&quot;0&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;44&quot; /&gt;
++&lt;REGION ID=&quot;1686&quot; RegionName=&quot;Media Information&quot; XPos=&quot;1489&quot; YPos=&quot;16&quot; Width=&quot;460&quot; Height=&quot;480&quot; RegionColor=&quot;1&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;51&quot; /&gt;
++&lt;REGION ID=&quot;1744&quot; RegionName=&quot;File Information&quot; XPos=&quot;13&quot; YPos=&quot;1054&quot; Width=&quot;660&quot; Height=&quot;150&quot; RegionColor=&quot;5&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;54&quot; /&gt;
++&lt;REGION ID=&quot;1808&quot; RegionName=&quot;Track Information&quot; XPos=&quot;14&quot; YPos=&quot;604&quot; Width=&quot;340&quot; Height=&quot;440&quot; RegionColor=&quot;2&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;56&quot; /&gt;
++&lt;REGION ID=&quot;1809&quot; RegionName=&quot;Language Information&quot; XPos=&quot;356&quot; YPos=&quot;603&quot; Width=&quot;320&quot; Height=&quot;440&quot; RegionColor=&quot;3&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;57&quot; /&gt;
+ &lt;/REGIONS&gt;
+ &lt;TABLES&gt;
+ &lt;TABLE ID=&quot;1491&quot; Tablename=&quot;Languages&quot; PrevTableName=&quot;Table_01&quot; XPos=&quot;416&quot; YPos=&quot;823&quot; TableType=&quot;0&quot; TablePrefix=&quot;0&quot; nmTable=&quot;0&quot; Temporary=&quot;0&quot; UseStandardInserts=&quot;0&quot; StandardInserts=&quot;\n&quot; TableOptions=&quot;DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n&quot; Comments=&quot;&quot; Collapsed=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;3&quot; &gt;
+@@ -706,7 +706,7 @@
+ &lt;OPTIONSELECTED&gt;
+ &lt;/OPTIONSELECTED&gt;
+ &lt;/COLUMN&gt;
+-&lt;COLUMN ID=&quot;1747&quot; ColName=&quot;ItemComment&quot; PrevColName=&quot;&quot; Pos=&quot;13&quot; idDatatype=&quot;24&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;0&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
++&lt;COLUMN ID=&quot;1747&quot; ColName=&quot;ItemComment&quot; PrevColName=&quot;&quot; Pos=&quot;13&quot; idDatatype=&quot;28&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;0&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+ &lt;OPTIONSELECTED&gt;
+ &lt;/OPTIONSELECTED&gt;
+ &lt;/COLUMN&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000333.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.print.tpl,1.1,1.2 body.list.video.tpl,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000335.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.presentation.php,1.6,1.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#334">[ date ]</a>
+              <a href="thread.html#334">[ thread ]</a>
+              <a href="subject.html#334">[ subject ]</a>
+              <a href="author.html#334">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.5,1.6 config.data.php,1.4,1.5 config.postinit.php,1.2,1.3 config.preinit.php,1.2,1.3 config.presentation.php,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration%20config.business.php%2C1.5%2C1.6%20config.data.php%2C1.4%2C1.5%20config.postinit.php%2C1.2%2C1.3%20config.preinit.php%2C1.2%2C1.3%20config.presentation.php%2C1.5%2C1.6&In-Reply-To=%3C200503241712.j2OHCwh03981%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000188.html">
+   <LINK REL="Next"  HREF="000190.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.5,1.6 config.data.php,1.4,1.5 config.postinit.php,1.2,1.3 config.preinit.php,1.2,1.3 config.presentation.php,1.5,1.6</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration%20config.business.php%2C1.5%2C1.6%20config.data.php%2C1.4%2C1.5%20config.postinit.php%2C1.2%2C1.3%20config.preinit.php%2C1.2%2C1.3%20config.presentation.php%2C1.5%2C1.6&In-Reply-To=%3C200503241712.j2OHCwh03981%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.5,1.6 config.data.php,1.4,1.5 config.postinit.php,1.2,1.3 config.preinit.php,1.2,1.3 config.presentation.php,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar 24 18:12:58 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000188.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,1.2,1.3 class.phpmediadb.php,1.4,1.5 constants.phpmediadb.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000190.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.3,1.4 i18n.en.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#189">[ date ]</a>
+              <a href="thread.html#189">[ thread ]</a>
+              <a href="subject.html#189">[ subject ]</a>
+              <a href="author.html#189">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration
+In directory sheep:/tmp/cvs-serv26620/_source/tier.configuration
+
+Modified Files:
+	config.business.php config.data.php config.postinit.php 
+	config.preinit.php config.presentation.php 
+Log Message:
+* Added javadoc comments
+
+Index: config.business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.business.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- config.business.php	20 Mar 2005 17:10:45 -0000	1.5
++++ config.business.php	24 Mar 2005 17:12:56 -0000	1.6
+@@ -1,7 +1,15 @@
+ &lt;?php
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id $ */
+-
++/**
++ * This file stores all configurations in tier.business
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	configuration
++ */
++ 
+ // $phpMediaDbConfig['BUSINESS']['example-config'] = &quot;abc&quot;;
+ 
+ /**
+
+Index: config.data.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.data.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- config.data.php	20 Mar 2005 17:10:45 -0000	1.4
++++ config.data.php	24 Mar 2005 17:12:56 -0000	1.5
+@@ -1,7 +1,14 @@
+ &lt;?php
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id $ */
+-
++/**
++ * This file stores all configurations in tier.data
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	configuration
++ */
+ // $phpMediaDbConfig['DATA']['example-config'] = &quot;abc&quot;;
+ 
+ /**
+
+Index: config.postinit.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.postinit.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- config.postinit.php	9 Feb 2005 21:12:31 -0000	1.2
++++ config.postinit.php	24 Mar 2005 17:12:56 -0000	1.3
+@@ -1,7 +1,14 @@
+ &lt;?php
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id $ */
+-
++/**
++ * This file is used for init-functions after deklaration of the classes
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	configuration
++ */
+ 
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+Index: config.preinit.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.preinit.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- config.preinit.php	27 Feb 2005 21:48:44 -0000	1.2
++++ config.preinit.php	24 Mar 2005 17:12:56 -0000	1.3
+@@ -1,6 +1,14 @@
+ &lt;?php
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id $ */
++/**
++ * This file is used for init-functions before deklaration of the classes
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	configuration
++ */
+ 
+ /**
+  * Configuration initalize
+
+Index: config.presentation.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.presentation.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- config.presentation.php	20 Mar 2005 17:10:45 -0000	1.5
++++ config.presentation.php	24 Mar 2005 17:12:56 -0000	1.6
+@@ -1,7 +1,14 @@
+ &lt;?php
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id $ */
+-
++/**
++ * This file stores all configurations in tier.presentation
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	configuration
++ */
+ // $phpMediaDbConfig['PRESENTATION']['example-config'] = &quot;abc&quot;;
+ 
+ /*
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000188.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,1.2,1.3 class.phpmediadb.php,1.4,1.5 constants.phpmediadb.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000190.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.3,1.4 i18n.en.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#189">[ date ]</a>
+              <a href="thread.html#189">[ thread ]</a>
+              <a href="subject.html#189">[ subject ]</a>
+              <a href="author.html#189">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

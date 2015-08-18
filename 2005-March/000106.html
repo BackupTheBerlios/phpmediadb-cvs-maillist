@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.4,1.5 class.phpmediadb_presentation_htmlservice.php,1.4,1.5 class.phpmediadb_presentation_i18n.php,1.4,1.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_contentvars.php%2C1.4%2C1.5%20class.phpmediadb_presentation_htmlservice.php%2C1.4%2C1.5%20class.phpmediadb_presentation_i18n.php%2C1.4%2C1.5&In-Reply-To=%3C200503151012.j2FAC5N22800%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000105.html">
+   <LINK REL="Next"  HREF="000107.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.4,1.5 class.phpmediadb_presentation_htmlservice.php,1.4,1.5 class.phpmediadb_presentation_i18n.php,1.4,1.5</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_contentvars.php%2C1.4%2C1.5%20class.phpmediadb_presentation_htmlservice.php%2C1.4%2C1.5%20class.phpmediadb_presentation_i18n.php%2C1.4%2C1.5&In-Reply-To=%3C200503151012.j2FAC5N22800%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.4,1.5 class.phpmediadb_presentation_htmlservice.php,1.4,1.5 class.phpmediadb_presentation_i18n.php,1.4,1.5">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 11:12:05 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000105.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_sql.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000107.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#106">[ date ]</a>
+              <a href="thread.html#106">[ thread ]</a>
+              <a href="subject.html#106">[ subject ]</a>
+              <a href="author.html#106">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv29552/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_contentvars.php 
+	class.phpmediadb_presentation_htmlservice.php 
+	class.phpmediadb_presentation_i18n.php 
+Log Message:
+* Changed some comments
+
+Index: class.phpmediadb_presentation_contentvars.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_contentvars.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_presentation_contentvars.php	27 Feb 2005 16:04:44 -0000	1.4
++++ class.phpmediadb_presentation_contentvars.php	15 Mar 2005 10:12:02 -0000	1.5
+@@ -25,7 +25,7 @@
+ 	protected $PRESENTATION = null;
+ 
+ 	/**
+-	 * This container contains all variables used by the template-engine
++	 * Contains all variables used by the template-engine
+ 	 *
+ 	 * @access private
+ 	 * @var mixed
+@@ -94,6 +94,7 @@
+ //-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function returns a complete node or only a value specified by
++	 * the parameter
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -124,6 +125,7 @@
+ //-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function deletes a nodevalue or a compelte nodetree from the
++	 * container
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -143,7 +145,8 @@
+ 	
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This internal function will recursivly insert a node into the
++	 * This internal function recursivlys insert a node into the
++	 * container
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -203,7 +206,7 @@
+ 	}
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This internal function will recursivly insert a node into the
++	 * This internal function recursivly reads a node from the container
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -263,8 +266,8 @@
+ 		
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function checks the validity of nodeName and returns the
+-	 * (TRUE=ok, FALSE=check failed),
++	 * Checks the validity of nodeName and returns the status
++	 * (TRUE=ok, FALSE=check failed)
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -284,7 +287,7 @@
+ 	
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function converts the nodeValue in the format of nodeFormat
++	 * Converts the nodeValue in the format of nodeFormat
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+
+Index: class.phpmediadb_presentation_htmlservice.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_htmlservice.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_presentation_htmlservice.php	8 Mar 2005 17:53:26 -0000	1.4
++++ class.phpmediadb_presentation_htmlservice.php	15 Mar 2005 10:12:02 -0000	1.5
+@@ -25,11 +25,9 @@
+ 	protected $PRESENTATION = null;
+ 
+ 	/**
+-	 * Reference to template engine
++	 * Reference to template engine (tier.lib)
+ 	 *
+-	 * @access protected
+-	 * @see phpmediadb_presentation
+-	 * @var phpmediadb_presentation
++	 * @access private
+ 	 */
+ 	private $templateEngine = null;
+ 
+@@ -55,6 +53,13 @@
+ 	}
+ 
+ //-----------------------------------------------------------------------------
++	/**
++	 * Compiles one or more templates via template-engine and return it
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String
++	 */
+ 	public function compile( $template )
+ 	{
+ 		/* init */
+@@ -95,6 +100,13 @@
+ 	 	return $returnValue;
+ 	}
+ //-----------------------------------------------------------------------------
++	/**
++	 * Compiles one or more templates via template-engine and sends it to client
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String
++	 */	
+ 	public function display( $template )
+ 	{
+ 		/* init */
+@@ -108,6 +120,12 @@
+ 	}
+ 	
+ //-----------------------------------------------------------------------------
++	/**
++	 * Initalizes the template engine
++	 *
++	 * @access protected
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 */
+ 	protected function initTemplateEngine()
+ 	{
+ 		/* clear vars */
+@@ -121,6 +139,13 @@
+ 			
+ 	}
+ //-----------------------------------------------------------------------------
++	/**
++	 * Setup the template engine for the first time
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String
++	 */
+ 	protected function setupTemplateEngine()
+ 	{
+ 		/* create templateengine-object */
+
+Index: class.phpmediadb_presentation_i18n.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_i18n.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_presentation_i18n.php	27 Feb 2005 16:05:51 -0000	1.4
++++ class.phpmediadb_presentation_i18n.php	15 Mar 2005 10:12:02 -0000	1.5
+@@ -73,7 +73,7 @@
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function returns the language of the client browser
++	 * Returns the language of the client browser
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -97,7 +97,7 @@
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function returns the i18n string specified by the langID
++	 * Returns the i18n string specified by the langID
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -118,7 +118,7 @@
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function returns the whole i18n array
++	 * Returns the whole i18n array
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -136,7 +136,7 @@
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function returns a array with the available languages
++	 * Returns a array with the available languages
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -156,7 +156,7 @@
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function returns the currently used language as langcode
++	 * Returns the currently used language as langcode
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -172,7 +172,7 @@
+ 	 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function sets the currently used language as langcode
++	 * Sets the currently used language as langcode
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -195,8 +195,8 @@
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function returns the language of the client browser
+-	 * specified by the allowed languages and the default language
++	 * Returns the language of the client browser specified by the 
++	 * allowed languages and the default language
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -277,7 +277,7 @@
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function read the i18n directory and detect the available languages
++	 * Reads the i18n directory and detect the available languages
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+@@ -321,7 +321,7 @@
+ 	}
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * This function loads the languagefile into the languagecontainer
++	 * Loads the languagefile into the languagecontainer
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000105.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_sql.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000107.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#106">[ date ]</a>
+              <a href="thread.html#106">[ thread ]</a>
+              <a href="subject.html#106">[ subject ]</a>
+              <a href="author.html#106">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

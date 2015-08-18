@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_formats.php%2C1.1%2C1.2&In-Reply-To=%3C200502221515.j1MFFcN09748%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000024.html">
+   <LINK REL="Next"  HREF="000026.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.1,1.2</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_formats.php%2C1.1%2C1.2&In-Reply-To=%3C200502221515.j1MFFcN09748%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Feb 22 16:15:38 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000024.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_agerestrictions.php,NONE,1.1 class.phpmediadb_data_audios.php,NONE,1.1 class.phpmediadb_data_categories.php,NONE,1.1 class.phpmediadb_data_codecs.php,NONE,1.1 class.phpmediadb_data_prints.php,NONE,1.1 class.phpmediadb_data_status.php,NONE,1.1 class.phpmediadb_data_videos.php,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000026.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_sql.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv28214/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_formats.php 
+Log Message:
+* Added variable $PHPMEDIADB and $DATA
+
+Index: class.phpmediadb_data_formats.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_formats.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_data_formats.php	22 Feb 2005 14:38:48 -0000	1.1
++++ class.phpmediadb_data_formats.php	22 Feb 2005 15:15:35 -0000	1.2
+@@ -7,13 +7,22 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Short description of attribute
++	 * Short description of attribute PHPMEDIADB
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb
+ 	 * @var phpmediadb
+ 	 */
++	protected $PHPMEDIADB = null;
+ 
++	/**
++	 * Short description of attribute DATA
++	 *
++	 * @access protected
++	 * @see phpmediadb_presentation
++	 * @var phpmediadb_presentation
++	 */
++	protected $DATA = null;
+ 
+ 	// --- OPERATIONS ---
+ 	
+@@ -23,7 +32,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb_presentation
++	 * @param phpmediadb_data
+ 	 * @return void
+ 	 */
+ 	public function __construct()
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000024.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_agerestrictions.php,NONE,1.1 class.phpmediadb_data_audios.php,NONE,1.1 class.phpmediadb_data_categories.php,NONE,1.1 class.phpmediadb_data_codecs.php,NONE,1.1 class.phpmediadb_data_prints.php,NONE,1.1 class.phpmediadb_data_status.php,NONE,1.1 class.phpmediadb_data_videos.php,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000026.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_sql.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

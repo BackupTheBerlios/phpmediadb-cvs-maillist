@@ -1,0 +1,58 @@
+From nobody at sheep.berlios.de  Mon Jun  6 11:25:28 2005
+From: nobody at sheep.berlios.de (bruf)
+Date: Mon, 6 Jun 2005 11:25:28 +0200
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.15,1.16
+Message-ID: <200506060925.j569PSm07053@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv5373/_source/tier.configuration/i18n
+
+Modified Files:
+	i18n.de.php 
+Log Message:
+* Fixed some mistakes
+
+Index: i18n.de.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.de.php,v
+retrieving revision 1.15
+retrieving revision 1.16
+diff -u -d -r1.15 -r1.16
+--- i18n.de.php	10 May 2005 18:09:30 -0000	1.15
++++ i18n.de.php	6 Jun 2005 09:25:23 -0000	1.16
+@@ -380,22 +380,22 @@
+ 	$i18n['Category_Action']		= 'Action';
+ 	$i18n['Category_Adventure']		= 'Adventure';
+ 	$i18n['Category_Animation']		= 'Animation';
+-	$i18n['Category_Comedy']		= 'Comedy';
+-	$i18n['Category_Crime']			= 'Crime';
+-	$i18n['Category_Documentary']	= 'Documentary';
++	$i18n['Category_Comedy']		= 'Kom?die';
++	$i18n['Category_Crime']			= 'Krimi';
++	$i18n['Category_Documentary']	= 'Dokumentation';
+ 	$i18n['Category_Drama']			= 'Drama';
+-	$i18n['Category_Family']		= 'Family';
+-	$i18n['Category_Fantasy']		= 'Fantasy';
+-	$i18n['Category_Film-Noir']		= 'Film-Noir';
++	$i18n['Category_Family']		= 'Familie';
++	$i18n['Category_Fantasy']		= 'Fantasie';
++	$i18n['Category_Film-Noir']		= 'Schwarz-Wei? Film';
+ 	$i18n['Category_Horror']		= 'Horror';
+-	$i18n['Category_Music']			= 'Music';
++	$i18n['Category_Music']			= 'Musik';
+ 	$i18n['Category_Musical']		= 'Musical';
+ 	$i18n['Category_Mystery']		= 'Mystery';
+-	$i18n['Category_Romance']		= 'Romance';
++	$i18n['Category_Romance']		= 'Romanze';
+ 	$i18n['Category_Sci-Fi']		= 'Sciene-Fiction';
+-	$i18n['Category_Short']			= 'Short Movie';
++	$i18n['Category_Short']			= 'Kurzfilm';
+ 	$i18n['Category_Thriller']		= 'Thriller';
+-	$i18n['Category_War']			= 'Krieg';
++	$i18n['Category_War']			= 'Kriegsfilm';
+ 	$i18n['Category_Western']		= 'Western';	
+ 	
+ 	$i18n['Category_Antiquarian']		= 'Antiquarisch';
+
+
+

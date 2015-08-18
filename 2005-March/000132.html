@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business.php,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business.php%2C1.5%2C1.6&In-Reply-To=%3C200503151806.j2FI6tN09226%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000131.html">
+   <LINK REL="Next"  HREF="000133.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business.php,1.5,1.6</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business.php%2C1.5%2C1.6&In-Reply-To=%3C200503151806.j2FI6tN09226%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business.php,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 19:06:55 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000131.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_categories.php,NONE,1.1 class.phpmediadb_business_codecs.php,NONE,1.1 class.phpmediadb_business_formats.php,NONE,1.1 class.phpmediadb_business_prints.php,NONE,1.1 class.phpmediadb_business_videos.php,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000133.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_audios.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#132">[ date ]</a>
+              <a href="thread.html#132">[ thread ]</a>
+              <a href="subject.html#132">[ subject ]</a>
+              <a href="author.html#132">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv23254/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business.php 
+Log Message:
+* Included all other tier.business classes
+
+Index: class.phpmediadb_business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- class.phpmediadb_business.php	27 Feb 2005 16:03:16 -0000	1.5
++++ class.phpmediadb_business.php	15 Mar 2005 18:06:52 -0000	1.6
+@@ -9,11 +9,20 @@
+ 	/**
+ 	 * Reference to class phpmediadb
+ 	 *
+-	 * @access protected
++	 * @access public
+ 	 * @see phpmediadb
+ 	 * @var phpmediadb
+ 	 */
+ 	public $PHPMEDIADB = null;
++	
++	public $AGERESTRICTIONS = null;
++	public $AUDIOS = null;
++	public $CATEGORIES = null;
++	public $CODECS = null;
++	public $FORMATS = null;
++	public $INSPECTOR = null;
++	public $PRINTS = null;
++	public $VIDEOS = null;
+ 
+ 	/**
+ 	 * Container of configuration for the whole tier
+@@ -24,7 +33,8 @@
+ 	public $configuration = null;
+ 	
+ 	// --- OPERATIONS ---
+-	
++
++//-----------------------------------------------------------------------------	
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+@@ -41,8 +51,19 @@
+     	 
+ 		/* assign parent */
+ 		$this-&gt;PHPMEDIADB		= $sender;
++		
++		/* assign childs */
++		$this-&gt;AGERESTRICTIONS	= new phpmediadb_business_agerestrictions( $this );
++		$this-&gt;AUDIOS						= new phpmediadb_business_audios( $this );
++		$this-&gt;CATEGORIES				= new phpmediadb_business_categories( $this );
++		$this-&gt;CODECS						= new phpmediadb_business_codecs( $this );
++		$this-&gt;FORMATS					= new phpmediadb_business_formats( $this );
++		$this-&gt;INSPECTOR				= new phpmediadb_business_inspector( $this );
++		$this-&gt;PRINTS						= new phpmediadb_business_prints( $this );
++		$this-&gt;VIDEOS						= new phpmediadb_business_prints( $this );
+ 	}
+ 
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * Loads the configuration from the global array and resets the array
+ 	 *
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000131.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_categories.php,NONE,1.1 class.phpmediadb_business_codecs.php,NONE,1.1 class.phpmediadb_business_formats.php,NONE,1.1 class.phpmediadb_business_prints.php,NONE,1.1 class.phpmediadb_business_videos.php,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000133.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_audios.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#132">[ date ]</a>
+              <a href="thread.html#132">[ thread ]</a>
+              <a href="subject.html#132">[ subject ]</a>
+              <a href="author.html#132">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

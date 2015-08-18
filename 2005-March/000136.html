@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_i18n.php%2C1.5%2C1.6&In-Reply-To=%3C200503151809.j2FI9tN09339%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000135.html">
+   <LINK REL="Next"  HREF="000137.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.5,1.6</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_i18n.php%2C1.5%2C1.6&In-Reply-To=%3C200503151809.j2FI9tN09339%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 19:09:55 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000135.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.5,1.6
+</A></li>
+        <LI>Next message: <A HREF="000137.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_session.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv23416/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_i18n.php 
+Log Message:
+* Modified getLanguageString to return %STRINGID% if no suitable string is found
+
+Index: class.phpmediadb_presentation_i18n.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_i18n.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- class.phpmediadb_presentation_i18n.php	15 Mar 2005 10:12:02 -0000	1.5
++++ class.phpmediadb_presentation_i18n.php	15 Mar 2005 18:09:52 -0000	1.6
+@@ -112,6 +112,8 @@
+   	/* check if key exists */
+   	if( array_key_exists( $langId, $this-&gt;langContainer ) )
+   		$returnValue = $this-&gt;langContainer[&quot;$langId&quot;];
++  	else
++  		$returnValue = '%'.$langId.'%';
+   	
+   	return $returnValue;
+   }
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000135.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.5,1.6
+</A></li>
+	<LI>Next message: <A HREF="000137.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_session.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

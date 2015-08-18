@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration%20config.business.php%2C1.2%2C1.3&In-Reply-To=%3C200503152102.j2FL2aN14349%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000151.html">
+   <LINK REL="Next"  HREF="000152.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.2,1.3</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration%20config.business.php%2C1.2%2C1.3&In-Reply-To=%3C200503152102.j2FL2aN14349%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 22:02:36 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000151.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.2,1.3
+</A></li>
+        <LI>Next message: <A HREF="000152.html">[phpmediadb-cvs] phpmediadb-cvs/_layout/stylesheet default.css,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#150">[ date ]</a>
+              <a href="thread.html#150">[ thread ]</a>
+              <a href="subject.html#150">[ subject ]</a>
+              <a href="author.html#150">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration
+In directory sheep:/tmp/cvs-serv26001/_source/tier.configuration
+
+Modified Files:
+	config.business.php 
+Log Message:
+* Added all check-vars for AUDIOS
+
+Index: config.business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.business.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- config.business.php	15 Mar 2005 17:39:33 -0000	1.2
++++ config.business.php	15 Mar 2005 21:02:33 -0000	1.3
+@@ -8,20 +8,27 @@
+  * Itemsepecifications (regex etc.)
+  */ 
+ 
+-$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['title'] = '^.{1,255}$';
+-$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['originaltitle']  = '^(.{1,255})?$';
+-$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['identification']	= '^(.{1,255})?$';
+-$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['releaseyear']		= '^([[:digit:]]{4})?$';
+-$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['quantity']				= '^([[:digit:]]{0,255})?$';
+-$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['mediasize']			= '^(([[:digit:]]+([[:punct:]]{1}[[:digit:]]+)))?$';
+-
+-$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['title'] 					= 255;
+-$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['originaltitle'] 	= 255;
+-$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['identification'] 	= 255;
+-$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['releaseyear']		 	= 4;
+-$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['quantity'] 				= 255;
+-$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['mediasize'] 			= 255;
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['ItemTitle'] 							= '^.{1,255}$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['ItemOriginalTitle']			= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['ItemMediaName']					= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['ItemIdentification']			= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['ItemRelease']						= '^([[:digit:]]{4})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['Categories']							= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['ItemMediaSize']					= '^(([[:digit:]]+([[:punct:]]{1}[[:digit:]]+)))?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['MediaFormatID']					= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['PublisherName']					= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['MediaAgeRestrictionID']	= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['MediaCodecID']						= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['ItemQuantity']						= '^(.{1,255})?$';
+ 
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['ItemTitle'] 						= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['ItemOriginalTitle']			= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['ItemMediaName']					= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['ItemIdentification']		= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['ItemRelease']						= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['ItemMediaSize']					= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['PublisherName']					= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['ItemQuantity']					= 255;
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000151.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.2,1.3
+</A></li>
+	<LI>Next message: <A HREF="000152.html">[phpmediadb-cvs] phpmediadb-cvs/_layout/stylesheet default.css,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#150">[ date ]</a>
+              <a href="thread.html#150">[ thread ]</a>
+              <a href="subject.html#150">[ subject ]</a>
+              <a href="author.html#150">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

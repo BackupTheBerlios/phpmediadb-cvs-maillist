@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.audio.tpl,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.list.audio.tpl%2C1.2%2C1.3&In-Reply-To=%3C200504100133.j3A1Xgm14496%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000263.html">
+   <LINK REL="Next"  HREF="000265.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.audio.tpl,1.2,1.3</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.list.audio.tpl%2C1.2%2C1.3&In-Reply-To=%3C200504100133.j3A1Xgm14496%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.audio.tpl,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Apr 10 03:33:42 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000263.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.10,1.11
+</A></li>
+        <LI>Next message: <A HREF="000265.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates overall.footer.tpl,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#264">[ date ]</a>
+              <a href="thread.html#264">[ thread ]</a>
+              <a href="subject.html#264">[ subject ]</a>
+              <a href="author.html#264">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates
+In directory sheep:/tmp/cvs-serv19894/_source/tier.configuration/templates
+
+Modified Files:
+	body.list.audio.tpl 
+Log Message:
+* Added basic data
+
+Index: body.list.audio.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/body.list.audio.tpl,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- body.list.audio.tpl	15 Mar 2005 17:41:11 -0000	1.2
++++ body.list.audio.tpl	10 Apr 2005 01:33:39 -0000	1.3
+@@ -1,21 +1,19 @@
+ &lt;div id=&quot;phpmediadb-body-list-audio&quot; class=&quot;phpmediadb-body-list&quot;&gt;
+ 	&lt;table width=&quot;100%&quot; border=&quot;0&quot;&gt;
+ 		&lt;tr&gt;
+-			&lt;th&gt;{$I18N.MEDIA_TITLE|default:&quot;%MEDIA_TITLE%&quot;}&lt;/th&gt;
+-			&lt;th&gt;{$I18N.MEDIA_ARTIST|default:&quot;%MEDIA_ARTIST%&quot;}&lt;/th&gt;
+-			&lt;th&gt;{$I18N.LIST_TITLE_TITLE|default:&quot;%LIST_TITLE_TITLE%&quot;}&lt;/th&gt;
++			&lt;th&gt;{$I18N.LIST_COLUMN_TITLE_MEDIATITLE|default:&quot;%LIST_COLUMN_TITLE_MEDIATITLE%&quot;}&lt;/th&gt;
++			&lt;th&gt;{$I18N.LIST_COLUMN_TITLE_RELEASEDATE|default:&quot;%LIST_COLUMN_TITLE_RELEASEDATE%&quot;}&lt;/th&gt;
+ 			&lt;th&gt;&lt;/th&gt;
+ 		&lt;/tr&gt;
+-		
+-		&lt;td&gt;
+-			&lt;td&gt;&lt;/td&gt;
+-			&lt;td&gt;&lt;/td&gt;
+-			&lt;td&gt;&lt;/td&gt;
++{foreach from=$ITEMDATA item=currentDataItem}
++		&lt;tr&gt;
++			&lt;td&gt;{$currentDataItem.itemtitle}&lt;/td&gt;
++			&lt;td&gt;{$currentDataItem.itemreleasedate|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
+ 			&lt;td&gt;
+-				&lt;a href=&quot;admin/item-mod.php?itemid=&quot;&gt;&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/action-modify.png&quot; alt=&quot;{$I18N.ACTION_MODIFY|default:&quot;%ACTION_MODIFY%&quot;}&quot; /&gt;&lt;/a&gt;
+-				&lt;a href=&quot;admin/item-del.php?itemid=&quot;&gt;&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/action-remove.png&quot; alt=&quot;{$I18N.ACTION_DELETE|default:&quot;%ACTION_DELETE%&quot;}&quot; /&gt;&lt;/a&gt;
++				&lt;a href=&quot;admin/item-mod.php?itemid={$currentDataItem.itemid}&quot;&gt;&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/action-modify.png&quot; alt=&quot;{$I18N.ACTION_MODIFY|default:&quot;%ACTION_MODIFY%&quot;}&quot; /&gt;&lt;/a&gt;
++				&lt;a href=&quot;admin/item-del.php?itemid={$currentDataItem.itemid}&quot;&gt;&lt;img src=&quot;{$CONFIGURATION.ROOTPATH}_layout/images/icons/action-remove.png&quot; alt=&quot;{$I18N.ACTION_DELETE|default:&quot;%ACTION_DELETE%&quot;}&quot; /&gt;&lt;/a&gt;
+ 			&lt;/td&gt;
+-		&lt;/td&gt;
+-		
++		&lt;/tr&gt;
++{/foreach}
+ 	&lt;/table&gt;
+-&lt;/div&gt; 
++&lt;/div&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000263.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.10,1.11
+</A></li>
+	<LI>Next message: <A HREF="000265.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates overall.footer.tpl,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#264">[ date ]</a>
+              <a href="thread.html#264">[ thread ]</a>
+              <a href="subject.html#264">[ subject ]</a>
+              <a href="author.html#264">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.4,1.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source%20phpmediadb.php%2C1.4%2C1.5&In-Reply-To=%3C200502272148.j1RLmMN26753%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000059.html">
+   <LINK REL="Next"  HREF="000061.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.4,1.5</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source%20phpmediadb.php%2C1.4%2C1.5&In-Reply-To=%3C200502272148.j1RLmMN26753%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.4,1.5">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Feb 27 22:48:22 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000059.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/jargon DataSet.php,1.1,NONE DataSetException.php,1.1,NONE KeyDef.php,1.1,NONE PagedQuery.php,1.1,NONE Query.php,1.1,NONE QueryDataSet.php,1.1,NONE Record.php,1.1,NONE TableDataSet.php,1.1,NONE
+</A></li>
+        <LI>Next message: <A HREF="000061.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.preinit.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source
+In directory sheep:/tmp/cvs-serv4689/_source
+
+Modified Files:
+	phpmediadb.php 
+Log Message:
+* Added tier.lib with smarty and creole
+
+Index: phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/phpmediadb.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- phpmediadb.php	9 Feb 2005 20:27:19 -0000	1.4
++++ phpmediadb.php	27 Feb 2005 21:48:19 -0000	1.5
+@@ -10,6 +10,10 @@
+ require_once( 'tier.configuration/config.business.php' );
+ require_once( 'tier.configuration/config.presentation.php' );
+ 
++/* include tier.lib */
++require_once( 'tier.lib/smarty/Smarty.class.php' );
++require_once( 'tier.lib/creole/Creole.php' );
++
+ /* include tier.global */
+ require_once( 'tier.global/class.phpmediadb_exception.php' );
+ require_once( 'tier.global/class.phpmediadb.php' );
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000059.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/jargon DataSet.php,1.1,NONE DataSetException.php,1.1,NONE KeyDef.php,1.1,NONE PagedQuery.php,1.1,NONE Query.php,1.1,NONE QueryDataSet.php,1.1,NONE Record.php,1.1,NONE TableDataSet.php,1.1,NONE
+</A></li>
+	<LI>Next message: <A HREF="000061.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.preinit.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

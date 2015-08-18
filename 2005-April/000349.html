@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_codecs.php,1.7,1.8
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_codecs.php%2C1.7%2C1.8&In-Reply-To=%3C200504202009.j3KK92m19091%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000345.html">
+   <LINK REL="Next"  HREF="000346.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_codecs.php,1.7,1.8</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_codecs.php%2C1.7%2C1.8&In-Reply-To=%3C200504202009.j3KK92m19091%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_codecs.php,1.7,1.8">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr 20 22:09:02 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000345.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_categories.php,1.9,1.10
+</A></li>
+        <LI>Next message: <A HREF="000346.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_formats.php,1.7,1.8
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#349">[ date ]</a>
+              <a href="thread.html#349">[ thread ]</a>
+              <a href="subject.html#349">[ subject ]</a>
+              <a href="author.html#349">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv2392/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business_codecs.php 
+Log Message:
+* Fixed syntax mistake
+
+Index: class.phpmediadb_business_codecs.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_codecs.php,v
+retrieving revision 1.7
+retrieving revision 1.8
+diff -u -d -r1.7 -r1.8
+--- class.phpmediadb_business_codecs.php	6 Apr 2005 13:51:20 -0000	1.7
++++ class.phpmediadb_business_codecs.php	20 Apr 2005 20:09:00 -0000	1.8
+@@ -168,13 +168,13 @@
+ 	 * @param integer $id ID of item
+ 	 * @return bool successstatus (true/false)
+ 	 */
+-	public function remove( $id )
++	public function delete( $id )
+ 	{
+ 		/* init */
+ 		$returnValue = false;
+ 		
+ 		/* delegate */
+-		$returnValue = $this-&gt;DATA-&gt;CODECS-&gt;modify( $id );
++		$returnValue = $this-&gt;DATA-&gt;CODECS-&gt;delete( $id );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000345.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_categories.php,1.9,1.10
+</A></li>
+	<LI>Next message: <A HREF="000346.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_formats.php,1.7,1.8
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#349">[ date ]</a>
+              <a href="thread.html#349">[ thread ]</a>
+              <a href="subject.html#349">[ subject ]</a>
+              <a href="author.html#349">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

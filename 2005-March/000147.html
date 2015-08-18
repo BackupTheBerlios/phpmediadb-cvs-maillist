@@ -1,0 +1,660 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.1,1.2 class.phpmediadb_business_audios.php,1.2,1.3 class.phpmediadb_business_categories.php,1.1,1.2 class.phpmediadb_business_codecs.php,1.1,1.2 class.phpmediadb_business_formats.php,1.1,1.2 class.phpmediadb_business_inspector.php,1.1,1.2 class.phpmediadb_business.php,1.6,1.7 class.phpmediadb_business_prints.php,1.1,1.2 class.phpmediadb_business_videos.php,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_agerestrictions.php%2C1.1%2C1.2%20class.phpmediadb_business_audios.php%2C1.2%2C1.3%20class.phpmediadb_business_categories.php%2C1.1%2C1.2%20class.phpmediadb_business_codecs.php%2C1.1%2C1.2%20class.phpmediadb_business_formats.php%2C1.1%2C1.2%20class.phpmediadb_business_inspector.php%2C1.1%2C1.2%20class.phpmediadb_business.php%2C1.6%2C1.7%20class.phpmediadb_business_prints.php%2C1.1%2C1.2%20class.phpmediadb_business_videos.php%2C1.1%2C1.2&In-Reply-To=%3C200503152059.j2FKxON14227%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000146.html">
+   <LINK REL="Next"  HREF="000148.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.1,1.2 class.phpmediadb_business_audios.php,1.2,1.3 class.phpmediadb_business_categories.php,1.1,1.2 class.phpmediadb_business_codecs.php,1.1,1.2 class.phpmediadb_business_formats.php,1.1,1.2 class.phpmediadb_business_inspector.php,1.1,1.2 class.phpmediadb_business.php,1.6,1.7 class.phpmediadb_business_prints.php,1.1,1.2 class.phpmediadb_business_videos.php,1.1,1.2</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_agerestrictions.php%2C1.1%2C1.2%20class.phpmediadb_business_audios.php%2C1.2%2C1.3%20class.phpmediadb_business_categories.php%2C1.1%2C1.2%20class.phpmediadb_business_codecs.php%2C1.1%2C1.2%20class.phpmediadb_business_formats.php%2C1.1%2C1.2%20class.phpmediadb_business_inspector.php%2C1.1%2C1.2%20class.phpmediadb_business.php%2C1.6%2C1.7%20class.phpmediadb_business_prints.php%2C1.1%2C1.2%20class.phpmediadb_business_videos.php%2C1.1%2C1.2&In-Reply-To=%3C200503152059.j2FKxON14227%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.1,1.2 class.phpmediadb_business_audios.php,1.2,1.3 class.phpmediadb_business_categories.php,1.1,1.2 class.phpmediadb_business_codecs.php,1.1,1.2 class.phpmediadb_business_formats.php,1.1,1.2 class.phpmediadb_business_inspector.php,1.1,1.2 class.phpmediadb_business.php,1.6,1.7 class.phpmediadb_business_prints.php,1.1,1.2 class.phpmediadb_business_videos.php,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 21:59:24 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000146.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_xmlservice.php,1.2,1.3
+</A></li>
+        <LI>Next message: <A HREF="000148.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates overall.body.tpl,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#147">[ date ]</a>
+              <a href="thread.html#147">[ thread ]</a>
+              <a href="subject.html#147">[ subject ]</a>
+              <a href="author.html#147">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv25820/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business_agerestrictions.php 
+	class.phpmediadb_business_audios.php 
+	class.phpmediadb_business_categories.php 
+	class.phpmediadb_business_codecs.php 
+	class.phpmediadb_business_formats.php 
+	class.phpmediadb_business_inspector.php 
+	class.phpmediadb_business.php 
+	class.phpmediadb_business_prints.php 
+	class.phpmediadb_business_videos.php 
+Log Message:
+* Fixed some comments
+
+Index: class.phpmediadb_business_agerestrictions.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_agerestrictions.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_business_agerestrictions.php	15 Mar 2005 17:38:08 -0000	1.1
++++ class.phpmediadb_business_agerestrictions.php	15 Mar 2005 20:59:21 -0000	1.2
+@@ -35,12 +35,13 @@
+ 	
+ 	// --- OPERATIONS ---
+ 	
++//-----------------------------------------------------------------------------		
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+
+Index: class.phpmediadb_business_audios.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_audios.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_business_audios.php	15 Mar 2005 18:07:24 -0000	1.2
++++ class.phpmediadb_business_audios.php	15 Mar 2005 20:59:21 -0000	1.3
+@@ -35,12 +35,13 @@
+ 	
+ 	// --- OPERATIONS ---
+ 	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -54,10 +55,12 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
++	 * Checks if the data is correct
+ 	 *
+-	 *
+-	 *
+-	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Mixed $data Data which should be checked
++	 * @return Mixed Successstatus, NULL if success, failed with error-array
+ 	 */
+ 	 public function check( $data )
+ 	 {
+@@ -73,26 +76,33 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
++	 * Creates an empty dataset
+ 	 *
+-	 *
+-	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @return Array Empty dataset
+ 	 */
+ 	 public function createEmpty()
+ 	 {
+ 		/* init */
+ 		$returnValue = array();
+ 	 	
+-		$returnValue['id'] = NULL;
+-		$returnValue['title']	= '';
+-		$returnValue['originaltitle']	= '';
+-		$returnValue['medianame']	= '';
+-		$returnValue['']	= '';
+-		$returnValue['']	= '';
+-		$returnValue['']	= '';
+-		$returnValue['']	= '';
+-		$returnValue['']	= '';
+-		$returnValue['']	= '';
+-		$returnValue['']	= '';
++		/* create empty itemset */
++		$returnValue['ItemTitle'] 						= '';
++		$returnValue['ItemOriginalTitle']			= '';
++		$returnValue['ItemMediaName']					= '';
++		$returnValue['ItemIdentification']		= '';
++		$returnValue['ItemRelease']						= '';
++		$returnValue['Categories']						= array();
++		$returnValue['ItemMediaSize']					= '';
++		$returnValue['MediaFormatID']					= '';
++		$returnValue['BinaryData']						= '';
++		$returnValue['PublisherName']					= '';
++		$returnValue['MediaAgeRestrictionID']	= '';
++		$returnValue['MediaCodecID']					= '';
++		$returnValue['ItemQuantity']					= '';
++		$returnValue['ItemCreationDate']			= NULL;
++		$returnValue['ItemModificationDate']	= NULL;
+ 			
+ 		/* return data */
+ 		return $returnValue;
+@@ -100,9 +110,11 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list
+-	 *
++	 * Returns the complete list of datasets
+ 	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @return Array Array with all available datasets
+ 	 */
+ 	public function getList()
+ 	{
+@@ -117,6 +129,14 @@
+ 	}
+ 	
+ //-----------------------------------------------------------------------------
++	/**
++	 * Modifies one dataset specified by the id
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String $id Primarykey/Identifier of dataset
++	 * @param Array $data New data of dataset
++	 */
+ 	public function modify( $id, $data )
+ 	{
+ 		/* init */
+@@ -138,6 +158,14 @@
+ 		return $returnValue;
+ 	}
+ //-----------------------------------------------------------------------------
++	/**
++	 * Creates one dataset
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Array $data New data of dataset
++	 * @return Primarykey/Identifier of dataset
++	 */
+ 	public function create( $data )
+ 	{
+ 		/* init */
+@@ -158,6 +186,7 @@
+ 		/* return data */
+ 		return $returnValue;
+ 	}
++	
+ //-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_business_audios */
+ 
+
+Index: class.phpmediadb_business_categories.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_categories.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_business_categories.php	15 Mar 2005 18:06:26 -0000	1.1
++++ class.phpmediadb_business_categories.php	15 Mar 2005 20:59:21 -0000	1.2
+@@ -35,12 +35,13 @@
+ 	
+ 	// --- OPERATIONS ---
+ 	
++//-----------------------------------------------------------------------------	
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -70,6 +71,7 @@
+ 		return $returnValue;
+ 	}
+ 	
++//-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_business_categories */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+Index: class.phpmediadb_business_codecs.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_codecs.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_business_codecs.php	15 Mar 2005 18:06:26 -0000	1.1
++++ class.phpmediadb_business_codecs.php	15 Mar 2005 20:59:22 -0000	1.2
+@@ -34,13 +34,13 @@
+ 	protected $DATA = null;
+ 	
+ 	// --- OPERATIONS ---
+-	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -70,6 +70,7 @@
+ 		return $returnValue;
+ 	}
+ 	
++//-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_business_codecs */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+Index: class.phpmediadb_business_formats.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_formats.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_business_formats.php	15 Mar 2005 18:06:26 -0000	1.1
++++ class.phpmediadb_business_formats.php	15 Mar 2005 20:59:22 -0000	1.2
+@@ -34,13 +34,13 @@
+ 	protected $DATA = null;
+ 	
+ 	// --- OPERATIONS ---
+-	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -70,6 +70,7 @@
+ 		return $returnValue;
+ 	}
+ 	
++//-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_business_formats */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+Index: class.phpmediadb_business_inspector.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_inspector.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_business_inspector.php	15 Mar 2005 17:38:08 -0000	1.1
++++ class.phpmediadb_business_inspector.php	15 Mar 2005 20:59:22 -0000	1.2
+@@ -35,12 +35,13 @@
+ 	
+ 	// --- OPERATIONS ---
+ 	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Refreence to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -53,9 +54,13 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list
+-	 *
++	 * Checkengine: Checks if data is valid or generates an error-array
+ 	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer $type Itemtype which should be checked
++	 * @param Array $data Data which should be checked
++	 * @return mixed Success if Null, failed if error-array
+ 	 */
+ 	public function check( $type, $data )
+ 	{
+@@ -75,12 +80,30 @@
+ 		{
+ 			foreach( $inputSize as $checkKey =&gt; $checkValue )
+ 			{
+-				if( @strlen( $data[$checkKey] ) &gt; $checkValue )
++				switch( @gettype( $data[$checkKey] ) )
+ 				{
+-					/* set errorflags */
+-					$returnValue['general']											= TRUE;
+-					$returnValue['flag'][$checkKey] 						= TRUE;
+-					$returnValue['message'][$checkKey]['size']	= TRUE;
++					case('string'):
++						if( @strlen( $data[$checkKey] ) &gt; $checkValue )
++						{
++							/* set errorflags */
++							$returnValue['general']											= TRUE;
++							$returnValue['flag'][$checkKey] 						= TRUE;
++							$returnValue['message'][$checkKey]['size']	= TRUE;
++						}
++					break;
++					
++					case('array'):
++						foreach( $data[$checkKey] as $ItemKey =&gt; $ItemValue )
++						{
++							if( @strlen( $ItemValue ) &gt; $checkValue )
++							{
++								/* set errorflags */
++								$returnValue['general']											= TRUE;
++								$returnValue['flag'][$checkKey] 						= TRUE;
++								$returnValue['message'][$checkKey]['size']	= TRUE;
++							}
++						}
++					break;
+ 				}
+ 			}
+ 		}
+@@ -90,12 +113,30 @@
+ 		{
+ 			foreach( $checkRegex as $checkKey =&gt; $checkValue )
+ 			{
+-				if( ! @ereg( $checkValue, $data[$checkKey] ) )
++				switch( @gettype( $data[$checkKey] ) )
+ 				{
+-					/* set errorflags */
+-					$returnValue['general']											= TRUE;
+-					$returnValue['flag'][$checkKey] 						= TRUE;
+-					$returnValue['message'][$checkKey]['regex']	= TRUE;
++					case('string'):
++						if( ! @ereg( $checkValue, $data[$checkKey] ) )
++						{
++							/* set errorflags */
++							$returnValue['general']											= TRUE;
++							$returnValue['flag'][$checkKey] 						= TRUE;
++							$returnValue['message'][$checkKey]['regex']	= TRUE;
++						}
++					break;
++					
++					case('array'):
++						foreach( $data[$checkKey] as $ItemKey =&gt; $ItemValue )
++						{
++							if( ! @ereg( $checkValue, $ItemValue ) )
++							{
++								/* set errorflags */
++								$returnValue['general']											= TRUE;
++								$returnValue['flag'][$checkKey] 						= TRUE;
++								$returnValue['message'][$checkKey]['regex']	= TRUE;
++							}
++						}
++					break;
+ 				}
+ 			}
+ 		}
+@@ -105,6 +146,14 @@
+ 	}
+ 	
+ //-----------------------------------------------------------------------------
++	/**
++	 * Returns all size-specifications for variable check
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer $type Itemtype
++	 * @return mixed Specifications of variable-value sizes
++	 */
+ 	public function getSize( $type )
+ 	{
+ 		/* init */
+@@ -118,6 +167,14 @@
+ 	}	
+ 
+ //-----------------------------------------------------------------------------
++	/**
++	 * Returns all regex-specifications for variable check
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer $type Itemtype
++	 * @return mixed Specifications of variable-value regex
++	 */
+ 	public function getRegex( $type )
+ 	{
+ 		/* init */
+@@ -129,8 +186,8 @@
+ 		/* return data */
+ 		return $returnValue;
+ 	}	
++	
+ //-----------------------------------------------------------------------------
+-
+ } /* end of class phpmediadb_business_inspector */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+Index: class.phpmediadb_business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -u -d -r1.6 -r1.7
+--- class.phpmediadb_business.php	15 Mar 2005 18:06:52 -0000	1.6
++++ class.phpmediadb_business.php	15 Mar 2005 20:59:22 -0000	1.7
+@@ -15,13 +15,76 @@
+ 	 */
+ 	public $PHPMEDIADB = null;
+ 	
++	/**
++	 * Reference to class phpmediadb_business_agerestrictions
++	 *
++	 * @access public
++	 * @see phpmediadb_business_agerestrictions
++	 * @var phpmediadb_business_agerestrictions
++	 */	
+ 	public $AGERESTRICTIONS = null;
++
++	/**
++	 * Reference to class phpmediadb_business_audios
++	 *
++	 * @access public
++	 * @see phpmediadb_business_audios
++	 * @var phpmediadb_business_audios
++	 */	
+ 	public $AUDIOS = null;
++	
++	/**
++	 * Reference to class phpmediadb_business_categories
++	 *
++	 * @access public
++	 * @see phpmediadb_business_categories
++	 * @var phpmediadb_business_categories
++	 */	
+ 	public $CATEGORIES = null;
++	
++	/**
++	 * Reference to class phpmediadb_business_codecs
++	 *
++	 * @access public
++	 * @see phpmediadb_business_codecs
++	 * @var phpmediadb_business_codecs
++	 */	
+ 	public $CODECS = null;
++	
++	/**
++	 * Reference to class phpmediadb_business_formats
++	 *
++	 * @access public
++	 * @see phpmediadb_business_formats
++	 * @var phpmediadb_business_formats
++	 */	
+ 	public $FORMATS = null;
++	
++	/**
++	 * Reference to class phpmediadb_business_inspector
++	 *
++	 * @access public
++	 * @see phpmediadb_business_inspector
++	 * @var phpmediadb_business_inspector
++	 */	
+ 	public $INSPECTOR = null;
++	
++	/**
++	 * Reference to class phpmediadb_business_prints
++	 *
++	 * @access public
++	 * @see phpmediadb_business_prints
++	 * @var phpmediadb_business_prints
++	 */	
+ 	public $PRINTS = null;
++	
++	/**
++	 * Reference to class phpmediadb_business_videos
++	 *
++	 * @access public
++	 * @see phpmediadb_business_videos
++	 * @var phpmediadb_business_videos
++	 */	
+ 	public $VIDEOS = null;
+ 
+ 	/**
+@@ -40,7 +103,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -69,8 +132,6 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
+-	 * @return void
+ 	 */
+ 	private function loadConfiguration()
+ 	{
+
+Index: class.phpmediadb_business_prints.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_prints.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_business_prints.php	15 Mar 2005 18:06:26 -0000	1.1
++++ class.phpmediadb_business_prints.php	15 Mar 2005 20:59:22 -0000	1.2
+@@ -34,13 +34,13 @@
+ 	protected $DATA = null;
+ 	
+ 	// --- OPERATIONS ---
+-	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -70,6 +70,7 @@
+ 		return $returnValue;
+ 	}
+ 	
++//-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_business_prints */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+Index: class.phpmediadb_business_videos.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_videos.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_business_videos.php	15 Mar 2005 18:06:26 -0000	1.1
++++ class.phpmediadb_business_videos.php	15 Mar 2005 20:59:22 -0000	1.2
+@@ -34,13 +34,13 @@
+ 	protected $DATA = null;
+ 	
+ 	// --- OPERATIONS ---
+-	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb
++	 * @param phpmediadb $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -70,6 +70,7 @@
+ 		return $returnValue;
+ 	}
+ 	
++//-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_business_videos */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000146.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_xmlservice.php,1.2,1.3
+</A></li>
+	<LI>Next message: <A HREF="000148.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates overall.body.tpl,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#147">[ date ]</a>
+              <a href="thread.html#147">[ thread ]</a>
+              <a href="subject.html#147">[ subject ]</a>
+              <a href="author.html#147">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/install create-tables.sql,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/install%20create-tables.sql%2C1.1%2C1.2&In-Reply-To=%3C200503242124.j2OLODh13615%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000194.html">
+   <LINK REL="Next"  HREF="000196.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/install create-tables.sql,1.1,1.2</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/install%20create-tables.sql%2C1.1%2C1.2&In-Reply-To=%3C200503242124.j2OLODh13615%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/install create-tables.sql,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar 24 22:24:13 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000194.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000196.html">[phpmediadb-cvs] phpmediadb-cvs/install insert-data.sql,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#195">[ date ]</a>
+              <a href="thread.html#195">[ thread ]</a>
+              <a href="subject.html#195">[ subject ]</a>
+              <a href="author.html#195">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/install
+In directory sheep:/tmp/cvs-serv5430/install
+
+Modified Files:
+	create-tables.sql 
+Log Message:
+* Version bump erm-model.xml Revision 1.16
+
+Index: create-tables.sql
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/install/create-tables.sql,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- create-tables.sql	17 Mar 2005 20:03:44 -0000	1.1
++++ create-tables.sql	24 Mar 2005 21:24:11 -0000	1.2
+@@ -1,7 +1,182 @@
+ -- phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ -- $Id$
+ 
++CREATE TABLE AudioDatas (
++  AudioDataID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemID INTEGER UNSIGNED NOT NULL,
++  TrackID INTEGER UNSIGNED NOT NULL,
++  LanguageID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(AudioDataID),
++  INDEX AudioDatas_FKIndex1(LanguageID),
++  INDEX AudioDatas_FKIndex2(TrackID),
++  INDEX AudioDatas_FKIndex3(ItemID)
++);
++
++CREATE TABLE BinaryDatas (
++  ItemPicturesID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  BinaryDataMimeType VARCHAR(255) NOT NULL,
++  BinaryDataSize INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(ItemPicturesID)
++);
++
++CREATE TABLE Categories (
++  CategoryID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  CategoryName VARCHAR(255) NOT NULL,
++  PRIMARY KEY(CategoryID)
++);
++
++CREATE TABLE Categories_has_Items (
++  ItemID INTEGER UNSIGNED NOT NULL,
++  CategoryID INTEGER UNSIGNED NOT NULL,
++  INDEX Categories_has_Items_FKIndex1(CategoryID),
++  INDEX Categories_has_Items_FKIndex2(ItemID)
++);
++
++CREATE TABLE Items (
++  ItemID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  PublisherID INTEGER UNSIGNED NOT NULL,
++  MediaAgeRestrictionID INTEGER UNSIGNED NOT NULL,
++  MediaCodecID INTEGER UNSIGNED NOT NULL,
++  MediaFormatID INTEGER UNSIGNED NOT NULL,
++  ItemPicturesID INTEGER UNSIGNED NOT NULL,
++  ItemTitle VARCHAR(255) NOT NULL,
++  ItemOriginalTitle VARCHAR(255) NOT NULL,
++  ItemReleaseDate VARCHAR(255) NOT NULL,
++  ItemMediaName VARCHAR(255) NOT NULL,
++  ItemCreationDate TIMESTAMP NOT NULL,
++  ItemModificationDate TIMESTAMP NOT NULL,
++  ItemComment BLOB NOT NULL,
++  ItemQuantity VARCHAR(255) NOT NULL,
++  ItemIdentifier VARCHAR(255) NOT NULL,
++  ItemTypeID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(ItemID),
++  INDEX Items_FKIndex1(ItemTypeID),
++  INDEX Items_FKIndex2(ItemPicturesID),
++  INDEX Items_FKIndex3(MediaFormatID),
++  INDEX Items_FKIndex4(MediaCodecID),
++  INDEX Items_FKIndex5(MediaAgeRestrictionID),
++  INDEX Items_FKIndex6(PublisherID)
++);
++
++CREATE TABLE ItemTypes (
++  ItemTypeID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemTypeCode VARCHAR(255) NOT NULL,
++  PRIMARY KEY(ItemTypeID)
++);
++
++CREATE TABLE Languages (
++  LanguageID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  LanguageName VARCHAR(255) NOT NULL,
++  LanguageCode VARCHAR(255) NOT NULL,
++  PRIMARY KEY(LanguageID)
++);
+ 
++CREATE TABLE MediaAgeRestrictions (
++  MediaAgeRestrictionID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  MediaAgeRestriction VARCHAR(255) NOT NULL,
++  PRIMARY KEY(MediaAgeRestrictionID)
++);
++
++CREATE TABLE MediaCodecs (
++  MediaCodecID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemTypeID INTEGER UNSIGNED NOT NULL,
++  MediaCodecName VARCHAR(255) NOT NULL,
++  PRIMARY KEY(MediaCodecID),
++  INDEX MediaCodecs_FKIndex1(ItemTypeID)
++);
+ 
++CREATE TABLE MediaFormats (
++  MediaFormatID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemTypeID INTEGER UNSIGNED NOT NULL,
++  MediaFormatName VARCHAR(255) NOT NULL,
++  PRIMARY KEY(MediaFormatID),
++  INDEX MediaFormats_FKIndex1(ItemTypeID)
++);
++
++CREATE TABLE MediaStatus (
++  MediaStatusID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  MediaStatus VARCHAR(255) NOT NULL,
++  PRIMARY KEY(MediaStatusID)
++);
++
++CREATE TABLE PersonActors (
++  PersonActorID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemID INTEGER UNSIGNED NOT NULL,
++  PersonID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(PersonActorID),
++  INDEX PersonActors_FKIndex1(PersonID),
++  INDEX PersonActors_FKIndex2(ItemID)
++);
++
++CREATE TABLE PersonAuthors (
++  PersonAuthorID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemID INTEGER UNSIGNED NOT NULL,
++  PersonID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(PersonAuthorID),
++  INDEX PersonAuthors_FKIndex1(PersonID),
++  INDEX PersonAuthors_FKIndex2(ItemID)
++);
++
++CREATE TABLE PersonDirectors (
++  PersonDirectorID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemID INTEGER UNSIGNED NOT NULL,
++  PersonID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(PersonDirectorID),
++  INDEX PersonDirectors_FKIndex1(PersonID),
++  INDEX PersonDirectors_FKIndex2(ItemID)
++);
++
++CREATE TABLE Persons (
++  PersonID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  PersonFirstName VARCHAR(255) NOT NULL,
++  PersonLastName VARCHAR(255) NOT NULL,
++  PRIMARY KEY(PersonID)
++);
++
++CREATE TABLE PrintDatas (
++  PrintDataID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemID INTEGER UNSIGNED NOT NULL,
++  LanguageID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(PrintDataID),
++  INDEX PrintDatas_FKIndex1(LanguageID),
++  INDEX PrintDatas_FKIndex2(ItemID)
++);
++
++CREATE TABLE Publishers (
++  PublisherID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  PublisherName VARCHAR(255) NOT NULL,
++  PRIMARY KEY(PublisherID)
++);
++
++CREATE TABLE Tracks (
++  TrackID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  TrackName VARCHAR(255) NOT NULL,
++  TrackArtist VARCHAR(255) NOT NULL,
++  TrackLength INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(TrackID)
++);
++
++CREATE TABLE TrackSounds (
++  TrackSoundID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  LanguageID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(TrackSoundID),
++  INDEX TrackSounds_FKIndex1(LanguageID)
++);
++
++CREATE TABLE TrackSubtitles (
++  LanguageSubtitle INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  LanguageID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(LanguageSubtitle),
++  INDEX TrackSubtitles_FKIndex1(LanguageID)
++);
++
++CREATE TABLE VideoDatas (
++  VideoDataID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemID INTEGER UNSIGNED NOT NULL,
++  LanguageID INTEGER UNSIGNED NOT NULL,
++  PRIMARY KEY(VideoDataID),
++  INDEX VideoDatas_FKIndex1(LanguageID),
++  INDEX VideoDatas_FKIndex2(ItemID)
++);
+ 
+ -- EOF -- EOF -- EOF -- EOF -- EOF -- EOF -- EOF -- EOF -- EOF -- EOF -- EOF --
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000194.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000196.html">[phpmediadb-cvs] phpmediadb-cvs/install insert-data.sql,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#195">[ date ]</a>
+              <a href="thread.html#195">[ thread ]</a>
+              <a href="subject.html#195">[ subject ]</a>
+              <a href="author.html#195">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

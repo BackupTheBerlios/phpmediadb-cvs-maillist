@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.11,1.12
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2004-December/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/help/development%20erm-model.xml%2C1.11%2C1.12&In-Reply-To=%3C200412281053.iBSArVn02476%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.11,1.12</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/help/development%20erm-model.xml%2C1.11%2C1.12&In-Reply-To=%3C200412281053.iBSArVn02476%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.11,1.12">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Dec 28 11:53:31 CET 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.10,1.11
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.12,1.13
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/help/development
+In directory sheep:/tmp/cvs-serv3958/help/development
+
+Modified Files:
+	erm-model.xml 
+Log Message:
+* Removed relation between Item and MediaFormats
+* Removed relation between Item and MediaCodecs
+* Removed relation between Item and MediaAgeRestrictions
+* Added Relation between ItemTypes and MediaFormats
+* Added Relation between ItemTypes and MediaCodecs
+* Added Relation between ItemTypes and MediaAgeRestrictions
+
+Index: erm-model.xml
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/help/development/erm-model.xml,v
+retrieving revision 1.11
+retrieving revision 1.12
+diff -u -d -r1.11 -r1.12
+--- erm-model.xml	28 Dec 2004 10:08:37 -0000	1.11
++++ erm-model.xml	28 Dec 2004 10:53:29 -0000	1.12
+@@ -1,7 +1,7 @@
+ &lt;?xml version=&quot;1.0&quot; standalone=&quot;yes&quot; ?&gt;
+ &lt;DBMODEL Version=&quot;4.0&quot;&gt;
+ &lt;SETTINGS&gt;
+-&lt;GLOBALSETTINGS ModelName=&quot;erm-model&quot; IDModel=&quot;0&quot; IDVersion=&quot;0&quot; VersionStr=&quot;1.0.0.0&quot; Comments=&quot;&quot; UseVersionHistroy=&quot;1&quot; AutoIncVersion=&quot;1&quot; DatabaseType=&quot;MySQL&quot; ZoomFac=&quot;75.00&quot; XPos=&quot;201&quot; YPos=&quot;0&quot; DefaultDataType=&quot;5&quot; DefaultTablePrefix=&quot;0&quot; DefSaveDBConn=&quot;&quot; DefSyncDBConn=&quot;&quot; DefQueryDBConn=&quot;&quot; Printer=&quot;&quot; HPageCount=&quot;4.0&quot; PageAspectRatio=&quot;1.440892512336408&quot; PageOrientation=&quot;1&quot; PageFormat=&quot;A4 (210x297 mm, 8.26x11.7 inches)&quot; SelectedPages=&quot;&quot; UsePositionGrid=&quot;1&quot; PositionGridX=&quot;20&quot; PositionGridY=&quot;20&quot; TableNameInRefs=&quot;0&quot; DefaultTableType=&quot;0&quot; ActivateRefDefForNewRelations=&quot;1&quot; FKPrefix=&quot;&quot; FKPostfix=&quot;&quot; CreateFKRefDefIndex=&quot;1&quot; DBQuoteCharacter=&quot;`&quot; CreateSQLforLinkedObjects=&quot;0&quot; DefModelFont=&quot;Nimbus Sans L&quot; CanvasWidth=&quot;4096&quot; CanvasHeight=&quot;2842&quot; /&gt;
++&lt;GLOBALSETTINGS ModelName=&quot;erm-model&quot; IDModel=&quot;0&quot; IDVersion=&quot;0&quot; VersionStr=&quot;1.0.0.0&quot; Comments=&quot;&quot; UseVersionHistroy=&quot;1&quot; AutoIncVersion=&quot;1&quot; DatabaseType=&quot;MySQL&quot; ZoomFac=&quot;75.00&quot; XPos=&quot;519&quot; YPos=&quot;0&quot; DefaultDataType=&quot;5&quot; DefaultTablePrefix=&quot;0&quot; DefSaveDBConn=&quot;&quot; DefSyncDBConn=&quot;&quot; DefQueryDBConn=&quot;&quot; Printer=&quot;&quot; HPageCount=&quot;4.0&quot; PageAspectRatio=&quot;1.440892512336408&quot; PageOrientation=&quot;1&quot; PageFormat=&quot;A4 (210x297 mm, 8.26x11.7 inches)&quot; SelectedPages=&quot;&quot; UsePositionGrid=&quot;1&quot; PositionGridX=&quot;20&quot; PositionGridY=&quot;20&quot; TableNameInRefs=&quot;0&quot; DefaultTableType=&quot;0&quot; ActivateRefDefForNewRelations=&quot;1&quot; FKPrefix=&quot;&quot; FKPostfix=&quot;&quot; CreateFKRefDefIndex=&quot;1&quot; DBQuoteCharacter=&quot;`&quot; CreateSQLforLinkedObjects=&quot;0&quot; DefModelFont=&quot;Nimbus Sans L&quot; CanvasWidth=&quot;4096&quot; CanvasHeight=&quot;2842&quot; /&gt;
+ &lt;DATATYPEGROUPS&gt;
+ &lt;DATATYPEGROUP Name=&quot;Numeric Types&quot; Icon=&quot;1&quot; /&gt;
+ &lt;DATATYPEGROUP Name=&quot;Date and Time Types&quot; Icon=&quot;2&quot; /&gt;
+@@ -258,14 +258,14 @@
+ &lt;/SETTINGS&gt;
+ &lt;METADATA&gt;
+ &lt;REGIONS&gt;
+-&lt;REGION ID=&quot;1690&quot; RegionName=&quot;Binary Data Information&quot; XPos=&quot;1500&quot; YPos=&quot;280&quot; Width=&quot;608&quot; Height=&quot;258&quot; RegionColor=&quot;0&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;53&quot; /&gt;
+-&lt;REGION ID=&quot;1672&quot; RegionName=&quot;Person Information&quot; XPos=&quot;680&quot; YPos=&quot;600&quot; Width=&quot;927&quot; Height=&quot;315&quot; RegionColor=&quot;4&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;46&quot; /&gt;
+-&lt;REGION ID=&quot;1671&quot; RegionName=&quot;General Item Information&quot; XPos=&quot;682&quot; YPos=&quot;14&quot; Width=&quot;800&quot; Height=&quot;580&quot; RegionColor=&quot;2&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;45&quot; /&gt;
+-&lt;REGION ID=&quot;1670&quot; RegionName=&quot;Item Specific Information&quot; XPos=&quot;293&quot; YPos=&quot;12&quot; Width=&quot;374&quot; Height=&quot;824&quot; RegionColor=&quot;0&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;44&quot; /&gt;
+-&lt;REGION ID=&quot;1667&quot; RegionName=&quot;Track Information&quot; XPos=&quot;11&quot; YPos=&quot;183&quot; Width=&quot;270&quot; Height=&quot;653&quot; RegionColor=&quot;3&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;43&quot; /&gt;
+-&lt;REGION ID=&quot;1668&quot; RegionName=&quot;Language Information&quot; XPos=&quot;10&quot; YPos=&quot;11&quot; Width=&quot;269&quot; Height=&quot;156&quot; RegionColor=&quot;4&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;43&quot; /&gt;
+-&lt;REGION ID=&quot;1686&quot; RegionName=&quot;Media Information&quot; XPos=&quot;1500&quot; YPos=&quot;20&quot; Width=&quot;610&quot; Height=&quot;231&quot; RegionColor=&quot;1&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;51&quot; /&gt;
+ &lt;REGION ID=&quot;1744&quot; RegionName=&quot;File Information&quot; XPos=&quot;13&quot; YPos=&quot;927&quot; Width=&quot;1452&quot; Height=&quot;144&quot; RegionColor=&quot;5&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;54&quot; /&gt;
++&lt;REGION ID=&quot;1686&quot; RegionName=&quot;Media Information&quot; XPos=&quot;1500&quot; YPos=&quot;20&quot; Width=&quot;610&quot; Height=&quot;231&quot; RegionColor=&quot;1&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;51&quot; /&gt;
++&lt;REGION ID=&quot;1668&quot; RegionName=&quot;Language Information&quot; XPos=&quot;10&quot; YPos=&quot;11&quot; Width=&quot;269&quot; Height=&quot;156&quot; RegionColor=&quot;4&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;43&quot; /&gt;
++&lt;REGION ID=&quot;1667&quot; RegionName=&quot;Track Information&quot; XPos=&quot;11&quot; YPos=&quot;183&quot; Width=&quot;270&quot; Height=&quot;653&quot; RegionColor=&quot;3&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;43&quot; /&gt;
++&lt;REGION ID=&quot;1670&quot; RegionName=&quot;Item Specific Information&quot; XPos=&quot;293&quot; YPos=&quot;12&quot; Width=&quot;374&quot; Height=&quot;824&quot; RegionColor=&quot;0&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;44&quot; /&gt;
++&lt;REGION ID=&quot;1671&quot; RegionName=&quot;General Item Information&quot; XPos=&quot;682&quot; YPos=&quot;14&quot; Width=&quot;800&quot; Height=&quot;580&quot; RegionColor=&quot;2&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;45&quot; /&gt;
++&lt;REGION ID=&quot;1672&quot; RegionName=&quot;Person Information&quot; XPos=&quot;680&quot; YPos=&quot;600&quot; Width=&quot;927&quot; Height=&quot;315&quot; RegionColor=&quot;4&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;46&quot; /&gt;
++&lt;REGION ID=&quot;1690&quot; RegionName=&quot;Binary Data Information&quot; XPos=&quot;1500&quot; YPos=&quot;280&quot; Width=&quot;608&quot; Height=&quot;258&quot; RegionColor=&quot;0&quot; TablePrefix=&quot;0&quot; TableType=&quot;0&quot; OverwriteTablePrefix=&quot;0&quot; OverwriteTableType=&quot;0&quot; Comments=&quot;&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;53&quot; /&gt;
+ &lt;/REGIONS&gt;
+ &lt;TABLES&gt;
+ &lt;TABLE ID=&quot;1491&quot; Tablename=&quot;Languages&quot; PrevTableName=&quot;Table_01&quot; XPos=&quot;42&quot; YPos=&quot;51&quot; TableType=&quot;0&quot; TablePrefix=&quot;0&quot; nmTable=&quot;0&quot; Temporary=&quot;0&quot; UseStandardInserts=&quot;0&quot; StandardInserts=&quot;\n&quot; TableOptions=&quot;DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n&quot; Comments=&quot;&quot; Collapsed=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;3&quot; &gt;
+@@ -575,7 +575,7 @@
+ &lt;/INDEX&gt;
+ &lt;/INDICES&gt;
+ &lt;/TABLE&gt;
+-&lt;TABLE ID=&quot;1553&quot; Tablename=&quot;ItemTypes&quot; PrevTableName=&quot;Table_08&quot; XPos=&quot;1060&quot; YPos=&quot;40&quot; TableType=&quot;0&quot; TablePrefix=&quot;0&quot; nmTable=&quot;0&quot; Temporary=&quot;0&quot; UseStandardInserts=&quot;0&quot; StandardInserts=&quot;\n&quot; TableOptions=&quot;DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n&quot; Comments=&quot;&quot; Collapsed=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;15&quot; &gt;
++&lt;TABLE ID=&quot;1553&quot; Tablename=&quot;ItemTypes&quot; PrevTableName=&quot;Table_08&quot; XPos=&quot;1040&quot; YPos=&quot;20&quot; TableType=&quot;0&quot; TablePrefix=&quot;0&quot; nmTable=&quot;0&quot; Temporary=&quot;0&quot; UseStandardInserts=&quot;0&quot; StandardInserts=&quot;\n&quot; TableOptions=&quot;DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n&quot; Comments=&quot;&quot; Collapsed=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;15&quot; &gt;
+ &lt;COLUMNS&gt;
+ &lt;COLUMN ID=&quot;1555&quot; ColName=&quot;ItemTypeID&quot; PrevColName=&quot;&quot; Pos=&quot;0&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;1&quot; NotNull=&quot;1&quot; AutoInc=&quot;1&quot; IsForeignKey=&quot;0&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+ &lt;OPTIONSELECTED&gt;
+@@ -583,6 +583,24 @@
+ &lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
+ &lt;/OPTIONSELECTED&gt;
+ &lt;/COLUMN&gt;
++&lt;COLUMN ID=&quot;1787&quot; ColName=&quot;MediaCodecID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
++&lt;OPTIONSELECTED&gt;
++&lt;OPTIONSELECT Value=&quot;1&quot; /&gt;
++&lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
++&lt;/OPTIONSELECTED&gt;
++&lt;/COLUMN&gt;
++&lt;COLUMN ID=&quot;1784&quot; ColName=&quot;MediaAgeRestrictionID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
++&lt;OPTIONSELECTED&gt;
++&lt;OPTIONSELECT Value=&quot;1&quot; /&gt;
++&lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
++&lt;/OPTIONSELECTED&gt;
++&lt;/COLUMN&gt;
++&lt;COLUMN ID=&quot;1781&quot; ColName=&quot;MediaFormatID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
++&lt;OPTIONSELECTED&gt;
++&lt;OPTIONSELECT Value=&quot;1&quot; /&gt;
++&lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
++&lt;/OPTIONSELECTED&gt;
++&lt;/COLUMN&gt;
+ &lt;COLUMN ID=&quot;1557&quot; ColName=&quot;ItemTypeCode&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;19&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;0&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;0&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+ &lt;OPTIONSELECTED&gt;
+ &lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
+@@ -592,15 +610,35 @@
+ &lt;RELATIONS_START&gt;
+ &lt;RELATION_START ID=&quot;1584&quot; /&gt;
+ &lt;/RELATIONS_START&gt;
++&lt;RELATIONS_END&gt;
++&lt;RELATION_END ID=&quot;1780&quot; /&gt;
++&lt;RELATION_END ID=&quot;1783&quot; /&gt;
++&lt;RELATION_END ID=&quot;1786&quot; /&gt;
++&lt;/RELATIONS_END&gt;
+ &lt;INDICES&gt;
+ &lt;INDEX ID=&quot;1556&quot; IndexName=&quot;PRIMARY&quot; IndexKind=&quot;0&quot; FKRefDef_Obj_id=&quot;-1&quot;&gt;
+ &lt;INDEXCOLUMNS&gt;
+ &lt;INDEXCOLUMN idColumn=&quot;1555&quot; LengthParam=&quot;0&quot; /&gt;
+ &lt;/INDEXCOLUMNS&gt;
+ &lt;/INDEX&gt;
++&lt;INDEX ID=&quot;1782&quot; IndexName=&quot;ItemTypes_FKIndex1&quot; IndexKind=&quot;1&quot; FKRefDef_Obj_id=&quot;1780&quot;&gt;
++&lt;INDEXCOLUMNS&gt;
++&lt;INDEXCOLUMN idColumn=&quot;1781&quot; LengthParam=&quot;0&quot; /&gt;
++&lt;/INDEXCOLUMNS&gt;
++&lt;/INDEX&gt;
++&lt;INDEX ID=&quot;1785&quot; IndexName=&quot;ItemTypes_FKIndex2&quot; IndexKind=&quot;1&quot; FKRefDef_Obj_id=&quot;1783&quot;&gt;
++&lt;INDEXCOLUMNS&gt;
++&lt;INDEXCOLUMN idColumn=&quot;1784&quot; LengthParam=&quot;0&quot; /&gt;
++&lt;/INDEXCOLUMNS&gt;
++&lt;/INDEX&gt;
++&lt;INDEX ID=&quot;1788&quot; IndexName=&quot;ItemTypes_FKIndex3&quot; IndexKind=&quot;1&quot; FKRefDef_Obj_id=&quot;1786&quot;&gt;
++&lt;INDEXCOLUMNS&gt;
++&lt;INDEXCOLUMN idColumn=&quot;1787&quot; LengthParam=&quot;0&quot; /&gt;
++&lt;/INDEXCOLUMNS&gt;
++&lt;/INDEX&gt;
+ &lt;/INDICES&gt;
+ &lt;/TABLE&gt;
+-&lt;TABLE ID=&quot;1558&quot; Tablename=&quot;Categories&quot; PrevTableName=&quot;Table_09&quot; XPos=&quot;1060&quot; YPos=&quot;200&quot; TableType=&quot;0&quot; TablePrefix=&quot;0&quot; nmTable=&quot;0&quot; Temporary=&quot;0&quot; UseStandardInserts=&quot;0&quot; StandardInserts=&quot;\n&quot; TableOptions=&quot;DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n&quot; Comments=&quot;&quot; Collapsed=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;16&quot; &gt;
++&lt;TABLE ID=&quot;1558&quot; Tablename=&quot;Categories&quot; PrevTableName=&quot;Table_09&quot; XPos=&quot;1080&quot; YPos=&quot;260&quot; TableType=&quot;0&quot; TablePrefix=&quot;0&quot; nmTable=&quot;0&quot; Temporary=&quot;0&quot; UseStandardInserts=&quot;0&quot; StandardInserts=&quot;\n&quot; TableOptions=&quot;DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n&quot; Comments=&quot;&quot; Collapsed=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;16&quot; &gt;
+ &lt;COLUMNS&gt;
+ &lt;COLUMN ID=&quot;1560&quot; ColName=&quot;CategoryID&quot; PrevColName=&quot;&quot; Pos=&quot;0&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;1&quot; NotNull=&quot;1&quot; AutoInc=&quot;1&quot; IsForeignKey=&quot;0&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+ &lt;OPTIONSELECTED&gt;
+@@ -625,7 +663,7 @@
+ &lt;/INDEX&gt;
+ &lt;/INDICES&gt;
+ &lt;/TABLE&gt;
+-&lt;TABLE ID=&quot;1563&quot; Tablename=&quot;Categories_has_Items&quot; PrevTableName=&quot;Table_10&quot; XPos=&quot;1060&quot; YPos=&quot;340&quot; TableType=&quot;0&quot; TablePrefix=&quot;0&quot; nmTable=&quot;0&quot; Temporary=&quot;0&quot; UseStandardInserts=&quot;0&quot; StandardInserts=&quot;\n&quot; TableOptions=&quot;DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n&quot; Comments=&quot;&quot; Collapsed=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;17&quot; &gt;
++&lt;TABLE ID=&quot;1563&quot; Tablename=&quot;Categories_has_Items&quot; PrevTableName=&quot;Table_10&quot; XPos=&quot;1060&quot; YPos=&quot;360&quot; TableType=&quot;0&quot; TablePrefix=&quot;0&quot; nmTable=&quot;0&quot; Temporary=&quot;0&quot; UseStandardInserts=&quot;0&quot; StandardInserts=&quot;\n&quot; TableOptions=&quot;DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n&quot; Comments=&quot;&quot; Collapsed=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;17&quot; &gt;
+ &lt;COLUMNS&gt;
+ &lt;COLUMN ID=&quot;1591&quot; ColName=&quot;ItemID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+ &lt;OPTIONSELECTED&gt;
+@@ -708,30 +746,6 @@
+ &lt;OPTIONSELECTED&gt;
+ &lt;/OPTIONSELECTED&gt;
+ &lt;/COLUMN&gt;
+-&lt;COLUMN ID=&quot;1683&quot; ColName=&quot;MediaStatusID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+-&lt;OPTIONSELECTED&gt;
+-&lt;OPTIONSELECT Value=&quot;1&quot; /&gt;
+-&lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
+-&lt;/OPTIONSELECTED&gt;
+-&lt;/COLUMN&gt;
+-&lt;COLUMN ID=&quot;1680&quot; ColName=&quot;MediaAgeRestrictionID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+-&lt;OPTIONSELECTED&gt;
+-&lt;OPTIONSELECT Value=&quot;1&quot; /&gt;
+-&lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
+-&lt;/OPTIONSELECTED&gt;
+-&lt;/COLUMN&gt;
+-&lt;COLUMN ID=&quot;1677&quot; ColName=&quot;MediaCodecID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+-&lt;OPTIONSELECTED&gt;
+-&lt;OPTIONSELECT Value=&quot;1&quot; /&gt;
+-&lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
+-&lt;/OPTIONSELECTED&gt;
+-&lt;/COLUMN&gt;
+-&lt;COLUMN ID=&quot;1674&quot; ColName=&quot;MediaFormatID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+-&lt;OPTIONSELECTED&gt;
+-&lt;OPTIONSELECT Value=&quot;1&quot; /&gt;
+-&lt;OPTIONSELECT Value=&quot;0&quot; /&gt;
+-&lt;/OPTIONSELECTED&gt;
+-&lt;/COLUMN&gt;
+ &lt;COLUMN ID=&quot;1585&quot; ColName=&quot;ItemTypeID&quot; PrevColName=&quot;&quot; Pos=&quot;1&quot; idDatatype=&quot;5&quot; DatatypeParams=&quot;&quot; Width=&quot;-1&quot; Prec=&quot;-1&quot; PrimaryKey=&quot;0&quot; NotNull=&quot;1&quot; AutoInc=&quot;0&quot; IsForeignKey=&quot;1&quot; DefaultValue=&quot;&quot; Comments=&quot;&quot;&gt;
+ &lt;OPTIONSELECTED&gt;
+ &lt;OPTIONSELECT Value=&quot;1&quot; /&gt;
+@@ -751,10 +765,6 @@
+ &lt;/RELATIONS_START&gt;
+ &lt;RELATIONS_END&gt;
+ &lt;RELATION_END ID=&quot;1584&quot; /&gt;
+-&lt;RELATION_END ID=&quot;1673&quot; /&gt;
+-&lt;RELATION_END ID=&quot;1676&quot; /&gt;
+-&lt;RELATION_END ID=&quot;1679&quot; /&gt;
+-&lt;RELATION_END ID=&quot;1682&quot; /&gt;
+ &lt;RELATION_END ID=&quot;1770&quot; /&gt;
+ &lt;/RELATIONS_END&gt;
+ &lt;INDICES&gt;
+@@ -768,26 +778,6 @@
+ &lt;INDEXCOLUMN idColumn=&quot;1585&quot; LengthParam=&quot;0&quot; /&gt;
+ &lt;/INDEXCOLUMNS&gt;
+ &lt;/INDEX&gt;
+-&lt;INDEX ID=&quot;1675&quot; IndexName=&quot;Items_FKIndex2&quot; IndexKind=&quot;1&quot; FKRefDef_Obj_id=&quot;1673&quot;&gt;
+-&lt;INDEXCOLUMNS&gt;
+-&lt;INDEXCOLUMN idColumn=&quot;1674&quot; LengthParam=&quot;0&quot; /&gt;
+-&lt;/INDEXCOLUMNS&gt;
+-&lt;/INDEX&gt;
+-&lt;INDEX ID=&quot;1678&quot; IndexName=&quot;Items_FKIndex3&quot; IndexKind=&quot;1&quot; FKRefDef_Obj_id=&quot;1676&quot;&gt;
+-&lt;INDEXCOLUMNS&gt;
+-&lt;INDEXCOLUMN idColumn=&quot;1677&quot; LengthParam=&quot;0&quot; /&gt;
+-&lt;/INDEXCOLUMNS&gt;
+-&lt;/INDEX&gt;
+-&lt;INDEX ID=&quot;1681&quot; IndexName=&quot;Items_FKIndex4&quot; IndexKind=&quot;1&quot; FKRefDef_Obj_id=&quot;1679&quot;&gt;
+-&lt;INDEXCOLUMNS&gt;
+-&lt;INDEXCOLUMN idColumn=&quot;1680&quot; LengthParam=&quot;0&quot; /&gt;
+-&lt;/INDEXCOLUMNS&gt;
+-&lt;/INDEX&gt;
+-&lt;INDEX ID=&quot;1684&quot; IndexName=&quot;Items_FKIndex5&quot; IndexKind=&quot;1&quot; FKRefDef_Obj_id=&quot;1682&quot;&gt;
+-&lt;INDEXCOLUMNS&gt;
+-&lt;INDEXCOLUMN idColumn=&quot;1683&quot; LengthParam=&quot;0&quot; /&gt;
+-&lt;/INDEXCOLUMNS&gt;
+-&lt;/INDEX&gt;
+ &lt;INDEX ID=&quot;1779&quot; IndexName=&quot;Items_FKIndex6&quot; IndexKind=&quot;1&quot; FKRefDef_Obj_id=&quot;1770&quot;&gt;
+ &lt;INDEXCOLUMNS&gt;
+ &lt;INDEXCOLUMN idColumn=&quot;1778&quot; LengthParam=&quot;0&quot; /&gt;
+@@ -1007,7 +997,7 @@
+ &lt;/COLUMN&gt;
+ &lt;/COLUMNS&gt;
+ &lt;RELATIONS_START&gt;
+-&lt;RELATION_START ID=&quot;1673&quot; /&gt;
++&lt;RELATION_START ID=&quot;1780&quot; /&gt;
+ &lt;/RELATIONS_START&gt;
+ &lt;INDICES&gt;
+ &lt;INDEX ID=&quot;1641&quot; IndexName=&quot;PRIMARY&quot; IndexKind=&quot;0&quot; FKRefDef_Obj_id=&quot;-1&quot;&gt;
+@@ -1032,7 +1022,7 @@
+ &lt;/COLUMN&gt;
+ &lt;/COLUMNS&gt;
+ &lt;RELATIONS_START&gt;
+-&lt;RELATION_START ID=&quot;1679&quot; /&gt;
++&lt;RELATION_START ID=&quot;1783&quot; /&gt;
+ &lt;/RELATIONS_START&gt;
+ &lt;INDICES&gt;
+ &lt;INDEX ID=&quot;1646&quot; IndexName=&quot;PRIMARY&quot; IndexKind=&quot;0&quot; FKRefDef_Obj_id=&quot;-1&quot;&gt;
+@@ -1066,9 +1056,6 @@
+ &lt;/OPTIONSELECTED&gt;
+ &lt;/COLUMN&gt;
+ &lt;/COLUMNS&gt;
+-&lt;RELATIONS_START&gt;
+-&lt;RELATION_START ID=&quot;1682&quot; /&gt;
+-&lt;/RELATIONS_START&gt;
+ &lt;INDICES&gt;
+ &lt;INDEX ID=&quot;1651&quot; IndexName=&quot;PRIMARY&quot; IndexKind=&quot;0&quot; FKRefDef_Obj_id=&quot;-1&quot;&gt;
+ &lt;INDEXCOLUMNS&gt;
+@@ -1098,7 +1085,7 @@
+ &lt;/COLUMN&gt;
+ &lt;/COLUMNS&gt;
+ &lt;RELATIONS_START&gt;
+-&lt;RELATION_START ID=&quot;1676&quot; /&gt;
++&lt;RELATION_START ID=&quot;1786&quot; /&gt;
+ &lt;/RELATIONS_START&gt;
+ &lt;INDICES&gt;
+ &lt;INDEX ID=&quot;1658&quot; IndexName=&quot;PRIMARY&quot; IndexKind=&quot;0&quot; FKRefDef_Obj_id=&quot;-1&quot;&gt;
+@@ -1160,11 +1147,10 @@
+ &lt;RELATION ID=&quot;1629&quot; RelationName=&quot;Rel_18&quot; Kind=&quot;2&quot; SrcTable=&quot;1565&quot; DestTable=&quot;1598&quot; FKFields=&quot;ItemID=ItemID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;3&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1631&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;34&quot; /&gt;
+ &lt;RELATION ID=&quot;1632&quot; RelationName=&quot;Rel_19&quot; Kind=&quot;2&quot; SrcTable=&quot;1565&quot; DestTable=&quot;1603&quot; FKFields=&quot;ItemID=ItemID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;2&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1634&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;35&quot; /&gt;
+ &lt;RELATION ID=&quot;1635&quot; RelationName=&quot;Rel_20&quot; Kind=&quot;2&quot; SrcTable=&quot;1565&quot; DestTable=&quot;1607&quot; FKFields=&quot;ItemID=ItemID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;2&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1637&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;36&quot; /&gt;
+-&lt;RELATION ID=&quot;1673&quot; RelationName=&quot;Rel_21&quot; Kind=&quot;2&quot; SrcTable=&quot;1638&quot; DestTable=&quot;1565&quot; FKFields=&quot;MediaFormatID=MediaFormatID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;4&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1675&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;47&quot; /&gt;
+-&lt;RELATION ID=&quot;1676&quot; RelationName=&quot;Rel_22&quot; Kind=&quot;2&quot; SrcTable=&quot;1655&quot; DestTable=&quot;1565&quot; FKFields=&quot;MediaCodecID=MediaCodecID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;4&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1678&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;48&quot; /&gt;
+-&lt;RELATION ID=&quot;1679&quot; RelationName=&quot;Rel_23&quot; Kind=&quot;2&quot; SrcTable=&quot;1643&quot; DestTable=&quot;1565&quot; FKFields=&quot;MediaAgeRestrictionID=MediaAgeRestrictionID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;4&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1681&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;49&quot; /&gt;
+-&lt;RELATION ID=&quot;1682&quot; RelationName=&quot;Rel_24&quot; Kind=&quot;2&quot; SrcTable=&quot;1648&quot; DestTable=&quot;1565&quot; FKFields=&quot;MediaStatusID=MediaStatusID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;4&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1684&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;50&quot; /&gt;
+ &lt;RELATION ID=&quot;1770&quot; RelationName=&quot;Rel_28&quot; Kind=&quot;2&quot; SrcTable=&quot;1661&quot; DestTable=&quot;1565&quot; FKFields=&quot;ItemPicturesID=ItemPicturesID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;4&quot; MidOffset=&quot;43&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1779&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;56&quot; /&gt;
++&lt;RELATION ID=&quot;1780&quot; RelationName=&quot;Rel_25&quot; Kind=&quot;2&quot; SrcTable=&quot;1638&quot; DestTable=&quot;1553&quot; FKFields=&quot;MediaFormatID=MediaFormatID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;4&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1782&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;55&quot; /&gt;
++&lt;RELATION ID=&quot;1783&quot; RelationName=&quot;Rel_26&quot; Kind=&quot;2&quot; SrcTable=&quot;1643&quot; DestTable=&quot;1553&quot; FKFields=&quot;MediaAgeRestrictionID=MediaAgeRestrictionID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;4&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1785&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;55&quot; /&gt;
++&lt;RELATION ID=&quot;1786&quot; RelationName=&quot;Rel_27&quot; Kind=&quot;2&quot; SrcTable=&quot;1655&quot; DestTable=&quot;1553&quot; FKFields=&quot;MediaCodecID=MediaCodecID\n&quot; FKFieldsComments=&quot;\n&quot; relDirection=&quot;4&quot; MidOffset=&quot;0&quot; OptionalStart=&quot;0&quot; OptionalEnd=&quot;0&quot; CaptionOffsetX=&quot;0&quot; CaptionOffsetY=&quot;0&quot; StartIntervalOffsetX=&quot;0&quot; StartIntervalOffsetY=&quot;0&quot; EndIntervalOffsetX=&quot;0&quot; EndIntervalOffsetY=&quot;0&quot; CreateRefDef=&quot;1&quot; Invisible=&quot;0&quot; RefDef=&quot;Matching=0\nOnDelete=3\nOnUpdate=3\n&quot; Comments=&quot;&quot; FKRefDefIndex_Obj_id=&quot;1788&quot; Splitted=&quot;0&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;54&quot; /&gt;
+ &lt;/RELATIONS&gt;
+ &lt;NOTES&gt;
+ &lt;NOTE ID=&quot;1745&quot; NoteName=&quot;Note_01&quot; XPos=&quot;55&quot; YPos=&quot;983&quot; NoteText=&quot;phpMediaDB\n$Id$\n&quot; IsLinkedObject=&quot;0&quot; IDLinkedModel=&quot;-1&quot; Obj_id_Linked=&quot;-1&quot; OrderPos=&quot;55&quot; /&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.10,1.11
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.12,1.13
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

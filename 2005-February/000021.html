@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.postinit.php,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration%20config.postinit.php%2C1.1%2C1.2&In-Reply-To=%3C200502092112.j19LCXN14361%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000020.html">
+   <LINK REL="Next"  HREF="000022.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.postinit.php,1.1,1.2</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration%20config.postinit.php%2C1.1%2C1.2&In-Reply-To=%3C200502092112.j19LCXN14361%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.postinit.php,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Feb  9 22:12:33 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000020.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000022.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.presentation.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration
+In directory sheep:/tmp/cvs-serv24749/_source/tier.configuration
+
+Modified Files:
+	config.postinit.php 
+Log Message:
+* Removed unset of global config - didn't work here
+
+Index: config.postinit.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.postinit.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- config.postinit.php	9 Feb 2005 16:16:22 -0000	1.1
++++ config.postinit.php	9 Feb 2005 21:12:31 -0000	1.2
+@@ -2,10 +2,7 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id $ */
+ 
+-/*
+- * Unset phpMediaDbConfig - security
+- */
+-unset( $phpMediaDbConfig );
++
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000020.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000022.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.presentation.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

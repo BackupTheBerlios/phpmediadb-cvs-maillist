@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_session.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_session.php%2C1.3%2C1.4&In-Reply-To=%3C200503152025.j2FKPYN13468%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000144.html">
+   <LINK REL="Next"  HREF="000146.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_session.php,1.3,1.4</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_session.php%2C1.3%2C1.4&In-Reply-To=%3C200503152025.j2FKPYN13468%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_session.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 21:25:34 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000144.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.5,1.6
+</A></li>
+        <LI>Next message: <A HREF="000146.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_xmlservice.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#145">[ date ]</a>
+              <a href="thread.html#145">[ thread ]</a>
+              <a href="subject.html#145">[ subject ]</a>
+              <a href="author.html#145">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv23583/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_session.php 
+Log Message:
+* Added comments
+* Added basic classlayout
+
+Index: class.phpmediadb_presentation_session.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_session.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_presentation_session.php	15 Mar 2005 18:10:22 -0000	1.3
++++ class.phpmediadb_presentation_session.php	15 Mar 2005 20:25:32 -0000	1.4
+@@ -4,51 +4,129 @@
+ 
+ class phpmediadb_presentation_session
+ {
++	// --- ATTRIBUTES ---
+ 
++	/**
++	 * Reference to class phpmediadb
++	 *
++	 * @access protected
++	 * @see phpmediadb
++	 * @var phpmediadb
++	 */
++	protected $PHPMEDIADB = null;
+ 
++	/**
++	 * Reference to class phpmediadb_presentation
++	 *
++	 * @access protected
++	 * @see phpmediadb_presentation
++	 * @var phpmediadb_presentation
++	 */
++	protected $PRESENTATION = null;
++
++//-----------------------------------------------------------------------------
++	/**
++	 * The constructor __construct initalizes the Class.
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param phpmediadb_presentation $sender Reference to parent class
++	 */
+ 	public function __construct( $sender )
+ 	{
++		/* assign parent */
++		$this-&gt;PRESENTATION	= $sender;
++		$this-&gt;PHPMEDIADB		= $sender-&gt;PHPMEDIADB;
++		
+ 		/* init session */
+ 		$this-&gt;start();
+-	}
+-
++  }
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * Registers a variable in session object
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String $id Specifies which id should used to store the value
++	 * @param Mixed $regvar Value which should be stored
++	 */
+ 	public function register( $id, $regvar )
+ 	{
+ 		/* set value */
+ 		$_SESSION[$id] = $regvar;
+ 	}
+ 	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes a variable from session object
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String $id Specifies which id should removed
++	 */
+ 	public function unregister( $id )
+ 	{
+ 		/* unregister variable */
+ 		unset( $_SESSION[$id] );
+ 	}
+ 	
++//-----------------------------------------------------------------------------
++	/**
++	 * Returns a variable from session object
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String $id Specifies which id should be returned
++	 */
+ 	public function get( $id )
+ 	{
+ 		/* return value */
+ 		return $_SESSION[$id];
+ 	}
+ 	
++//-----------------------------------------------------------------------------
++	/**
++	 * Starts and initalized the session
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 */
+ 	public function start()
+ 	{
+ 		/* start session */
+ 		session_start();
+ 	}
+ 	
++//-----------------------------------------------------------------------------
++	/**
++	 * Destroys the session
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 */	
+ 	public function destroy()
+ 	{
+ 		/* destroy session */
+ 		session_destroy();
+ 	}
+ 	
++//-----------------------------------------------------------------------------
++	/**
++	 * Return and/or sets the global unique session id
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String $newId New session id as string
++	 * @return String Currently used or old session id
++	 */	
+ 	public function getUid( $newId = NULL )
+ 	{
+ 		/* return session_id */
+ 		return session_id( $newId );
+ 	}
+ 	
+-
++//-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_presentation_session */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000144.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.5,1.6
+</A></li>
+	<LI>Next message: <A HREF="000146.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_xmlservice.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#145">[ date ]</a>
+              <a href="thread.html#145">[ thread ]</a>
+              <a href="subject.html#145">[ subject ]</a>
+              <a href="author.html#145">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

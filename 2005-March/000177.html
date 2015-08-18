@@ -1,0 +1,540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.8,1.9 class.phpmediadb_presentation_i18n.php,1.8,1.9 class.phpmediadb_presentation.php,1.6,1.7 class.phpmediadb_presentation_session.php,1.4,1.5 class.phpmediadb_presentation_xmlservice.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_contentvars.php%2C1.8%2C1.9%20class.phpmediadb_presentation_i18n.php%2C1.8%2C1.9%20class.phpmediadb_presentation.php%2C1.6%2C1.7%20class.phpmediadb_presentation_session.php%2C1.4%2C1.5%20class.phpmediadb_presentation_xmlservice.php%2C1.3%2C1.4&In-Reply-To=%3C200503201712.j2KHCUM04384%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000176.html">
+   <LINK REL="Next"  HREF="000178.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.8,1.9 class.phpmediadb_presentation_i18n.php,1.8,1.9 class.phpmediadb_presentation.php,1.6,1.7 class.phpmediadb_presentation_session.php,1.4,1.5 class.phpmediadb_presentation_xmlservice.php,1.3,1.4</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_contentvars.php%2C1.8%2C1.9%20class.phpmediadb_presentation_i18n.php%2C1.8%2C1.9%20class.phpmediadb_presentation.php%2C1.6%2C1.7%20class.phpmediadb_presentation_session.php%2C1.4%2C1.5%20class.phpmediadb_presentation_xmlservice.php%2C1.3%2C1.4&In-Reply-To=%3C200503201712.j2KHCUM04384%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.8,1.9 class.phpmediadb_presentation_i18n.php,1.8,1.9 class.phpmediadb_presentation.php,1.6,1.7 class.phpmediadb_presentation_session.php,1.4,1.5 class.phpmediadb_presentation_xmlservice.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Mar 20 18:12:30 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000176.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.4,1.5 config.data.php,1.3,1.4 config.presentation.php,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000178.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.8,1.9
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#177">[ date ]</a>
+              <a href="thread.html#177">[ thread ]</a>
+              <a href="subject.html#177">[ subject ]</a>
+              <a href="author.html#177">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv19265/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_contentvars.php 
+	class.phpmediadb_presentation_i18n.php 
+	class.phpmediadb_presentation.php 
+	class.phpmediadb_presentation_session.php 
+	class.phpmediadb_presentation_xmlservice.php 
+Log Message:
+* Changed tabs to size 4
+
+Index: class.phpmediadb_presentation_contentvars.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_contentvars.php,v
+retrieving revision 1.8
+retrieving revision 1.9
+diff -u -d -r1.8 -r1.9
+--- class.phpmediadb_presentation_contentvars.php	16 Mar 2005 14:56:45 -0000	1.8
++++ class.phpmediadb_presentation_contentvars.php	20 Mar 2005 17:12:28 -0000	1.9
+@@ -46,7 +46,7 @@
+ 	{
+ 		/* assign parent */
+ 		$this-&gt;PRESENTATION	= $sender;
+-		$this-&gt;PHPMEDIADB		= $sender-&gt;PHPMEDIADB;
++		$this-&gt;PHPMEDIADB	= $sender-&gt;PHPMEDIADB;
+ 
+ 		/* initalize */
+ 		$this-&gt;nodeContainer = array();
+@@ -275,10 +275,10 @@
+ 	 */
+ 	public function checkNodeString( $nodeName )
+ 	{
+-		$returnValue = (bool) false;
+-
+-		$checkRegEx = &quot;^([_a-zA-Z0-9]+\.?)+[_a-zA-Z0-9]+$&quot;;
+-		$returnValue = ereg( $checkRegEx, $nodeName );
++		/* init */
++		$returnValue	= (bool) false;
++		$checkRegEx		= &quot;^([_a-zA-Z0-9]+\.?)+[_a-zA-Z0-9]+$&quot;;
++		$returnValue	= ereg( $checkRegEx, $nodeName );
+ 		
+ 		/* return value */
+ 		return (bool) $returnValue;
+@@ -309,6 +309,7 @@
+ 			break;	
+ 			
+ 			case 'NULL':
++				/* fixed bug - NULL should be stay NULL! */
+ 				$returnValue = $nodeValue;
+ 			break;
+ 			
+@@ -329,8 +330,7 @@
+ 					/* not supported format */
+ 					default:
+ 						$returnValue = $nodeValue;
+-					break;	
+-						
++					break;			
+ 				}
+ 			break;
+ 		}
+
+Index: class.phpmediadb_presentation_i18n.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_i18n.php,v
+retrieving revision 1.8
+retrieving revision 1.9
+diff -u -d -r1.8 -r1.9
+--- class.phpmediadb_presentation_i18n.php	16 Mar 2005 14:57:04 -0000	1.8
++++ class.phpmediadb_presentation_i18n.php	20 Mar 2005 17:12:28 -0000	1.9
+@@ -61,7 +61,7 @@
+ 	{
+ 		/* assign parent */
+ 		$this-&gt;PRESENTATION	= $sender;
+-		$this-&gt;PHPMEDIADB		= $sender-&gt;PHPMEDIADB;
++		$this-&gt;PHPMEDIADB	= $sender-&gt;PHPMEDIADB;
+ 
+ 		/* initalize */
+ 		$this-&gt;langContainer = array();
+@@ -69,7 +69,7 @@
+ 		/* initalize values */
+ 		$this-&gt;readI18nDirectory();
+ 		$this-&gt;initalizeLanguageContainer();
+-  }
++	}
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+@@ -79,21 +79,21 @@
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ 	 * @return string Browserlanguage as languagecode
+ 	 */
+-  public function getBrowserLanguage()
+-  {
+-  	/* init */
+-  	$returnValue = &quot;&quot;;
+-  	$availableLanguages	= $this-&gt;getAvailableLanagues();
+-  	$defaultLanguage		= $this-&gt;PRESENTATION-&gt;configuration['i18n']['defaultLanguage'];
+-  	
+-  	/* detect browser language */
+-  	if( !$this-&gt;PRESENTATION-&gt;configuration['i18n']['forcedLanguage'] )
+-  		$returnValue = $this-&gt;detectBrowserLanguage( $availableLanguages, $defaultLanguage );
+-  	else
+-  		$returnValue = $defaultLanguage;
++	public function getBrowserLanguage()
++	{
++		/* init */
++		$returnValue		= &quot;&quot;;
++		$availableLanguages	= $this-&gt;getAvailableLanagues();
++		$defaultLanguage	= $this-&gt;PRESENTATION-&gt;configuration['i18n']['defaultLanguage'];
+   	
+-  	return $returnValue;
+-  }
++		/* detect browser language */
++		if( !$this-&gt;PRESENTATION-&gt;configuration['i18n']['forcedLanguage'] )
++			$returnValue = $this-&gt;detectBrowserLanguage( $availableLanguages, $defaultLanguage );
++		else
++			$returnValue = $defaultLanguage;
++
++		return $returnValue;
++	}
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+@@ -104,19 +104,19 @@
+ 	 * @param String Internal language-i18n-stringcode
+ 	 * @return mixed Internationalized string
+ 	 */
+-  public function getLanguageString( $langId )
+-  {
+-  	/* init */
+-  	$returnValue = false;
+-  	
+-  	/* check if key exists */
+-  	if( array_key_exists( $langId, $this-&gt;langContainer ) )
+-  		$returnValue = $this-&gt;langContainer[&quot;$langId&quot;];
+-  	else
+-  		$returnValue = '%'.$langId.'%';
++	public function getLanguageString( $langId )
++	{
++		/* init */
++		$returnValue = false;
+   	
+-  	return $returnValue;
+-  }
++		/* check if key exists */
++		if( array_key_exists( $langId, $this-&gt;langContainer ) )
++			$returnValue = $this-&gt;langContainer[&quot;$langId&quot;];
++		else
++			$returnValue = '%'.$langId.'%';
++
++		return $returnValue;
++	}
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+@@ -126,15 +126,16 @@
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ 	 * @return Array Array with all i18n strings
+ 	 */
+-  public function getLanguageArray()
+-  {
+-  	/* init */
+-  	$returnValue	= &quot;&quot;;
+-  	
++	public function getLanguageArray()
++	{
++		/* init */
++		$returnValue = &quot;&quot;;
++
++		/* get container */
+ 		$returnValue = $this-&gt;langContainer;
+-  	
+-  	return $returnValue;
+-  }
++
++		return $returnValue;
++	}
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+@@ -144,18 +145,17 @@
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ 	 * @return Array Array with all available languages as langcodes
+ 	 */
+-  public function getAvailableLanagues()
+-  {
+-  	/* init */
+-  	$returnValue = array();
++	public function getAvailableLanagues()
++	{
++		/* init */
++		$returnValue = array();
+ 		
+-  	/* get lanagues */
+-  	$returnValue	= array_keys( $this-&gt;availableLanguagesContainer );
++		/* get lanagues */
++		$returnValue = array_keys( $this-&gt;availableLanguagesContainer );
+   	  	
+-  	return $returnValue;
+-  }
++		return $returnValue;
++	}
+ 
+-  
+ //-----------------------------------------------------------------------------
+ 	/**
+ 	 * Returns the currently used language as langcode
+@@ -164,13 +164,13 @@
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ 	 * @return String Currently used language as langcode
+ 	 */
+-	 public function getLanguageCode()
+-	 {
+-  	/* init */
+-  	$returnValue = $this-&gt;langCode;
++	public function getLanguageCode()
++	{
++  		/* init */
++  		$returnValue = $this-&gt;langCode;
+   	  	
+-  	return $returnValue;
+-	 }  
++  		return $returnValue;
++	}  
+ 	 
+ //-----------------------------------------------------------------------------
+ 	/**
+@@ -181,23 +181,23 @@
+ 	 * @param String $langCode Languagecode which should be used
+ 	 * @return Bool status if set was successfull
+ 	 */
+-	 public function setLanguageCode( $langCode )
+-	 {
+-  	/* init */
+-  	$returnValue = false;
++	public function setLanguageCode( $langCode )
++	{
++  		/* init */
++  		$returnValue = false;
+   	
+-  	if( key_exists( $this-&gt;availableLanguagesContainer, $langCode ) &amp;&amp; !$this-&gt;PRESENTATION-&gt;configuration['i18n']['forcedLanguage'] )
+-  	{
+-  		$this-&gt;loadLanagueFile( $langCode );
++  		if( key_exists( $this-&gt;availableLanguagesContainer, $langCode ) &amp;&amp; !$this-&gt;PRESENTATION-&gt;configuration['i18n']['forcedLanguage'] )
++  		{
++  			$this-&gt;loadLanagueFile( $langCode );
+   		
+-  		/* save i18n-vars to contentvars */
+-  		$this-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'I18N', $this-&gt;getLanguageArray() );
++  			/* save i18n-vars to contentvars */
++  			$this-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'I18N', $this-&gt;getLanguageArray() );
+   		
+-  		$returnValue = true;
+-  	}
++  			$returnValue = true;
++  		}
+   	  	
+-  	return $returnValue;
+-	 }  	 
++  		return $returnValue;
++	}  	 
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+@@ -210,19 +210,18 @@
+ 	 * @param String $defaultLanguage Default Language as langcode
+ 	 * @return string Prefered langcode
+ 	 */
+-  protected function detectBrowserLanguage( $allowedLanguageArray, $defaultLanguage )
+-  {
+-  	/* init */
+-  	$returnValue = $defaultLanguage;
+-  	
++	protected function detectBrowserLanguage( $allowedLanguageArray, $defaultLanguage )
++	{
++		/* init */
++		$returnValue = $defaultLanguage;
++
+ 		/* get browserlanguage */
+ 		$HTTP_Language	= $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+ 
+ 		/* check if browserlanguage is empty -&gt; return default language */
+ 		if( empty( $HTTP_Language ) )
+ 		{
+-			$returnValue = $defaultLanguage;
+-			
++			$returnValue = $defaultLanguage;			
+ 			return $returnValue;
+ 		}
+ 
+@@ -276,10 +275,11 @@
+ 			}
+ 		}
+ 
+-			$returnValue = $CurrentLanguage['code'];
++		$returnValue = $CurrentLanguage['code'];
+ 			
+-			return $returnValue;
+-  }
++		/* return value */
++		return $returnValue;
++	}
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+@@ -290,20 +290,20 @@
+ 	 */
+ 	 protected function readI18nDirectory()
+ 	 {
+-	 		/* get files in i18n directory */
+-	 		foreach( glob( $this-&gt;PRESENTATION-&gt;configuration['directory']['i18n'] . &quot;/i18n.*.php&quot; ) as $filename )
+-	 		{
+-	 			/* double check with regex */
+-	 			if( eregi( '^i18n.([a-z]+).php$', basename( $filename ), $regArray ) )
+-	 			{			
+-	 				/* set values like filename and langcode */
+-	 				$filename	= trim( $filename );
+-	 				$langcode	= trim( $regArray[1] );
+-	 			
+-	 				/* set values to the contaienr */
+-		 			$this-&gt;availableLanguagesContainer[$langcode] = $filename;
+-	 			}
++		/* get files in i18n directory */
++	 	foreach( glob( $this-&gt;PRESENTATION-&gt;configuration['directory']['i18n'] . &quot;/i18n.*.php&quot; ) as $filename )
++	 	{
++	 		/* double check with regex */
++	 		if( eregi( '^i18n.([a-z]+).php$', basename( $filename ), $regArray ) )
++	 		{			
++	 			/* set values like filename and langcode */
++	 			$filename	= trim( $filename );
++	 			$langcode	= trim( $regArray[1] );
++	 		
++	 			/* set values to the contaienr */
++					$this-&gt;availableLanguagesContainer[$langcode] = $filename;
+ 	 		}
++	 	}
+ 	 }
+   
+ //-----------------------------------------------------------------------------
+@@ -324,8 +324,8 @@
+ 		
+ 		/* save i18n-vars to contentvars */
+ 		$this-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;addNode( 'I18N', $this-&gt;getLanguageArray() );
+-		
+ 	}
++	
+ //-----------------------------------------------------------------------------
+ 	/**
+ 	 * Loads the languagefile into the languagecontainer
+@@ -335,19 +335,24 @@
+ 	 * @param String $langCode Langcode which should be loaded
+ 	 * @return void
+ 	 */
+-  protected function loadLanagueFile( $langCode )
+-  {
+-  	if( eregi( '^[a-z]+$', $langCode ) )
+-  	{
+-  		include( $this-&gt;PRESENTATION-&gt;configuration['directory']['i18n'] . &quot;/i18n.$langCode.php&quot; );
+-  		$this-&gt;langContainer	= $i18n;
+-  		$this-&gt;langCode				= $langCode;
+-  	}
+-  	else
+-  	{
+-  		throw new phpmediadb_exception( &quot;ERR_LANGCODE_CHECK_FAILED&quot; );
+-  	}
+-  }
++	protected function loadLanagueFile( $langCode )
++	{
++		/* security check - langcode*/
++		if( eregi( '^[a-z]+$', $langCode ) )
++		{
++			/* load langcode-file */
++			include( $this-&gt;PRESENTATION-&gt;configuration['directory']['i18n'] . &quot;/i18n.$langCode.php&quot; );
++			
++			/* set langcodes */
++			$this-&gt;langContainer	= $i18n;
++			$this-&gt;langCode			= $langCode;
++		}
++		else
++		{
++			/* security exception */
++			throw new phpmediadb_exception( &quot;ERR_LANGCODE_CHECK_FAILED&quot; );
++		}
++	}
+ 
+ //-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_presentation_i18n */
+
+Index: class.phpmediadb_presentation.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation.php,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -u -d -r1.6 -r1.7
+--- class.phpmediadb_presentation.php	15 Mar 2005 20:25:05 -0000	1.6
++++ class.phpmediadb_presentation.php	20 Mar 2005 17:12:28 -0000	1.7
+@@ -86,18 +86,18 @@
+ 		$this-&gt;loadConfiguration();
+     	 
+ 		/* assign parent */
+-		$this-&gt;PHPMEDIADB		= $sender;
++		$this-&gt;PHPMEDIADB	= $sender;
+ 
+ 		/* assign childs */
+ 		$this-&gt;CONTENTVARS	= new phpmediadb_presentation_contentvars( $this );
+ 		$this-&gt;HTMLSERVICE	= new phpmediadb_presentation_htmlservice( $this );
+-		$this-&gt;I18N					= new phpmediadb_presentation_i18n( $this );
+-		$this-&gt;SESSION			= new phpmediadb_presentation_session( $this );
+-		$this-&gt;XMLSERVICE		= new phpmediadb_presentation_xmlservice( $this );
++		$this-&gt;I18N			= new phpmediadb_presentation_i18n( $this );
++		$this-&gt;SESSION		= new phpmediadb_presentation_session( $this );
++		$this-&gt;XMLSERVICE	= new phpmediadb_presentation_xmlservice( $this );
+ 	}
+ 	
+ //-----------------------------------------------------------------------------
+- /**
++ 	/**
+ 	 * The destructor __destruct is responsible for closing all open files,
+ 	 * etc.
+ 	 *
+
+Index: class.phpmediadb_presentation_session.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_session.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_presentation_session.php	15 Mar 2005 20:25:32 -0000	1.4
++++ class.phpmediadb_presentation_session.php	20 Mar 2005 17:12:28 -0000	1.5
+@@ -40,7 +40,7 @@
+ 		
+ 		/* init session */
+ 		$this-&gt;start();
+-  }
++	}
+   
+ //-----------------------------------------------------------------------------
+ 	/**
+@@ -94,7 +94,7 @@
+ 	 */
+ 	public function start()
+ 	{
+-		/* start session */
++		/* start session - delegate */
+ 		session_start();
+ 	}
+ 	
+@@ -107,7 +107,7 @@
+ 	 */	
+ 	public function destroy()
+ 	{
+-		/* destroy session */
++		/* destroy session - delegate */
+ 		session_destroy();
+ 	}
+ 	
+
+Index: class.phpmediadb_presentation_xmlservice.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_xmlservice.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_presentation_xmlservice.php	15 Mar 2005 20:25:42 -0000	1.3
++++ class.phpmediadb_presentation_xmlservice.php	20 Mar 2005 17:12:28 -0000	1.4
+@@ -36,8 +36,8 @@
+ 	{
+ 		/* assign parent */
+ 		$this-&gt;PRESENTATION	= $sender;
+-		$this-&gt;PHPMEDIADB		= $sender-&gt;PHPMEDIADB;
+-  }
++		$this-&gt;PHPMEDIADB	= $sender-&gt;PHPMEDIADB;
++	}
+ 
+ //-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_presentation_xmlservice */
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000176.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.4,1.5 config.data.php,1.3,1.4 config.presentation.php,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000178.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.8,1.9
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#177">[ date ]</a>
+              <a href="thread.html#177">[ thread ]</a>
+              <a href="subject.html#177">[ subject ]</a>
+              <a href="author.html#177">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

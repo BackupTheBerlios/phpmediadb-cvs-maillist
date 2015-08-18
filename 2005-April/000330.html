@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.show.tpl,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.item.audio.show.tpl%2C1.1%2C1.2&In-Reply-To=%3C200504131504.j3DF4im27489%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000329.html">
+   <LINK REL="Next"  HREF="000331.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.show.tpl,1.1,1.2</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.item.audio.show.tpl%2C1.1%2C1.2&In-Reply-To=%3C200504131504.j3DF4im27489%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.show.tpl,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr 13 17:04:44 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000329.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.formular.tpl,1.8,1.9
+</A></li>
+        <LI>Next message: <A HREF="000331.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.print.formular.tpl,1.2,1.3 body.item.print.show.tpl,1.1,1.2 body.item.video.formular.tpl,1.3,1.4 body.item.video.show.tpl,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#330">[ date ]</a>
+              <a href="thread.html#330">[ thread ]</a>
+              <a href="subject.html#330">[ subject ]</a>
+              <a href="author.html#330">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates
+In directory sheep:/tmp/cvs-serv16090/_source/tier.configuration/templates
+
+Modified Files:
+	body.item.audio.show.tpl 
+Log Message:
+* Added basic htmloutput
+
+Index: body.item.audio.show.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/body.item.audio.show.tpl,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- body.item.audio.show.tpl	31 Mar 2005 15:53:47 -0000	1.1
++++ body.item.audio.show.tpl	13 Apr 2005 15:04:42 -0000	1.2
+@@ -0,0 +1,74 @@
++&lt;div id=&quot;phpmediadb-body-details-audio&quot; class=&quot;phpmediadb-body-details&quot;&gt;
++{if $ITEMDATA.itempictureid gt '0'}&lt;img src=&quot;<A HREF="http://schattenjaeger.ath.cx:20000/phpmediadb-cvs/_layout/images/phpmediadb.jpg">http://schattenjaeger.ath.cx:20000/phpmediadb-cvs/_layout/images/phpmediadb.jpg</A>&quot; align=&quot;right&quot;/&gt;{/if}
++&lt;h1&gt;{$ITEMDATA.itemtitle|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} {if $ITEMDATA.itemreleasedate neq ''}[{$ITEMDATA.itemreleasedate}]{/if} &lt;/h1&gt;
++{if $ITEMDATA.itemoriginaltitle neq ''}&lt;h2&gt;{$ITEMDATA.itemoriginaltitle}&lt;/h2&gt;{/if}
++{counter assign=COUNTER_CATEGORY start=0 print=0}
++{$I18N.MEDIA_AUDIO_ITEM_CATEGORY|default:&quot;%MEDIA_AUDIO_ITEM_CATEGORY%&quot;}:&lt;br /&gt;
++{foreach from=$ITEMDATA.__special.categories item=currentDataItem}{if $COUNTER_CATEGORY gt '0'}; {/if}{$currentDataItem.categoryname}{counter print=0}{/foreach}{if $COUNTER_CATEGORY eq '0'}{$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}{/if}
++
++&lt;table&gt;
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_MEDIANAME|default:&quot;%MEDIA_AUDIO_ITEM_MEDIANAME%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemmedianame|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_IDENTIFICATION|default:&quot;%MEDIA_AUDIO_ITEM_IDENTIFICATION%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemidentifier|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_MEDIASIZE|default:&quot;%MEDIA_AUDIO_ITEM_MEDIASIZE%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemmediasize|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_FORMAT|default:&quot;%MEDIA_AUDIO_ITEM_FORMAT%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemtitle|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_RELEASEYEAR|default:&quot;%MEDIA_AUDIO_ITEM_RELEASEYEAR%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediaformatid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_PUBLISHER|default:&quot;%MEDIA_AUDIO_ITEM_PUBLISHER%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itempublisher|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_AGERESTRICTION|default:&quot;%MEDIA_AUDIO_ITEM_AGERESTRICTION%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediaagerestrictionid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_CODEC|default:&quot;%MEDIA_AUDIO_ITEM_CODEC%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediacodecid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_QUANTITY|default:&quot;%MEDIA_AUDIO_ITEM_QUANTITY%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemquantity|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++		&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_AUDIO_ITEM_COMMENT|default:&quot;%MEDIA_AUDIO_ITEM_COMMENT%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemcomment|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;td colspan=&quot;2&quot;&gt;&nbsp;&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;td colspan=&quot;2&quot;&gt;
++			{if $ITEMDATA.itemcreationdate gt '0'}{$I18N.MEDIA_CREATIONDATE|default:&quot;%MEDIA_CREATIONDATE%&quot;}: {$ITEMDATA.itemcreationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} &lt;br /&gt;{/if}
++			{if $ITEMDATA.itemmodificationdate gt '0'}{$I18N.MEDIA_MODIFICATIONDATE|default:&quot;%MEDIA_MODIFICATIONDATE%&quot;}: {$ITEMDATA.itemmodificationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}{/if}
++
++		&lt;/td&gt;
++	&lt;/tr&gt;
++&lt;/table&gt;
++
++
++&lt;/div&gt;
+\ No newline at end of file
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000329.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.formular.tpl,1.8,1.9
+</A></li>
+	<LI>Next message: <A HREF="000331.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.print.formular.tpl,1.2,1.3 body.item.print.show.tpl,1.1,1.2 body.item.video.formular.tpl,1.3,1.4 body.item.video.show.tpl,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#330">[ date ]</a>
+              <a href="thread.html#330">[ thread ]</a>
+              <a href="subject.html#330">[ subject ]</a>
+              <a href="author.html#330">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

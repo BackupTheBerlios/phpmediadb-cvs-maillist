@@ -1,0 +1,1154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.4,1.5 class.phpmediadb_business_audios.php,1.5,1.6 class.phpmediadb_business_categories.php,1.4,1.5 class.phpmediadb_business_codecs.php,1.4,1.5 class.phpmediadb_business_formats.php,1.4,1.5 class.phpmediadb_business_inspector.php,1.4,1.5 class.phpmediadb_business_prints.php,1.4,1.5 class.phpmediadb_business_videos.php,1.4,1.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_agerestrictions.php%2C1.4%2C1.5%20class.phpmediadb_business_audios.php%2C1.5%2C1.6%20class.phpmediadb_business_categories.php%2C1.4%2C1.5%20class.phpmediadb_business_codecs.php%2C1.4%2C1.5%20class.phpmediadb_business_formats.php%2C1.4%2C1.5%20class.phpmediadb_business_inspector.php%2C1.4%2C1.5%20class.phpmediadb_business_prints.php%2C1.4%2C1.5%20class.phpmediadb_business_videos.php%2C1.4%2C1.5&In-Reply-To=%3C200503242043.j2OKhbh12543%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000192.html">
+   <LINK REL="Next"  HREF="000194.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.4,1.5 class.phpmediadb_business_audios.php,1.5,1.6 class.phpmediadb_business_categories.php,1.4,1.5 class.phpmediadb_business_codecs.php,1.4,1.5 class.phpmediadb_business_formats.php,1.4,1.5 class.phpmediadb_business_inspector.php,1.4,1.5 class.phpmediadb_business_prints.php,1.4,1.5 class.phpmediadb_business_videos.php,1.4,1.5</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_agerestrictions.php%2C1.4%2C1.5%20class.phpmediadb_business_audios.php%2C1.5%2C1.6%20class.phpmediadb_business_categories.php%2C1.4%2C1.5%20class.phpmediadb_business_codecs.php%2C1.4%2C1.5%20class.phpmediadb_business_formats.php%2C1.4%2C1.5%20class.phpmediadb_business_inspector.php%2C1.4%2C1.5%20class.phpmediadb_business_prints.php%2C1.4%2C1.5%20class.phpmediadb_business_videos.php%2C1.4%2C1.5&In-Reply-To=%3C200503242043.j2OKhbh12543%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.4,1.5 class.phpmediadb_business_audios.php,1.5,1.6 class.phpmediadb_business_categories.php,1.4,1.5 class.phpmediadb_business_codecs.php,1.4,1.5 class.phpmediadb_business_formats.php,1.4,1.5 class.phpmediadb_business_inspector.php,1.4,1.5 class.phpmediadb_business_prints.php,1.4,1.5 class.phpmediadb_business_videos.php,1.4,1.5">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar 24 21:43:37 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000192.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.6,1.7
+</A></li>
+        <LI>Next message: <A HREF="000194.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#193">[ date ]</a>
+              <a href="thread.html#193">[ thread ]</a>
+              <a href="subject.html#193">[ subject ]</a>
+              <a href="author.html#193">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv2928/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business_agerestrictions.php 
+	class.phpmediadb_business_audios.php 
+	class.phpmediadb_business_categories.php 
+	class.phpmediadb_business_codecs.php 
+	class.phpmediadb_business_formats.php 
+	class.phpmediadb_business_inspector.php 
+	class.phpmediadb_business_prints.php 
+	class.phpmediadb_business_videos.php 
+Log Message:
+* Added all standard-functions
+
+Index: class.phpmediadb_business_agerestrictions.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_agerestrictions.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business_agerestrictions.php	24 Mar 2005 17:13:26 -0000	1.4
++++ class.phpmediadb_business_agerestrictions.php	24 Mar 2005 20:43:35 -0000	1.5
+@@ -48,8 +48,7 @@
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb $sender Reference to parent class
++	 * @param phpmediadb_business $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -60,14 +59,33 @@
+ 		$this-&gt;PHPMEDIADB	= $sender-&gt;PHPMEDIADB;
+ 		$this-&gt;DATA			= $sender-&gt;PHPMEDIADB-&gt;DATA;
+ 	}
+-
++	
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list
++	 * Returns one item from the batabase
+ 	 *
+ 	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @return array list of agerestrictions
++	 * @param integer $id ID of item
++	 * @return array Array with itemdata
++	 */
++	public function get( $id )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;AGERESTRICTIONS-&gt;get( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Returns the complete list of items from the database
++	 *
++	 * @access public
++	 * @return array list of items
+ 	 */
+ 	public function getList()
+ 	{
+@@ -75,7 +93,88 @@
+ 		$returnValue = null;
+ 		
+ 		/* delegate */
+-		$this-&gt;DATA-&gt;AGERESTRICTIONS-&gt;getList();
++		$returnValue = $this-&gt;DATA-&gt;AGERESTRICTIONS-&gt;getList();
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Adds one item into the database
++	 *
++	 * @access public
++	 * @param array $data Data of the item
++	 * @return mixed Last inserted it as integer or false if operation failed
++	 */
++	public function create( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;AGERESTRICTIONS-&gt;create( $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Modifies one item
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @param array $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function modify( $id, $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;AGERESTRICTIONS-&gt;modify( $id, $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return bool successstatus (true/false)
++	 */
++	public function remove( $id )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;AGERESTRICTIONS-&gt;modify( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function check( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;BUSINESS-&gt;INSPECTOR-&gt;check( PHPMEDIADB_ITEMINFO_AGERESTRICTION, $data );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+Index: class.phpmediadb_business_audios.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_audios.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- class.phpmediadb_business_audios.php	24 Mar 2005 17:13:26 -0000	1.5
++++ class.phpmediadb_business_audios.php	24 Mar 2005 20:43:35 -0000	1.6
+@@ -49,7 +49,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb $sender Reference to parent class
++	 * @param phpmediadb_business $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -63,27 +63,6 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Checks if the data is correct
+-	 *
+-	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param Mixed $data Data which should be checked
+-	 * @return Mixed Successstatus, NULL if success, failed with error-array
+-	 */
+-	 public function check( $data )
+-	 {
+-		/* init */
+-		$returnValue = NULL;
+-		
+-		/* delegate */
+-		$returnValue = $this-&gt;BUSINESS-&gt;INSPECTOR-&gt;check( PHPMEDIADB_ITEM_AUDIO, $data );
+-
+-		
+-		return $returnValue;
+-	 }
+-
+-//-----------------------------------------------------------------------------
+-	/**
+ 	 * Creates an empty dataset
+ 	 *
+ 	 * @access public
+@@ -118,11 +97,30 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list of datasets
++	 * Returns one item from the batabase
+ 	 *
+ 	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @return Array Array with all available datasets
++	 * @param integer $id ID of item
++	 * @return array Array with itemdata
++	 */
++	public function get( $id )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;AUDIOS-&gt;get( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Returns the complete list of items from the database
++	 *
++	 * @access public
++	 * @return array list of items
+ 	 */
+ 	public function getList()
+ 	{
+@@ -130,7 +128,7 @@
+ 		$returnValue = null;
+ 		
+ 		/* delegate */
+-		$this-&gt;DATA-&gt;AUDIOS-&gt;getList();
++		$returnValue = $this-&gt;DATA-&gt;AUDIOS-&gt;getList();
+ 		
+ 		/* return data */
+ 		return $returnValue;
+@@ -138,29 +136,40 @@
+ 	
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Modifies one dataset specified by the id
++	 * Adds one item into the database
+ 	 *
+ 	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param String $id Primarykey/Identifier of dataset
+-	 * @param Array $data New data of dataset
++	 * @param array $data Data of the item
++	 * @return mixed Last inserted it as integer or false if operation failed
+ 	 */
+-	public function modify( $id, $data )
++	public function create( $data )
+ 	{
+ 		/* init */
+-		$returnValue = NULL;
++		$returnValue = false;
+ 		
+-		/* check data */
+-		$returnValue = $this-&gt;check( $data );
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;AUDIOS-&gt;create( $data );
+ 		
+-		/* no input-error, ready to save */
+-		if( $returnValue === NULL )
+-		{
+-			/* delegate */
+-			//$this-&gt;DATA-&gt;AUDIOS-&gt;modify( $id, $data );
+-			
+-			$returnValue = TRUE;
+-		}
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Modifies one item
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @param array $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function modify( $id, $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;AUDIOS-&gt;modify( $id, $data );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+@@ -168,29 +177,39 @@
+ 	
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Creates one dataset
++	 * Removes one item from the database
+ 	 *
+ 	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param Array $data New data of dataset
+-	 * @return Primarykey/Identifier of dataset
++	 * @param integer $id ID of item
++	 * @return bool successstatus (true/false)
+ 	 */
+-	public function create( $data )
++	public function remove( $id )
+ 	{
+ 		/* init */
+-		$returnValue = NULL;
++		$returnValue = false;
+ 		
+-		/* check data */
+-		$returnValue = $this-&gt;check( $data );
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;AUDIOS-&gt;modify( $id );
+ 		
+-		/* no input-error, ready to save */
+-		if( $returnValue === NULL )
+-		{
+-			/* delegate */
+-			//$this-&gt;DATA-&gt;AUDIOS-&gt;create( $id, $data );
+-			
+-			$returnValue = TRUE;
+-		}
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function check( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;BUSINESS-&gt;INSPECTOR-&gt;check( PHPMEDIADB_ITEM_AUDIO, $data );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+Index: class.phpmediadb_business_categories.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_categories.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business_categories.php	24 Mar 2005 17:13:26 -0000	1.4
++++ class.phpmediadb_business_categories.php	24 Mar 2005 20:43:35 -0000	1.5
+@@ -49,7 +49,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb $sender Reference to parent class
++	 * @param phpmediadb_business $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -63,9 +63,30 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list
++	 * Returns one item from the batabase
+ 	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return array Array with itemdata
++	 */
++	public function get( $id )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;CATEGORIES-&gt;get( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Returns the complete list of items from the database
+ 	 *
++	 * @access public
++	 * @return array list of items
+ 	 */
+ 	public function getList()
+ 	{
+@@ -73,7 +94,88 @@
+ 		$returnValue = null;
+ 		
+ 		/* delegate */
+-		$this-&gt;DATA-&gt;CATEGORIES-&gt;getList();
++		$returnValue = $this-&gt;DATA-&gt;CATEGORIES-&gt;getList();
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Adds one item into the database
++	 *
++	 * @access public
++	 * @param array $data Data of the item
++	 * @return mixed Last inserted it as integer or false if operation failed
++	 */
++	public function create( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;CATEGORIES-&gt;create( $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Modifies one item
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @param array $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function modify( $id, $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;CATEGORIES-&gt;modify( $id, $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return bool successstatus (true/false)
++	 */
++	public function remove( $id )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;CATEGORIES-&gt;modify( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function check( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;BUSINESS-&gt;INSPECTOR-&gt;check( PHPMEDIADB_ITEMINFO_CATEGORIES, $data );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+Index: class.phpmediadb_business_codecs.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_codecs.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business_codecs.php	24 Mar 2005 17:13:26 -0000	1.4
++++ class.phpmediadb_business_codecs.php	24 Mar 2005 20:43:35 -0000	1.5
+@@ -42,13 +42,12 @@
+ 	protected $DATA = null;
+ 	
+ 	// --- OPERATIONS ---
+-//-----------------------------------------------------------------------------
++//-----------------------------------------------------------------------------		
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+ 	 * @access public
+-	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb $sender Reference to parent class
++	 * @param phpmediadb_business $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -59,12 +58,33 @@
+ 		$this-&gt;PHPMEDIADB	= $sender-&gt;PHPMEDIADB;
+ 		$this-&gt;DATA			= $sender-&gt;PHPMEDIADB-&gt;DATA;
+ 	}
+-
++	
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list
++	 * Returns one item from the batabase
+ 	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return array Array with itemdata
++	 */
++	public function get( $id )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;CODECS-&gt;get( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Returns the complete list of items from the database
+ 	 *
++	 * @access public
++	 * @return array list of items
+ 	 */
+ 	public function getList()
+ 	{
+@@ -72,7 +92,88 @@
+ 		$returnValue = null;
+ 		
+ 		/* delegate */
+-		$this-&gt;DATA-&gt;CODECS-&gt;getList();
++		$returnValue = $this-&gt;DATA-&gt;CODECS-&gt;getList();
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Adds one item into the database
++	 *
++	 * @access public
++	 * @param array $data Data of the item
++	 * @return mixed Last inserted it as integer or false if operation failed
++	 */
++	public function create( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;CODECS-&gt;create( $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Modifies one item
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @param array $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function modify( $id, $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;CODECS-&gt;modify( $id, $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return bool successstatus (true/false)
++	 */
++	public function remove( $id )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;CODECS-&gt;modify( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function check( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;BUSINESS-&gt;INSPECTOR-&gt;check( PHPMEDIADB_ITEMINFO_CODECS, $data );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+Index: class.phpmediadb_business_formats.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_formats.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business_formats.php	24 Mar 2005 17:13:26 -0000	1.4
++++ class.phpmediadb_business_formats.php	24 Mar 2005 20:43:35 -0000	1.5
+@@ -48,7 +48,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb $sender Reference to parent class
++	 * @param phpmediadb_business $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -62,9 +62,30 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list
++	 * Returns one item from the batabase
+ 	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return array Array with itemdata
++	 */
++	public function get( $id )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;FORMATS-&gt;get( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Returns the complete list of items from the database
+ 	 *
++	 * @access public
++	 * @return array list of items
+ 	 */
+ 	public function getList()
+ 	{
+@@ -72,7 +93,88 @@
+ 		$returnValue = null;
+ 		
+ 		/* delegate */
+-		$this-&gt;DATA-&gt;FORMATS-&gt;getList();
++		$returnValue = $this-&gt;DATA-&gt;FORMATS-&gt;getList();
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Adds one item into the database
++	 *
++	 * @access public
++	 * @param array $data Data of the item
++	 * @return mixed Last inserted it as integer or false if operation failed
++	 */
++	public function create( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;FORMATS-&gt;create( $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Modifies one item
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @param array $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function modify( $id, $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;FORMATS-&gt;modify( $id, $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return bool successstatus (true/false)
++	 */
++	public function remove( $id )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;FORMATS-&gt;modify( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function check( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;BUSINESS-&gt;INSPECTOR-&gt;check( PHPMEDIADB_ITEMINFO_FORMATS, $data );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+Index: class.phpmediadb_business_inspector.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_inspector.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business_inspector.php	24 Mar 2005 17:13:26 -0000	1.4
++++ class.phpmediadb_business_inspector.php	24 Mar 2005 20:43:35 -0000	1.5
+@@ -49,7 +49,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb $sender Refreence to parent class
++	 * @param phpmediadb_business $sender Refreence to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+
+Index: class.phpmediadb_business_prints.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_prints.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business_prints.php	24 Mar 2005 17:13:26 -0000	1.4
++++ class.phpmediadb_business_prints.php	24 Mar 2005 20:43:35 -0000	1.5
+@@ -48,7 +48,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb $sender Reference to parent class
++	 * @param phpmediadb_business $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -62,9 +62,30 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list
++	 * Returns one item from the batabase
+ 	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return array Array with itemdata
++	 */
++	public function get( $id )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;PRINTS-&gt;get( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Returns the complete list of items from the database
+ 	 *
++	 * @access public
++	 * @return array list of items
+ 	 */
+ 	public function getList()
+ 	{
+@@ -72,7 +93,88 @@
+ 		$returnValue = null;
+ 		
+ 		/* delegate */
+-		$this-&gt;DATA-&gt;PRINTS-&gt;getList();
++		$returnValue = $this-&gt;DATA-&gt;PRINTS-&gt;getList();
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Adds one item into the database
++	 *
++	 * @access public
++	 * @param array $data Data of the item
++	 * @return mixed Last inserted it as integer or false if operation failed
++	 */
++	public function create( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;PRINTS-&gt;create( $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Modifies one item
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @param array $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function modify( $id, $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;PRINTS-&gt;modify( $id, $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return bool successstatus (true/false)
++	 */
++	public function remove( $id )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;PRINTS-&gt;modify( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function check( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;BUSINESS-&gt;INSPECTOR-&gt;check( PHPMEDIADB_ITEM_PRINT, $data );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+Index: class.phpmediadb_business_videos.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_videos.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business_videos.php	24 Mar 2005 17:13:26 -0000	1.4
++++ class.phpmediadb_business_videos.php	24 Mar 2005 20:43:35 -0000	1.5
+@@ -48,7 +48,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb $sender Reference to parent class
++	 * @param phpmediadb_business $sender Reference to parent class
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -62,9 +62,30 @@
+ 
+ //-----------------------------------------------------------------------------
+ 	/**
+-	 * Returns the complete list
++	 * Returns one item from the batabase
+ 	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return array Array with itemdata
++	 */
++	public function get( $id )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;VIDEOS-&gt;get( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Returns the complete list of items from the database
+ 	 *
++	 * @access public
++	 * @return array list of items
+ 	 */
+ 	public function getList()
+ 	{
+@@ -72,7 +93,88 @@
+ 		$returnValue = null;
+ 		
+ 		/* delegate */
+-		$this-&gt;DATA-&gt;VIDEOS-&gt;getList();
++		$returnValue = $this-&gt;DATA-&gt;VIDEOS-&gt;getList();
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Adds one item into the database
++	 *
++	 * @access public
++	 * @param array $data Data of the item
++	 * @return mixed Last inserted it as integer or false if operation failed
++	 */
++	public function create( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;VIDEOS-&gt;create( $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Modifies one item
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @param array $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function modify( $id, $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;VIDEOS-&gt;modify( $id, $data );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $id ID of item
++	 * @return bool successstatus (true/false)
++	 */
++	public function remove( $id )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;DATA-&gt;VIDEOS-&gt;modify( $id );
++		
++		/* return data */
++		return $returnValue;
++	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * Removes one item from the database
++	 *
++	 * @access public
++	 * @param integer $data Data of the item
++	 * @return bool successstatus (true/false)
++	 */
++	public function check( $data )
++	{
++		/* init */
++		$returnValue = false;
++		
++		/* delegate */
++		$returnValue = $this-&gt;BUSINESS-&gt;INSPECTOR-&gt;check( PHPMEDIADB_ITEM_VIDEO, $data );
+ 		
+ 		/* return data */
+ 		return $returnValue;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000192.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.6,1.7
+</A></li>
+	<LI>Next message: <A HREF="000194.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#193">[ date ]</a>
+              <a href="thread.html#193">[ thread ]</a>
+              <a href="subject.html#193">[ subject ]</a>
+              <a href="author.html#193">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

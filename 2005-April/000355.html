@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.9,1.10
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration%20config.business.php%2C1.9%2C1.10&In-Reply-To=%3C200504202013.j3KKD7m19193%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000354.html">
+   <LINK REL="Next"  HREF="000356.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.9,1.10</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration%20config.business.php%2C1.9%2C1.10&In-Reply-To=%3C200504202013.j3KKD7m19193%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,1.9,1.10">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr 20 22:13:07 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000354.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business.php,1.11,1.12
+</A></li>
+        <LI>Next message: <A HREF="000356.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.presentation.php,1.7,1.8
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#355">[ date ]</a>
+              <a href="thread.html#355">[ thread ]</a>
+              <a href="subject.html#355">[ subject ]</a>
+              <a href="author.html#355">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration
+In directory sheep:/tmp/cvs-serv2767/_source/tier.configuration
+
+Modified Files:
+	config.business.php 
+Log Message:
+* Added inspector configuration for print and video media
+
+Index: config.business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.business.php,v
+retrieving revision 1.9
+retrieving revision 1.10
+diff -u -d -r1.9 -r1.10
+--- config.business.php	13 Apr 2005 11:56:52 -0000	1.9
++++ config.business.php	20 Apr 2005 20:13:05 -0000	1.10
+@@ -16,9 +16,12 @@
+  * Itemsepecifications (regex etc.)
+  */ 
+ 
++//-- ITEM AUDIO
++
+ $phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['itemtitle'] 				= '^.{1,255}$';
+ $phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['itemoriginaltitle']		= '^(.{1,255})?$';
+ $phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['itemmedianame']			= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['itemlocation']				= '^(.{1,255})?$';
+ $phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['itemidentification']		= '^(.{1,255})?$';
+ $phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['itemreleasedate']				= '^([[:digit:]]{4})?$';
+ $phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_AUDIO]['categories']				= '^([[:digit:]]+)?$';
+@@ -32,11 +35,65 @@
+ $phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itemtitle'] 				= 255;
+ $phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itemoriginaltitle']			= 255;
+ $phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itemmedianame']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itemlocation']				= 255;
+ $phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itemidentification']		= 255;
+ $phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itemreleasedate']			= 4;
+ $phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itemmediasize']				= 255;
+ $phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itempublisher']				= 255;
+ $phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_AUDIO]['itemquantity']				= 255;
++
++//-- ITEM VIDEO
++
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itemtitle'] 				= '^.{1,255}$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itemoriginaltitle']		= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itemmedianame']			= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itemlocation']				= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itemidentification']		= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itemreleasedate']				= '^([[:digit:]]{4})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['categories']				= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itemmediasize']			= '^(([[:digit:]]+([[:punct:]]{1}[[:digit:]]+)))?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['mediaformatid']			= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itempublisher']			= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['mediaagerestrictionid']	= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['mediacodecid']				= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_VIDEO]['itemquantity']				= '^(.{1,255})?$';
++
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itemtitle'] 				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itemoriginaltitle']			= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itemmedianame']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itemlocation']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itemidentification']		= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itemreleasedate']			= 4;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itemmediasize']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itempublisher']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_VIDEO]['itemquantity']				= 255;
++
++//-- ITEM PRINT
++
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itemtitle'] 				= '^.{1,255}$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itemoriginaltitle']		= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itemmedianame']			= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itemlocation']				= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itemidentification']		= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itemreleasedate']				= '^([[:digit:]]{4})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['categories']				= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itemmediasize']			= '^(([[:digit:]]+([[:punct:]]{1}[[:digit:]]+)))?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['mediaformatid']			= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itempublisher']			= '^(.{1,255})?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['mediaagerestrictionid']	= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['mediacodecid']				= '^([[:digit:]]+)?$';
++$phpMediaDbConfig['BUSINESS']['input-regex'][PHPMEDIADB_ITEM_PRINT]['itemquantity']				= '^(.{1,255})?$';
++
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itemtitle'] 				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itemoriginaltitle']			= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itemmedianame']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itemlocation']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itemidentification']		= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itemreleasedate']			= 4;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itemmediasize']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itempublisher']				= 255;
++$phpMediaDbConfig['BUSINESS']['input-size'][PHPMEDIADB_ITEM_PRINT]['itemquantity']				= 255;
++
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000354.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business.php,1.11,1.12
+</A></li>
+	<LI>Next message: <A HREF="000356.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.presentation.php,1.7,1.8
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#355">[ date ]</a>
+              <a href="thread.html#355">[ thread ]</a>
+              <a href="subject.html#355">[ subject ]</a>
+              <a href="author.html#355">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

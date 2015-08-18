@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.13,1.14
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_codecs.php%2C1.13%2C1.14&In-Reply-To=%3C200504061354.j36Dsim05235%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000241.html">
+   <LINK REL="Next"  HREF="000243.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.13,1.14</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_codecs.php%2C1.13%2C1.14&In-Reply-To=%3C200504061354.j36Dsim05235%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.13,1.14">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr  6 15:54:44 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000241.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_categories.php,1.7,1.8
+</A></li>
+        <LI>Next message: <A HREF="000243.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.13,1.14
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv12302/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_codecs.php 
+Log Message:
+* Fixed syntax mistakes
+* Fixed some comments
+
+Index: class.phpmediadb_data_codecs.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_codecs.php,v
+retrieving revision 1.13
+retrieving revision 1.14
+diff -u -d -r1.13 -r1.14
+--- class.phpmediadb_data_codecs.php	31 Mar 2005 15:38:04 -0000	1.13
++++ class.phpmediadb_data_codecs.php	6 Apr 2005 13:54:42 -0000	1.14
+@@ -65,8 +65,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @param Integer $id contains specified id for the sql statement
+-	 * @return Mixed array generateDataArray() returns the results of database query
+-	 * @return Mixed getMessage() returns the error message
++	 * @return array returns the results of database query
+ 	 */
+ 	public function get( $id )
+ 	{
+@@ -83,7 +82,7 @@
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $e-&gt;getMessage();
++			die( $e-&gt;getMessage() );
+ 		}
+ 	}
+ 
+@@ -92,8 +91,7 @@
+ 	 * This function returns all records from the table MediaCodecs
+ 	 *
+ 	 * @access public
+-	 * @return Mixed array generateDataArray() returns the results of database query
+-	 * @return Mixed getMessage() returns the error message
++	 * @return array returns the results of database query
+ 	 */
+ 	public function getList()
+ 	{
+@@ -108,7 +106,7 @@
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $e-&gt;getMessage();
++			die( $e-&gt;getMessage() );
+ 		}
+ 	}
+ 
+@@ -118,8 +116,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @param Integer $id contains specified id for the sql statement
+-	 * @return Mixed array generateDataArray() returns the results of database query
+-	 * @return Mixed getMessage() returns the error message
++	 * @return array returns the results of database query
+ 	 */
+ 	public function getListByItemType( $id )
+ 	{
+@@ -136,7 +133,7 @@
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $e-&gt;getMessage();
++			die( $e-&gt;getMessage() );
+ 		}
+ 	}
+ 	
+@@ -145,9 +142,8 @@
+ 	 * This function creates a new record in the table MediaCodecs
+ 	 *
+ 	 * @access public
+-	 * @param Mixed array $data contains all required data for the sql statement
+-	 * @param Integer getLastInsert() returns id from the last created record
+-	 * @return Mixed rollbackTransaction() returns the error message
++	 * @param array $data contains all required data for the sql statement
++	 * @return Integer returns id from the last created record
+ 	 */
+ 	public function create( $data )
+ 	{
+@@ -167,7 +163,7 @@
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $this-&gt;DATA-&gt;SQL-&gt;rollbackTransaction( $conn, $e );
++			$this-&gt;DATA-&gt;SQL-&gt;rollbackException( $conn, $e );
+ 		}
+ 	}
+ 
+@@ -177,8 +173,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @param Integer $id contains specified id for the sql statement
+-	 * @param Mixed array $data contains all required data for the sql statement
+-	 * @return Mixed rollbackTransaction() returns the error message
++	 * @param array $data contains all required data for the sql statement
+ 	 */
+ 	public function modify( $id, $data )
+ 	{
+@@ -200,7 +195,7 @@
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $this-&gt;DATA-&gt;SQL-&gt;rollbackTransaction( $conn, $e );
++			$this-&gt;DATA-&gt;SQL-&gt;rollbackException( $conn, $e );
+ 		}
+ 	}
+ 
+@@ -210,7 +205,6 @@
+ 	 *
+ 	 * @access public
+ 	 * @param Integer $id contains specified id for the sql statement
+-	 * @return Mixed rollbackTransaction() returns the error message
+ 	 */
+ 	public function delete( $id )
+ 	{
+@@ -226,7 +220,7 @@
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $this-&gt;DATA-&gt;SQL-&gt;rollbackTransaction( $conn, $e );
++			$this-&gt;DATA-&gt;SQL-&gt;rollbackException( $conn, $e );
+ 		}
+ 	}
+ 
+@@ -237,8 +231,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @param Integer $id contains specified id for the sql statement
+-	 * @return Boolean $returnValue returns whether the specified record exists
+-	 * @return Mixed getMessage() returns the error message
++	 * @return bool returns whether the specified record exists
+ 	 */
+ 	public function exist( $id )
+ 	{
+@@ -263,7 +256,7 @@
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $e-&gt;getMessage();
++			die( $e-&gt;getMessage() );
+ 		}
+ 	}
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000241.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_categories.php,1.7,1.8
+</A></li>
+	<LI>Next message: <A HREF="000243.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.13,1.14
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

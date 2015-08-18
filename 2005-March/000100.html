@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_agerestrictions.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_agerestrictions.php%2C1.3%2C1.4&In-Reply-To=%3C200503131324.j2DDOpN04671%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000099.html">
+   <LINK REL="Next"  HREF="000101.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_agerestrictions.php,1.3,1.4</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_agerestrictions.php%2C1.3%2C1.4&In-Reply-To=%3C200503131324.j2DDOpN04671%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_agerestrictions.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Mar 13 14:24:51 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000099.html">[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.14,1.15
+</A></li>
+        <LI>Next message: <A HREF="000101.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#100">[ date ]</a>
+              <a href="thread.html#100">[ thread ]</a>
+              <a href="subject.html#100">[ subject ]</a>
+              <a href="author.html#100">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv6372/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_agerestrictions.php 
+Log Message:
+* Added methods createAgeRestriction, modifyAgeRestriction and deleteAgeRestriction
+
+Index: class.phpmediadb_data_agerestrictions.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_agerestrictions.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_data_agerestrictions.php	11 Mar 2005 12:13:19 -0000	1.3
++++ class.phpmediadb_data_agerestrictions.php	13 Mar 2005 13:24:49 -0000	1.4
+@@ -93,6 +93,64 @@
+ 	}
+ 
+ //-----------------------------------------------------------------------------
++	/**
++	 * This function creates a new record in the table MediaAgeRestrictions
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String
++	 */
++	public function createAgeRestriction( $MediaAgeRestriction )
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;preparedStatement( 'INSERT INTO MediaAgeRestrictions
++		( MediaAgeRestriction ) VALUES( :mar )' );
++		$stmt-&gt;setString( ':mar', $MediaAgeRestriction );
++		$stmt-&gt;executeUpdate();
++		
++		return $stmt;
++	}
++
++//-----------------------------------------------------------------------------
++	/**
++	 * This function modifies a specified record from the table MediaAgeRestrictions
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer
++	 * @param String
++	 */
++	public function modifyAgeRestriction( $MediaAgeRestrictionID, $MediaAgeRestriction )
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;preparedStatement( 'UPDATE MediaAgeRestrictions
++		SET MediaAgeRestrictions.MediaAgeRestriction = :mar
++		WHERE MediaAgeRestrictions.MediaAgeRestrictionID = :marid' );
++		$stmt-&gt;setString( ':mar', $MediaAgeRestriction );
++		$stmt-&gt;setString( ':marid', $MediaAgeRestrictionID );
++		$stmt-&gt;executeUpdate();
++		
++	}
++
++//-----------------------------------------------------------------------------
++	/**
++	 * This function deletes a specified record from the table MediaAgeRestrictions
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer
++	 */
++	public function deleteAgeRestriction( $MediaAgeRestrictionID )
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;preparedStatement( 'DELETE FROM MediaAgeRestrictions
++		WHERE MediaAgeRestrictions.MediaAgeRestrictionID = :marid' );
++		$stmt-&gt;setString( ':marid', $MediaAgeRestrictionID );
++		$stmt-&gt;executeUpdate();
++		
++	}
++
++//-----------------------------------------------------------------------------
+ }
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000099.html">[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.14,1.15
+</A></li>
+	<LI>Next message: <A HREF="000101.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#100">[ date ]</a>
+              <a href="thread.html#100">[ thread ]</a>
+              <a href="subject.html#100">[ subject ]</a>
+              <a href="author.html#100">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

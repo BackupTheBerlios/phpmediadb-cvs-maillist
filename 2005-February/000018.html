@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.2,1.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_contentvars.php%2C1.2%2C1.3&In-Reply-To=%3C200502092028.j19KSxN13337%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000017.html">
+   <LINK REL="Next"  HREF="000019.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.2,1.3</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_contentvars.php%2C1.2%2C1.3&In-Reply-To=%3C200502092028.j19KSxN13337%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.2,1.3">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Feb  9 21:28:59 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000017.html">[phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000019.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#18">[ date ]</a>
+              <a href="thread.html#18">[ thread ]</a>
+              <a href="subject.html#18">[ subject ]</a>
+              <a href="author.html#18">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv22885/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_contentvars.php 
+Log Message:
+* Changed function names (case-sensitive)
+* Added some comments
+
+Index: class.phpmediadb_presentation_contentvars.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_contentvars.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_presentation_contentvars.php	26 Sep 2004 16:07:43 -0000	1.2
++++ class.phpmediadb_presentation_contentvars.php	9 Feb 2005 20:28:57 -0000	1.3
+@@ -30,11 +30,11 @@
+ 	 * @access private
+ 	 * @var mixed
+ 	 */
+-	public $nodeContainer = null;
+-	/* FIXIT */
++	private $nodeContainer = null;
+ 
+ 	// --- OPERATIONS ---
+-
++	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+@@ -52,7 +52,8 @@
+ 		/* initalize */
+ 		$this-&gt;nodeContainer = array();
+   }
+-
++  
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The destructor __destruct is responsible for closing all open files,
+ 	 * etc.
+@@ -66,7 +67,7 @@
+ 		/* nothing to do yet */
+ 	}
+ 
+-
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function adds a new node to the nodecontainer. The nodepoint is
+ 	 * by the dottet-format nodeName with the value of NodeValue and a
+@@ -79,19 +80,20 @@
+ 	 * @param Integer
+ 	 * @return void
+ 	 */
+-	public function AddNode( $nodeName, $nodeValue, $nodeFormat = PHPMEDIADB_NODEFORMAT_TEXT )
++	public function addNode( $nodeName, $nodeValue, $nodeFormat = PHPMEDIADB_NODEFORMAT_TEXT )
+ 	{
+ 		/* check */
+-		if( $this-&gt;CheckNodeString( $nodeName ) == FALSE )
++		if( $this-&gt;checkNodeString( $nodeName ) == FALSE )
+ 			return false;
+ 
+ 		/* convert */
+-		$nodeValue = $this-&gt;ConvertNodeValue( $nodeValue, $nodeFormat );
++		$nodeValue = $this-&gt;convertNodeValue( $nodeValue, $nodeFormat );
+ 
+ 		/* delegate */
+-		$this-&gt;RecursiveInsertNodeIntoContainer( $nodeName, $nodeValue, $this-&gt;nodeContainer );
++		$this-&gt;recursiveInsertNodeIntoContainer( $nodeName, $nodeValue, $this-&gt;nodeContainer );
+ 	}
+ 
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function returns a complete node or only a value specified by
+ 	 *
+@@ -100,13 +102,18 @@
+ 	 * @param String
+ 	 * @return java_lang_String
+ 	 */
+-	public function GetNode( $nodeName = NULL )
++	public function getNode( $nodeName = NULL )
+ 	{
+-		$returnValue = null;
++		/* filter false or null entries */
+ 		/* TODO */
++		$returnValue = $this-&gt;nodeContainer;
++		/* TODO */
++		
++		/* return mixed */
+ 		return $returnValue;
+ 	}
+ 
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function deletes a nodevalue or a compelte nodetree from the
+ 	 *
+@@ -118,14 +125,15 @@
+ 	public function DeleteNode( $nodeName )
+ 	{
+ 		/* check */
+-		if( $this-&gt;CheckNodeString( $nodeName ) == FALSE )
++		if( $this-&gt;checkNodeString( $nodeName ) == FALSE )
+ 			return false;
+ 
+ 		/* delegate */
+-		$this-&gt;RecursiveInsertNodeIntoContainer( $nodeName, NULL, $this-&gt;nodeContainer );
++		$this-&gt;recursiveInsertNodeIntoContainer( $nodeName, NULL, $this-&gt;nodeContainer );
+ 		return true;
+ 	}
+-
++	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This internal function will recursivly insert a node into the
+ 	 *
+@@ -136,7 +144,7 @@
+ 	 * @param mixed
+ 	 * @return void
+ 	 */
+-	protected function RecursiveInsertNodeIntoContainer( $nodeName, $nodeValue = null, &amp;$nodeArray )
++	protected function recursiveInsertNodeIntoContainer( $nodeName, $nodeValue = null, &amp;$nodeArray )
+ 	{
+ 		/* init */
+ 		$nodeIndexArray		= null;
+@@ -153,7 +161,11 @@
+ 		if( count( $nodeIndexArray ) == 1 )
+ 		{
+ 			/* ok, it is the last item.. generate one more array and stop recursive call */
+-			$nodeArray[&quot;$nodeCurrentIndex&quot;] = $nodeValue;
++			if( NULL == $nodeValue )
++				//$nodeArray[&quot;$nodeCurrentIndex&quot;] = $nodeValue;
++				unset( $nodeArray[&quot;$nodeCurrentIndex&quot;] );
++			else
++				$nodeArray[&quot;$nodeCurrentIndex&quot;] = (string) $nodeValue;
+ 		}
+ 		else
+ 		{
+@@ -174,14 +186,15 @@
+ 			if( !is_array( $nodeArray[&quot;$nodeCurrentIndex&quot;] ) )
+ 				$nodeArray[&quot;$nodeCurrentIndex&quot;] = array();
+ 
+-			$this-&gt;RecursiveInsertNodeIntoContainer( $nodeNextIndex, $nodeValue, $nodeArray[&quot;$nodeCurrentIndex&quot;] );
++			$this-&gt;recursiveInsertNodeIntoContainer( $nodeNextIndex, $nodeValue, $nodeArray[&quot;$nodeCurrentIndex&quot;] );
+ 
+ 		}
+ 
+ 		/* return array */
+ 		return $nodeArray;
+ 	}
+-
++	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function checks the validity of nodeName and returns the
+ 	 * (TRUE=ok, FALSE=check failed),
+@@ -191,16 +204,18 @@
+ 	 * @param String
+ 	 * @return boolean
+ 	 */
+-	public function CheckNodeString( $nodeName )
++	public function checkNodeString( $nodeName )
+ 	{
+ 		$returnValue = (bool) false;
+ 
+ 		$checkRegEx = &quot;^([_a-zA-Z0-9]+\.?)+[_a-zA-Z0-9]+$&quot;;
+ 		$returnValue = ereg( $checkRegEx, $nodeName );
+-
++		
++		/* return value */
+ 		return (bool) $returnValue;
+ 	}
+-
++	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function converts the nodeValue in the format of nodeFormat
+ 	 *
+@@ -209,7 +224,7 @@
+ 	 * @param String
+ 	 * @return String
+ 	 */
+-	protected function ConvertNodeValue( $nodeValue, $nodeFormat )
++	protected function convertNodeValue( $nodeValue, $nodeFormat )
+ 	{
+ 		$returnValue = null;
+ 
+@@ -231,6 +246,8 @@
+ 					$returnValue = $nodeValue;
+ 				break;
+ 		}
++		
++		/* return value */
+ 		return $returnValue;
+ 	}
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000017.html">[phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000019.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#18">[ date ]</a>
+              <a href="thread.html#18">[ thread ]</a>
+              <a href="subject.html#18">[ subject ]</a>
+              <a href="author.html#18">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

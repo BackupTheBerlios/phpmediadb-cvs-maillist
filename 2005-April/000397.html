@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.12,1.13 i18n.en.php,1.9,1.10
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/i18n%20i18n.de.php%2C1.12%2C1.13%20i18n.en.php%2C1.9%2C1.10&In-Reply-To=%3C200504301822.j3UIMHm23492%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000396.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.12,1.13 i18n.en.php,1.9,1.10</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/i18n%20i18n.de.php%2C1.12%2C1.13%20i18n.en.php%2C1.9%2C1.10&In-Reply-To=%3C200504301822.j3UIMHm23492%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.12,1.13 i18n.en.php,1.9,1.10">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Apr 30 20:22:17 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000396.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.search.header.tpl,1.1,1.2
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#397">[ date ]</a>
+              <a href="thread.html#397">[ thread ]</a>
+              <a href="subject.html#397">[ subject ]</a>
+              <a href="author.html#397">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv17932/_source/tier.configuration/i18n
+
+Modified Files:
+	i18n.de.php i18n.en.php 
+Log Message:
+* Updated, added NOT_IMPLEMENTED
+
+Index: i18n.de.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.de.php,v
+retrieving revision 1.12
+retrieving revision 1.13
+diff -u -d -r1.12 -r1.13
+--- i18n.de.php	27 Apr 2005 19:05:25 -0000	1.12
++++ i18n.de.php	30 Apr 2005 18:22:15 -0000	1.13
+@@ -44,17 +44,18 @@
+ 	$i18n['MEDIA_VIDEO_TITLE'] = 'audio-visuelles Medium';
+ 	
+ /* default i18ns */
+-	$i18n['OK']				= 'Akzeptieren';
+-	$i18n['CANCEL']			= 'Abbrechen';
+-	$i18n['DELETE']			= 'L&#246;schen';
+-	$i18n['INPUT_FIELD']	= 'Eingabefeld';
++	$i18n['OK']					= 'Akzeptieren';
++	$i18n['CANCEL']				= 'Abbrechen';
++	$i18n['DELETE']				= 'L&#246;schen';
++	$i18n['INPUT_FIELD']		= 'Eingabefeld';
++	$i18n['NOT_IMPLEMENTED']	= 'Diese Funktion ist in dieser Version noch nicht implementiert worden.';
+ 	
+ /* messages */
+ 	$i18n['MESSAGE_SUCCESS_SAVE']	= 'Element erfolgreich gespeichert!';
+ 	
+ /* errors */
+ 	$i18n['ERROR_TITLE']						= 'Fehlertitel';
+-	$i18n['ERROR_INPUTSIZE']					= 'Eingabe zu gro&#223;.';
++	$i18n['ERROR_INPUTSIZE']					= 'Eingabe zu lang.';
+ 	$i18n['ERROR_INPUTREGEX']					= 'Eingabe nicht korrekt.';
+ 	$i18n['ERROR_OCCURRED']						= 'Es sind Eingabefehler auftreten.';
+ 	$i18n['ERROR_LISTLINK']						= '[Fehlerliste]';
+@@ -68,7 +69,7 @@
+ 	$i18n['HTTP_ERROR_500_TITLE']				= '';
+ 	$i18n['HTTP_ERROR_UNKNOWN_BODY']			= '';
+ 	$i18n['HTTP_ERROR_UNKNOWN_TITLE']			= '';
+-	$i18n['MESSAGE_ITEMID_NOTNUMERICAL']		= 'Die gew&#228;hlte Item-Nummer ist nicht nummerisch!';
++	$i18n['MESSAGE_ITEMID_NOTNUMERICAL']		= 'Die gew&#228;hlte Medien-Nummer ist nicht nummerisch!';
+ 	$i18n['MESSAGE_ITEM_LOADERROR']				= 'Das Medium konnte nicht geladen werden.';
+ 	$i18n['MESSAGE_ITEM_NOTEXISTENT']			= 'Das Medium existiert nicht.';
+ 	
+@@ -94,7 +95,7 @@
+ 	$i18n['MENU_SEARCH']				= 'Suche';
+ 	$i18n['MENU_LIST']					= 'Liste';
+ 	$i18n['MENU_ABOUT']					= '&#220;ber uns';
+-	$i18n['MENU_ADDITEM']				= 'Item hinzuf&#252;gen';
++	$i18n['MENU_ADDITEM']				= 'Medium hinzuf&#252;gen';
+ 	$i18n['MENU_ADMINISTRATION_TITLE']	= 'Administration';
+ 
+ 
+
+Index: i18n.en.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.en.php,v
+retrieving revision 1.9
+retrieving revision 1.10
+diff -u -d -r1.9 -r1.10
+--- i18n.en.php	27 Apr 2005 19:05:25 -0000	1.9
++++ i18n.en.php	30 Apr 2005 18:22:15 -0000	1.10
+@@ -42,18 +42,20 @@
+ ******************************************************************************/
+ 
+ /* default i18ns */
+-	$i18n['OK']				= 'Accept';
+-	$i18n['CANCEL']			= 'Cancel';
+-	$i18n['DELETE']			= 'Delete';
+-	$i18n['INPUT_FIELD']	= 'Inputfield';
++	$i18n['OK']					= 'Accept';
++	$i18n['CANCEL']				= 'Cancel';
++	$i18n['DELETE']				= 'Delete';
++	$i18n['INPUT_FIELD']		= 'Inputfield';
++	$i18n['NOT_IMPLEMENTED']	= 'This function is not implemented in this version.';
++	
+ 	
+ /* messages */
+-	$i18n['MESSAGE_SUCCESS_SAVE']	= 'Item successfully saved.';
++	$i18n['MESSAGE_SUCCESS_SAVE']	= 'Media successfully saved.';
+ 	
+ /* errors */
+ 	$i18n['ERROR_INPUTSIZE']	= 'Inputsize to long.';
+ 	$i18n['ERROR_INPUTREGEX']	= 'Input incorrect';
+-	$i18n['ERROR_OCCURRED']		= 'An inputerror occurred auftreten.';
++	$i18n['ERROR_OCCURRED']		= 'An inputerror occurred.';
+ 	$i18n['ERROR_LISTLINK']		= '[Errorlist]';
+ 	
+ /* formular */
+@@ -171,7 +173,7 @@
+ 	$i18n['MEDIA_VIDEO_TITLE']					= 'Video';
+ 
+ /* */
+-	$i18n['QUESTION_ITEMDELETE']				= 'Do you want to delete this item?';
++	$i18n['QUESTION_ITEMDELETE']				= 'Do you want to delete this media?';
+ 	$i18n['MESSAGE_DELETION_SUCCESS']			= 'Item successfully deleted.';
+ 	$i18n['MESSAGE_SAVE_SUCCESS']				= 'Item successfully saved.';
+ 	
+@@ -293,7 +295,7 @@
+ 	$i18n['Category_Polka']							= 'Polka';
+ 	$i18n['Category_Retro']							= 'Retro';
+ 	$i18n['Category_Musical']						= 'Musical';
+-	$i18n['Category_Rock&amp;Roll']					= 'Rock &amp; Roll';
++	$i18n['Category_Rock&amp;Roll']						= 'Rock &amp; Roll';
+ 	$i18n['Category_Hard-Rock']						= 'Hard Rock';
+ 	$i18n['Category_Folk']							= 'Folk';
+ 	$i18n['Category_Folk-Rock']						= 'Folk-Rock';
+@@ -342,7 +344,7 @@
+ 	$i18n['Category_Euro-House']					= 'Euro-House';
+ 	$i18n['Category_Dance-Hall']					= 'Dance Hall';
+ 	$i18n['Category_Goa']							= 'Goa';
+-	$i18n['Category_Drum&amp;Bass']					= 'Drum &amp; Bass';
++	$i18n['Category_Drum&amp;Bass']						= 'Drum &amp; Bass';
+ 	$i18n['Category_Club-House']					= 'Club-House';
+ 	$i18n['Category_Hardcore']						= 'Hardcore';
+ 	$i18n['Category_Terror']						= 'Terror';
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000396.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.search.header.tpl,1.1,1.2
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#397">[ date ]</a>
+              <a href="thread.html#397">[ thread ]</a>
+              <a href="subject.html#397">[ subject ]</a>
+              <a href="author.html#397">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_items.php,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_items.php%2C1.5%2C1.6&In-Reply-To=%3C200504252138.j3PLc1m10123%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000386.html">
+   <LINK REL="Next"  HREF="000388.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_items.php,1.5,1.6</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_items.php%2C1.5%2C1.6&In-Reply-To=%3C200504252138.j3PLc1m10123%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_items.php,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Mon Apr 25 23:38:01 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000386.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.show.tpl,1.3,1.4 body.item.print.show.tpl,1.3,1.4 body.item.video.show.tpl,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000388.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.9,1.10
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#387">[ date ]</a>
+              <a href="thread.html#387">[ thread ]</a>
+              <a href="subject.html#387">[ subject ]</a>
+              <a href="author.html#387">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv7047/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business_items.php 
+Log Message:
+* Updated for FORMATS, CODECS and AGERESTRICTIONS
+
+Index: class.phpmediadb_business_items.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_items.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- class.phpmediadb_business_items.php	22 Apr 2005 21:54:45 -0000	1.5
++++ class.phpmediadb_business_items.php	25 Apr 2005 21:37:59 -0000	1.6
+@@ -134,11 +134,37 @@
+ 				$returnValue['__special']['categories'][] = $specialValue;
+ 			}
+ 		}
+-		
+-		/* translate categoryByNames */
+-		$returnValue['__special']['categories'] = $this-&gt;BUSINESS-&gt;CATEGORIES-&gt;translate( $returnValue['__special']['categories'] );
++			
++		/* assign mediacodec */
++		if( $returnValue['mediacodecid'] &gt; 0 )
++		{
++			$mediacodec = $this-&gt;BUSINESS-&gt;CODECS-&gt;get( $returnValue['mediacodecid'] );
++			@$mediacodec = $this-&gt;BUSINESS-&gt;CODECS-&gt;translate( $mediacodec );
++			$returnValue['__special']['mediacodec'] = $mediacodec[0];
++		}
++
++		/* assign mediaagerestrictions */
++		if( $returnValue['mediaagerestrictionid'] &gt; 0 )
++		{
++			$mediaagerestrictions = $this-&gt;BUSINESS-&gt;AGERESTRICTIONS-&gt;get( $returnValue['mediaagerestrictionid'] );
++			
++			@$mediaagerestrictions = $this-&gt;BUSINESS-&gt;AGERESTRICTIONS-&gt;translate( $mediaagerestrictions );
++			$returnValue['__special']['mediaagerestriction'] = $mediaagerestrictions[0];
++		}
+ 
+ 			
++		/* assign mediaformats */
++		if( $returnValue['mediaformatid'] &gt; 0 )
++		{
++			$mediaformats = $this-&gt;BUSINESS-&gt;FORMATS-&gt;get( $returnValue['mediaformatid'] );
++			@$mediaformats = $this-&gt;BUSINESS-&gt;FORMATS-&gt;translate( $mediaformats );
++			$returnValue['__special']['mediaformat'] = $mediaformats[0];
++		}
++	
++		/* translate values */
++		@$returnValue['__special']['categories']			= $this-&gt;BUSINESS-&gt;CATEGORIES-&gt;translate( $returnValue['__special']['categories'] );
++
++
+ 		/* return value */
+ 		return $returnValue;
+ 	}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000386.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.show.tpl,1.3,1.4 body.item.print.show.tpl,1.3,1.4 body.item.video.show.tpl,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000388.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.9,1.10
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#387">[ date ]</a>
+              <a href="thread.html#387">[ thread ]</a>
+              <a href="subject.html#387">[ subject ]</a>
+              <a href="author.html#387">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

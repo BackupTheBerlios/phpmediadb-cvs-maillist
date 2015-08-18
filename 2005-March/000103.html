@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_status.php%2C1.3%2C1.4&In-Reply-To=%3C200503131326.j2DDQ4N04709%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000102.html">
+   <LINK REL="Next"  HREF="000104.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.3,1.4</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_status.php%2C1.3%2C1.4&In-Reply-To=%3C200503131326.j2DDQ4N04709%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Mar 13 14:26:04 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000102.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000104.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.data.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#103">[ date ]</a>
+              <a href="thread.html#103">[ thread ]</a>
+              <a href="subject.html#103">[ subject ]</a>
+              <a href="author.html#103">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv6490/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_status.php 
+Log Message:
+* Added methods createStatus, modifyStatus and deleteStatus
+
+Index: class.phpmediadb_data_status.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_status.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_data_status.php	11 Mar 2005 12:14:35 -0000	1.3
++++ class.phpmediadb_data_status.php	13 Mar 2005 13:26:02 -0000	1.4
+@@ -93,6 +93,74 @@
+ 	}
+ 
+ //-----------------------------------------------------------------------------
++	/**
++	 * This function creates a new record in the table MediaStatus
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param String
++	 * @param String
++	 * @param String
++	 */
++	public function createStatus( $MediaStatus, $MediaStatusOwner, $MediaStatusHolder )
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;preparedStatement( 'INSERT INTO MediaStatus
++		( MediaStatus, MediaStatusOwner, MediaStatusHolder )
++		VALUES( :ms, :mso, :msh )' );
++		$stmt-&gt;setString( ':ms', $MediaStatus );
++		$stmt-&gt;setString( ':mso', $MediaStatusOwner );
++		$stmt-&gt;setString( ':msh', $MediaStatusHolder );
++		$stmt-&gt;executeUpdate();
++		
++	}
++
++//-----------------------------------------------------------------------------
++	/**
++	 * This function modifies a specified record from the table MediaStatus
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer
++	 * @param String
++	 * @param String
++	 * @param String
++	 */
++	public function modifyStatus( $MediaStatusID, $MediaStatus, $MediaStatusOwner, $MediaStatusHolder )
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;preparedStatement( 'UPDATE MediaStatus
++		SET MediaStatus.MediaStatus = :ms,
++		MediaStatus.MediaStatusOwner = :mso,
++		MediaStatus.MediaStatusHolder = :msh
++		WHERE MediaStatus.MediaStatusID = :msid' );
++		$stmt-&gt;setString( ':ms', $MediaStatus );
++		$stmt-&gt;setString( ':mso', $MediaStatusOwner );
++		$stmt-&gt;setString( ':msh', $MediaStatusHolder );
++		$stmt-&gt;setString( ':msid', $MediaStatusID );
++		$stmt-&gt;executeUpdate();
++		
++	}
++
++//-----------------------------------------------------------------------------
++	/**
++	 * This function deletes a specified record from the table MediaStatus
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer
++	 */
++	public function deleteStatus( $MediaStatusID )
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;preparedStatement( 'DELETE FROM MediaStatus
++		WHERE MediaStatus.MediaStatusID = :msid' );
++		$stmt-&gt;setString( ':msid', $MediaStatusID );
++		$stmt-&gt;executeUpdate();
++		
++	}
++
++//-----------------------------------------------------------------------------
+ }
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000102.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000104.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.data.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#103">[ date ]</a>
+              <a href="thread.html#103">[ thread ]</a>
+              <a href="subject.html#103">[ subject ]</a>
+              <a href="author.html#103">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

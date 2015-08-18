@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.3,1.4 class.phpmediadb_business_audios.php,1.4,1.5 class.phpmediadb_business_categories.php,1.3,1.4 class.phpmediadb_business_codecs.php,1.3,1.4 class.phpmediadb_business_formats.php,1.3,1.4 class.phpmediadb_business_inspector.php,1.3,1.4 class.phpmediadb_business.php,1.8,1.9 class.phpmediadb_business_prints.php,1.3,1.4 class.phpmediadb_business_videos.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_agerestrictions.php%2C1.3%2C1.4%20class.phpmediadb_business_audios.php%2C1.4%2C1.5%20class.phpmediadb_business_categories.php%2C1.3%2C1.4%20class.phpmediadb_business_codecs.php%2C1.3%2C1.4%20class.phpmediadb_business_formats.php%2C1.3%2C1.4%20class.phpmediadb_business_inspector.php%2C1.3%2C1.4%20class.phpmediadb_business.php%2C1.8%2C1.9%20class.phpmediadb_business_prints.php%2C1.3%2C1.4%20class.phpmediadb_business_videos.php%2C1.3%2C1.4&In-Reply-To=%3C200503241713.j2OHDTh04012%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000190.html">
+   <LINK REL="Next"  HREF="000192.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.3,1.4 class.phpmediadb_business_audios.php,1.4,1.5 class.phpmediadb_business_categories.php,1.3,1.4 class.phpmediadb_business_codecs.php,1.3,1.4 class.phpmediadb_business_formats.php,1.3,1.4 class.phpmediadb_business_inspector.php,1.3,1.4 class.phpmediadb_business.php,1.8,1.9 class.phpmediadb_business_prints.php,1.3,1.4 class.phpmediadb_business_videos.php,1.3,1.4</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.business%20class.phpmediadb_business_agerestrictions.php%2C1.3%2C1.4%20class.phpmediadb_business_audios.php%2C1.4%2C1.5%20class.phpmediadb_business_categories.php%2C1.3%2C1.4%20class.phpmediadb_business_codecs.php%2C1.3%2C1.4%20class.phpmediadb_business_formats.php%2C1.3%2C1.4%20class.phpmediadb_business_inspector.php%2C1.3%2C1.4%20class.phpmediadb_business.php%2C1.8%2C1.9%20class.phpmediadb_business_prints.php%2C1.3%2C1.4%20class.phpmediadb_business_videos.php%2C1.3%2C1.4&In-Reply-To=%3C200503241713.j2OHDTh04012%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.3,1.4 class.phpmediadb_business_audios.php,1.4,1.5 class.phpmediadb_business_categories.php,1.3,1.4 class.phpmediadb_business_codecs.php,1.3,1.4 class.phpmediadb_business_formats.php,1.3,1.4 class.phpmediadb_business_inspector.php,1.3,1.4 class.phpmediadb_business.php,1.8,1.9 class.phpmediadb_business_prints.php,1.3,1.4 class.phpmediadb_business_videos.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar 24 18:13:29 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000190.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.3,1.4 i18n.en.php,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000192.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.6,1.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#191">[ date ]</a>
+              <a href="thread.html#191">[ thread ]</a>
+              <a href="subject.html#191">[ subject ]</a>
+              <a href="author.html#191">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv26699/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business_agerestrictions.php 
+	class.phpmediadb_business_audios.php 
+	class.phpmediadb_business_categories.php 
+	class.phpmediadb_business_codecs.php 
+	class.phpmediadb_business_formats.php 
+	class.phpmediadb_business_inspector.php 
+	class.phpmediadb_business.php 
+	class.phpmediadb_business_prints.php 
+	class.phpmediadb_business_videos.php 
+Log Message:
+* Changed javadoc comments
+
+Index: class.phpmediadb_business_agerestrictions.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_agerestrictions.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_business_agerestrictions.php	20 Mar 2005 17:03:19 -0000	1.3
++++ class.phpmediadb_business_agerestrictions.php	24 Mar 2005 17:13:26 -0000	1.4
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This is the class that manages all functions of the agerestrictions
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business_agerestrictions
+ {
+ 	// --- ATTRIBUTES ---
+@@ -57,7 +65,9 @@
+ 	/**
+ 	 * Returns the complete list
+ 	 *
+-	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @return array list of agerestrictions
+ 	 */
+ 	public function getList()
+ 	{
+
+Index: class.phpmediadb_business_audios.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_audios.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business_audios.php	20 Mar 2005 17:03:19 -0000	1.4
++++ class.phpmediadb_business_audios.php	24 Mar 2005 17:13:26 -0000	1.5
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This is the class that manages all functions of the audios
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business_audios
+ {
+ 	// --- ATTRIBUTES ---
+
+Index: class.phpmediadb_business_categories.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_categories.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_business_categories.php	20 Mar 2005 17:03:19 -0000	1.3
++++ class.phpmediadb_business_categories.php	24 Mar 2005 17:13:26 -0000	1.4
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This is the class that manages all functions of the categories
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business_categories
+ {
+ 	// --- ATTRIBUTES ---
+
+Index: class.phpmediadb_business_codecs.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_codecs.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_business_codecs.php	20 Mar 2005 17:03:19 -0000	1.3
++++ class.phpmediadb_business_codecs.php	24 Mar 2005 17:13:26 -0000	1.4
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This is the class that manages all functions of the codecs
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business_codecs
+ {
+ 	// --- ATTRIBUTES ---
+
+Index: class.phpmediadb_business_formats.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_formats.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_business_formats.php	20 Mar 2005 17:03:19 -0000	1.3
++++ class.phpmediadb_business_formats.php	24 Mar 2005 17:13:26 -0000	1.4
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This is the class that manages all functions of the formats
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business_formats
+ {
+ 	// --- ATTRIBUTES ---
+
+Index: class.phpmediadb_business_inspector.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_inspector.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_business_inspector.php	20 Mar 2005 17:03:19 -0000	1.3
++++ class.phpmediadb_business_inspector.php	24 Mar 2005 17:13:26 -0000	1.4
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This is the class that manages all inspector functions like datavalidation
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business_inspector
+ {
+ 	// --- ATTRIBUTES ---
+
+Index: class.phpmediadb_business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business.php,v
+retrieving revision 1.8
+retrieving revision 1.9
+diff -u -d -r1.8 -r1.9
+--- class.phpmediadb_business.php	20 Mar 2005 17:03:19 -0000	1.8
++++ class.phpmediadb_business.php	24 Mar 2005 17:13:26 -0000	1.9
+@@ -2,6 +2,16 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This class contains all subclasses of the TIER.BUSINESS and the configuration
++ * for the whole TIER.BUSINESS.
++ * The subclasses can be accessed through the public references.
++ * 
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business
+ {
+ 	// --- ATTRIBUTES ---
+
+Index: class.phpmediadb_business_prints.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_prints.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_business_prints.php	20 Mar 2005 17:03:19 -0000	1.3
++++ class.phpmediadb_business_prints.php	24 Mar 2005 17:13:26 -0000	1.4
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This is the class that manages all functions of the prints
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business_prints
+ {
+ 	// --- ATTRIBUTES ---
+
+Index: class.phpmediadb_business_videos.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business_videos.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_business_videos.php	20 Mar 2005 17:03:19 -0000	1.3
++++ class.phpmediadb_business_videos.php	24 Mar 2005 17:13:26 -0000	1.4
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ /* $Id$ */
+ 
++/**
++ * This is the class that manages all functions of the videos
++ *
++ * @author		Markus Blaschke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">mblaschke at users.berlios.de</A>&gt;
++ * @version		$Revision$
++ * @package		phpmediadb
++ * @subpackage	business
++ */
+ class phpmediadb_business_videos
+ {
+ 	// --- ATTRIBUTES ---
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000190.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.3,1.4 i18n.en.php,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000192.html">[phpmediadb-cvs] phpmediadb-cvs/admin item-session.php,1.6,1.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#191">[ date ]</a>
+              <a href="thread.html#191">[ thread ]</a>
+              <a href="subject.html#191">[ subject ]</a>
+              <a href="author.html#191">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

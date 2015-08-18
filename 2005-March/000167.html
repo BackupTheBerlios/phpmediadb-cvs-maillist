@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_prints.php%2C1.5%2C1.6&In-Reply-To=%3C200503161503.j2GF3dN12873%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000166.html">
+   <LINK REL="Next"  HREF="000168.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.5,1.6</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_prints.php%2C1.5%2C1.6&In-Reply-To=%3C200503161503.j2GF3dN12873%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Mar 16 16:03:39 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000166.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.7,1.8
+</A></li>
+        <LI>Next message: <A HREF="000168.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.6,1.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv14064/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_prints.php 
+Log Message:
+* Fixed syntax mistake
+* Added some comments
+* Added array $data
+* Changed methods exist() and create()
+
+Index: class.phpmediadb_data_prints.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_prints.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- class.phpmediadb_data_prints.php	15 Mar 2005 17:46:19 -0000	1.5
++++ class.phpmediadb_data_prints.php	16 Mar 2005 15:03:36 -0000	1.6
+@@ -7,7 +7,7 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Short description of attribute PHPMEDIADB
++	 * Reference to class PHPMEDIADB
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb
+@@ -16,7 +16,7 @@
+ 	protected $PHPMEDIADB = null;
+ 
+ 	/**
+-	 * Short description of attribute DATA
++	 * Reference to class DATA
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb_presentation
+@@ -32,11 +32,13 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param phpmediadb_data
++	 * @param phpmediadb_data $sender Reference to parent class
+ 	 */
+-	public function __construct()
++	public function __construct( $sender )
+ 	{
+-		/* nothing to do yet */
++		/* assign parent */
++		$this-&gt;DATA			= $sender;
++		$this-&gt;PHPMEDIADB	= $sender-&gt;PHPMEDIADB;
+ 	}
+   
+ //-----------------------------------------------------------------------------
+@@ -58,32 +60,32 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param Integer
+-	 * @return String
++	 * @param Integer $id contains specified id for the sql statement
++	 * @return Mixed array $rs contains result of database query
+ 	 */
+-	public function get( $PrintDataID )
++	public function get( $id )
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;prepareStatement( 'SELECT a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.ItemPicturesID
+-		FROM PrintDatas a,
+-		Languages b,
+-		Items c,
+-		ItemTypes d,
+-		MediaCodecs e,
+-		MediaFormats f,
+-		MediaAgeRestrictions g,
+-		MediaStatus h,
+-		BinaryDatas i
+-		WHERE a.PrintDataID = ? 
+-		AND a.LanguageID = b.LanguageID
+-		AND a.ItemID = c.ItemID
+-		AND c.ItemTypeID = d.ItemTypeID
+-		AND c.MediaCodecID = e.MediaCodecID
+-		AND c.MediaFormatID = f.MediaFormatID
+-		AND c.MediaAgeRestrictionID = g.MediaAgeRestrictionID
+-		AND c.MediaStatusID = h.MediaStatusID
+-		AND c.ItemPicturesID = i.ItemPicturesID' );
+-		$stmt-&gt;setString( 1, $PrintDataID );
++		$stmt = $conn-&gt;prepareStatement(	'SELECT a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.ItemPicturesID
++											FROM PrintDatas a,
++											Languages b,
++											Items c,
++											ItemTypes d,
++											MediaCodecs e,
++											MediaFormats f,
++											MediaAgeRestrictions g,
++											MediaStatus h,
++											BinaryDatas i
++											WHERE c.ItemID = ? 
++											AND a.LanguageID = b.LanguageID
++											AND a.ItemID = c.ItemID
++											AND c.ItemTypeID = d.ItemTypeID
++											AND c.MediaCodecID = e.MediaCodecID
++											AND c.MediaFormatID = f.MediaFormatID
++											AND c.MediaAgeRestrictionID = g.MediaAgeRestrictionID
++											AND c.MediaStatusID = h.MediaStatusID
++											AND c.ItemPicturesID = i.ItemPicturesID' );
++		$stmt-&gt;setString( 1, $id );
+ 		$rs = $stmt-&gt;executeQuery();
+ 		
+ 		return $rs;
+@@ -96,165 +98,147 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @return String
++	 * @return Mixed array $rs contains result of database query
+ 	 */
+ 	public function getList()
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;prepareStatement( 'SELECT a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.ItemPicturesID
+-		FROM PrintDatas a,
+-		Languages b,
+-		Items c,
+-		ItemTypes d,
+-		MediaCodecs e,
+-		MediaFormats f,
+-		MediaAgeRestrictions g,
+-		MediaStatus h,
+-		BinaryDatas i
+-		WHERE a.PrintDataID LIKE &quot;%&quot;
+-		AND a.LanguageID = b.LanguageID
+-		AND a.ItemID = c.ItemID
+-		AND c.ItemTypeID = d.ItemTypeID
+-		AND c.MediaCodecID = e.MediaCodecID
+-		AND c.MediaFormatID = f.MediaFormatID
+-		AND c.MediaAgeRestrictionID = g.MediaAgeRestrictionID
+-		AND c.MediaStatusID = h.MediaStatusID
+-		AND c.ItemPicturesID = i.ItemPicturesID' );
++		$stmt = $conn-&gt;prepareStatement(	'SELECT a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.ItemPicturesID
++											FROM PrintDatas a,
++											Languages b,
++											Items c,
++											ItemTypes d,
++											MediaCodecs e,
++											MediaFormats f,
++											MediaAgeRestrictions g,
++											MediaStatus h,
++											BinaryDatas i
++											WHERE c.ItemID LIKE &quot;%&quot;
++											AND a.LanguageID = b.LanguageID
++											AND a.ItemID = c.ItemID
++											AND c.ItemTypeID = d.ItemTypeID
++											AND c.MediaCodecID = e.MediaCodecID
++											AND c.MediaFormatID = f.MediaFormatID
++											AND c.MediaAgeRestrictionID = g.MediaAgeRestrictionID
++											AND c.MediaStatusID = h.MediaStatusID
++											AND c.ItemPicturesID = i.ItemPicturesID' );
+ 		$rs = $stmt-&gt;executeQuery();
+ 		
+ 		return $rs;
+ 	}
+ 
+ //-----------------------------------------------------------------------------
+-	/**
+-	 * This function deletes a specified record from the table PrintDatas
+-	 * and all depending data from the other tables
++/**
++	 * This function creates a new record into the table PrintDatas
++	 * and all required data into the other tables
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param Integer
++	 * @param Mixed array $data contains all required data for the sql statement
++	 * @return Integer getLastInsert() returns id from the last created record
+ 	 */
+-	public function delete( $PrintDataID )
++	public function create( $data )
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;prepareStatement( 'DELETE PrintDatas, Items, BinaryDatas, Categories_has_Items
+-		FROM PrintDatas, Items, BinaryDatas, Categories_has_Items
+-		WHERE PrintDatas.PrintDataID = ?
+-		AND PrintDatas.ItemID = Items.ItemID
+-		AND Items.ItemPicturesID = BinaryDatas.ItemPicturesID
+-		AND Items.ItemID = Categories_has_Items.ItemID' );
+-		$stmt-&gt;setString( 1, $PrintDataID );
++		$stmt = $conn-&gt;prepareStatement( 'INSERT INTO PrintDatas ( PrintDataMediaCount, PrintDataISBN ) VALUES( ?, ? )' );
++		$stmt-&gt;setString( 1, $data['PrintDataMediaCount'] );
++		$stmt-&gt;setString( 2, $data['PrintDataISBN'] );
+ 		$stmt-&gt;executeUpdate();
++		
++		$stmt = $conn-&gt;prepareStatement(	'INSERT INTO Items
++											( ItemTitle, ItemOriginalTitle, ItemRelease,
++											ItemMediaName, ItemCreationDate, ItemModificationDate, ItemComment )
++											VALUES( ?, ?, ?, ?, now(), now(), ? )' );
++		$stmt-&gt;setString( 1, $data['ItemTitle'] );
++		$stmt-&gt;setString( 2, $data['ItemOriginalTitle'] );
++		$stmt-&gt;setString( 3, $data['ItemRelease'] );
++		$stmt-&gt;setString( 4, $data['ItemMediaName'] );
++		$stmt-&gt;setString( 5, $data['ItemComment'] );
++		$stmt-&gt;executeUpdate();
++		
++		return $this-&gt;DATA-&gt;SQL-&gt;getLastInsert( $conn );		
+ 	}
+ 
+ //-----------------------------------------------------------------------------
+ /**
+-	 * This function creates a new record into the table PrintDatas
+-	 * and all required data into the other tables
++	 * This function modifies a specified record from the table PrintDatas
++	 * and all required data from the other tables
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param Integer
+-	 * @param String
+-	 * @param String
+-	 * @param String
+-	 * @param Integer
+-	 * @param String
+-	 * @param Blob
++	 * @param Integer $id contains specified id for the sql statement
++	 * @param Mixed array $data contains all required data for the sql statement
+ 	 */
+-	public function create( $PrintDataMediaCount, $PrintDataISBN, $ItemTitle, $ItemOriginalTitle,
+-	$ItemRelease, $ItemMediaName, $ItemComment )
++	public function modify( $id, $data )
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;prepareStatement( 'INSERT INTO PrintDatas ( PrintDataMediaCount, PrintDataISBN ) VALUES( ?, ? )' );
+-		$stmt-&gt;setString( 1, $PrintDataMediaCount );
+-		$stmt-&gt;setString( 2, $PrintDataISBN );
++		$stmt = $conn-&gt;prepareStatement(	'UPDATE PrintDatas,
++											Languages,
++											Items,
++											ItemTypes,
++											MediaCodecs,
++											MediaFormats,
++											MediaAgeRestrictions,
++											MediaStatus,
++											BinaryDatas
++											SET PrintDatas.PrintDataMediaCount = ?,
++											PrintDatas.PrintDataISBN = ?,
++											Items.ItemTitle = ?,
++											Items.ItemOriginalTitle = ?,
++											Items.ItemRelease = ?,
++											Items.ItemMediaName = ?,
++											Items.ItemModificationDate = now(),
++											Items.ItemComment = ?,
++											Items.MediaCodecID = ?,
++											Items.MediaFormatID = ?,
++											Items.MediaAgeRestrictionID = ?,
++											Items.MediaStatusID = ?,
++											Items.ItemPicturesID = ?
++											WHERE Items.ItemID = ? 
++											AND PrintDatas.LanguageID = Languages.LanguageID
++											AND PrintDatas.ItemID = Items.ItemID
++											AND Items.ItemTypeID = ItemTypes.ItemTypeID
++											AND Items.MediaCodecID = MediaCodecs.MediaCodecID
++											AND Items.MediaFormatID = MediaFormats.MediaFormatID
++											AND Items.MediaAgeRestrictionID = MediaAgeRestrictions.MediaAgeRestrictionID
++											AND Items.MediaStatusID = MediaStatus.MediaStatusID
++											AND Items.ItemPicturesID = BinaryDatas.ItemPicturesID' );
++		$stmt-&gt;setString( 1, $data['PrintDataMediaCount'] );
++		$stmt-&gt;setString( 2, $data['PrintDataISBN'] );
++		$stmt-&gt;setString( 3, $data['ItemTitle'] );
++		$stmt-&gt;setString( 4, $data['ItemOriginalTitle'] );
++		$stmt-&gt;setString( 5, $data['ItemRelease'] );
++		$stmt-&gt;setString( 6, $data['ItemMediaName'] );
++		$stmt-&gt;setString( 7, $data['ItemComment'] );
++		$stmt-&gt;setString( 8, $data['MediaCodecID'] );
++		$stmt-&gt;setString( 9, $data['MediaFormatID'] );
++		$stmt-&gt;setString( 10, $data['MediaAgeRestrictionID'] );
++		$stmt-&gt;setString( 11, $data['MediaStatusID'] );
++		$stmt-&gt;setString( 12, $data['ItemPicturesID'] );
++		$stmt-&gt;setString( 13, $id );
+ 		$stmt-&gt;executeUpdate();
+-		
+-		$stmt = $conn-&gt;prepareStatement( 'INSERT INTO Items
+-		( ItemTitle, ItemOriginalTitle, ItemRelease, ItemMediaName, ItemCreationDate, ItemModificationDate, ItemComment )
+-		VALUES( ?, ?, ?, ?, now(), now(), ? )' );
+-		$stmt-&gt;setString( 1, $ItemTitle );
+-		$stmt-&gt;setString( 2, $ItemOriginalTitle );
+-		$stmt-&gt;setString( 3, $ItemRelease );
+-		$stmt-&gt;setString( 4, $ItemMediaName );
+-		$stmt-&gt;setString( 5, $ItemComment );
+-		$stmt-&gt;executeUpdate(); 
+-		
+ 	}
+-
++	
+ //-----------------------------------------------------------------------------
+-/**
+-	 * This function modifies a specified record from the table PrintDatas
+-	 * and all required data from the other tables
++	/**
++	 * This function deletes a specified record from the table PrintDatas
++	 * and all depending data from the other tables
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param Integer
+-	 * @param Integer
+-	 * @param String
+-	 * @param String
+-	 * @param String
+-	 * @param Integer
+-	 * @param String
+-	 * @param Blob
+-	 * @param Integer
+-	 * @param Integer
+-	 * @param Integer
+-	 * @param Integer
+-	 * @param Integer
++	 * @param Integer $id contains specified id for the sql statement
+ 	 */
+-	public function modify( $PrintDataID, $PrintDataMediaCount, $PrintDataISBN, $ItemTitle, $ItemOriginalTitle,
+-	$ItemRelease, $ItemMediaName, $ItemComment, $MediaCodecID, $MediaFormatID,
+-	$MediaAgeRestrictionID, $MediaStatusID, $ItemPicturesID )
++	public function delete( $id )
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;prepareStatement( 'UPDATE PrintDatas,
+-		Languages,
+-		Items,
+-		ItemTypes,
+-		MediaCodecs,
+-		MediaFormats,
+-		MediaAgeRestrictions,
+-		MediaStatus,
+-		BinaryDatas
+-		SET PrintDatas.PrintDataMediaCount = ?,
+-		PrintDatas.PrintDataISBN = ?,
+-		Items.ItemTitle = ?,
+-		Items.ItemOriginalTitle = ?,
+-		Items.ItemRelease = ?,
+-		Items.ItemMediaName = ?,
+-		Items.ItemModificationDate = now(),
+-		Items.ItemComment = ?,
+-		Items.MediaCodecID = ?,
+-		Items.MediaFormatID = ?,
+-		Items.MediaAgeRestrictionID = ?,
+-		Items.MediaStatusID = ?,
+-		Items.ItemPicturesID = ?
+-		WHERE PrintDatas.PrintDataID = ? 
+-		AND PrintDatas.LanguageID = Languages.LanguageID
+-		AND PrintDatas.ItemID = Items.ItemID
+-		AND Items.ItemTypeID = ItemTypes.ItemTypeID
+-		AND Items.MediaCodecID = MediaCodecs.MediaCodecID
+-		AND Items.MediaFormatID = MediaFormats.MediaFormatID
+-		AND Items.MediaAgeRestrictionID = MediaAgeRestrictions.MediaAgeRestrictionID
+-		AND Items.MediaStatusID = MediaStatus.MediaStatusID
+-		AND Items.ItemPicturesID = BinaryDatas.ItemPicturesID' );
+-		$stmt-&gt;setString( 1, $PrintDataMediaCount );
+-		$stmt-&gt;setString( 2, $PrintDataISBN );
+-		$stmt-&gt;setString( 3, $ItemTitle );
+-		$stmt-&gt;setString( 4, $ItemOriginalTitle );
+-		$stmt-&gt;setString( 5, $ItemRelease );
+-		$stmt-&gt;setString( 6, $ItemMediaName );
+-		$stmt-&gt;setString( 7, $ItemComment );
+-		$stmt-&gt;setString( 8, $MediaCodecID );
+-		$stmt-&gt;setString( 9, $MediaFormatID );
+-		$stmt-&gt;setString( 10, $MediaAgeRestrictionID );
+-		$stmt-&gt;setString( 11, $MediaStatusID );
+-		$stmt-&gt;setString( 12, $ItemPicturesID );
+-		$stmt-&gt;setString( 13, $PrintDataID );
++		$stmt = $conn-&gt;prepareStatement(	'DELETE PrintDatas, Items, BinaryDatas, Categories_has_Items
++											FROM PrintDatas, Items, BinaryDatas, Categories_has_Items
++											WHERE Items.ItemID = ?
++											AND PrintDatas.ItemID = Items.ItemID
++											AND Items.ItemPicturesID = BinaryDatas.ItemPicturesID
++											AND Items.ItemID = Categories_has_Items.ItemID' );
++		$stmt-&gt;setString( 1, $id );
+ 		$stmt-&gt;executeUpdate();
+-		
+ 	}
+ 
+ //-----------------------------------------------------------------------------
+@@ -264,29 +248,30 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @param Integer
+-	 * @return Boolean
++	 * @param Integer $id contains specified id for the sql statement
++	 * @return Boolean $returnValue returns whether the specified record exists
+ 	 */
+-	public function exist( $PrintDataID )
++	public function exist( $id )
+ 	{
++		/* init */
++		$returnValue = false;
++		
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;prepareStatement( 'SELECT COUNT(*)
+-		FROM PrintDatas,
+-		WHERE PrintDatas.PrintDataID = ?' );
+-		$stmt-&gt;setString( 1, $PrintDataID );
++		$stmt = $conn-&gt;prepareStatement(	'SELECT COUNT(*)
++											FROM PrintDatas,
++											WHERE PrintDatas.PrintDataID = ?' );
++		$stmt-&gt;setString( 1, $id );
+ 		$rs = $stmt-&gt;executeQuery( ResultSet::FETCHMODE_NUM );
+ 		$rs-&gt;next();
++		
++		/* check if item exists */
+ 		if( $rs-&gt;get(1) &gt;= 1 )
+-			{
+-			return true;
+-			}
+-		else
+-			{
+-			return false;
+-			}
++			$returnValue = true;
++
++		return $returnValue;
+ 	}
+ 
+ //-----------------------------------------------------------------------------
+-}
++} /* end of class phpmediadb_data_prints */
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000166.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.7,1.8
+</A></li>
+	<LI>Next message: <A HREF="000168.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.6,1.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

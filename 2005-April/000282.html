@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.formular.tpl,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.item.audio.formular.tpl%2C1.5%2C1.6&In-Reply-To=%3C200504121854.j3CIsVm25726%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000281.html">
+   <LINK REL="Next"  HREF="000283.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.formular.tpl,1.5,1.6</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.item.audio.formular.tpl%2C1.5%2C1.6&In-Reply-To=%3C200504121854.j3CIsVm25726%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.formular.tpl,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Apr 12 20:54:31 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000281.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000283.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.header.tpl,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#282">[ date ]</a>
+              <a href="thread.html#282">[ thread ]</a>
+              <a href="subject.html#282">[ subject ]</a>
+              <a href="author.html#282">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates
+In directory sheep:/tmp/cvs-serv9543/_source/tier.configuration/templates
+
+Modified Files:
+	body.item.audio.formular.tpl 
+Log Message:
+* Added Empty-Option
+
+Index: body.item.audio.formular.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/body.item.audio.formular.tpl,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- body.item.audio.formular.tpl	6 Apr 2005 13:53:03 -0000	1.5
++++ body.item.audio.formular.tpl	12 Apr 2005 18:54:29 -0000	1.6
+@@ -29,7 +29,7 @@
+ 			{if $INPUTERROR.flag.ItemMediaName eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;{$I18N.MEDIA_IDENTIFICATION|default:&quot;%MEDIA_IDENTIFICATION%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+@@ -45,7 +45,7 @@
+ 			{if $INPUTERROR.flag.ItemReleaseDate eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;{$I18N.MEDIA_CATEGORY|default:&quot;%MEDIA_CATEGORY%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+@@ -66,7 +66,7 @@
+ 			{if $INPUTERROR.flag.Categories eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;{$I18N.MEDIA_MEDIASIZE|default:&quot;%MEDIA_MEDIASIZE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+@@ -74,11 +74,12 @@
+ 			{if $INPUTERROR.flag.ItemMediaSize eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;{$I18N.MEDIA_FORMAT|default:&quot;%MEDIA_FORMAT%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+ 			&lt;select name=&quot;itemdata[MediaFormatID]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.OPTION_EMPTY|default:&quot;%OPTION_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.MEDIAFORMATS item=currentDataItem key=currentDataKey}
+ 	{if $currentDataItem.mediaformatid eq $ITEMDATA.MediaFormatID }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediaformatid}&quot;&gt;{$currentDataItem.mediaformatname}&lt;/option&gt;
+@@ -111,6 +112,7 @@
+ 		&lt;td&gt;{$I18N.MEDIA_AGERESTRICTION|default:&quot;%MEDIA_AGERESTRICTION%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+ 			&lt;select name=&quot;itemdata[MediaAgeRestrictionID]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.OPTION_EMPTY|default:&quot;%OPTION_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.AGERESTRICTIONS item=currentDataItem}
+ 	{if $currentDataItem.mediaagerestrictionid eq $ITEMDATA.MediaAgeRestrictionID }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediaagerestrictionid}&quot;&gt;{$currentDataItem.mediaagerestriction}&lt;/option&gt;
+@@ -127,6 +129,7 @@
+ 		&lt;td&gt;{$I18N.MEDIA_CODEC|default:&quot;%MEDIA_CODEC%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+ 			&lt;select name=&quot;itemdata[MediaCodecID]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.OPTION_EMPTY|default:&quot;%OPTION_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.CODECS item=currentDataItem}
+ 	{if $currentDataItem.mediacodecid eq $ITEMDATA.MediaCodecID }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediacodecid}&quot;&gt;{$currentDataItem.mediacodecname}&lt;/option&gt;
+@@ -146,7 +149,7 @@
+ 			{if $INPUTERROR.flag.ItemQuantity eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;{$I18N.MEDIA_COMMENT|default:&quot;%MEDIA_COMMENT%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+@@ -154,16 +157,16 @@
+ 			{if $INPUTERROR.flag.ItemComment eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 		&lt;td&gt;&lt;input type=&quot;reset&quot; value=&quot;{$I18N.FORM_RESET|default:&quot;%FORM_RESET%&quot;}&quot; /&gt; &lt;input type=&quot;submit&quot; name=&quot;buttonsave&quot; value=&quot;{$I18N.FORM_SUBMIT|default:&quot;%FORM_SUBMIT%&quot;}&quot;/&gt;&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 		&lt;td&gt;
+@@ -171,7 +174,7 @@
+ 			{$I18N.MEDIA_CREATIONDATE|default:&quot;%MEDIA_MODIFICATIONDATE%&quot;}: {$ITEMDATA.ItemModificationDate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ {if $INPUTERROR.general eq &quot;1&quot;}
+ 	&lt;tr&gt;
+ 		&lt;td colspan=&quot;2&quot;&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000281.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000283.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.header.tpl,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#282">[ date ]</a>
+              <a href="thread.html#282">[ thread ]</a>
+              <a href="subject.html#282">[ subject ]</a>
+              <a href="author.html#282">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

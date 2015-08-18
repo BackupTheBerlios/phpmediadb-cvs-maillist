@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.11,1.12
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_audios.php%2C1.11%2C1.12&In-Reply-To=%3C200504121017.j3CAHxm06552%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000270.html">
+   <LINK REL="Next"  HREF="000272.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.11,1.12</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_audios.php%2C1.11%2C1.12&In-Reply-To=%3C200504121017.j3CAHxm06552%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.11,1.12">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Apr 12 12:17:59 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000270.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.en.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000272.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.12,1.13
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#271">[ date ]</a>
+              <a href="thread.html#271">[ thread ]</a>
+              <a href="subject.html#271">[ subject ]</a>
+              <a href="author.html#271">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv3657/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_audios.php 
+Log Message:
+* Added ItemPublisher to the methodes create and modify
+
+Index: class.phpmediadb_data_audios.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_audios.php,v
+retrieving revision 1.11
+retrieving revision 1.12
+diff -u -d -r1.11 -r1.12
+--- class.phpmediadb_data_audios.php	10 Apr 2005 01:31:05 -0000	1.11
++++ class.phpmediadb_data_audios.php	12 Apr 2005 10:17:57 -0000	1.12
+@@ -142,8 +142,9 @@
+ 			$this-&gt;DATA-&gt;SQL-&gt;openTransaction( $conn );
+ 			$stmt = $conn-&gt;prepareStatement(	'INSERT INTO Items
+ 												( ItemTitle, ItemOriginalTitle, ItemReleaseDate, ItemMediaName, ItemCreationDate,
+-												ItemModificationDate, ItemComment, ItemQuantity, ItemIdentifier, ItemTypeID )
+-												VALUES( ?, ?, ?, ?, now(), now(), ?, ?, ?, ? )' );
++												ItemModificationDate, ItemComment, ItemQuantity, ItemIdentifier, ItemTypeID,
++												ItemPublisher )
++												VALUES( ?, ?, ?, ?, now(), now(), ?, ?, ?, ?, ? )' );
+ 			$stmt-&gt;setString( 1, $data['ItemTitle'] );
+ 			$stmt-&gt;setString( 2, $data['ItemOriginalTitle'] );
+ 			$stmt-&gt;setString( 3, $data['ItemReleaseDate'] );
+@@ -152,6 +153,7 @@
+ 			$stmt-&gt;setString( 6, $data['ItemQuantity'] );
+ 			$stmt-&gt;setString( 7, $data['ItemIdentifier'] );
+ 			$stmt-&gt;setString( 8, PHPMEDIADB_ITEM_AUDIO );
++			$stmt-&gt;setString( 9, $data['ItemPublisher'] );
+ 			$stmt-&gt;executeUpdate();
+ 		
+ 			$id = $this-&gt;DATA-&gt;SQL-&gt;getLastInsert( $conn );
+@@ -207,7 +209,8 @@
+ 												Items.MediaFormatID = ?,
+ 												Items.MediaAgeRestrictionID = ?,
+ 												Items.MediaStatusID = ?,
+-												Items.ItemPicturesID = ?
++												Items.ItemPicturesID = ?;
++												Items.ItemPublisher = ?
+ 												WHERE Items.ItemID = ?
+ 												AND AudioDatas.ItemID = Items.ItemID
+ 												AND Items.ItemTypeID = ItemTypes.ItemTypeID
+@@ -226,7 +229,8 @@
+ 			$stmt-&gt;setString( 10, $data['MediaFormatID'] );
+ 			$stmt-&gt;setString( 11, $data['MediaAgeRestrictionID'] );
+ 			$stmt-&gt;setString( 12, $data['ItemPicturesID'] );
+-			$stmt-&gt;setString( 13, $id );
++			$stmt-&gt;setString( 13, $data['ItemPublisher'] );
++			$stmt-&gt;setString( 14, $id );
+ 			$stmt-&gt;executeUpdate();
+ 			$this-&gt;DATA-&gt;SQL-&gt;commitTransaction( $conn );
+ 		}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000270.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.en.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000272.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_prints.php,1.12,1.13
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#271">[ date ]</a>
+              <a href="thread.html#271">[ thread ]</a>
+              <a href="subject.html#271">[ subject ]</a>
+              <a href="author.html#271">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

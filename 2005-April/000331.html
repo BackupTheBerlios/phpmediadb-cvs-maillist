@@ -1,0 +1,719 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.print.formular.tpl,1.2,1.3 body.item.print.show.tpl,1.1,1.2 body.item.video.formular.tpl,1.3,1.4 body.item.video.show.tpl,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.item.print.formular.tpl%2C1.2%2C1.3%20body.item.print.show.tpl%2C1.1%2C1.2%20body.item.video.formular.tpl%2C1.3%2C1.4%20body.item.video.show.tpl%2C1.1%2C1.2&In-Reply-To=%3C200504131504.j3DF4tm27493%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000330.html">
+   <LINK REL="Next"  HREF="000332.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.print.formular.tpl,1.2,1.3 body.item.print.show.tpl,1.1,1.2 body.item.video.formular.tpl,1.3,1.4 body.item.video.show.tpl,1.1,1.2</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/templates%20body.item.print.formular.tpl%2C1.2%2C1.3%20body.item.print.show.tpl%2C1.1%2C1.2%20body.item.video.formular.tpl%2C1.3%2C1.4%20body.item.video.show.tpl%2C1.1%2C1.2&In-Reply-To=%3C200504131504.j3DF4tm27493%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.print.formular.tpl,1.2,1.3 body.item.print.show.tpl,1.1,1.2 body.item.video.formular.tpl,1.3,1.4 body.item.video.show.tpl,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr 13 17:04:55 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000330.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.show.tpl,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000332.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.audio.tpl,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#331">[ date ]</a>
+              <a href="thread.html#331">[ thread ]</a>
+              <a href="subject.html#331">[ subject ]</a>
+              <a href="author.html#331">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates
+In directory sheep:/tmp/cvs-serv16095/_source/tier.configuration/templates
+
+Modified Files:
+	body.item.print.formular.tpl body.item.print.show.tpl 
+	body.item.video.formular.tpl body.item.video.show.tpl 
+Log Message:
+* Version bump from audios
+
+Index: body.item.print.formular.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/body.item.print.formular.tpl,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- body.item.print.formular.tpl	6 Apr 2005 13:53:13 -0000	1.2
++++ body.item.print.formular.tpl	13 Apr 2005 15:04:53 -0000	1.3
+@@ -1,58 +1,58 @@
+ &lt;form method=&quot;post&quot;&gt;
+-&lt;div&gt;
+-&lt;h1&gt;{$I18N.MEDIA_DATA_PRINT|default:&quot;%MEDIA_DATA_PRINT%&quot;}&lt;/h1&gt;
++&lt;div id=&quot;phpmediadb-body-formular-print&quot; class=&quot;phpmediadb-body-formular&quot;&gt;
++&lt;h1&gt;{$I18N.MEDIA_PRINT_TITLE|default:&quot;%MEDIA_PRINT_TITLE%&quot;}&lt;/h1&gt;
+ {if $INPUTERROR.general eq &quot;1&quot;}&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_OCCURRED|default:&quot;%ERROR_OCCURRED%&quot;} &lt;a href=&quot;#errorlist&quot;&gt;{$I18N.ERROR_LISTLINK|default:&quot;%ERROR_LISTLINK%&quot;}&lt;/a&gt;&lt;/span&gt;&lt;br /&gt;{/if}
+ &lt;table&gt;
+ 	&lt;colgroup&gt;
+ 		&lt;col/&gt;
+ 	&lt;/colgroup&gt;
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_TITLE|default:&quot;%MEDIA_TITLE%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_TITLE|default:&quot;%MEDIA_PRINT_ITEM_TITLE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemTitle]&quot; maxlength=&quot;{$INPUTSIZE.ItemTitle|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemTitle}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemTitle eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemtitle]&quot; maxlength=&quot;{$INPUTSIZE.itemtitle|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemtitle}&quot; /&gt;
++			{if $INPUTERROR.flag.itemtitle eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_ORIGINALTITLE|default:&quot;%MEDIA_ORIGINALTITLE%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_ORIGINALTITLE|default:&quot;%MEDIA_PRINT_ITEM_ORIGINALTITLE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemOriginalTitle]&quot; maxlength=&quot;{$INPUTSIZE.ItemOriginalTitle|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemOriginalTitle}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemOriginalTitle eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemoriginaltitle]&quot; maxlength=&quot;{$INPUTSIZE.itemoriginaltitle|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemoriginaltitle}&quot; /&gt;
++			{if $INPUTERROR.flag.itemoriginaltitle eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_MEDIANAME|default:&quot;%MEDIA_MEDIANAME%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_MEDIANAME|default:&quot;%MEDIA_PRINT_ITEM_MEDIANAME%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemMediaName]&quot; maxlength=&quot;{$INPUTSIZE.ItemMediaName|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemMediaName}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemMediaName eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemmedianame]&quot; maxlength=&quot;{$INPUTSIZE.itemmedianame|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemmedianame}&quot; /&gt;
++			{if $INPUTERROR.flag.itemmedianame eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_IDENTIFICATION|default:&quot;%MEDIA_IDENTIFICATION%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_IDENTIFICATION|default:&quot;%MEDIA_PRINT_ITEM_IDENTIFICATION%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemIdentifier]&quot; maxlength=&quot;{$INPUTSIZE.ItemIdentifier|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemIdentifier}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemIdentifier eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemidentifier]&quot; maxlength=&quot;{$INPUTSIZE.itemidentifier|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemidentifier}&quot; /&gt;
++			{if $INPUTERROR.flag.itemidentifier eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_RELEASEYEAR|default:&quot;%MEDIA_RELEASEYEAR%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_RELEASEYEAR|default:&quot;%MEDIA_PRINT_ITEM_RELEASEYEAR%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemReleaseDate]&quot; maxlength=&quot;{$INPUTSIZE.ItemReleaseDate|default:&quot;4&quot;}&quot; value=&quot;{$ITEMDATA.ItemReleaseDate}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemReleaseDate eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemreleasedate]&quot; maxlength=&quot;{$INPUTSIZE.itemreleasedate|default:&quot;4&quot;}&quot; value=&quot;{$ITEMDATA.itemreleasedate}&quot; /&gt;
++			{if $INPUTERROR.flag.itemreleasedate eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_CATEGORY|default:&quot;%MEDIA_CATEGORY%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_CATEGORY|default:&quot;%MEDIA_PRINT_ITEM_CATEGORY%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;select name=&quot;itemdata[Categories][]&quot; size=&quot;5&quot; multiple=&quot;true&quot;&gt;
++			&lt;select name=&quot;itemdata[categories][]&quot; size=&quot;5&quot; multiple=&quot;true&quot;&gt;
+ {foreach from=$DATA.CATEGORIES item=currentDataItem}
+ {assign var=&quot;TEMP&quot; value=&quot;0&quot;}
+-	{foreach from=$ITEMDATA.Categories item=currentItemItem}
++	{foreach from=$ITEMDATA.categories item=currentItemItem}
+ 			{if $currentItemItem eq $currentDataItem.categoryid }
+ 				{assign var=&quot;TEMP&quot; value=&quot;1&quot;}
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.categoryid}&quot;&gt;{$currentDataItem.categoryname}&lt;/option&gt;
+@@ -63,24 +63,25 @@
+ 			{/if}
+ {/foreach}
+ 			&lt;/select&gt;
+-			{if $INPUTERROR.flag.Categories eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			{if $INPUTERROR.flag.categories eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_MEDIASIZE|default:&quot;%MEDIA_MEDIASIZE%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_MEDIASIZE|default:&quot;%MEDIA_PRINT_ITEM_MEDIASIZE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemMediaSize]&quot; maxlength=&quot;{$INPUTSIZE.ItemMediaSize|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemMediaSize}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemMediaSize eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemmediasize]&quot; maxlength=&quot;{$INPUTSIZE.itemmediasize|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemmediasize}&quot; /&gt;
++			{if $INPUTERROR.flag.itemmediasize eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_FORMAT|default:&quot;%MEDIA_FORMAT%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_FORMAT|default:&quot;%MEDIA_PRINT_ITEM_FORMAT%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;select name=&quot;itemdata[MediaFormatID]&quot;&gt;
++			&lt;select name=&quot;itemdata[mediaformatid]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.FORMULAR_OPTION_ITEM_EMPTY|default:&quot;%FORMULAR_OPTION_ITEM_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.MEDIAFORMATS item=currentDataItem key=currentDataKey}
+-	{if $currentDataItem.mediaformatid eq $ITEMDATA.MediaFormatID }
++	{if $currentDataItem.mediaformatid eq $ITEMDATA.mediaformatid }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediaformatid}&quot;&gt;{$currentDataItem.mediaformatname}&lt;/option&gt;
+ 	{else}
+ 				&lt;option value=&quot;{$currentDataItem.mediaformatid}&quot;&gt;{$currentDataItem.mediaformatname}&lt;/option&gt;
+@@ -92,86 +93,89 @@
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_IMAGE|default:&quot;%MEDIA_IMAGE%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_IMAGE|default:&quot;%MEDIA_PRINT_ITEM_IMAGE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+ 			&lt;img src=&quot;getbinary.php?itemid={$ITEMDATA.ID}&quot; /&gt;&lt;br /&gt;
+-			&lt;input type=&quot;file&quot; name=&quot;itemdata[BinaryData]&quot; /&gt;
++			&lt;input type=&quot;file&quot; name=&quot;itemdata[picturedata]&quot; /&gt;
++			{if $ITEMDATA.itemid gt '0'}&lt;br /&gt;&lt;input type=&quot;checkbox&quot; name=&quot;itemdata[picturedelete]&quot; value=&quot;1&quot; /&gt;{$I18N.MEDIA_PRINT_IMAGEDELETE|default:&quot;%MEDIA_PRINT_IMAGEDELETE%&quot;}{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_PUBLISHER|default:&quot;%MEDIA_PUBLISHER%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_PUBLISHER|default:&quot;%MEDIA_PRINT_ITEM_PUBLISHER%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[PublisherName]&quot; maxlength=&quot;{$INPUTSIZE.PublisherName|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.PublisherName}&quot; /&gt;
+-			{if $INPUTERROR.flag.PublisherName eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itempublisher]&quot; maxlength=&quot;{$INPUTSIZE.itempublisher|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itempublisher}&quot; /&gt;
++			{if $INPUTERROR.flag.itempublisher eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_AGERESTRICTION|default:&quot;%MEDIA_AGERESTRICTION%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_AGERESTRICTION|default:&quot;%MEDIA_PRINT_ITEM_AGERESTRICTION%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;select name=&quot;itemdata[MediaAgeRestrictionID]&quot;&gt;
++			&lt;select name=&quot;itemdata[mediaagerestrictionid]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.FORMULAR_OPTION_ITEM_EMPTY|default:&quot;%FORMULAR_OPTION_ITEM_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.AGERESTRICTIONS item=currentDataItem}
+-	{if $currentDataItem.mediaagerestrictionid eq $ITEMDATA.MediaAgeRestrictionID }
++	{if $currentDataItem.mediaagerestrictionid eq $ITEMDATA.mediaagerestrictionid }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediaagerestrictionid}&quot;&gt;{$currentDataItem.mediaagerestriction}&lt;/option&gt;
+ 	{else}
+ 				&lt;option value=&quot;{$currentDataItem.mediaagerestrictionid}&quot;&gt;{$currentDataItem.mediaagerestriction}&lt;/option&gt;
+ 	{/if}
+ {/foreach}
+ 			&lt;/select&gt;
+-			{if $INPUTERROR.flag.MediaAgeRestrictionID eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			{if $INPUTERROR.flag.mediaagerestrictionid eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_CODEC|default:&quot;%MEDIA_CODEC%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_CODEC|default:&quot;%MEDIA_PRINT_ITEM_CODEC%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;select name=&quot;itemdata[MediaCodecID]&quot;&gt;
++			&lt;select name=&quot;itemdata[mediacodecid]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.FORMULAR_OPTION_ITEM_EMPTY|default:&quot;%FORMULAR_OPTION_ITEM_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.CODECS item=currentDataItem}
+-	{if $currentDataItem.mediacodecid eq $ITEMDATA.MediaCodecID }
++	{if $currentDataItem.mediacodecid eq $ITEMDATA.mediacodecid }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediacodecid}&quot;&gt;{$currentDataItem.mediacodecname}&lt;/option&gt;
+ 	{else}
+ 				&lt;option value=&quot;{$currentDataItem.mediacodecid}&quot;&gt;{$currentDataItem.mediacodecname}&lt;/option&gt;
+ 	{/if}
+ {/foreach}
+ 			&lt;/select&gt;
+-			{if $INPUTERROR.flag.MediaCodecID eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			{if $INPUTERROR.flag.mediacodecid eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_QUANTITY|default:&quot;%MEDIA_QUANTITY%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_QUANTITY|default:&quot;%MEDIA_PRINT_ITEM_QUANTITY%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemQuantity]&quot; maxlength=&quot;{$INPUTSIZE.ItemQuantity|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemQuantity}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemQuantity eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemquantity]&quot; maxlength=&quot;{$INPUTSIZE.itemquantity|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemquantity}&quot; /&gt;
++			{if $INPUTERROR.flag.itemquantity eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_COMMENT|default:&quot;%MEDIA_COMMENT%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_PRINT_ITEM_COMMENT|default:&quot;%MEDIA_PRINT_ITEM_COMMENT%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;textarea name=&quot;itemdata[ItemComment]&quot; cols=&quot;40&quot; rows=&quot;10&quot;&gt;{$ITEMDATA.ItemComment}&lt;/textarea&gt;
+-			{if $INPUTERROR.flag.ItemComment eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;textarea name=&quot;itemdata[itemcomment]&quot; cols=&quot;40&quot; rows=&quot;10&quot;&gt;{$ITEMDATA.itemcomment}&lt;/textarea&gt;
++			{if $INPUTERROR.flag.itemcomment eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 		&lt;td&gt;&lt;input type=&quot;reset&quot; value=&quot;{$I18N.FORM_RESET|default:&quot;%FORM_RESET%&quot;}&quot; /&gt; &lt;input type=&quot;submit&quot; name=&quot;buttonsave&quot; value=&quot;{$I18N.FORM_SUBMIT|default:&quot;%FORM_SUBMIT%&quot;}&quot;/&gt;&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 		&lt;td&gt;
+-			{$I18N.MEDIA_CREATIONDATE|default:&quot;%MEDIA_CREATIONDATE%&quot;}: {$ITEMDATA.ItemCreationDate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} &lt;br /&gt;
+-			{$I18N.MEDIA_CREATIONDATE|default:&quot;%MEDIA_MODIFICATIONDATE%&quot;}: {$ITEMDATA.ItemModificationDate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}
++			{if $ITEMDATA.itemcreationdate gt '0'}{$I18N.MEDIA_ITEM_CREATIONDATE|default:&quot;%MEDIA_ITEM_CREATIONDATE%&quot;}: {$ITEMDATA.itemcreationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} &lt;br /&gt;{/if}
++			{if $ITEMDATA.itemmodificationdate gt '0'}{$I18N.MEDIA_ITEM_MODIFICATIONDATE|default:&quot;%MEDIA_ITEM_MODIFICATIONDATE%&quot;}: {$ITEMDATA.itemmodificationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ {if $INPUTERROR.general eq &quot;1&quot;}
+ 	&lt;tr&gt;
+ 		&lt;td colspan=&quot;2&quot;&gt;
+
+Index: body.item.print.show.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/body.item.print.show.tpl,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- body.item.print.show.tpl	31 Mar 2005 15:53:47 -0000	1.1
++++ body.item.print.show.tpl	13 Apr 2005 15:04:53 -0000	1.2
+@@ -0,0 +1,74 @@
++&lt;div id=&quot;phpmediadb-body-details-print&quot; class=&quot;phpmediadb-body-details&quot;&gt;
++{if $ITEMDATA.itempictureid gt '0'}&lt;img src=&quot;<A HREF="http://schattenjaeger.ath.cx:20000/phpmediadb-cvs/_layout/images/phpmediadb.jpg">http://schattenjaeger.ath.cx:20000/phpmediadb-cvs/_layout/images/phpmediadb.jpg</A>&quot; align=&quot;right&quot;/&gt;{/if}
++&lt;h1&gt;{$ITEMDATA.itemtitle|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} {if $ITEMDATA.itemreleasedate neq ''}[{$ITEMDATA.itemreleasedate}]{/if} &lt;/h1&gt;
++{if $ITEMDATA.itemoriginaltitle neq ''}&lt;h2&gt;{$ITEMDATA.itemoriginaltitle}&lt;/h2&gt;{/if}
++{counter assign=COUNTER_CATEGORY start=0 print=0}
++{$I18N.MEDIA_PRINT_ITEM_CATEGORY|default:&quot;%MEDIA_AUDIO_ITEM_CATEGORY%&quot;}:&lt;br /&gt;
++{foreach from=$ITEMDATA.__special.categories item=currentDataItem}{if $COUNTER_CATEGORY gt '0'}; {/if}{$currentDataItem.categoryname}{counter print=0}{/foreach}{if $COUNTER_CATEGORY eq '0'}{$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}{/if}
++
++&lt;table&gt;
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_MEDIANAME|default:&quot;%MEDIA_AUDIO_ITEM_MEDIANAME%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemmedianame|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_IDENTIFICATION|default:&quot;%MEDIA_AUDIO_ITEM_IDENTIFICATION%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemidentifier|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_MEDIASIZE|default:&quot;%MEDIA_AUDIO_ITEM_MEDIASIZE%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemmediasize|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_FORMAT|default:&quot;%MEDIA_AUDIO_ITEM_FORMAT%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemtitle|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_RELEASEYEAR|default:&quot;%MEDIA_AUDIO_ITEM_RELEASEYEAR%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediaformatid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_PUBLISHER|default:&quot;%MEDIA_AUDIO_ITEM_PUBLISHER%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itempublisher|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_AGERESTRICTION|default:&quot;%MEDIA_AUDIO_ITEM_AGERESTRICTION%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediaagerestrictionid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_CODEC|default:&quot;%MEDIA_AUDIO_ITEM_CODEC%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediacodecid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_QUANTITY|default:&quot;%MEDIA_AUDIO_ITEM_QUANTITY%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemquantity|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++		&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_PRINT_ITEM_COMMENT|default:&quot;%MEDIA_AUDIO_ITEM_COMMENT%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemcomment|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;td colspan=&quot;2&quot;&gt;&nbsp;&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;td colspan=&quot;2&quot;&gt;
++			{if $ITEMDATA.itemcreationdate gt '0'}{$I18N.MEDIA_CREATIONDATE|default:&quot;%MEDIA_CREATIONDATE%&quot;}: {$ITEMDATA.itemcreationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} &lt;br /&gt;{/if}
++			{if $ITEMDATA.itemmodificationdate gt '0'}{$I18N.MEDIA_MODIFICATIONDATE|default:&quot;%MEDIA_MODIFICATIONDATE%&quot;}: {$ITEMDATA.itemmodificationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}{/if}
++
++		&lt;/td&gt;
++	&lt;/tr&gt;
++&lt;/table&gt;
++
++
++&lt;/div&gt;
+\ No newline at end of file
+
+Index: body.item.video.formular.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/body.item.video.formular.tpl,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- body.item.video.formular.tpl	13 Apr 2005 11:51:02 -0000	1.3
++++ body.item.video.formular.tpl	13 Apr 2005 15:04:53 -0000	1.4
+@@ -1,58 +1,58 @@
+ &lt;form method=&quot;post&quot;&gt;
+-&lt;div&gt;
+-&lt;h1&gt;{$I18N.MEDIA_DATA_VIDEO|default:&quot;%MEDIA_DATA_VIDEO%&quot;}&lt;/h1&gt;
++&lt;div id=&quot;phpmediadb-body-formular-video&quot; class=&quot;phpmediadb-body-formular&quot;&gt;
++&lt;h1&gt;{$I18N.MEDIA_VIDEO_TITLE|default:&quot;%MEDIA_VIDEO_TITLE%&quot;}&lt;/h1&gt;
+ {if $INPUTERROR.general eq &quot;1&quot;}&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_OCCURRED|default:&quot;%ERROR_OCCURRED%&quot;} &lt;a href=&quot;#errorlist&quot;&gt;{$I18N.ERROR_LISTLINK|default:&quot;%ERROR_LISTLINK%&quot;}&lt;/a&gt;&lt;/span&gt;&lt;br /&gt;{/if}
+ &lt;table&gt;
+ 	&lt;colgroup&gt;
+ 		&lt;col/&gt;
+ 	&lt;/colgroup&gt;
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_TITLE|default:&quot;%MEDIA_TITLE%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_TITLE|default:&quot;%MEDIA_VIDEO_ITEM_TITLE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+ 			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemtitle]&quot; maxlength=&quot;{$INPUTSIZE.itemtitle|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemtitle}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemTitle eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			{if $INPUTERROR.flag.itemtitle eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_ORIGINALTITLE|default:&quot;%MEDIA_ORIGINALTITLE%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_ORIGINALTITLE|default:&quot;%MEDIA_VIDEO_ITEM_ORIGINALTITLE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+ 			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemoriginaltitle]&quot; maxlength=&quot;{$INPUTSIZE.itemoriginaltitle|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemoriginaltitle}&quot; /&gt;
+-			{if $INPUTERROR.flag.Itemoriginaltitle eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			{if $INPUTERROR.flag.itemoriginaltitle eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_MEDIANAME|default:&quot;%MEDIA_MEDIANAME%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_MEDIANAME|default:&quot;%MEDIA_VIDEO_ITEM_MEDIANAME%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemMediaName]&quot; maxlength=&quot;{$INPUTSIZE.itemmedianame|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemmedianame}&quot; /&gt;
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemmedianame]&quot; maxlength=&quot;{$INPUTSIZE.itemmedianame|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemmedianame}&quot; /&gt;
+ 			{if $INPUTERROR.flag.itemmedianame eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_IDENTIFICATION|default:&quot;%MEDIA_IDENTIFICATION%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_IDENTIFICATION|default:&quot;%MEDIA_VIDEO_ITEM_IDENTIFICATION%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemIdentifier]&quot; maxlength=&quot;{$INPUTSIZE.ItemIdentifier|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemIdentifier}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemIdentifier eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemidentifier]&quot; maxlength=&quot;{$INPUTSIZE.itemidentifier|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemidentifier}&quot; /&gt;
++			{if $INPUTERROR.flag.itemidentifier eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_RELEASEYEAR|default:&quot;%MEDIA_RELEASEYEAR%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_RELEASEYEAR|default:&quot;%MEDIA_VIDEO_ITEM_RELEASEYEAR%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemReleaseDate]&quot; maxlength=&quot;{$INPUTSIZE.ItemReleaseDate|default:&quot;4&quot;}&quot; value=&quot;{$ITEMDATA.ItemReleaseDate}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemReleaseDate eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemreleasedate]&quot; maxlength=&quot;{$INPUTSIZE.itemreleasedate|default:&quot;4&quot;}&quot; value=&quot;{$ITEMDATA.itemreleasedate}&quot; /&gt;
++			{if $INPUTERROR.flag.itemreleasedate eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_CATEGORY|default:&quot;%MEDIA_CATEGORY%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_CATEGORY|default:&quot;%MEDIA_VIDEO_ITEM_CATEGORY%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;select name=&quot;itemdata[Categories][]&quot; size=&quot;5&quot; multiple=&quot;true&quot;&gt;
++			&lt;select name=&quot;itemdata[categories][]&quot; size=&quot;5&quot; multiple=&quot;true&quot;&gt;
+ {foreach from=$DATA.CATEGORIES item=currentDataItem}
+ {assign var=&quot;TEMP&quot; value=&quot;0&quot;}
+-	{foreach from=$ITEMDATA.Categories item=currentItemItem}
++	{foreach from=$ITEMDATA.categories item=currentItemItem}
+ 			{if $currentItemItem eq $currentDataItem.categoryid }
+ 				{assign var=&quot;TEMP&quot; value=&quot;1&quot;}
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.categoryid}&quot;&gt;{$currentDataItem.categoryname}&lt;/option&gt;
+@@ -63,24 +63,25 @@
+ 			{/if}
+ {/foreach}
+ 			&lt;/select&gt;
+-			{if $INPUTERROR.flag.Categories eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			{if $INPUTERROR.flag.categories eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_MEDIASIZE|default:&quot;%MEDIA_MEDIASIZE%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_MEDIASIZE|default:&quot;%MEDIA_VIDEO_ITEM_MEDIASIZE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemMediaSize]&quot; maxlength=&quot;{$INPUTSIZE.ItemMediaSize|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemMediaSize}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemMediaSize eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemmediasize]&quot; maxlength=&quot;{$INPUTSIZE.itemmediasize|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemmediasize}&quot; /&gt;
++			{if $INPUTERROR.flag.itemmediasize eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_FORMAT|default:&quot;%MEDIA_FORMAT%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_FORMAT|default:&quot;%MEDIA_VIDEO_ITEM_FORMAT%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;select name=&quot;itemdata[MediaFormatID]&quot;&gt;
++			&lt;select name=&quot;itemdata[mediaformatid]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.FORMULAR_OPTION_ITEM_EMPTY|default:&quot;%FORMULAR_OPTION_ITEM_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.MEDIAFORMATS item=currentDataItem key=currentDataKey}
+-	{if $currentDataItem.mediaformatid eq $ITEMDATA.MediaFormatID }
++	{if $currentDataItem.mediaformatid eq $ITEMDATA.mediaformatid }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediaformatid}&quot;&gt;{$currentDataItem.mediaformatname}&lt;/option&gt;
+ 	{else}
+ 				&lt;option value=&quot;{$currentDataItem.mediaformatid}&quot;&gt;{$currentDataItem.mediaformatname}&lt;/option&gt;
+@@ -92,86 +93,89 @@
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_IMAGE|default:&quot;%MEDIA_IMAGE%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_IMAGE|default:&quot;%MEDIA_VIDEO_ITEM_IMAGE%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+ 			&lt;img src=&quot;getbinary.php?itemid={$ITEMDATA.ID}&quot; /&gt;&lt;br /&gt;
+-			&lt;input type=&quot;file&quot; name=&quot;itemdata[BinaryData]&quot; /&gt;
++			&lt;input type=&quot;file&quot; name=&quot;itemdata[picturedata]&quot; /&gt;
++			{if $ITEMDATA.itemid gt '0'}&lt;br /&gt;&lt;input type=&quot;checkbox&quot; name=&quot;itemdata[picturedelete]&quot; value=&quot;1&quot; /&gt;{$I18N.MEDIA_VIDEO_IMAGEDELETE|default:&quot;%MEDIA_VIDEO_IMAGEDELETE%&quot;}{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_PUBLISHER|default:&quot;%MEDIA_PUBLISHER%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_PUBLISHER|default:&quot;%MEDIA_VIDEO_ITEM_PUBLISHER%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[PublisherName]&quot; maxlength=&quot;{$INPUTSIZE.PublisherName|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.PublisherName}&quot; /&gt;
+-			{if $INPUTERROR.flag.PublisherName eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itempublisher]&quot; maxlength=&quot;{$INPUTSIZE.itempublisher|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itempublisher}&quot; /&gt;
++			{if $INPUTERROR.flag.itempublisher eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_AGERESTRICTION|default:&quot;%MEDIA_AGERESTRICTION%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_AGERESTRICTION|default:&quot;%MEDIA_VIDEO_ITEM_AGERESTRICTION%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;select name=&quot;itemdata[MediaAgeRestrictionID]&quot;&gt;
++			&lt;select name=&quot;itemdata[mediaagerestrictionid]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.FORMULAR_OPTION_ITEM_EMPTY|default:&quot;%FORMULAR_OPTION_ITEM_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.AGERESTRICTIONS item=currentDataItem}
+-	{if $currentDataItem.mediaagerestrictionid eq $ITEMDATA.MediaAgeRestrictionID }
++	{if $currentDataItem.mediaagerestrictionid eq $ITEMDATA.mediaagerestrictionid }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediaagerestrictionid}&quot;&gt;{$currentDataItem.mediaagerestriction}&lt;/option&gt;
+ 	{else}
+ 				&lt;option value=&quot;{$currentDataItem.mediaagerestrictionid}&quot;&gt;{$currentDataItem.mediaagerestriction}&lt;/option&gt;
+ 	{/if}
+ {/foreach}
+ 			&lt;/select&gt;
+-			{if $INPUTERROR.flag.MediaAgeRestrictionID eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			{if $INPUTERROR.flag.mediaagerestrictionid eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_CODEC|default:&quot;%MEDIA_CODEC%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_CODEC|default:&quot;%MEDIA_VIDEO_ITEM_CODEC%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;select name=&quot;itemdata[MediaCodecID]&quot;&gt;
++			&lt;select name=&quot;itemdata[mediacodecid]&quot;&gt;
++				&lt;option value=&quot;0&quot;&gt;{$I18N.FORMULAR_OPTION_ITEM_EMPTY|default:&quot;%FORMULAR_OPTION_ITEM_EMPTY%&quot;}&lt;/option&gt;
+ {foreach from=$DATA.CODECS item=currentDataItem}
+-	{if $currentDataItem.mediacodecid eq $ITEMDATA.MediaCodecID }
++	{if $currentDataItem.mediacodecid eq $ITEMDATA.mediacodecid }
+ 				&lt;option selected=&quot;true&quot; value=&quot;{$currentDataItem.mediacodecid}&quot;&gt;{$currentDataItem.mediacodecname}&lt;/option&gt;
+ 	{else}
+ 				&lt;option value=&quot;{$currentDataItem.mediacodecid}&quot;&gt;{$currentDataItem.mediacodecname}&lt;/option&gt;
+ 	{/if}
+ {/foreach}
+ 			&lt;/select&gt;
+-			{if $INPUTERROR.flag.MediaCodecID eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			{if $INPUTERROR.flag.mediacodecid eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+ 
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_QUANTITY|default:&quot;%MEDIA_QUANTITY%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_QUANTITY|default:&quot;%MEDIA_VIDEO_ITEM_QUANTITY%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;input type=&quot;text&quot; name=&quot;itemdata[ItemQuantity]&quot; maxlength=&quot;{$INPUTSIZE.ItemQuantity|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.ItemQuantity}&quot; /&gt;
+-			{if $INPUTERROR.flag.ItemQuantity eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;input type=&quot;text&quot; name=&quot;itemdata[itemquantity]&quot; maxlength=&quot;{$INPUTSIZE.itemquantity|default:&quot;255&quot;}&quot; value=&quot;{$ITEMDATA.itemquantity}&quot; /&gt;
++			{if $INPUTERROR.flag.itemquantity eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+-		&lt;td&gt;{$I18N.MEDIA_COMMENT|default:&quot;%MEDIA_COMMENT%&quot;}&lt;/td&gt;
++		&lt;td&gt;{$I18N.MEDIA_VIDEO_ITEM_COMMENT|default:&quot;%MEDIA_VIDEO_ITEM_COMMENT%&quot;}&lt;/td&gt;
+ 		&lt;td&gt;
+-			&lt;textarea name=&quot;itemdata[ItemComment]&quot; cols=&quot;40&quot; rows=&quot;10&quot;&gt;{$ITEMDATA.ItemComment}&lt;/textarea&gt;
+-			{if $INPUTERROR.flag.ItemComment eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
++			&lt;textarea name=&quot;itemdata[itemcomment]&quot; cols=&quot;40&quot; rows=&quot;10&quot;&gt;{$ITEMDATA.itemcomment}&lt;/textarea&gt;
++			{if $INPUTERROR.flag.itemcomment eq &quot;1&quot; }&lt;span class=&quot;phpmediadb-body-inputerror&quot;&gt;{$I18N.ERROR_FLAG|default:&quot;*&quot;}&lt;/span&gt;{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 		&lt;td&gt;&lt;input type=&quot;reset&quot; value=&quot;{$I18N.FORM_RESET|default:&quot;%FORM_RESET%&quot;}&quot; /&gt; &lt;input type=&quot;submit&quot; name=&quot;buttonsave&quot; value=&quot;{$I18N.FORM_SUBMIT|default:&quot;%FORM_SUBMIT%&quot;}&quot;/&gt;&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ 	&lt;tr&gt;
+ 		&lt;td&gt;&lt;/td&gt;
+ 		&lt;td&gt;
+-			{$I18N.MEDIA_CREATIONDATE|default:&quot;%MEDIA_CREATIONDATE%&quot;}: {$ITEMDATA.ItemCreationDate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} &lt;br /&gt;
+-			{$I18N.MEDIA_CREATIONDATE|default:&quot;%MEDIA_MODIFICATIONDATE%&quot;}: {$ITEMDATA.ItemModificationDate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}
++			{if $ITEMDATA.itemcreationdate gt '0'}{$I18N.MEDIA_ITEM_CREATIONDATE|default:&quot;%MEDIA_ITEM_CREATIONDATE%&quot;}: {$ITEMDATA.itemcreationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} &lt;br /&gt;{/if}
++			{if $ITEMDATA.itemmodificationdate gt '0'}{$I18N.MEDIA_ITEM_MODIFICATIONDATE|default:&quot;%MEDIA_ITEM_MODIFICATIONDATE%&quot;}: {$ITEMDATA.itemmodificationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}{/if}
+ 		&lt;/td&gt;
+ 	&lt;/tr&gt;
+-	
++
+ {if $INPUTERROR.general eq &quot;1&quot;}
+ 	&lt;tr&gt;
+ 		&lt;td colspan=&quot;2&quot;&gt;
+
+Index: body.item.video.show.tpl
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/templates/body.item.video.show.tpl,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- body.item.video.show.tpl	31 Mar 2005 15:53:47 -0000	1.1
++++ body.item.video.show.tpl	13 Apr 2005 15:04:53 -0000	1.2
+@@ -0,0 +1,74 @@
++&lt;div id=&quot;phpmediadb-body-details-print&quot; class=&quot;phpmediadb-body-details&quot;&gt;
++{if $ITEMDATA.itempictureid gt '0'}&lt;img src=&quot;<A HREF="http://schattenjaeger.ath.cx:20000/phpmediadb-cvs/_layout/images/phpmediadb.jpg">http://schattenjaeger.ath.cx:20000/phpmediadb-cvs/_layout/images/phpmediadb.jpg</A>&quot; align=&quot;right&quot;/&gt;{/if}
++&lt;h1&gt;{$ITEMDATA.itemtitle|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} {if $ITEMDATA.itemreleasedate neq ''}[{$ITEMDATA.itemreleasedate}]{/if} &lt;/h1&gt;
++{if $ITEMDATA.itemoriginaltitle neq ''}&lt;h2&gt;{$ITEMDATA.itemoriginaltitle}&lt;/h2&gt;{/if}
++{counter assign=COUNTER_CATEGORY start=0 print=0}
++{$I18N.MEDIA_VIDEO_ITEM_CATEGORY|default:&quot;%MEDIA_AUDIO_ITEM_CATEGORY%&quot;}:&lt;br /&gt;
++{foreach from=$ITEMDATA.__special.categories item=currentDataItem}{if $COUNTER_CATEGORY gt '0'}; {/if}{$currentDataItem.categoryname}{counter print=0}{/foreach}{if $COUNTER_CATEGORY eq '0'}{$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}{/if}
++
++&lt;table&gt;
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_MEDIANAME|default:&quot;%MEDIA_AUDIO_ITEM_MEDIANAME%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemmedianame|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_IDENTIFICATION|default:&quot;%MEDIA_AUDIO_ITEM_IDENTIFICATION%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemidentifier|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_MEDIASIZE|default:&quot;%MEDIA_AUDIO_ITEM_MEDIASIZE%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemmediasize|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_FORMAT|default:&quot;%MEDIA_AUDIO_ITEM_FORMAT%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemtitle|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_RELEASEYEAR|default:&quot;%MEDIA_AUDIO_ITEM_RELEASEYEAR%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediaformatid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_PUBLISHER|default:&quot;%MEDIA_AUDIO_ITEM_PUBLISHER%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itempublisher|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_AGERESTRICTION|default:&quot;%MEDIA_AUDIO_ITEM_AGERESTRICTION%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediaagerestrictionid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_CODEC|default:&quot;%MEDIA_AUDIO_ITEM_CODEC%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.mediacodecid|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_QUANTITY|default:&quot;%MEDIA_AUDIO_ITEM_QUANTITY%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemquantity|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++		&lt;tr&gt;
++		&lt;th&gt;{$I18N.MEDIA_VIDEO_ITEM_COMMENT|default:&quot;%MEDIA_AUDIO_ITEM_COMMENT%&quot;}&lt;/th&gt;
++		&lt;td&gt;{$ITEMDATA.itemcomment|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;td colspan=&quot;2&quot;&gt;&nbsp;&lt;/td&gt;
++	&lt;/tr&gt;
++	
++	&lt;tr&gt;
++		&lt;td colspan=&quot;2&quot;&gt;
++			{if $ITEMDATA.itemcreationdate gt '0'}{$I18N.MEDIA_CREATIONDATE|default:&quot;%MEDIA_CREATIONDATE%&quot;}: {$ITEMDATA.itemcreationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;} &lt;br /&gt;{/if}
++			{if $ITEMDATA.itemmodificationdate gt '0'}{$I18N.MEDIA_MODIFICATIONDATE|default:&quot;%MEDIA_MODIFICATIONDATE%&quot;}: {$ITEMDATA.itemmodificationdate|date_format:&quot;%A, %B %e, %Y %H:%M:%S&quot;|default:$I18N.NOT_SET|default:&quot;%NOT_SET%&quot;}{/if}
++
++		&lt;/td&gt;
++	&lt;/tr&gt;
++&lt;/table&gt;
++
++
++&lt;/div&gt;
+\ No newline at end of file
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000330.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.item.audio.show.tpl,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000332.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/templates body.list.audio.tpl,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#331">[ date ]</a>
+              <a href="thread.html#331">[ thread ]</a>
+              <a href="subject.html#331">[ subject ]</a>
+              <a href="author.html#331">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

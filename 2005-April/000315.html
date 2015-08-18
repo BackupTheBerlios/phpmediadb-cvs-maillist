@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_categories.php,1.11,1.12
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_categories.php%2C1.11%2C1.12&In-Reply-To=%3C200504131153.j3DBrEm20999%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000314.html">
+   <LINK REL="Next"  HREF="000316.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_categories.php,1.11,1.12</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_categories.php%2C1.11%2C1.12&In-Reply-To=%3C200504131153.j3DBrEm20999%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_categories.php,1.11,1.12">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr 13 13:53:14 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000314.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.13,1.14
+</A></li>
+        <LI>Next message: <A HREF="000316.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.15,1.16
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#315">[ date ]</a>
+              <a href="thread.html#315">[ thread ]</a>
+              <a href="subject.html#315">[ subject ]</a>
+              <a href="author.html#315">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv11511/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_categories.php 
+Log Message:
+* Fixed syntax mistakes
+* Reworked SQL statements
+
+Index: class.phpmediadb_data_categories.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_categories.php,v
+retrieving revision 1.11
+retrieving revision 1.12
+diff -u -d -r1.11 -r1.12
+--- class.phpmediadb_data_categories.php	10 Apr 2005 00:01:32 -0000	1.11
++++ class.phpmediadb_data_categories.php	13 Apr 2005 11:53:10 -0000	1.12
+@@ -154,8 +154,8 @@
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+ 			$stmt = $conn-&gt;prepareStatement(	'INSERT INTO Categories
+ 												( ItemTypeID, CategoryName ) VALUES( ?, ? )' );
+-			$stmt-&gt;setString( 1, $data['ItemTypeID'] );
+-			$stmt-&gt;setString( 2, $data['CategoryName'] );
++			$stmt-&gt;setString( 1, $data['itemtypeid'] );
++			$stmt-&gt;setString( 2, $data['categoryname'] );
+ 			$stmt-&gt;executeUpdate();
+ 			$this-&gt;DATA-&gt;SQL-&gt;commitTransaction( $conn );
+ 			return $this-&gt;DATA-&gt;SQL-&gt;getLastInsert( $conn );
+@@ -187,7 +187,7 @@
+ 			$stmt = $conn-&gt;prepareStatement(	'UPDATE Categories
+ 												SET Categories.CategoryName = ?
+ 												WHERE Categories.CategoryID = ?' );
+-			$stmt-&gt;setString( 1, $data['CategoryName'] );
++			$stmt-&gt;setString( 1, $data['categoryname'] );
+ 			$stmt-&gt;setString( 2, $id );
+ 			$stmt-&gt;executeUpdate();
+ 			$this-&gt;DATA-&gt;SQL-&gt;commitTransaction( $conn );
+@@ -328,6 +328,35 @@
+ 			phpmediadb_exception::handleException( $exception );
+ 		}
+ 	}
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns the list of  the parameters ItemID and CategoryID
++	 * from the table Categories_has_Items
++	 *
++	 * @access public
++	 * @param Integer $itemId contains specified id for the sql statement
++	 */
++	public function getLinkList( $itemId )
++	{
++		try
++		{
++			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++			$stmt = $conn-&gt;prepareStatement(	'SELECT Categories_has_Items.*, Categories.* FROM Categories_has_Items
++													LEFT JOIN Categories ON Categories.CategoryID=Categories_has_Items.CategoryID
++													WHERE Categories_has_Items.ItemID = ?' );
++			$stmt-&gt;setString( 1, $itemId );
++			$rs = $stmt-&gt;executeQuery();
++			
++			return $this-&gt;DATA-&gt;SQL-&gt;generateDataArray( $rs );
++		}
++		catch( Exception $exception )
++		{
++			/* handle exception and terminate script */
++			phpmediadb_exception::handleException( $exception );
++		}
++	}
++	
+ 
+ //-----------------------------------------------------------------------------
+ } /* end of class phpmediadb_data_categories */
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000314.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.13,1.14
+</A></li>
+	<LI>Next message: <A HREF="000316.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.15,1.16
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#315">[ date ]</a>
+              <a href="thread.html#315">[ thread ]</a>
+              <a href="subject.html#315">[ subject ]</a>
+              <a href="author.html#315">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

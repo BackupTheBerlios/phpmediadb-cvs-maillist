@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_videos.php,1.4,1.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_videos.php%2C1.4%2C1.5&In-Reply-To=%3C200503151746.j2FHkoN08558%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000128.html">
+   <LINK REL="Next"  HREF="000130.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_videos.php,1.4,1.5</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_videos.php%2C1.4%2C1.5&In-Reply-To=%3C200503151746.j2FHkoN08558%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_videos.php,1.4,1.5">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar 15 18:46:50 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000128.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.5,1.6
+</A></li>
+        <LI>Next message: <A HREF="000130.html">[phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.6,1.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#129">[ date ]</a>
+              <a href="thread.html#129">[ thread ]</a>
+              <a href="subject.html#129">[ subject ]</a>
+              <a href="author.html#129">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv5632/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_videos.php 
+Log Message:
+* Added method exist()
+* Removed some syntax mistakes
+
+Index: class.phpmediadb_data_videos.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_videos.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_data_videos.php	15 Mar 2005 13:29:54 -0000	1.4
++++ class.phpmediadb_data_videos.php	15 Mar 2005 17:46:48 -0000	1.5
+@@ -64,7 +64,7 @@
+ 	public function get( $VideoDataID )
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;preparedStatement( 'SELECT a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.ItemPicturesID
++		$stmt = $conn-&gt;prepareStatement( 'SELECT a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.ItemPicturesID
+ 		FROM VideoDatas a,
+ 		Languages b,
+ 		Items c,
+@@ -74,7 +74,7 @@
+ 		MediaAgeRestrictions g,
+ 		MediaStatus h,
+ 		BinaryDatas i
+-		WHERE a.VideoDataID = :vdid 
++		WHERE a.VideoDataID = ? 
+ 		AND a.LanguageID = b.LanguageID
+ 		AND a.ItemID = c.ItemID
+ 		AND c.ItemTypeID = d.ItemTypeID
+@@ -83,10 +83,10 @@
+ 		AND c.MediaAgeRestrictionID = g.MediaAgeRestrictionID
+ 		AND c.MediaStatusID = h.MediaStatusID
+ 		AND c.ItemPicturesID = i.ItemPicturesID' );
+-		$stmt-&gt;setString( ':vdid', $VideoDataID );
+-		$stmt-&gt;executeQuery();
++		$stmt-&gt;setString( 1, $VideoDataID );
++		$rs = $stmt-&gt;executeQuery();
+ 		
+-		return $stmt;
++		return $rs;
+ 	}
+ 
+ //-----------------------------------------------------------------------------
+@@ -98,10 +98,10 @@
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ 	 * @return String
+ 	 */
+-	public function getall()
++	public function getList()
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;preparedStatement( 'SELECT a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.ItemPicturesID
++		$stmt = $conn-&gt;prepareStatement( 'SELECT a.*, b.*, c.*, d.*, e.*, f.*, g.*, h.*, i.ItemPicturesID
+ 		FROM VideoDatas a,
+ 		Languages b,
+ 		Items c,
+@@ -111,7 +111,7 @@
+ 		MediaAgeRestrictions g,
+ 		MediaStatus h,
+ 		BinaryDatas i
+-		WHERE a.VideoDataID = :vdid 
++		WHERE a.VideoDataID LIKE &quot;%&quot; 
+ 		AND a.LanguageID = b.LanguageID
+ 		AND a.ItemID = c.ItemID
+ 		AND c.ItemTypeID = d.ItemTypeID
+@@ -120,10 +120,9 @@
+ 		AND c.MediaAgeRestrictionID = g.MediaAgeRestrictionID
+ 		AND c.MediaStatusID = h.MediaStatusID
+ 		AND c.ItemPicturesID = i.ItemPicturesID' );
+-		$stmt-&gt;setString( ':vdid', '%' );
+-		$stmt-&gt;executeQuery();
++		$rs = $stmt-&gt;executeQuery();
+ 		
+-		return $stmt;
++		return $rs;
+ 		
+ 	}
+ 
+@@ -139,13 +138,13 @@
+ 	public function delete( $VideoDataID )
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;preparedStatement( 'DELETE VideoDatas, Items, BinaryDatas, Categories_has_Items
++		$stmt = $conn-&gt;prepareStatement( 'DELETE VideoDatas, Items, BinaryDatas, Categories_has_Items
+ 		FROM AudioDatas, Items, BinaryDatas, Categories_has_Items
+-		WHERE VideoDatas.VideoDataID = :vdid
++		WHERE VideoDatas.VideoDataID = ?
+ 		AND VideoDatas.ItemID = Items.ItemID
+ 		AND Items.ItemPicturesID = BinaryDatas.ItemPicturesID
+ 		AND Items.ItemID = Categories_has_Items.ItemID' );
+-		$stmt-&gt;setString( ':vdid', $VideoDataID );
++		$stmt-&gt;setString( 1, $VideoDataID );
+ 		$stmt-&gt;executeUpdate();
+ 		
+ 	}
+@@ -169,19 +168,19 @@
+ 	$ItemRelease, $ItemMediaName, $ItemComment )
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;preparedStatement( 'INSERT INTO VideoDatas ( VideoDataMediaCount, VideoDataImdbID ) VALUES( :vdmc, :vdii )' );
+-		$stmt-&gt;setString( ':vdmc', $VideoDataMediaCount );
+-		$stmt-&gt;setString( ':vdii', $VideoDataImdbID );
++		$stmt = $conn-&gt;prepareStatement( 'INSERT INTO VideoDatas ( VideoDataMediaCount, VideoDataImdbID ) VALUES( ?, ? )' );
++		$stmt-&gt;setString( 1, $VideoDataMediaCount );
++		$stmt-&gt;setString( 2, $VideoDataImdbID );
+ 		$stmt-&gt;executeUpdate();
+ 		
+-		$stmt = $conn-&gt;preparedStatement( 'INSERT INTO Items
++		$stmt = $conn-&gt;prepareStatement( 'INSERT INTO Items
+ 		( ItemTitle, ItemOriginalTitle, ItemRelease, ItemMediaName, ItemCreationDate, ItemModificationDate, ItemComment )
+-		VALUES( :it, :iot, :ir, :imn, now(), now(), :ic )' );
+-		$stmt-&gt;setString( ':it', $ItemTitle );
+-		$stmt-&gt;setString( ':iot', $ItemOriginalTitle );
+-		$stmt-&gt;setString( ':ir', $ItemRelease );
+-		$stmt-&gt;setString( ':imn', $ItemMediaName );
+-		$stmt-&gt;setString( ':ic' , $ItemComment );
++		VALUES( ?, ?, ?, ?, now(), now(), ? )' );
++		$stmt-&gt;setString( 1, $ItemTitle );
++		$stmt-&gt;setString( 2, $ItemOriginalTitle );
++		$stmt-&gt;setString( 3, $ItemRelease );
++		$stmt-&gt;setString( 4, $ItemMediaName );
++		$stmt-&gt;setString( 5, $ItemComment );
+ 		$stmt-&gt;executeUpdate(); 
+ 
+ 	}
+@@ -211,7 +210,7 @@
+ 	$MediaAgeRestrictionID, $MediaStatusID, $ItemPicturesID )
+ 	{
+ 		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-		$stmt = $conn-&gt;preparedStatement( 'UPDATE VideoDatas,
++		$stmt = $conn-&gt;prepareStatement( 'UPDATE VideoDatas,
+ 		Languages,
+ 		Items,
+ 		ItemTypes,
+@@ -220,20 +219,20 @@
+ 		MediaAgeRestrictions,
+ 		MediaStatus,
+ 		BinaryDatas
+-		SET VideoDatas.VideoDataMediaCount = :vdmc,
+-		VideoDatas.VideoDataImdbID = :vdii,
+-		Items.ItemTitle = :it,
+-		Items.ItemOriginalTitle = :iot,
+-		Items.ItemRelease = :ir,
+-		Items.ItemMediaName = :imn,
++		SET VideoDatas.VideoDataMediaCount = ?,
++		VideoDatas.VideoDataImdbID = ?,
++		Items.ItemTitle = ?,
++		Items.ItemOriginalTitle = ?,
++		Items.ItemRelease = ?,
++		Items.ItemMediaName = ?,
+ 		Items.ItemModificationDate = now(),
+-		Items.ItemComment = :ic
+-		Items.MediaCodecID = :mcid,
+-		Items.MediaFormatID = :mfid,
+-		Items.MediaAgeRestrictionID = :marid,
+-		Items.MediaStatusID = :msid,
+-		Items.ItemPicturesID = :ipid
+-		WHERE VideoDatas.VideoDataID = :vdid 
++		Items.ItemComment = ?,
++		Items.MediaCodecID = ?,
++		Items.MediaFormatID = ?,
++		Items.MediaAgeRestrictionID = ?,
++		Items.MediaStatusID = ?,
++		Items.ItemPicturesID = ?
++		WHERE VideoDatas.VideoDataID = ? 
+ 		AND VideoDatas.LanguageID = Languages.LanguageID
+ 		AND VideoDatas.ItemID = Items.ItemID
+ 		AND Items.ItemTypeID = ItemTypes.ItemTypeID
+@@ -242,24 +241,52 @@
+ 		AND Items.MediaAgeRestrictionID = MediaAgeRestrictions.MediaAgeRestrictionID
+ 		AND Items.MediaStatusID = MediaStatus.MediaStatusID
+ 		AND Items.ItemPicturesID = BinaryDatas.ItemPicturesID' );
+-		$stmt-&gt;setString( ':vdmc', $VideoDataMediaCount );
+-		$stmt-&gt;setString( ':vdii', $VideoDataImdbID );
+-		$stmt-&gt;setString( ':it', $ItemTitle );
+-		$stmt-&gt;setString( ':iot', $ItemOriginalTitle );
+-		$stmt-&gt;setString( ':ir', $ItemRelease );
+-		$stmt-&gt;setString( ':imn', $ItemMediaName );
+-		$stmt-&gt;setString( ':ic', $ItemComment );
+-		$stmt-&gt;setString( ':mcid', $MediaCodecID );
+-		$stmt-&gt;setString( ':mfid', $MediaFormatID );
+-		$stmt-&gt;setString( ':marid', $MediaAgeRestrictionID );
+-		$stmt-&gt;setString( ':msid', $MediaStatusID );
+-		$stmt-&gt;setString( ':ipid', $ItemPicturesID );
+-		$stmt-&gt;setString( ':vdid', $VideoDataID );
++		$stmt-&gt;setString( 1, $VideoDataMediaCount );
++		$stmt-&gt;setString( 2, $VideoDataImdbID );
++		$stmt-&gt;setString( 3, $ItemTitle );
++		$stmt-&gt;setString( 4, $ItemOriginalTitle );
++		$stmt-&gt;setString( 5, $ItemRelease );
++		$stmt-&gt;setString( 6, $ItemMediaName );
++		$stmt-&gt;setString( 7, $ItemComment );
++		$stmt-&gt;setString( 8, $MediaCodecID );
++		$stmt-&gt;setString( 9, $MediaFormatID );
++		$stmt-&gt;setString( 10, $MediaAgeRestrictionID );
++		$stmt-&gt;setString( 11, $MediaStatusID );
++		$stmt-&gt;setString( 12, $ItemPicturesID );
++		$stmt-&gt;setString( 13, $VideoDataID );
+ 		$stmt-&gt;executeUpdate();
+ 		
+ 	}
+ 
+ //-----------------------------------------------------------------------------
+-}
++	/**
++	 * This function returns true when the record exists
++	 * and false when the record doesn't exist
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param Integer
++	 * @return Boolean
++	 */
++	public function exist( $VideoDataID )
++	{
++		$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
++		$stmt = $conn-&gt;prepareStatement( 'SELECT COUNT(*)
++		FROM VideoDatas,
++		WHERE VideoDatas.VideoDataID = ?' );
++		$stmt-&gt;setString( 1, $VideoDataID );
++		$rs = $stmt-&gt;executeQuery( ResultSet::FETCHMODE_NUM );
++		$rs-&gt;next();
++		if( $rs-&gt;get(1) &gt;= 1 )
++			{
++			return true;
++			}
++		else
++			{
++			return false;
++			}
++	}
++
++//-----------------------------------------------------------------------------
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000128.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_status.php,1.5,1.6
+</A></li>
+	<LI>Next message: <A HREF="000130.html">[phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.6,1.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#129">[ date ]</a>
+              <a href="thread.html#129">[ thread ]</a>
+              <a href="subject.html#129">[ subject ]</a>
+              <a href="author.html#129">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

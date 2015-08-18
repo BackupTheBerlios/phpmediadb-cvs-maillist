@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_htmlservice.php%2C1.3%2C1.4&In-Reply-To=%3C200503081753.j28HrSN00139%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000077.html">
+   <LINK REL="Next"  HREF="000079.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.3,1.4</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation_htmlservice.php%2C1.3%2C1.4&In-Reply-To=%3C200503081753.j28HrSN00139%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Mar  8 18:53:28 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000077.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000079.html">[phpmediadb-cvs] phpmediadb-cvs about.php,NONE,1.1 index.php,NONE,1.1 list.php,NONE,1.1 search.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv21113/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_htmlservice.php 
+Log Message:
+* Added function compile
+* Added function display
+* Added setupTemplateEngine
+* Removed function compileTemplate
+
+Index: class.phpmediadb_presentation_htmlservice.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_htmlservice.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_presentation_htmlservice.php	27 Feb 2005 16:05:10 -0000	1.3
++++ class.phpmediadb_presentation_htmlservice.php	8 Mar 2005 17:53:26 -0000	1.4
+@@ -48,28 +48,87 @@
+ 		/* assign parent */
+ 		$this-&gt;PRESENTATION	= $sender;
+ 		$this-&gt;PHPMEDIADB		= $sender-&gt;PHPMEDIADB;
++			
++		/* setup smarty object */
++		$this-&gt;setupTemplateEngine();
+ 		
+-		/* create smarty object */
+-		$this-&gt;templateEngine = new Smarty();
+ 	}
+ 
+ //-----------------------------------------------------------------------------
+-	public function compileTemplate( $template )
++	public function compile( $template )
+ 	{
+ 		/* init */
+ 		$returnValue = null;
++		$content		= array();
++		
+ 		
+ 		/* set up template engine */
+-		initTemplateEngine();
+-
+-		/* return compiled template */
+-		return $returnValue;
++		$this-&gt;initTemplateEngine();
++		
++		/* compile specified templates */
++		switch( gettype( $template ) )
++		{
++			case 'string':
++					$content['DOCUMENT']['BODY'] = $this-&gt;templateEngine-&gt;fetch( $template );
++				break;
++			
++			case 'array';
++				$content['DOCUMENT']['BODY'] = '';
++					foreach( $template as $value )
++						$content['DOCUMENT']['BODY'] .= $this-&gt;templateEngine-&gt;fetch( $value );
++				break;	
++		}
++		
++		/* compile header */
++		$content['DOCUMENT']['HEADER'] = $this-&gt;templateEngine-&gt;fetch( 'overall.header.tpl' );
++		/* compile menu */
++		$content['DOCUMENT']['MENU'] = $this-&gt;templateEngine-&gt;fetch( 'overall.menu.tpl' );
++		/* compile footer */
++		$content['DOCUMENT']['FOOTER'] = $this-&gt;templateEngine-&gt;fetch( 'overall.footer.tpl' );
++		
++		
++		/* compile pre-template */
++		$this-&gt;templateEngine-&gt;assign( $content );
++		$returnValue = $this-&gt;templateEngine-&gt;fetch( 'overall.body.tpl' );
++		
++ 		/* return compiled template */
++	 	return $returnValue;
+ 	}
+-
++//-----------------------------------------------------------------------------
++	public function display( $template )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* delegate */
++		$returnValue = $this-&gt;compile( $template );
++		
++		/* output */
++		echo $returnValue;
++	}
++	
+ //-----------------------------------------------------------------------------
+ 	protected function initTemplateEngine()
+ 	{
++		/* clear vars */
++		$this-&gt;templateEngine-&gt;clear_all_assign();
++		
++		/* set contentvars */
++		$this-&gt;templateEngine-&gt;assign( $this-&gt;PRESENTATION-&gt;CONTENTVARS-&gt;getNode() );
++		
++		/* set i18n-vars */
++		$this-&gt;templateEngine-&gt;assign( 'I18N', $this-&gt;PRESENTATION-&gt;I18N-&gt;getLanguageArray() );
++			
++	}
++//-----------------------------------------------------------------------------
++	protected function setupTemplateEngine()
++	{
++		/* create templateengine-object */
++		$this-&gt;templateEngine = new Smarty();
+ 		
++		/* setup configuration */
++		$this-&gt;templateEngine-&gt;template_dir	= $this-&gt;PRESENTATION-&gt;configuration['directory']['templates'];
++		$this-&gt;templateEngine-&gt;compile_dir	= $this-&gt;PRESENTATION-&gt;configuration['directory']['templates_c'];
+ 	}
+ } /* end of class phpmediadb_presentation_htmlservice */
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000077.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000079.html">[phpmediadb-cvs] phpmediadb-cvs about.php,NONE,1.1 index.php,NONE,1.1 list.php,NONE,1.1 search.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

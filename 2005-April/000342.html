@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/install create-tables.sql,1.6,1.7
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/install%20create-tables.sql%2C1.6%2C1.7&In-Reply-To=%3C200504202006.j3KK6hm19062%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000341.html">
+   <LINK REL="Next"  HREF="000343.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/install create-tables.sql,1.6,1.7</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/install%20create-tables.sql%2C1.6%2C1.7&In-Reply-To=%3C200504202006.j3KK6hm19062%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/install create-tables.sql,1.6,1.7">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Apr 20 22:06:43 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000341.html">[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.19,1.20
+</A></li>
+        <LI>Next message: <A HREF="000343.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.7,1.8
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#342">[ date ]</a>
+              <a href="thread.html#342">[ thread ]</a>
+              <a href="subject.html#342">[ subject ]</a>
+              <a href="author.html#342">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/install
+In directory sheep:/tmp/cvs-serv2194/install
+
+Modified Files:
+	create-tables.sql 
+Log Message:
+* Added ItemLocation
+
+Index: create-tables.sql
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/install/create-tables.sql,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -u -d -r1.6 -r1.7
+--- create-tables.sql	13 Apr 2005 11:42:33 -0000	1.6
++++ create-tables.sql	20 Apr 2005 20:06:41 -0000	1.7
+@@ -10,9 +10,11 @@
+ 
+ CREATE TABLE BinaryDatas (
+   ItemPicturesID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
++  ItemID INTEGER UNSIGNED NOT NULL,
+   BinaryDataMimeType VARCHAR(255) NOT NULL,
+   BinaryDataSize INTEGER UNSIGNED NOT NULL,
+-  PRIMARY KEY(ItemPicturesID)
++  PRIMARY KEY(ItemPicturesID),
++  INDEX BinaryDatas_FKIndex1(ItemID)
+ );
+ 
+ CREATE TABLE Categories (
+@@ -35,7 +37,6 @@
+   MediaAgeRestrictionID INTEGER UNSIGNED,
+   MediaCodecID INTEGER UNSIGNED,
+   MediaFormatID INTEGER UNSIGNED,
+-  ItemPicturesID INTEGER UNSIGNED,
+   ItemTitle VARCHAR(255),
+   ItemOriginalTitle VARCHAR(255) NOT NULL,
+   ItemReleaseDate VARCHAR(255) NOT NULL,
+@@ -47,9 +48,10 @@
+   ItemIdentifier VARCHAR(255) NOT NULL,
+   ItemTypeID INTEGER UNSIGNED NOT NULL,
+   ItemPublisher VARCHAR(255) NOT NULL, 
++  ItemLocation VARCHAR(255) NOT NULL, 
++  ItemPictureURL VARCHAR(255) NOT NULL, 
+   PRIMARY KEY(ItemID),
+   INDEX Items_FKIndex1(ItemTypeID),
+-  INDEX Items_FKIndex2(ItemPicturesID),
+   INDEX Items_FKIndex3(MediaFormatID),
+   INDEX Items_FKIndex4(MediaCodecID),
+   INDEX Items_FKIndex5(MediaAgeRestrictionID)
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000341.html">[phpmediadb-cvs] phpmediadb-cvs/help/development erm-model.xml,1.19,1.20
+</A></li>
+	<LI>Next message: <A HREF="000343.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.7,1.8
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#342">[ date ]</a>
+              <a href="thread.html#342">[ thread ]</a>
+              <a href="subject.html#342">[ subject ]</a>
+              <a href="author.html#342">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

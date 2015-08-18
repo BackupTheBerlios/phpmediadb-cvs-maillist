@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.14,1.15 i18n.en.php,1.11,1.12
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-May/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/i18n%20i18n.de.php%2C1.14%2C1.15%20i18n.en.php%2C1.11%2C1.12&In-Reply-To=%3C200505101809.j4AI9Wm08004%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000401.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.14,1.15 i18n.en.php,1.11,1.12</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.configuration/i18n%20i18n.de.php%2C1.14%2C1.15%20i18n.en.php%2C1.11%2C1.12&In-Reply-To=%3C200505101809.j4AI9Wm08004%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,1.14,1.15 i18n.en.php,1.11,1.12">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue May 10 20:09:32 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000401.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.en.php,1.10,1.11
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#402">[ date ]</a>
+              <a href="thread.html#402">[ thread ]</a>
+              <a href="subject.html#402">[ subject ]</a>
+              <a href="author.html#402">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv1919/_source/tier.configuration/i18n
+
+Modified Files:
+	i18n.de.php i18n.en.php 
+Log Message:
+* Added HTTP-Error-Strings
+
+Index: i18n.de.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.de.php,v
+retrieving revision 1.14
+retrieving revision 1.15
+diff -u -d -r1.14 -r1.15
+--- i18n.de.php	10 May 2005 14:36:50 -0000	1.14
++++ i18n.de.php	10 May 2005 18:09:30 -0000	1.15
+@@ -59,16 +59,17 @@
+ 	$i18n['ERROR_INPUTREGEX']					= 'Eingabe nicht korrekt.';
+ 	$i18n['ERROR_OCCURRED']						= 'Es sind Eingabefehler auftreten.';
+ 	$i18n['ERROR_LISTLINK']						= '[Fehlerliste]';
+-	$i18n['HTTP_ERROR_401_BODY']				= '';
+-	$i18n['HTTP_ERROR_401_TITLE']				= '';
+-	$i18n['HTTP_ERROR_403_BODY']				= '';
+-	$i18n['HTTP_ERROR_403_TITLE']				= '';
+-	$i18n['HTTP_ERROR_404_BODY']				= '';
+-	$i18n['HTTP_ERROR_404_TITLE']				= '';
+-	$i18n['HTTP_ERROR_500_BODY']				= '';
+-	$i18n['HTTP_ERROR_500_TITLE']				= '';
+-	$i18n['HTTP_ERROR_UNKNOWN_BODY']			= '';
+-	$i18n['HTTP_ERROR_UNKNOWN_TITLE']			= '';
++	$i18n['HTTP_ERROR_401_TITLE']				= 'HTTP 401 - Authentisierung fehlgeschlagen!';
++	$i18n['HTTP_ERROR_401_BODY']				= 'Der Server konnte nicht verifizieren, ob Sie autorisiert sind. Entweder wurden falsche Referenzen (z.B. ein falsches Passwort) angegeben oder ihr Browser versteht nicht, wie die geforderten Referenzen zu &#252;bermitteln sind.';
++	$i18n['HTTP_ERROR_403_TITLE']				= 'HTTP 403 - Zugriff verweigert!';
++	$i18n['HTTP_ERROR_403_BODY']				= 'Der Zugriff auf das angeforderte Objekt ist nicht m&#246;glich. Entweder kann es vom Server nicht gelesen werden oder es ist zugriffsgesch&#252;tzt.';
++	$i18n['HTTP_ERROR_404_TITLE']				= 'HTTP 404 - Objekt nicht gefunden!';
++	$i18n['HTTP_ERROR_404_BODY']				= 'Der angeforderte URL konnte auf dem Server nicht gefunden werden.';
++	$i18n['HTTP_ERROR_500_TITLE']				= 'HTTP 500 - Serverfehler!';
++	$i18n['HTTP_ERROR_500_BODY']				= 'Die Anfrage kann nicht beantwortet werden, da im Server ein interner Fehler aufgetreten ist. Der Server ist entweder &#252;berlastet oder ein Fehler in einem CGI-Skript ist aufgetreten.';
++	$i18n['HTTP_ERROR_UNKNOWN_TITLE']			= 'Unbekannter Fehler!';
++	$i18n['HTTP_ERROR_UNKNOWN_BODY']			= 'Es ist ein unbekannter Fehler aufgetreten.';
++
+ 	$i18n['MESSAGE_ITEMID_NOTNUMERICAL']		= 'Die gew&#228;hlte Medien-Nummer ist nicht nummerisch!';
+ 	$i18n['MESSAGE_ITEM_LOADERROR']				= 'Das Medium konnte nicht geladen werden.';
+ 	$i18n['MESSAGE_ITEM_NOTEXISTENT']			= 'Das Medium existiert nicht.';
+
+Index: i18n.en.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n/i18n.en.php,v
+retrieving revision 1.11
+retrieving revision 1.12
+diff -u -d -r1.11 -r1.12
+--- i18n.en.php	10 May 2005 14:37:27 -0000	1.11
++++ i18n.en.php	10 May 2005 18:09:30 -0000	1.12
+@@ -57,6 +57,16 @@
+ 	$i18n['ERROR_INPUTREGEX']	= 'Input incorrect';
+ 	$i18n['ERROR_OCCURRED']		= 'An inputerror occurred.';
+ 	$i18n['ERROR_LISTLINK']		= '[Errorlist]';
++	$i18n['HTTP_ERROR_401_TITLE']				= 'HTTP 401 - Authentication required!';
++	$i18n['HTTP_ERROR_401_BODY']				= 'This server could not verify that you are authorized. You either supplied the wrong credentials (e.g., bad password), or your browser doesn\'t understand how to supply the credentials required.';
++	$i18n['HTTP_ERROR_403_TITLE']				= 'HTTP 403 - Access forbidden!';
++	$i18n['HTTP_ERROR_403_BODY']				= 'You don\'t have permission to access the requested object. It is either read-protected or not readable by the server.';
++	$i18n['HTTP_ERROR_404_TITLE']				= 'HTTP 404 - Object not found!';
++	$i18n['HTTP_ERROR_404_BODY']				= 'The requested URL was not found on this server.';
++	$i18n['HTTP_ERROR_500_TITLE']				= 'HTTP 500 - Server error!';
++	$i18n['HTTP_ERROR_500_BODY']				= 'The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there was an error in a CGI script.';
++	$i18n['HTTP_ERROR_UNKNOWN_TITLE']			= 'Unknown Error';
++	$i18n['HTTP_ERROR_UNKNOWN_BODY']			= 'Sorry, an unknown error occured. Try again later.';
+ 	
+ /* formular */
+ 	$i18n['FORM_RESET']					= 'Reset';
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000401.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.en.php,1.10,1.11
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#402">[ date ]</a>
+              <a href="thread.html#402">[ thread ]</a>
+              <a href="subject.html#402">[ subject ]</a>
+              <a href="author.html#402">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

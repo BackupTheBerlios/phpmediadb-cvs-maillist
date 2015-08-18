@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.4,1.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-February/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation.php%2C1.4%2C1.5&In-Reply-To=%3C200502271606.j1RG6QN18731%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000031.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.4,1.5</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.presentation%20class.phpmediadb_presentation.php%2C1.4%2C1.5&In-Reply-To=%3C200502271606.j1RG6QN18731%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.4,1.5">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Feb 27 17:06:26 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000031.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv14840/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation.php 
+Log Message:
+* Added method loadConfiguration
+* Changed some comments
+
+Index: class.phpmediadb_presentation.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_presentation.php	9 Feb 2005 20:26:39 -0000	1.4
++++ class.phpmediadb_presentation.php	27 Feb 2005 16:06:24 -0000	1.5
+@@ -7,7 +7,7 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Short description of attribute PHPMEDIADB
++	 * Reference to class phpmediadb
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb
+@@ -16,7 +16,7 @@
+ 	public $PHPMEDIADB = null;
+ 
+ 	/**
+-	 * Short description of attribute SESSION
++	 * Reference to class phpmediadb_presentation_session
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_session
+@@ -25,7 +25,7 @@
+ 	public $SESSION = null;
+ 
+ 	/**
+-	 * Short description of attribute I18N
++	 * Reference to class phpmediadb_presentation_i18n
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_i18n
+@@ -34,7 +34,7 @@
+ 	public $I18N = null;
+ 
+ 	/**
+-	 * Short description of attribute CONTENTVARS
++	 * Reference to class phpmediadb_presentation_contentvars
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_contentvars
+@@ -43,7 +43,7 @@
+ 	public $CONTENTVARS = null;
+ 
+ 	/**
+-	 * Short description of attribute HTMLSERVICE
++	 * Reference to class phpmediadb_presentation_htmlservice
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_htmlservice
+@@ -52,7 +52,7 @@
+ 	public $HTMLSERVICE = null;
+ 
+ 	/**
+-	 * Short description of attribute XMLSERVICE
++	 * Reference to class phpmediadb_presentation_xmlservice
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_xmlservice
+@@ -61,7 +61,7 @@
+ 	public $XMLSERVICE = null;
+ 
+ 	/**
+-	 * Configurationcontainer of this tier
++	 * Container of configuration for the whole tier
+ 	 *
+ 	 * @access public
+ 	 * @var configuration
+@@ -76,16 +76,13 @@
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+ 	 * @param phpmediadb
+-	 * @return void
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+-		global $phpMediaDbConfig;
+-		
+-		/* init configuration */
+-		$this-&gt;configuration = array();
+-		$this-&gt;configuration = $phpMediaDbConfig['PRESENTATION'];
+-		unset( $phpMediaDbConfig['PRESENTATION'] );
++		/* init */
++
++		/* load configuration */
++		$this-&gt;loadConfiguration();
+     	 
+ 		/* assign parent */
+ 		$this-&gt;PHPMEDIADB		= $sender;
+@@ -97,18 +94,39 @@
+ 		$this-&gt;SESSION			= new phpmediadb_presentation_session( $this );
+ 		$this-&gt;XMLSERVICE		= new phpmediadb_presentation_xmlservice( $this );
+ 	}
+-
++	
+  /**
+ 	 * The destructor __destruct is responsible for closing all open files,
+ 	 * etc.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
+-	 * @return void
+ 	 */
+ 	public function __destruct()
+ 	{
+-		 /* TODO */
++		/* nothing to do yet */
++	}
++	
++	
++	/**
++	 * Loads the configuration from the global array and resets the array
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - <A HREF="http://phpmediadb.berlios.de/">http://phpmediadb.berlios.de/</A>
++	 * @param phpmediadb
++	 * @return void
++	 */
++	private function loadConfiguration()
++	{
++		/* init */
++		global $phpMediaDbConfig;
++		$this-&gt;configuration = array();
++				
++		/* get and set config */
++		@$this-&gt;configuration = $phpMediaDbConfig['PRESENTATION'];
++		
++		/* unset global configuration -&gt; security */
++		unset( $phpMediaDbConfig['PRESENTATION'] );
+ 	}
+ 
+ } /* end of class phpmediadb_presentation */
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000031.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

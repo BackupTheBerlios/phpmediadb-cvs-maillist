@@ -1,0 +1,4652 @@
+From nobody at sheep.berlios.de  Wed Feb  9 17:16:24 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 17:16:24 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.business.php,NONE,1.1 config.data.php,NONE,1.1 config.postinit.php,NONE,1.1 config.preinit.php,NONE,1.1 config.presentation.php,NONE,1.1
+Message-ID: <200502091616.j19GGON04484@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration
+In directory sheep:/tmp/cvs-serv12556/_source/tier.configuration
+
+Added Files:
+	config.business.php config.data.php config.postinit.php 
+	config.preinit.php config.presentation.php 
+Log Message:
+* Initial revision
+
+--- NEW FILE: config.business.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id $ */
+
+// $phpMediaDbConfig['BUSINESS']['example-config'] = "abc";
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: config.data.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id $ */
+
+// $phpMediaDbConfig['DATA']['example-config'] = "abc";
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: config.postinit.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id $ */
+
+/*
+ * Unset phpMediaDbConfig - security
+ */
+unset( $phpMediaDbConfig );
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: config.preinit.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id $ */
+
+/*
+ * Initalize phpMediaDbConfig
+ */
+$phpMediaDbConfig = array();
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: config.presentation.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id $ */
+
+// $phpMediaDbConfig['PRESENTATION']['example-config'] = "abc";
+
+
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 17:16:49 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 17:16:49 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n - New directory
+Message-ID: <200502091616.j19GGnN04496@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv12594/_source/tier.configuration/i18n
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 17:17:08 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 17:17:08 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration/i18n i18n.de.php,NONE,1.1 i18n.en.php,NONE,1.1
+Message-ID: <200502091617.j19GH8N04516@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/i18n
+In directory sheep:/tmp/cvs-serv12605/_source/tier.configuration/i18n
+
+Added Files:
+	i18n.de.php i18n.en.php 
+Log Message:
+* Initial revision
+
+--- NEW FILE: i18n.de.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id $ */
+
+// $i18n['STRING-ID'] = "";
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: i18n.en.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id $ */
+
+// $i18n['STRING-ID'] = "";
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 17:17:54 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 17:17:54 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.2,1.3
+Message-ID: <200502091617.j19GHsN04544@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source
+In directory sheep:/tmp/cvs-serv12650/_source
+
+Modified Files:
+	phpmediadb.php 
+Log Message:
+* Included tier.config (and pre- and postinit)
+
+Index: phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/phpmediadb.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- phpmediadb.php	26 Sep 2004 16:00:06 -0000	1.2
++++ phpmediadb.php	9 Feb 2005 16:17:52 -0000	1.3
+@@ -2,6 +2,14 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+ /* $Id$ */
+ 
++/* run preinit */
++require_once( 'tier.configuration/config.preinit.php' );
++
++/* include configuration */
++require_once( 'tier.configuration/config.data.php' );
++require_once( 'tier.configuration/config.business.php' );
++require_once( 'tier.configuration/config.presentation.php' );
++
+ /* include tier.global */
+ require_once( 'tier.global/class.phpmediadb.php' );
+ require_once( 'tier.global/constants.phpmediadb.php' );
+@@ -19,6 +27,9 @@
+ 
+ /* include tier.data */
+ require_once( 'tier.data/class.phpmediadb_data.php' );
++
++/* run postinit */
++require_once( 'tier.configuration/config.postinit.php' );
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?>
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 17:20:47 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 17:20:47 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business.php,1.2,1.3
+Message-ID: <200502091620.j19GKlN04667@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv12805/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business.php 
+Log Message:
+* Added configuration-container
+
+Index: class.phpmediadb_business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_business.php	26 Sep 2004 16:04:22 -0000	1.2
++++ class.phpmediadb_business.php	9 Feb 2005 16:20:44 -0000	1.3
+@@ -4,13 +4,23 @@
+ 
+ class phpmediadb_business
+ {
++	// --- ATTRIBUTES ---
+ 
++	/**
++	 * Configurationcontainer of this tier
++	 *
++	 * @access public
++	 * @var configuration
++	 */
++	public $configuration = null;
++	
++	// --- OPERATIONS ---
+ 
+ 	public function __construct( $sender )
+-    {
+-    	 /* TODO */
+-    }
+-
++	{
++		/* init */
++		$this->configuration = array();
++	}
+ 
+ } /* end of class phpmediadb_business */
+ 
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 17:20:47 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 17:20:47 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.2,1.3
+Message-ID: <200502091620.j19GKlN04671@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv12805/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data.php 
+Log Message:
+* Added configuration-container
+
+Index: class.phpmediadb_data.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_data.php	26 Sep 2004 16:04:22 -0000	1.2
++++ class.phpmediadb_data.php	9 Feb 2005 16:20:45 -0000	1.3
+@@ -4,12 +4,23 @@
+ 
+ class phpmediadb_data
+ {
++	// --- ATTRIBUTES ---
+ 
++	/**
++	 * Configurationcontainer of this tier
++	 *
++	 * @access public
++	 * @var configuration
++	 */
++	public $configuration = null;
++	
++	// --- OPERATIONS ---
+ 
+ 	public function __construct( $sender )
+-    {
+-    	 /* TODO */
+-    }
++	{
++		/* init */
++		$this->configuration = array();
++	}
+ 
+ 
+ } /* end of class phpmediadb_data */
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 17:20:47 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 17:20:47 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.2,1.3
+Message-ID: <200502091620.j19GKlN04675@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv12805/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation.php 
+Log Message:
+* Added configuration-container
+
+Index: class.phpmediadb_presentation.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_presentation.php	26 Sep 2004 16:06:03 -0000	1.2
++++ class.phpmediadb_presentation.php	9 Feb 2005 16:20:45 -0000	1.3
+@@ -60,6 +60,14 @@
+ 	 */
+ 	public $XMLSERVICE = null;
+ 
++	/**
++	 * Configurationcontainer of this tier
++	 *
++	 * @access public
++	 * @var configuration
++	 */
++	public $configuration = null;
++
+ 	// --- OPERATIONS ---
+ 
+ 	/**
+@@ -71,7 +79,10 @@
+ 	 * @return void
+ 	 */
+ 	public function __construct( $sender )
+-  {
++	{
++		/* init */
++		$this->configuration = array();
++    	 
+ 		/* assign parent */
+ 		$this->PHPMEDIADB		= $sender;
+ 
+@@ -81,9 +92,9 @@
+ 		$this->I18N					= new phpmediadb_presentation_i18n( $this );
+ 		$this->SESSION			= new phpmediadb_presentation_session( $this );
+ 		$this->XMLSERVICE		= new phpmediadb_presentation_xmlservice( $this );
+-  }
++	}
+ 
+-	/**
++ /**
+ 	 * The destructor __destruct is responsible for closing all open files,
+ 	 * etc.
+ 	 *
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 21:26:03 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 21:26:03 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb.php,1.2,1.3
+Message-ID: <200502092026.j19KQ3N13272@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global
+In directory sheep:/tmp/cvs-serv22677/_source/tier.global
+
+Modified Files:
+	class.phpmediadb.php 
+Log Message:
+* Added unsetting of the global configuration (security enhancement)
+
+Index: class.phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global/class.phpmediadb.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb.php	26 Sep 2004 16:09:34 -0000	1.2
++++ class.phpmediadb.php	9 Feb 2005 20:26:00 -0000	1.3
+@@ -56,10 +56,15 @@
+ 	 */
+ 	public function __construct()
+ 	{
++		global $phpMediaDbConfig;
++		
+ 		/* assign childs */
+ 		$this->PRESENTATION		= new phpmediadb_presentation( $this );
+ 		$this->BUSINESS				= new phpmediadb_business( $this );
+ 		$this->DATA						= new phpmediadb_data( $this );
++		
++		/* unset global configuration - security */
++		unset( $phpMediaDbConfig );
+ 	}
+ 
+ 	/**
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 21:26:41 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 21:26:41 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.3,1.4
+Message-ID: <200502092026.j19KQfN13283@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv22787/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data.php 
+Log Message:
+* Added loading of global configuration
+
+Index: class.phpmediadb_data.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_data.php	9 Feb 2005 16:20:45 -0000	1.3
++++ class.phpmediadb_data.php	9 Feb 2005 20:26:39 -0000	1.4
+@@ -18,8 +18,12 @@
+ 
+ 	public function __construct( $sender )
+ 	{
+-		/* init */
++		global $phpMediaDbConfig;
++		
++		/* init configuration */
+ 		$this->configuration = array();
++		$this->configuration = $phpMediaDbConfig['DATA'];
++		unset( $phpMediaDbConfig['DATA'] );
+ 	}
+ 
+ 
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 21:26:41 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 21:26:41 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business.php,1.3,1.4
+Message-ID: <200502092026.j19KQfN13279@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv22787/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business.php 
+Log Message:
+* Added loading of global configuration
+
+Index: class.phpmediadb_business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_business.php	9 Feb 2005 16:20:44 -0000	1.3
++++ class.phpmediadb_business.php	9 Feb 2005 20:26:39 -0000	1.4
+@@ -18,8 +18,12 @@
+ 
+ 	public function __construct( $sender )
+ 	{
+-		/* init */
++		global $phpMediaDbConfig;
++		
++		/* init configuration */
+ 		$this->configuration = array();
++		$this->configuration = $phpMediaDbConfig['BUSINESS'];
++		unset( $phpMediaDbConfig['BUSINESS'] );
+ 	}
+ 
+ } /* end of class phpmediadb_business */
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 21:26:42 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 21:26:42 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.3,1.4
+Message-ID: <200502092026.j19KQgN13287@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv22787/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation.php 
+Log Message:
+* Added loading of global configuration
+
+Index: class.phpmediadb_presentation.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_presentation.php	9 Feb 2005 16:20:45 -0000	1.3
++++ class.phpmediadb_presentation.php	9 Feb 2005 20:26:39 -0000	1.4
+@@ -80,8 +80,12 @@
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+-		/* init */
++		global $phpMediaDbConfig;
++		
++		/* init configuration */
+ 		$this->configuration = array();
++		$this->configuration = $phpMediaDbConfig['PRESENTATION'];
++		unset( $phpMediaDbConfig['PRESENTATION'] );
+     	 
+ 		/* assign parent */
+ 		$this->PHPMEDIADB		= $sender;
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 21:27:22 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 21:27:22 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.3,1.4
+Message-ID: <200502092027.j19KRMN13295@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source
+In directory sheep:/tmp/cvs-serv22829/_source
+
+Modified Files:
+	phpmediadb.php 
+Log Message:
+* Added class.phpmediadb_exception.php file
+
+Index: phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/phpmediadb.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- phpmediadb.php	9 Feb 2005 16:17:52 -0000	1.3
++++ phpmediadb.php	9 Feb 2005 20:27:19 -0000	1.4
+@@ -11,6 +11,7 @@
+ require_once( 'tier.configuration/config.presentation.php' );
+ 
+ /* include tier.global */
++require_once( 'tier.global/class.phpmediadb_exception.php' );
+ require_once( 'tier.global/class.phpmediadb.php' );
+ require_once( 'tier.global/constants.phpmediadb.php' );
+ 
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 21:28:59 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 21:28:59 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.2,1.3
+Message-ID: <200502092028.j19KSxN13337@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv22885/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_contentvars.php 
+Log Message:
+* Changed function names (case-sensitive)
+* Added some comments
+
+Index: class.phpmediadb_presentation_contentvars.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_contentvars.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_presentation_contentvars.php	26 Sep 2004 16:07:43 -0000	1.2
++++ class.phpmediadb_presentation_contentvars.php	9 Feb 2005 20:28:57 -0000	1.3
+@@ -30,11 +30,11 @@
+ 	 * @access private
+ 	 * @var mixed
+ 	 */
+-	public $nodeContainer = null;
+-	/* FIXIT */
++	private $nodeContainer = null;
+ 
+ 	// --- OPERATIONS ---
+-
++	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The constructor __construct initalizes the Class.
+ 	 *
+@@ -52,7 +52,8 @@
+ 		/* initalize */
+ 		$this->nodeContainer = array();
+   }
+-
++  
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * The destructor __destruct is responsible for closing all open files,
+ 	 * etc.
+@@ -66,7 +67,7 @@
+ 		/* nothing to do yet */
+ 	}
+ 
+-
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function adds a new node to the nodecontainer. The nodepoint is
+ 	 * by the dottet-format nodeName with the value of NodeValue and a
+@@ -79,19 +80,20 @@
+ 	 * @param Integer
+ 	 * @return void
+ 	 */
+-	public function AddNode( $nodeName, $nodeValue, $nodeFormat = PHPMEDIADB_NODEFORMAT_TEXT )
++	public function addNode( $nodeName, $nodeValue, $nodeFormat = PHPMEDIADB_NODEFORMAT_TEXT )
+ 	{
+ 		/* check */
+-		if( $this->CheckNodeString( $nodeName ) == FALSE )
++		if( $this->checkNodeString( $nodeName ) == FALSE )
+ 			return false;
+ 
+ 		/* convert */
+-		$nodeValue = $this->ConvertNodeValue( $nodeValue, $nodeFormat );
++		$nodeValue = $this->convertNodeValue( $nodeValue, $nodeFormat );
+ 
+ 		/* delegate */
+-		$this->RecursiveInsertNodeIntoContainer( $nodeName, $nodeValue, $this->nodeContainer );
++		$this->recursiveInsertNodeIntoContainer( $nodeName, $nodeValue, $this->nodeContainer );
+ 	}
+ 
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function returns a complete node or only a value specified by
+ 	 *
+@@ -100,13 +102,18 @@
+ 	 * @param String
+ 	 * @return java_lang_String
+ 	 */
+-	public function GetNode( $nodeName = NULL )
++	public function getNode( $nodeName = NULL )
+ 	{
+-		$returnValue = null;
++		/* filter false or null entries */
+ 		/* TODO */
++		$returnValue = $this->nodeContainer;
++		/* TODO */
++		
++		/* return mixed */
+ 		return $returnValue;
+ 	}
+ 
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function deletes a nodevalue or a compelte nodetree from the
+ 	 *
+@@ -118,14 +125,15 @@
+ 	public function DeleteNode( $nodeName )
+ 	{
+ 		/* check */
+-		if( $this->CheckNodeString( $nodeName ) == FALSE )
++		if( $this->checkNodeString( $nodeName ) == FALSE )
+ 			return false;
+ 
+ 		/* delegate */
+-		$this->RecursiveInsertNodeIntoContainer( $nodeName, NULL, $this->nodeContainer );
++		$this->recursiveInsertNodeIntoContainer( $nodeName, NULL, $this->nodeContainer );
+ 		return true;
+ 	}
+-
++	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This internal function will recursivly insert a node into the
+ 	 *
+@@ -136,7 +144,7 @@
+ 	 * @param mixed
+ 	 * @return void
+ 	 */
+-	protected function RecursiveInsertNodeIntoContainer( $nodeName, $nodeValue = null, &$nodeArray )
++	protected function recursiveInsertNodeIntoContainer( $nodeName, $nodeValue = null, &$nodeArray )
+ 	{
+ 		/* init */
+ 		$nodeIndexArray		= null;
+@@ -153,7 +161,11 @@
+ 		if( count( $nodeIndexArray ) == 1 )
+ 		{
+ 			/* ok, it is the last item.. generate one more array and stop recursive call */
+-			$nodeArray["$nodeCurrentIndex"] = $nodeValue;
++			if( NULL == $nodeValue )
++				//$nodeArray["$nodeCurrentIndex"] = $nodeValue;
++				unset( $nodeArray["$nodeCurrentIndex"] );
++			else
++				$nodeArray["$nodeCurrentIndex"] = (string) $nodeValue;
+ 		}
+ 		else
+ 		{
+@@ -174,14 +186,15 @@
+ 			if( !is_array( $nodeArray["$nodeCurrentIndex"] ) )
+ 				$nodeArray["$nodeCurrentIndex"] = array();
+ 
+-			$this->RecursiveInsertNodeIntoContainer( $nodeNextIndex, $nodeValue, $nodeArray["$nodeCurrentIndex"] );
++			$this->recursiveInsertNodeIntoContainer( $nodeNextIndex, $nodeValue, $nodeArray["$nodeCurrentIndex"] );
+ 
+ 		}
+ 
+ 		/* return array */
+ 		return $nodeArray;
+ 	}
+-
++	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function checks the validity of nodeName and returns the
+ 	 * (TRUE=ok, FALSE=check failed),
+@@ -191,16 +204,18 @@
+ 	 * @param String
+ 	 * @return boolean
+ 	 */
+-	public function CheckNodeString( $nodeName )
++	public function checkNodeString( $nodeName )
+ 	{
+ 		$returnValue = (bool) false;
+ 
+ 		$checkRegEx = "^([_a-zA-Z0-9]+\.?)+[_a-zA-Z0-9]+$";
+ 		$returnValue = ereg( $checkRegEx, $nodeName );
+-
++		
++		/* return value */
+ 		return (bool) $returnValue;
+ 	}
+-
++	
++//-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function converts the nodeValue in the format of nodeFormat
+ 	 *
+@@ -209,7 +224,7 @@
+ 	 * @param String
+ 	 * @return String
+ 	 */
+-	protected function ConvertNodeValue( $nodeValue, $nodeFormat )
++	protected function convertNodeValue( $nodeValue, $nodeFormat )
+ 	{
+ 		$returnValue = null;
+ 
+@@ -231,6 +246,8 @@
+ 					$returnValue = $nodeValue;
+ 				break;
+ 		}
++		
++		/* return value */
+ 		return $returnValue;
+ 	}
+ 
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 21:29:50 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 21:29:50 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.2,1.3
+Message-ID: <200502092029.j19KToN13352@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv22903/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_i18n.php 
+Log Message:
+* Added all function to class phpmediadb_presentation_i18n
+
+Index: class.phpmediadb_presentation_i18n.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_i18n.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_presentation_i18n.php	26 Sep 2004 16:04:22 -0000	1.2
++++ class.phpmediadb_presentation_i18n.php	9 Feb 2005 20:29:48 -0000	1.3
+@@ -4,13 +4,340 @@
+ 
+ class phpmediadb_presentation_i18n
+ {
++	// --- ATTRIBUTES ---
+ 
++	/**
++	 * Short description of attribute PHPMEDIADB
++	 *
++	 * @access protected
++	 * @see phpmediadb
++	 * @var phpmediadb
++	 */
++	protected $PHPMEDIADB = null;
++
++	/**
++	 * Short description of attribute PRESENTATION
++	 *
++	 * @access protected
++	 * @see phpmediadb_presentation
++	 * @var phpmediadb_presentation
++	 */
++	protected $PRESENTATION = null;
++	
++	/**
++	 * Short description of attribute langContainer
++	 *
++	 * @access private
++	 * @var mixed
++	 */
++	private $langContainer = null;
++	
++	/**
++	 * Short description of attribute availableLanguagesContainer
++	 *
++	 * @access private
++	 * @var mixed
++	 */
++	private $availableLanguagesContainer = null;
++	
++	/**
++	 * Short description of attribute langCode
++	 *
++	 * @access private
++	 * @var mixed
++	 */
++	private $langCode = null;
+ 
++	// --- OPERATIONS ---
++//-----------------------------------------------------------------------------
++	/**
++	 * The constructor __construct initalizes the Class.
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param phpmediadb_presentation
++	 * @return void
++	 */
+ 	public function __construct( $sender )
+ 	{
+-    	 /* TODO */
+-	}
++		/* assign parent */
++		$this->PRESENTATION	= $sender;
++		$this->PHPMEDIADB		= $sender->PHPMEDIADB;
++
++		/* initalize */
++		$this->langContainer = array();
++		
++		/* initalize values */
++		$this->readI18nDirectory();
++		$this->initalizeLanguageContainer();
++  }
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns the language of the client browser
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @return string
++	 */
++  public function getBrowserLanguage()
++  {
++  	/* init */
++  	$returnValue = "";
++  	$availableLanguages	= $this->getAvailableLanagues();
++  	$defaultLanguage		= $this->PRESENTATION->configuration['i18n']['defaultLanguage'];
++  	
++  	/* detect browser language */
++  	if( !$this->PRESENTATION->configuration['i18n']['forcedLanguage'] )
++  		$returnValue = $this->detectBrowserLanguage( $availableLanguages, $defaultLanguage );
++  	else
++  		$returnValue = $defaultLanguage;
++  	
++  	return $returnValue;
++  }
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns the i18n string specified by the langID
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param String
++	 * @return mixed
++	 */
++  public function getLanguageString( $langId )
++  {
++  	/* init */
++  	$returnValue = false;
++  	
++  	/* check if key exists */
++  	if( array_key_exists( $langId, $this->langContainer ) )
++  		$returnValue = $this->langContainer["$langId"];
++  	
++  	return $returnValue;
++  }
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns the whole i18n array
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @return Array
++	 */
++  public function getLanguageArray()
++  {
++  	/* init */
++  	$returnValue	= "";
++  	
++		$returnValue = $this->langContainer;
++  	
++  	return $returnValue;
++  }
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns a array with the available languages
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @return Array
++	 */
++  public function getAvailableLanagues()
++  {
++  	/* init */
++  	$returnValue = array();
++		
++  	/* get lanagues */
++  	$returnValue	= array_keys( $this->availableLanguagesContainer );
++  	  	
++  	return $returnValue;
++  }
+ 
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns the currently used language as langcode
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @return String
++	 */
++	 public function getLanguageCode()
++	 {
++  	/* init */
++  	$returnValue = $this->langCode;
++  	  	
++  	return $returnValue;
++	 }  
++	 
++//-----------------------------------------------------------------------------
++	/**
++	 * This function sets the currently used language as langcode
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param String
++	 * @return Bool
++	 */
++	 public function setLanguageCode( $langCode )
++	 {
++  	/* init */
++  	$returnValue = false;
++  	
++  	if( key_exists( $this->availableLanguagesContainer, $langCode ) && !$this->PRESENTATION->configuration['i18n']['forcedLanguage'] )
++  	{
++  		$this->loadLanagueFile( $langCode );
++  		$returnValue = true;
++  	}
++  	  	
++  	return $returnValue;
++	 }  	 
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * This function returns the language of the client browser
++	 * specified by the allowed languages and the default language
++	 *
++	 * @access protected
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param Array
++	 * @param String
++	 * @return string
++	 */
++  protected function detectBrowserLanguage( $allowedLanguageArray, $defaultLanguage )
++  {
++  	/* init */
++  	$returnValue = $defaultLanguage;
++  	
++		/* get browserlanguage */
++		$HTTP_Language	= $_SERVER['HTTP_ACCEPT_LANGUAGE'];
++
++		/* check if browserlanguage is empty -> return default language */
++		if( empty( $HTTP_Language ) )
++		{
++			$returnValue = $defaultLanguage;
++			
++			return $returnValue;
++		}
++
++		/* split http-header */
++		$HTTP_LanguageArray	= preg_split( '/,\s*/', $HTTP_Language );
++
++		/* set default language as current */
++		$CurrentLanguage['code']		= $defaultLanguage;
++		$CurrentLanguage['quality']	= 0;
++		
++		foreach( $HTTP_LanguageArray as $HTTP_LanguageString )
++		{
++			/* validate language-string */
++			if( !preg_match ('/^([a-z]{1,8}(?:-[a-z]{1,8})*)(?:;\s*q=(0(?:\.[0-9]{1,3})?|1(?:\.0{1,3})?))?$/i',
++											$HTTP_LanguageString, $PregMatches) )
++			{
++				/* warning: not valid -> bad browser? .. ok, try next string */
++				continue;
++			}
++
++			/* get language code */
++			$Language['code']	= explode ( '-', $PregMatches[1] );
++
++			/* language quality available? */
++			if( isset( $PregMatches[2] ) )
++			{
++				/* ah, language quality available.. let's use it :) */
++				$Language['quality']	= (float)$PregMatches[2];
++			}
++			else
++			{
++				/* very bad, no language quality available.. let's use 1.0 */
++				$Language['quality']	= 1.0;
++			}
++
++			while( count( $Language['code'] ) )
++			{
++				if( in_array( strtolower( join( '-', $Language['code'] )), $allowedLanguageArray ) )
++				{
++					/* is the quality higher? */
++					if( $Language['quality'] > $CurrentLanguage['quality'] )
++					{
++						/* quality is higher than current quality, let's use this language :) */
++								$CurrentLanguage['code']		= strtolower( join ( '-', $Language['code'] ) );
++								$CurrentLanguage['quality']	= $Language['quality'];
++								break;
++					}
++				}
++				/* delete last (right) arrayitem */
++				array_pop( $Language['code'] );
++			}
++		}
++
++			$returnValue = $CurrentLanguage['code'];
++			
++			return $returnValue;
++  }
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * This function read the i18n directory and detect the available languages
++	 *
++	 * @access protected
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 */
++	 protected function readI18nDirectory()
++	 {
++	 		/* get files in i18n directory */
++	 		foreach( glob( $this->PRESENTATION->configuration['directory']['i18n'] . "/i18n.*.php" ) as $filename )
++	 		{
++	 			/* double check with regex */
++	 			if( eregi( '^i18n.([a-z]+).php$', basename( $filename ), $regArray ) )
++	 			{			
++	 				/* set values like filename and langcode */
++	 				$filename	= trim( $filename );
++	 				$langcode	= trim( $regArray[1] );
++	 			
++	 				/* set values to the contaienr */
++		 			$this->availableLanguagesContainer[$langcode] = $filename;
++	 			}
++	 		}
++	 }
++  
++//-----------------------------------------------------------------------------
++	/**
++	 * This function gets the current browser-language and calls the
++	 * loadlanguagefile function.
++	 *
++	 * @access protected
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 */
++	protected function initalizeLanguageContainer()
++	{
++		/* get language */
++		$this->langCode = $this->getBrowserLanguage();
++		
++		/* load language file */
++		$this->loadLanagueFile( $this->langCode );
++		
++	}
++//-----------------------------------------------------------------------------
++	/**
++	 * This function loads the languagefile into the languagecontainer
++	 *
++	 * @access protected
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 */
++  protected function loadLanagueFile( $langCode )
++  {
++  	if( eregi( '^[a-z]+$', $langCode ) )
++  	{
++  		include( $this->PRESENTATION->configuration['directory']['i18n'] . "/i18n.$langCode.php" );
++  		$this->langContainer	= $i18n;
++  		$this->langCode				= $langCode;
++  	}
++  	else
++  	{
++  		throw new phpmediadb_exception( "ERR_LANGCODE_CHECK_FAILED" );
++  	}
++  }
+ 
+ } /* end of class phpmediadb_presentation_i18n */
+ 
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 21:30:49 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 21:30:49 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.global class.phpmediadb_exception.php,NONE,1.1
+Message-ID: <200502092030.j19KUnN13398@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global
+In directory sheep:/tmp/cvs-serv22948/_source/tier.global
+
+Added Files:
+	class.phpmediadb_exception.php 
+Log Message:
+* Initial revision
+
+--- NEW FILE: class.phpmediadb_exception.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_exception.php,v 1.1 2005/02/09 20:30:47 mblaschke Exp $ */
+
+/**
+ * Main class of the phpMediaDB Project. It contains all other classes in the
+ * PRESENTATION, BUSINESS and DATA.
+ *
+ * @access public
+ * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+ * @package phpmediadb
+ * @since 0.0.0
+ * @subpackage global
+ * @version 1.0.0
+ */
+class phpmediadb_exception extends Exception
+{
+	
+} /* end of class phpmediadb_exception */
+
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 22:12:33 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 22:12:33 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.postinit.php,1.1,1.2
+Message-ID: <200502092112.j19LCXN14361@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration
+In directory sheep:/tmp/cvs-serv24749/_source/tier.configuration
+
+Modified Files:
+	config.postinit.php 
+Log Message:
+* Removed unset of global config - didn't work here
+
+Index: config.postinit.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.postinit.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- config.postinit.php	9 Feb 2005 16:16:22 -0000	1.1
++++ config.postinit.php	9 Feb 2005 21:12:31 -0000	1.2
+@@ -2,10 +2,7 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+ /* $Id $ */
+ 
+-/*
+- * Unset phpMediaDbConfig - security
+- */
+-unset( $phpMediaDbConfig );
++
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?>
+
+
+
+From nobody at sheep.berlios.de  Wed Feb  9 22:12:53 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Wed, 9 Feb 2005 22:12:53 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.presentation.php,1.1,1.2
+Message-ID: <200502092112.j19LCrN14369@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration
+In directory sheep:/tmp/cvs-serv24760/_source/tier.configuration
+
+Modified Files:
+	config.presentation.php 
+Log Message:
+* Added some configurations
+
+Index: config.presentation.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.presentation.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- config.presentation.php	9 Feb 2005 16:16:22 -0000	1.1
++++ config.presentation.php	9 Feb 2005 21:12:50 -0000	1.2
+@@ -4,7 +4,29 @@
+ 
+ // $phpMediaDbConfig['PRESENTATION']['example-config'] = "abc";
+ 
++/*
++ * Generic Configuration
++ */
++$phpMediaDbConfig['PRESENTATION']['generic']['gzip-compression'] = false;
++
++/*
++ * Configuration of directories
++ */
++$phpMediaDbConfig['PRESENTATION']['directory']['root']			= realpath("./") . "/";
++$phpMediaDbConfig['PRESENTATION']['directory']['i18n']			= $phpMediaDbConfig['PRESENTATION']['directory']['root'] . "_source/tier.configuration/i18n/";
++$phpMediaDbConfig['PRESENTATION']['directory']['templates']	= $phpMediaDbConfig['PRESENTATION']['directory']['root'] . "_source/tier.configuration/templates";
+ 
++/*
++ * Configuration of directories
++ */
++$phpMediaDbConfig['PRESENTATION']['webpath']['server']		= "";
++$phpMediaDbConfig['PRESENTATION']['webpath']['root-path']	= "";
++
++/*
++ * i18n - Configuration
++ */
++$phpMediaDbConfig['PRESENTATION']['i18n']['defaultLanguage']	= "en";
++$phpMediaDbConfig['PRESENTATION']['i18n']['forcedLanguage']		= true;
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?>
+
+
+
+From nobody at sheep.berlios.de  Tue Feb 22 15:38:50 2005
+From: nobody at sheep.berlios.de (bruf)
+Date: Tue, 22 Feb 2005 15:38:50 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,NONE,1.1
+Message-ID: <200502221438.j1MEcoN08886@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv25449/_source/tier.data
+
+Added Files:
+	class.phpmediadb_data_formats.php 
+Log Message:
+* Initital revision
+
+--- NEW FILE: class.phpmediadb_data_formats.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_formats.php,v 1.1 2005/02/22 14:38:48 bruf Exp $ */
+
+class phpmediadb_data_formats
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_presentation
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+
+
+From nobody at sheep.berlios.de  Tue Feb 22 16:14:11 2005
+From: nobody at sheep.berlios.de (bruf)
+Date: Tue, 22 Feb 2005 16:14:11 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_agerestrictions.php,NONE,1.1 class.phpmediadb_data_audios.php,NONE,1.1 class.phpmediadb_data_categories.php,NONE,1.1 class.phpmediadb_data_codecs.php,NONE,1.1 class.phpmediadb_data_prints.php,NONE,1.1 class.phpmediadb_data_status.php,NONE,1.1 class.phpmediadb_data_videos.php,NONE,1.1
+Message-ID: <200502221514.j1MFEBN09665@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv28055/_source/tier.data
+
+Added Files:
+	class.phpmediadb_data_agerestrictions.php 
+	class.phpmediadb_data_audios.php 
+	class.phpmediadb_data_categories.php 
+	class.phpmediadb_data_codecs.php 
+	class.phpmediadb_data_prints.php 
+	class.phpmediadb_data_status.php 
+	class.phpmediadb_data_videos.php 
+Log Message:
+* Initital revision
+
+--- NEW FILE: class.phpmediadb_data_agerestrictions.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_agerestrictions.php,v 1.1 2005/02/22 15:14:09 bruf Exp $ */
+
+class phpmediadb_data_agerestrictions
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute PHPMEDIADB
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+	protected $PHPMEDIADB = null;
+
+	/**
+	 * Short description of attribute DATA
+	 *
+	 * @access protected
+	 * @see phpmediadb_presentation
+	 * @var phpmediadb_presentation
+	 */
+	protected $DATA = null;
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_data
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: class.phpmediadb_data_audios.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_audios.php,v 1.1 2005/02/22 15:14:09 bruf Exp $ */
+
+class phpmediadb_data_audios
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute PHPMEDIADB
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+	protected $PHPMEDIADB = null;
+
+	/**
+	 * Short description of attribute DATA
+	 *
+	 * @access protected
+	 * @see phpmediadb_presentation
+	 * @var phpmediadb_presentation
+	 */
+	protected $DATA = null;
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_data
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: class.phpmediadb_data_categories.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_categories.php,v 1.1 2005/02/22 15:14:09 bruf Exp $ */
+
+class phpmediadb_data_categories
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute PHPMEDIADB
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+	protected $PHPMEDIADB = null;
+
+	/**
+	 * Short description of attribute DATA
+	 *
+	 * @access protected
+	 * @see phpmediadb_presentation
+	 * @var phpmediadb_presentation
+	 */
+	protected $DATA = null;
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_data
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: class.phpmediadb_data_codecs.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_codecs.php,v 1.1 2005/02/22 15:14:09 bruf Exp $ */
+
+class phpmediadb_data_codecs
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute PHPMEDIADB
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+	protected $PHPMEDIADB = null;
+
+	/**
+	 * Short description of attribute DATA
+	 *
+	 * @access protected
+	 * @see phpmediadb_presentation
+	 * @var phpmediadb_presentation
+	 */
+	protected $DATA = null;
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_data
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: class.phpmediadb_data_prints.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_prints.php,v 1.1 2005/02/22 15:14:09 bruf Exp $ */
+
+class phpmediadb_data_prints
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute PHPMEDIADB
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+	protected $PHPMEDIADB = null;
+
+	/**
+	 * Short description of attribute DATA
+	 *
+	 * @access protected
+	 * @see phpmediadb_presentation
+	 * @var phpmediadb_presentation
+	 */
+	protected $DATA = null;
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_data
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: class.phpmediadb_data_status.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_status.php,v 1.1 2005/02/22 15:14:09 bruf Exp $ */
+
+class phpmediadb_data_status
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute PHPMEDIADB
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+	protected $PHPMEDIADB = null;
+
+	/**
+	 * Short description of attribute DATA
+	 *
+	 * @access protected
+	 * @see phpmediadb_presentation
+	 * @var phpmediadb_presentation
+	 */
+	protected $DATA = null;
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_data
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+--- NEW FILE: class.phpmediadb_data_videos.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_videos.php,v 1.1 2005/02/22 15:14:09 bruf Exp $ */
+
+class phpmediadb_data_videos
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute PHPMEDIADB
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+	protected $PHPMEDIADB = null;
+
+	/**
+	 * Short description of attribute DATA
+	 *
+	 * @access protected
+	 * @see phpmediadb_presentation
+	 * @var phpmediadb_presentation
+	 */
+	protected $DATA = null;
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_data
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+
+
+From nobody at sheep.berlios.de  Tue Feb 22 16:15:38 2005
+From: nobody at sheep.berlios.de (bruf)
+Date: Tue, 22 Feb 2005 16:15:38 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_formats.php,1.1,1.2
+Message-ID: <200502221515.j1MFFcN09748@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv28214/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_formats.php 
+Log Message:
+* Added variable $PHPMEDIADB and $DATA
+
+Index: class.phpmediadb_data_formats.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_formats.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- class.phpmediadb_data_formats.php	22 Feb 2005 14:38:48 -0000	1.1
++++ class.phpmediadb_data_formats.php	22 Feb 2005 15:15:35 -0000	1.2
+@@ -7,13 +7,22 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Short description of attribute
++	 * Short description of attribute PHPMEDIADB
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb
+ 	 * @var phpmediadb
+ 	 */
++	protected $PHPMEDIADB = null;
+ 
++	/**
++	 * Short description of attribute DATA
++	 *
++	 * @access protected
++	 * @see phpmediadb_presentation
++	 * @var phpmediadb_presentation
++	 */
++	protected $DATA = null;
+ 
+ 	// --- OPERATIONS ---
+ 	
+@@ -23,7 +32,7 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+-	 * @param phpmediadb_presentation
++	 * @param phpmediadb_data
+ 	 * @return void
+ 	 */
+ 	public function __construct()
+
+
+
+From nobody at sheep.berlios.de  Tue Feb 22 17:29:04 2005
+From: nobody at sheep.berlios.de (bruf)
+Date: Tue, 22 Feb 2005 17:29:04 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_sql.php,NONE,1.1
+Message-ID: <200502221629.j1MGT4N13965@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv1144/_source/tier.data
+
+Added Files:
+	class.phpmediadb_data_sql.php 
+Log Message:
+* Initital revision
+
+--- NEW FILE: class.phpmediadb_data_sql.php ---
+<?php
+// phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+/* $Id: class.phpmediadb_data_sql.php,v 1.1 2005/02/22 16:29:01 bruf Exp $ */
+
+class phpmediadb_data_sql
+{
+	// --- ATTRIBUTES ---
+
+	/**
+	 * Short description of attribute PHPMEDIADB
+	 *
+	 * @access protected
+	 * @see phpmediadb
+	 * @var phpmediadb
+	 */
+	protected $PHPMEDIADB = null;
+
+	/**
+	 * Short description of attribute DATA
+	 *
+	 * @access protected
+	 * @see phpmediadb_presentation
+	 * @var phpmediadb_presentation
+	 */
+	protected $DATA = null;
+
+	// --- OPERATIONS ---
+	
+//-----------------------------------------------------------------------------
+	/**
+	 * The constructor __construct initalizes the Class.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @param phpmediadb_data
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* nothing to do yet */
+	}
+  
+//-----------------------------------------------------------------------------
+	/**
+	 * The destructor __destruct is responsible for closing all open files,
+	 * etc.
+	 *
+	 * @access public
+	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+	 * @return void
+	 */
+	public function __destruct()
+	{
+		/* nothing to do yet */
+	}
+}
+//--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+?>
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:03:19 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:03:19 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.4,1.5
+Message-ID: <200502271603.j1RG3JN18305@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv14529/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data.php 
+Log Message:
+* Added loadConfiguration
+* Added $PHPMEDIADB
+* Changed some comments
+
+Index: class.phpmediadb_data.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_data.php	9 Feb 2005 20:26:39 -0000	1.4
++++ class.phpmediadb_data.php	27 Feb 2005 16:03:16 -0000	1.5
+@@ -7,7 +7,16 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Configurationcontainer of this tier
++	 * Reference to class phpmediadb
++	 *
++	 * @access protected
++	 * @see phpmediadb
++	 * @var phpmediadb
++	 */
++	public $PHPMEDIADB = null;
++
++	/**
++	 * Container of configuration for the whole tier
+ 	 *
+ 	 * @access public
+ 	 * @var configuration
+@@ -16,17 +25,45 @@
+ 	
+ 	// --- OPERATIONS ---
+ 
++	/**
++	 * The constructor __construct initalizes the Class.
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param phpmediadb
++	 */
+ 	public function __construct( $sender )
+ 	{
++		/* init */
++
++		/* load configuration */
++		$this->loadConfiguration();
++    	 
++		/* assign parent */
++		$this->PHPMEDIADB		= $sender;
++	}
++
++	/**
++	 * Loads the configuration from the global array and resets the array
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param phpmediadb
++	 * @return void
++	 */
++	private function loadConfiguration()
++	{
++		/* init */
+ 		global $phpMediaDbConfig;
+-		
+-		/* init configuration */
+ 		$this->configuration = array();
+-		$this->configuration = $phpMediaDbConfig['DATA'];
++				
++		/* get and set config */
++		@$this->configuration = $phpMediaDbConfig['DATA'];
++		
++		/* unset global configuration -> security */
+ 		unset( $phpMediaDbConfig['DATA'] );
+ 	}
+-
+-
++	
+ } /* end of class phpmediadb_data */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:03:18 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:03:18 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business.php,1.4,1.5
+Message-ID: <200502271603.j1RG3IN18303@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business
+In directory sheep:/tmp/cvs-serv14529/_source/tier.business
+
+Modified Files:
+	class.phpmediadb_business.php 
+Log Message:
+* Added loadConfiguration
+* Added $PHPMEDIADB
+* Changed some comments
+
+Index: class.phpmediadb_business.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.business/class.phpmediadb_business.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_business.php	9 Feb 2005 20:26:39 -0000	1.4
++++ class.phpmediadb_business.php	27 Feb 2005 16:03:16 -0000	1.5
+@@ -7,7 +7,16 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Configurationcontainer of this tier
++	 * Reference to class phpmediadb
++	 *
++	 * @access protected
++	 * @see phpmediadb
++	 * @var phpmediadb
++	 */
++	public $PHPMEDIADB = null;
++
++	/**
++	 * Container of configuration for the whole tier
+ 	 *
+ 	 * @access public
+ 	 * @var configuration
+@@ -15,17 +24,46 @@
+ 	public $configuration = null;
+ 	
+ 	// --- OPERATIONS ---
+-
++	
++	/**
++	 * The constructor __construct initalizes the Class.
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param phpmediadb
++	 */
+ 	public function __construct( $sender )
+ 	{
++		/* init */
++
++		/* load configuration */
++		$this->loadConfiguration();
++    	 
++		/* assign parent */
++		$this->PHPMEDIADB		= $sender;
++	}
++
++	/**
++	 * Loads the configuration from the global array and resets the array
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param phpmediadb
++	 * @return void
++	 */
++	private function loadConfiguration()
++	{
++		/* init */
+ 		global $phpMediaDbConfig;
+-		
+-		/* init configuration */
+ 		$this->configuration = array();
+-		$this->configuration = $phpMediaDbConfig['BUSINESS'];
++				
++		/* get and set config */
++		@$this->configuration = $phpMediaDbConfig['BUSINESS'];
++		
++		/* unset global configuration -> security */
+ 		unset( $phpMediaDbConfig['BUSINESS'] );
+ 	}
+-
++	
+ } /* end of class phpmediadb_business */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:04:46 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:04:46 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_contentvars.php,1.3,1.4
+Message-ID: <200502271604.j1RG4kN18678@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv14660/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_contentvars.php 
+Log Message:
+* Added method recursiveReadNodeFromContainer
+* Completed method getNode
+* Changed some comments
+
+Index: class.phpmediadb_presentation_contentvars.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_contentvars.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_presentation_contentvars.php	9 Feb 2005 20:28:57 -0000	1.3
++++ class.phpmediadb_presentation_contentvars.php	27 Feb 2005 16:04:44 -0000	1.4
+@@ -7,7 +7,7 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Short description of attribute PHPMEDIADB
++	 * Reference to class phpmediadb
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb
+@@ -16,7 +16,7 @@
+ 	protected $PHPMEDIADB = null;
+ 
+ 	/**
+-	 * Short description of attribute PRESENTATION
++	 * Reference to class phpmediadb_presentation
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb_presentation
+@@ -25,7 +25,7 @@
+ 	protected $PRESENTATION = null;
+ 
+ 	/**
+-	 * Short description of attribute nodeContainer
++	 * This container contains all variables used by the template-engine
+ 	 *
+ 	 * @access private
+ 	 * @var mixed
+@@ -41,7 +41,6 @@
+ 	 * @access public
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+ 	 * @param phpmediadb_presentation
+-	 * @return void
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -60,7 +59,6 @@
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+-	 * @return void
+ 	 */
+ 	public function __destruct()
+ 	{
+@@ -100,14 +98,24 @@
+ 	 * @access public
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+ 	 * @param String
+-	 * @return java_lang_String
++	 * @return String
+ 	 */
+ 	public function getNode( $nodeName = NULL )
+ 	{
+-		/* filter false or null entries */
+-		/* TODO */
+-		$returnValue = $this->nodeContainer;
+-		/* TODO */
++		if( NULL == $nodeName )
++		{
++			/* return complete array */
++			$returnValue = $this->nodeContainer;
++		}
++		else
++		{
++			/* check */
++			if( $this->checkNodeString( $nodeName ) == FALSE )
++				return false;
++			
++			/* delegate */
++			$returnValue = $this->recursiveReadNodeFromContainer( $nodeName, $this->nodeContainer );
++		}
+ 		
+ 		/* return mixed */
+ 		return $returnValue;
+@@ -142,7 +150,7 @@
+ 	 * @param mixed
+ 	 * @param String
+ 	 * @param mixed
+-	 * @return void
++	 * @return mixed
+ 	 */
+ 	protected function recursiveInsertNodeIntoContainer( $nodeName, $nodeValue = null, &$nodeArray )
+ 	{
+@@ -193,7 +201,66 @@
+ 		/* return array */
+ 		return $nodeArray;
+ 	}
+-	
++//-----------------------------------------------------------------------------
++	/**
++	 * This internal function will recursivly insert a node into the
++	 *
++	 * @access protected
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param mixed
++	 * @param String
++	 * @param mixed
++	 * @return mixed
++	 */
++	protected function recursiveReadNodeFromContainer( $nodeName, &$nodeArray )
++	{
++		/* init */
++		$nodeIndexArray		= null;
++		$nodeCurrentIndex	= null;
++		$nodeNextIndex		= null;
++
++		/* convert to upperchars */
++		$nodeName = strtoupper( $nodeName );
++		/* split nodename to the indexes */
++		$nodeIndexArray	= explode( '.', $nodeName );
++
++		/* get current index and convert it to upper-chars */
++		$nodeCurrentIndex		= strtoupper( $nodeIndexArray[0] );
++
++		/* check if it is the last item */
++		if( count( $nodeIndexArray ) == 1 )
++		{
++			/* check if arrayitem exsits */
++			if( !key_exists( $nodeCurrentIndex, $nodeArray ) )
++				return NULL;			
++			
++			/* ok, it is the last item.. return value */
++				return $nodeArray["$nodeCurrentIndex"];
++		}
++		else
++		{
++			/* ok, more levels to go, first generate the new index */
++			for( $i=1; $i < count( $nodeIndexArray ); $i++ )
++			{
++				if( $i < count( $nodeIndexArray) - 1 )
++					$nodeNextIndex .= $nodeIndexArray[$i] . ".";
++				else
++					$nodeNextIndex .= $nodeIndexArray[$i];
++			}
++
++			/* check if key exists and add array if not */
++			if( !key_exists( $nodeCurrentIndex, $nodeArray ) )
++				return NULL;
++
++			/* check if key is array and add array if not */
++			if( !is_array( $nodeArray["$nodeCurrentIndex"] ) )
++			  return $nodeArray["$nodeCurrentIndex"];
++
++			return $this->recursiveReadNodeFromContainer( $nodeNextIndex, $nodeArray[$nodeCurrentIndex] );
++
++		}
++	}
++		
+ //-----------------------------------------------------------------------------
+ 	/**
+ 	 * This function checks the validity of nodeName and returns the
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:05:12 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:05:12 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_htmlservice.php,1.2,1.3
+Message-ID: <200502271605.j1RG5CN18713@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv14722/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_htmlservice.php 
+Log Message:
+* Added standard-class-layout
+
+Index: class.phpmediadb_presentation_htmlservice.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_htmlservice.php,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -u -d -r1.2 -r1.3
+--- class.phpmediadb_presentation_htmlservice.php	26 Sep 2004 16:04:22 -0000	1.2
++++ class.phpmediadb_presentation_htmlservice.php	27 Feb 2005 16:05:10 -0000	1.3
+@@ -4,14 +4,73 @@
+ 
+ class phpmediadb_presentation_htmlservice
+ {
++	// --- ATTRIBUTES ---
+ 
++	/**
++	 * Reference to class phpmediadb
++	 *
++	 * @access protected
++	 * @see phpmediadb
++	 * @var phpmediadb
++	 */
++	protected $PHPMEDIADB = null;
+ 
++	/**
++	 * Reference to class phpmediadb_presentation
++	 *
++	 * @access protected
++	 * @see phpmediadb_presentation
++	 * @var phpmediadb_presentation
++	 */
++	protected $PRESENTATION = null;
++
++	/**
++	 * Reference to template engine
++	 *
++	 * @access protected
++	 * @see phpmediadb_presentation
++	 * @var phpmediadb_presentation
++	 */
++	private $templateEngine = null;
++
++	// --- OPERATIONS ---
++	
++//-----------------------------------------------------------------------------
++	/**
++	 * The constructor __construct initalizes the Class.
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param phpmediadb_presentation
++	 */
+ 	public function __construct( $sender )
+ 	{
+-    	 /* TODO */
++		/* assign parent */
++		$this->PRESENTATION	= $sender;
++		$this->PHPMEDIADB		= $sender->PHPMEDIADB;
++		
++		/* create smarty object */
++		$this->templateEngine = new Smarty();
+ 	}
+ 
++//-----------------------------------------------------------------------------
++	public function compileTemplate( $template )
++	{
++		/* init */
++		$returnValue = null;
++		
++		/* set up template engine */
++		initTemplateEngine();
++
++		/* return compiled template */
++		return $returnValue;
++	}
+ 
++//-----------------------------------------------------------------------------
++	protected function initTemplateEngine()
++	{
++		
++	}
+ } /* end of class phpmediadb_presentation_htmlservice */
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:05:53 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:05:53 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation_i18n.php,1.3,1.4
+Message-ID: <200502271605.j1RG5rN18717@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv14781/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation_i18n.php 
+Log Message:
+* Changed some comments
+
+Index: class.phpmediadb_presentation_i18n.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation_i18n.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -u -d -r1.3 -r1.4
+--- class.phpmediadb_presentation_i18n.php	9 Feb 2005 20:29:48 -0000	1.3
++++ class.phpmediadb_presentation_i18n.php	27 Feb 2005 16:05:51 -0000	1.4
+@@ -7,7 +7,7 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Short description of attribute PHPMEDIADB
++	 * Reference to class phpmediadb
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb
+@@ -16,7 +16,7 @@
+ 	protected $PHPMEDIADB = null;
+ 
+ 	/**
+-	 * Short description of attribute PRESENTATION
++	 * Reference to class phpmediadb_presentation
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb_presentation
+@@ -25,7 +25,7 @@
+ 	protected $PRESENTATION = null;
+ 	
+ 	/**
+-	 * Short description of attribute langContainer
++	 * Container with all translated languagestrings
+ 	 *
+ 	 * @access private
+ 	 * @var mixed
+@@ -33,7 +33,7 @@
+ 	private $langContainer = null;
+ 	
+ 	/**
+-	 * Short description of attribute availableLanguagesContainer
++	 * Container with all available languages
+ 	 *
+ 	 * @access private
+ 	 * @var mixed
+@@ -41,7 +41,7 @@
+ 	private $availableLanguagesContainer = null;
+ 	
+ 	/**
+-	 * Short description of attribute langCode
++	 * Currently used languagecode
+ 	 *
+ 	 * @access private
+ 	 * @var mixed
+@@ -56,7 +56,6 @@
+ 	 * @access public
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+ 	 * @param phpmediadb_presentation
+-	 * @return void
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+@@ -282,6 +281,7 @@
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @return void
+ 	 */
+ 	 protected function readI18nDirectory()
+ 	 {
+@@ -308,6 +308,7 @@
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @return void
+ 	 */
+ 	protected function initalizeLanguageContainer()
+ 	{
+@@ -324,6 +325,7 @@
+ 	 *
+ 	 * @access protected
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @return void
+ 	 */
+   protected function loadLanagueFile( $langCode )
+   {
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:06:26 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:06:26 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.presentation class.phpmediadb_presentation.php,1.4,1.5
+Message-ID: <200502271606.j1RG6QN18731@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation
+In directory sheep:/tmp/cvs-serv14840/_source/tier.presentation
+
+Modified Files:
+	class.phpmediadb_presentation.php 
+Log Message:
+* Added method loadConfiguration
+* Changed some comments
+
+Index: class.phpmediadb_presentation.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.presentation/class.phpmediadb_presentation.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- class.phpmediadb_presentation.php	9 Feb 2005 20:26:39 -0000	1.4
++++ class.phpmediadb_presentation.php	27 Feb 2005 16:06:24 -0000	1.5
+@@ -7,7 +7,7 @@
+ 	// --- ATTRIBUTES ---
+ 
+ 	/**
+-	 * Short description of attribute PHPMEDIADB
++	 * Reference to class phpmediadb
+ 	 *
+ 	 * @access protected
+ 	 * @see phpmediadb
+@@ -16,7 +16,7 @@
+ 	public $PHPMEDIADB = null;
+ 
+ 	/**
+-	 * Short description of attribute SESSION
++	 * Reference to class phpmediadb_presentation_session
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_session
+@@ -25,7 +25,7 @@
+ 	public $SESSION = null;
+ 
+ 	/**
+-	 * Short description of attribute I18N
++	 * Reference to class phpmediadb_presentation_i18n
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_i18n
+@@ -34,7 +34,7 @@
+ 	public $I18N = null;
+ 
+ 	/**
+-	 * Short description of attribute CONTENTVARS
++	 * Reference to class phpmediadb_presentation_contentvars
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_contentvars
+@@ -43,7 +43,7 @@
+ 	public $CONTENTVARS = null;
+ 
+ 	/**
+-	 * Short description of attribute HTMLSERVICE
++	 * Reference to class phpmediadb_presentation_htmlservice
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_htmlservice
+@@ -52,7 +52,7 @@
+ 	public $HTMLSERVICE = null;
+ 
+ 	/**
+-	 * Short description of attribute XMLSERVICE
++	 * Reference to class phpmediadb_presentation_xmlservice
+ 	 *
+ 	 * @access public
+ 	 * @see phpmediadb_presentation_xmlservice
+@@ -61,7 +61,7 @@
+ 	public $XMLSERVICE = null;
+ 
+ 	/**
+-	 * Configurationcontainer of this tier
++	 * Container of configuration for the whole tier
+ 	 *
+ 	 * @access public
+ 	 * @var configuration
+@@ -76,16 +76,13 @@
+ 	 * @access public
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+ 	 * @param phpmediadb
+-	 * @return void
+ 	 */
+ 	public function __construct( $sender )
+ 	{
+-		global $phpMediaDbConfig;
+-		
+-		/* init configuration */
+-		$this->configuration = array();
+-		$this->configuration = $phpMediaDbConfig['PRESENTATION'];
+-		unset( $phpMediaDbConfig['PRESENTATION'] );
++		/* init */
++
++		/* load configuration */
++		$this->loadConfiguration();
+     	 
+ 		/* assign parent */
+ 		$this->PHPMEDIADB		= $sender;
+@@ -97,18 +94,39 @@
+ 		$this->SESSION			= new phpmediadb_presentation_session( $this );
+ 		$this->XMLSERVICE		= new phpmediadb_presentation_xmlservice( $this );
+ 	}
+-
++	
+  /**
+ 	 * The destructor __destruct is responsible for closing all open files,
+ 	 * etc.
+ 	 *
+ 	 * @access public
+ 	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
+-	 * @return void
+ 	 */
+ 	public function __destruct()
+ 	{
+-		 /* TODO */
++		/* nothing to do yet */
++	}
++	
++	
++	/**
++	 * Loads the configuration from the global array and resets the array
++	 *
++	 * @access public
++	 * @author phpMediaDB Team - http://phpmediadb.berlios.de/
++	 * @param phpmediadb
++	 * @return void
++	 */
++	private function loadConfiguration()
++	{
++		/* init */
++		global $phpMediaDbConfig;
++		$this->configuration = array();
++				
++		/* get and set config */
++		@$this->configuration = $phpMediaDbConfig['PRESENTATION'];
++		
++		/* unset global configuration -> security */
++		unset( $phpMediaDbConfig['PRESENTATION'] );
+ 	}
+ 
+ } /* end of class phpmediadb_presentation */
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:00 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:00 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib - New directory
+Message-ID: <200502271613.j1RGD0N18860@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib
+In directory sheep:/tmp/cvs-serv15373/_source/tier.lib
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:12 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:12 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/jargon - New directory
+Message-ID: <200502271613.j1RGDCN18878@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/jargon
+In directory sheep:/tmp/cvs-serv15382/_source/tier.lib/jargon
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/jargon added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:12 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:12 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole - New directory
+Message-ID: <200502271613.j1RGDCN18874@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole
+In directory sheep:/tmp/cvs-serv15382/_source/tier.lib/creole
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:28 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:28 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc - New directory
+Message-ID: <200502271613.j1RGDSN18907@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/odbc
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:30 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:30 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util - New directory
+Message-ID: <200502271613.j1RGDUN18936@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/util
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:28 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:28 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc/metadata - New directory
+Message-ID: <200502271613.j1RGDSN18913@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc/metadata
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/odbc/metadata
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc/metadata added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:27 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:27 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/common - New directory
+Message-ID: <200502271613.j1RGDRN18883@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/common
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/common
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/common added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:27 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:27 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/mssql - New directory
+Message-ID: <200502271613.j1RGDRN18891@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/mssql
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/mssql
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/mssql added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:27 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:27 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/mssql/metadata - New directory
+Message-ID: <200502271613.j1RGDRN18895@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/mssql/metadata
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/mssql/metadata
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/mssql/metadata added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:28 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:28 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/mysql/metadata - New directory
+Message-ID: <200502271613.j1RGDSN18903@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/mysql/metadata
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/mysql/metadata
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/mysql/metadata added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:27 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:27 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/mysql - New directory
+Message-ID: <200502271613.j1RGDRN18898@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/mysql
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/mysql
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/mysql added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:29 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:29 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/pgsql/metadata - New directory
+Message-ID: <200502271613.j1RGDTN18923@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/pgsql/metadata
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/pgsql/metadata
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/pgsql/metadata added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:29 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:29 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/sqlite - New directory
+Message-ID: <200502271613.j1RGDTN18926@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/sqlite
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/sqlite
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/sqlite added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:29 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:29 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/metadata - New directory
+Message-ID: <200502271613.j1RGDTN18933@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/metadata
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/metadata
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/metadata added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:27 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:27 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers - New directory
+Message-ID: <200502271613.j1RGDRN18887@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:28 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:28 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc/adapters - New directory
+Message-ID: <200502271613.j1RGDSN18911@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc/adapters
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/odbc/adapters
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/odbc/adapters added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:29 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:29 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/sqlite/metadata - New directory
+Message-ID: <200502271613.j1RGDTN18931@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/sqlite/metadata
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/sqlite/metadata
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/sqlite/metadata added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:30 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:30 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util/sql - New directory
+Message-ID: <200502271613.j1RGDUN18942@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util/sql
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/util/sql
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util/sql added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:13:28 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:13:28 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/drivers/pgsql - New directory
+Message-ID: <200502271613.j1RGDSN18919@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/pgsql
+In directory sheep:/tmp/cvs-serv15404/_source/tier.lib/creole/drivers/pgsql
+
+Log Message:
+Directory /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/drivers/pgsql added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:15:48 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:15:48 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util/sql SQLStatementExtractor.php,NONE,1.1
+Message-ID: <200502271615.j1RGFmN19047@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util/sql
+In directory sheep:/tmp/cvs-serv15669/_source/tier.lib/creole/util/sql
+
+Added Files:
+	SQLStatementExtractor.php 
+Log Message:
+* Install creole 1.0.0
+
+--- NEW FILE: SQLStatementExtractor.php ---
+<?php
+/*
+ *  $Id: SQLStatementExtractor.php,v 1.1 2005/02/27 16:15:46 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+ 
+/**
+ * Static class for extracting SQL statements from a string or file.
+ *
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.util.sql
+ */
+class SQLStatementExtractor {
+    
+    protected static $delimiter = ';';
+    
+    /**
+     * Get SQL statements from file.
+     * 
+     * @param string $filename Path to file to read.
+     * @return array SQL statements
+     */
+    public static function extractFile($filename) {
+        $buffer = file_get_contents($filename);
+        if ($buffer === false) {
+           throw new Exception("Unable to read file: " . $filename);
+        }
+        return self::extractStatements(self::getLines($buffer));
+    }
+    
+    /**
+     * Extract statements from string.
+     * 
+     * @param string $txt
+     * @return array
+     */
+    public static function extract($buffer) {
+        return self::extractStatements(self::getLines($buffer));
+    }
+    
+    /**
+     * Extract SQL statements from array of lines.
+     *
+     * @param array $lines Lines of the read-in file.
+     * @return string
+     */
+    protected static function extractStatements($lines) {
+        
+        $statements = array();
+        $sql = "";
+               
+        foreach($lines as $line) {
+        
+                $line = trim($line);
+                
+                if (self::startsWith("//", $line) || 
+                    self::startsWith("--", $line) ||
+                    self::startsWith("#", $line)) {
+                    continue;
+                }
+                
+                if (strlen($line) > 4 && strtoupper(substr($line,0, 4)) == "REM ") {
+                    continue;
+                }
+
+                $sql .= " " . $line;
+                $sql = trim($sql);
+
+                // SQL defines "--" as a comment to EOL
+                // and in Oracle it may contain a hint
+                // so we cannot just remove it, instead we must end it
+                if (strpos($line, "--") !== false) {
+                    $sql .= "\n";
+                }
+    
+                if (self::endsWith(self::$delimiter, $sql)) {
+                    $statements[] = self::substring($sql, 0, strlen($sql)-1 - strlen(self::$delimiter));
+                    $sql = "";
+                }
+            }
+        return $statements;           
+    }
+    
+    //
+    // Some string helper methods
+    // 
+    
+    /**
+     * Tests if a string starts with a given string.
+     * @param string $check The substring to check.
+     * @param string $string The string to check in (haystack).
+     * @return boolean True if $string starts with $check, or they are equal, or $check is empty.
+     */
+    protected static function startsWith($check, $string) {
+        if ($check === "" || $check === $string) {
+            return true;
+        } else {
+            return (strpos($string, $check) === 0) ? true : false;
+        }
+    }
+    
+    /**
+     * Tests if a string ends with a given string.
+     * @param string $check The substring to check.
+     * @param string $string The string to check in (haystack).
+     * @return boolean True if $string ends with $check, or they are equal, or $check is empty.
+     */
+    protected static function endsWith($check, $string) {
+        if ($check === "" || $check === $string) {
+            return true;
+        } else {
+            return (strpos(strrev($string), strrev($check)) === 0) ? true : false;
+        }
+    } 
+
+    /**
+     * a natural way of getting a subtring, php's circular string buffer and strange
+     * return values suck if you want to program strict as of C or friends 
+     */
+    protected static function substring($string, $startpos, $endpos = -1) {
+        $len    = strlen($string);
+        $endpos = (int) (($endpos === -1) ? $len-1 : $endpos);
+        if ($startpos > $len-1 || $startpos < 0) {
+            trigger_error("substring(), Startindex out of bounds must be 0<n<$len", E_USER_ERROR);
+        }
+        if ($endpos > $len-1 || $endpos < $startpos) {
+            trigger_error("substring(), Endindex out of bounds must be $startpos<n<".($len-1), E_USER_ERROR);
+        }
+        if ($startpos === $endpos) {
+            return (string) $string{$startpos};
+        } else {
+            $len = $endpos-$startpos;
+        }
+        return substr($string, $startpos, $len+1);
+    }
+    
+    /**
+     * Convert string buffer into array of lines.
+     * 
+     * @param string $filename
+     * @return array string[] lines of file.
+     */
+    protected static function getLines($buffer) {       
+       $lines = preg_split("/\r?\n|\r/", $buffer);
+       return $lines;
+    }
+    
+}
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:15:48 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:15:48 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util Blob.php,NONE,1.1 Clob.php,NONE,1.1 Lob.php,NONE,1.1
+Message-ID: <200502271615.j1RGFmN19051@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util
+In directory sheep:/tmp/cvs-serv15669/_source/tier.lib/creole/util
+
+Added Files:
+	Blob.php Clob.php Lob.php 
+Log Message:
+* Install creole 1.0.0
+
+--- NEW FILE: Blob.php ---
+<?php
+/*
+ *  $Id: Blob.php,v 1.1 2005/02/27 16:15:46 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+require_once 'creole/util/Lob.php';
+
+/**
+ * A class for handling binary LOBs.
+ * 
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.util
+ */
+class Blob extends Lob {            
+    
+    /**
+     * Dump the contents of the file using fpassthru().
+     *
+     * @return void
+     * @throws Exception if no file or contents.
+     */
+    function dump()
+    {
+        if (!$this->data) {            
+            // hmmm .. must be a file that needs to read in
+            if ($this->inFile) {
+                $fp = @fopen($this->inFile, "rb");
+                if (!$fp) {
+                    throw new Exception('Unable to open file: '.$this->inFile);
+                }
+                fpassthru($fp);
+                @fclose($fp);
+            } else {
+                throw new Exception('No data to dump');
+            }
+        
+        } else {            
+            echo $this->data;
+        }        
+        
+    }
+    
+    
+
+}
+--- NEW FILE: Clob.php ---
+<?php
+/*
+ *  $Id: Clob.php,v 1.1 2005/02/27 16:15:46 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+require_once 'creole/util/Lob.php';
+
+/**
+ * A class for handling character (ASCII) LOBs.
+ *
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.util
+ */
+class Clob extends Lob {
+
+    /**
+     * Read LOB data from file.
+     * @param string $file Filename may also be specified here (if not specified using setInputFile()).
+     * @return void
+     * @throws Exception - if no file specified or error on read.
+     * @see setInputFile()
+     */
+    public function readFromFile($file = null)
+    {
+        if ($file !== null) {
+            $this->setInputFile($file);
+        }
+        if (!$this->inFile) {
+            throw Exception('No file specified for read.');
+        }
+        $data = null;
+        $file = fopen($this->inFile, "rt");
+        while (!feof($file)) $data .= fgets($file, 4096);
+        fclose($file);
+        if ($data === false) {
+            throw new Exception('Unable to read from file: '.$this->inFile);
+        }
+        $this->setContents($data);
+    }
+
+
+    /**
+     * Write LOB data to file.
+     * @param string $file Filename may also be specified here (if not set using setOutputFile()).
+     * @throws Exception - if no file specified, no contents to write, or error on write.
+     * @see setOutputFile()
+     */
+    public function writeToFile($file = null)
+    {
+        if ($file !== null) {
+            $this->setOutputFile($file);
+        }
+        if (!$this->outFile) {
+            throw new Exception('No file specified for write');
+        }
+        if ($this->data === null) {
+            throw new Exception('No data to write to file');
+        }
+        $file = fopen($this->inFile, "wt");
+        if (fputs($file, $data) === false)
+            throw new Exception('Unable to write to file: '.$this->outFile);
+        fclose($file);
+    }
+
+    /**
+     * Dump the contents of the file using fpassthru().
+     *
+     * @return void
+     * @throws Exception if no file or contents.
+     */
+    function dump()
+    {
+        if (!$this->data) {
+
+            // is there a file name set?
+            if ($this->inFile) {
+                $fp = @fopen($this->inFile, "r");
+                if (!$fp) {
+                    throw new Exception('Unable to open file: '.$this->inFile);
+                }
+                fpassthru($fp);
+                @fclose($fp);
+            } else {
+                throw new Exception('No data to dump');
+            }
+
+        } else {
+            echo $this->data;
+        }
+
+    }
+
+
+
+}
+--- NEW FILE: Lob.php ---
+<?php
+/*
+ *  $Id: Lob.php,v 1.1 2005/02/27 16:15:46 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+/**
+ * An abstract class for handling LOB (Locator Object) columns.
+ * 
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.util
+ */
+abstract class Lob {
+
+    /** 
+     * The contents of the Lob.
+     * DO NOT SET DIRECTLY (or you will disrupt the
+     * ability of isModified() to give accurate results).
+     * @var string
+     */
+    protected $data;
+    
+    /** 
+     * File that blob should be written out to.
+     * @var string
+     */
+    protected $outFile;
+    
+    /** 
+     * File that blob should be read in from 
+     * @var string
+     */
+    protected $inFile;
+    
+    /**
+     * This is a 3-state value indicating whether column has been
+     * modified.
+     * Initially it is NULL.  Once first call to setContents() is made
+     * it is FALSE, because this will be initial state of Lob.  Once
+     * a subsequent call to setContents() is made it is TRUE.
+     * @var boolean
+     */
+    private $modified = null;
+    
+    /**
+     * Construct a new Lob.
+     * @param sttring $data The data contents of the Lob.
+     * @see setContents()
+     */
+    public function __construct($data = null)
+    {
+        if ($data !== null) {
+            $this->setContents($data);
+        }
+    }
+    
+    /**
+     * Get the contents of the LOB.
+     * @return string The characters in this LOB.
+     * @throws Exception
+     */
+    public function getContents()
+    {
+        if ($this->data === null && $this->isFromFile()) {
+            $this->readFromFile();
+        }
+        return $this->data;
+    }
+    
+    /**
+     * Set the contents of this LOB.
+     * Sets the modified flag to FALSE if this is the first call
+     * to setContents() for this object.  Sets the bit to TRUE if
+     * this any subsequent call to setContents().
+     * @param string $bytes
+     */
+    public function setContents($data)
+    {
+        $this->data = $data;
+               
+        if ($this->modified === null) {
+             // if modified bit hasn't been set yet,
+            // then it should now be set to FALSE, since
+            // we just did inital population
+            $this->modified = false;
+        } elseif ($this->modified === false) {
+            // if it was already FALSE, then it should
+            // now be set to TRUE, since this is a subsequent
+            // modfiication.
+            $this->modified = true;
+        }
+    }
+        
+    /**
+     * Dump the contents of the file to stdout.
+     * Must be implemented by subclasses so that binary status is handled
+     * correctly. (i.e. ignored for Clob, handled for Blob)
+     * @return void
+     * @throws Exception if no file or contents.
+     */
+    abstract public function dump();
+    
+    /**
+     * Specify the file that we want this LOB read from.
+     * @param string $filePath The location of the file.
+     * @return void
+     */
+    public function setInputFile($filePath)
+    {
+        $this->inFile = $filePath;
+    }    
+
+    /**
+     * Get the file that we want this LOB read from.
+     * @return string The location of the file.
+     */
+    public function getInputFile()
+    {
+        return $this->inFile;
+    }    
+    
+    /**
+     * Specify the file that we want this LOB saved to.
+     * @param string $filePath The location of the file.
+     * @return void
+     */
+    public function setOutputFile($filePath)
+    {
+        $this->outFile = $filePath;        
+    }
+    
+    /**
+     * Get the file that we want this LOB saved to.
+     * @return string $filePath The location of the file.
+     */
+    public function getOutputFile()
+    {
+        return $this->outFile;
+    }
+
+    /**
+     * Returns whether this Lob is loaded from file.
+     * This is useful for bypassing need to read in the contents of the Lob.
+     * @return boolean Whether this LOB is to be read from a file.
+     */
+    public function isFromFile()
+    {
+        return ($this->inFile !== null);
+    }
+    
+    /**
+     * Read LOB data from file (binary safe).
+     * (Implementation may need to be moved into Clob / Blob subclasses, but 
+     * since file_get_contents() is binary-safe, it hasn't been necessary so far.)
+     * @param string $file Filename may also be specified here (if not specified using setInputFile()).
+     * @return void
+     * @throws Exception - if no file specified or error on read.
+     * @see setInputFile()
+     */
+    public function readFromFile($file = null)
+    {
+        if ($file !== null) {
+            $this->setInputFile($file);
+        }
+        if (!$this->inFile) {
+            throw Exception('No file specified for read.');
+        }        
+        $data = @file_get_contents($this->inFile);
+        if ($data === false) {
+            throw new Exception('Unable to read from file: '.$this->inFile);
+        }        
+        $this->setContents($data);                
+    }
+    
+    
+    /**
+     * Write LOB data to file (binary safe).
+     * (Impl may need to move into subclasses, but so far not necessary.)
+     * @param string $file Filename may also be specified here (if not set using setOutputFile()).
+     * @throws Exception - if no file specified, no contents to write, or error on write.
+     * @see setOutputFile()
+     */
+    public function writeToFile($file = null)
+    {
+        if ($file !== null) {
+            $this->setOutputFile($file);
+        }        
+        if (!$this->outFile) {
+            throw new Exception('No file specified for write');
+        }
+        if ($this->data === null) {
+            throw new Exception('No data to write to file');
+        }        
+        if (false === @file_put_contents($this->outFile, $this->data)) {
+            throw new Exception('Unable to write to file: '.$this->outFile);
+        }
+    }
+    
+    /**
+     * Convenience method to get contents of LOB as string.
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getContents();
+    }
+    
+    /**
+     * Set whether LOB contents have been modified after initial setting.
+     * @param boolean $b
+     */
+    public function setModified($b)
+    {
+        $this->modified = $b;
+    }
+    
+    /**
+     * Whether LOB contents have been modified after initial setting.
+     * @return boolean TRUE if the contents have been modified after initial setting. 
+     *                  FALSE if contents have not been modified or if no contents have bene set.
+     */
+    public function isModified()
+    {
+        // cast it so that NULL will also eval to false
+        return (boolean) $this->modified;
+    }
+}
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:16:07 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:16:07 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/metadata ColumnInfo.php,NONE,1.1 DatabaseInfo.php,NONE,1.1 ForeignKeyInfo.php,NONE,1.1 IndexInfo.php,NONE,1.1 PrimaryKeyInfo.php,NONE,1.1 TableInfo.php,NONE,1.1
+Message-ID: <200502271616.j1RGG6N19081@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/metadata
+In directory sheep:/tmp/cvs-serv15688/_source/tier.lib/creole/metadata
+
+Added Files:
+	ColumnInfo.php DatabaseInfo.php ForeignKeyInfo.php 
+	IndexInfo.php PrimaryKeyInfo.php TableInfo.php 
+Log Message:
+* Install creole 1.0.0
+
+--- NEW FILE: ColumnInfo.php ---
+<?php
+
+/*
+ *  $Id: ColumnInfo.php,v 1.1 2005/02/27 16:16:04 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+/**
+ * Represents a Column.
+ *
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.metadata
+ */
+class ColumnInfo {
+
+     // FIXME
+     //    - Currently all member attributes are public.  This should be fixed
+     // when PHP's magic __sleep() and __wakeup() functions & serialization support
+     // handles protected/private members. (if ever)
+
+    /** Column name */
+    public $name;
+    
+    /** Column Creole type. */
+    public $type;
+    
+    /** Column native type */
+    public $nativeType;
+    
+    /** Column length */
+    public $size;
+    
+    /** Column scale (number of digits after decimal ) */
+    public $scale;
+    
+    /** Is nullable? */
+    public $isNullable;
+
+    /** Default value */
+    public $defaultValue;
+    
+    /** Table */
+    public $table;
+    
+    /**
+     * Construct a new ColumnInfo object.
+     * 
+     * @param TableInfo $table The table that owns this column.
+     * @param string $name Column name.
+     * @param int $type Creole type.
+     * @param string $nativeType Native type name.
+     * @param int $size Column length.
+     * @param int $scale Column scale (number of digits after decimal).
+     * @param boolean $is_nullable Whether col is nullable.
+     * @param mixed $default Default value.
+     */
+    function __construct(TableInfo $table, $name, $type = null, $nativeType = null, $size = null, $scale = null, $is_nullable = null, $default = null) 
+    {
+        $this->table = $table;
+        $this->name = $name;
+        $this->type = $type;
+        $this->nativeType = $nativeType;        
+        $this->size = $size;
+        $this->scale = $scale;
+        $this->isNullable = $is_nullable;
+        $this->defaultValue = $default;
+    }
+
+    /**
+     * This "magic" method is invoked upon serialize().
+     * Because the Info class hierarchy is recursive, we must handle
+     * the serialization and unserialization of this object.
+     * @return array The class variables that should be serialized (all must be public!).
+     */
+    function __sleep()
+    {
+        return array('name', 'type', 'nativeType', 'size', 'precision', 'isNullable', 'defaultValue');
+    }
+     
+    /**
+     * Get column name.
+     * @return string
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    /**
+     * Get column type.
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+    
+    /**
+     * Gets the native type name.
+     * @return string
+     */
+    public function getNativeType()
+    {
+        return $this->nativeType;    
+    }
+
+    /**
+     * Get column size.
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+    
+    /**
+     * Get column scale.
+     * Scale refers to number of digits after the decimal.  Sometimes this is referred
+     * to as precision, but precision is the total number of digits (i.e. length).
+     * @return int
+     */
+    public function getScale()
+    {
+        return $this->scale;
+    }
+    
+    /**
+     * Get the default value.
+     * @return mixed
+     */
+    public function getDefaultValue()
+    {
+        return $this->defaultValue;
+    }
+    
+    /**
+     * Is column nullable?
+     * @return boolean
+     */ 
+    public function isNullable()
+    {
+        return $this->isNullable;
+    }
+    
+    /**
+     * @return string
+     */ 
+    public function toString()
+    {
+        return $this->name;
+    }
+    
+    /**
+     * Get parent table.
+     * @return TableInfo
+     */
+    public function getTable()
+    {
+        return $this->table;
+    }
+    
+}
+
+--- NEW FILE: DatabaseInfo.php ---
+<?php
+
+/*
+ *  $Id: DatabaseInfo.php,v 1.1 2005/02/27 16:16:04 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+/**
+ * "Info" metadata class for a database.
+ * 
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.metadata
+ */ 
+abstract class DatabaseInfo {
+    
+    protected $tables = array();
+    
+    protected $sequences = array();
+
+    /** have tables been loaded */
+    protected $tablesLoaded = false;
+    
+    /** have sequences been loaded */
+    protected $seqsLoaded = false;        
+    
+    /**
+     * The database Connection.
+     * @var Connection
+     */
+    protected $conn;
+    
+    /** Database name. */
+    protected $dbname;
+    
+    /**
+     * Database link 
+     * @var resource
+     */
+    protected $dblink;
+    
+    /**
+     * @param Connection $dbh
+     */
+    public function __construct(Connection $conn)
+    {
+        $this->conn = $conn;    
+        $this->dblink = $conn->getResource();
+        $dsn = $conn->getDSN();
+        $this->dbname = $dsn['database'];
+    }
+
+    /**
+     * Get name of database.
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->dbname;
+    }
+    
+    /**
+     * This method is invoked upon serialize().
+     * Because the Info class hierarchy is recursive, we must handle
+     * the serialization and unserialization of this object.
+     * @return array The class variables that should be serialized (all must be public!).
+     */
+    function __sleep()
+    {
+        return array('tables','conn');
+    }
+    
+    /**
+     * This method is invoked upon unserialize().
+     * This method re-hydrates the object and restores the recursive hierarchy.
+     */
+    function __wakeup() 
+    {
+        // Re-init vars from serialized connection
+        $this->dbname = $conn->database;
+        $this->dblink = $conn->connection;
+            
+        // restore chaining
+        foreach($this->tables as $tbl) {
+            $tbl->database = $this;
+            $tbl->dbname = $this->dbname;
+            $tbl->dblink = $this->dblink;
+            $tbl->schema = $this->schema;
+        }
+    }
+    
+    /**
+     * Returns Connection being used.
+     * @return Connection
+     */
+    public function getConnection()
+    {
+        return $this->conn;
+    }
+    
+    /**
+     * Get the TableInfo object for specified table name.
+     * @param string $name The name of the table to retrieve.
+     * @return TableInfo
+     * @throws SQLException - if table does not exist in this db.
+     */ 
+    public function getTable($name)
+    {        
+        if(!$this->tablesLoaded) $this->initTables();
+        if (!isset($this->tables[strtoupper($name)])) {
+            throw new SQLException("Database `".$this->name."` has no table `".$name."`");
+        }
+        return $this->tables[ strtoupper($name) ];
+    }        
+    
+    /**
+     * Gets array of TableInfo objects.
+     * @return array TableInfo[]
+     */
+    public function getTables()
+    {
+        if(!$this->tablesLoaded) $this->initTables();
+        return array_values($this->tables); //re-key [numerically]
+    }
+        
+    /**
+     * Adds a table to this db.
+     * Table name is case-insensitive.
+     * @param TableInfo $table
+     */
+    public function addTable(TableInfo $table)
+    {
+        $this->tables[strtoupper($table->getName())] = $table;
+    }
+    
+    /**
+     * @return void
+     * @throws SQLException
+     */
+    abstract protected function initTables();
+    
+    // FIXME
+    // Figure out sequences.  What are they exactly?  Simply columns?
+    // Should this logic really be at the db level (yes & no, i think).  Maybe
+    // also a Column::isSequence() method ?  PosgreSQL supports sequences obviously,
+    // but currently this part of dbinfo classes is not being used.
+    
+    /**
+     * @return void
+     * @throws SQLException
+     */
+    abstract protected function initSequences();
+    
+    /**
+     * @return boolean
+     * @throws SQLException
+     */ 
+    public function isSequence($key)
+    {
+        if(!$this->seqsLoaded) $this->initSequences();
+        return isset($this->sequences[ strtoupper($key) ]);
+    }
+    
+    /**
+     * Gets array of ? objects.
+     * @return array ?[]
+     */
+    public function getSequences()
+    {
+        if(!$this->seqsLoaded) $this->initSequences();
+        return array_values($this->sequences); //re-key [numerically]
+    }
+    
+}
+
+
+--- NEW FILE: ForeignKeyInfo.php ---
+<?php
+
+/*
+ *  $Id: ForeignKeyInfo.php,v 1.1 2005/02/27 16:16:04 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+/**
+ * Represents a foreign key.
+ *
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.metadata
+ */
+class ForeignKeyInfo {
+
+    private $name;
+    private $references = array();
+
+    const NONE     = "";            // No "ON [ DELETE | UPDATE]" behaviour specified.
+    const CASCADE  = "NO ACTION";
+    const CASCADE  = "CASCADE";
+    const RESTRICT = "RESTRICT";
+    const SETNULL  = "SET DEFAULT";
+    const SETNULL  = "SET NULL";
+
+    /**
+     * @param string $name The name of the foreign key.
+     */
+    function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get foreign key name.
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Adds a foreign-local mapping.
+     * @param ColumnInfo $local
+     * @param ColumnInfo $foreign
+     */
+    public function addReference(ColumnInfo $local, ColumnInfo $foreign, $onDelete = self::NONE, $onUpdate = self::NONE)
+    {
+        $this->references[] = array($local, $foreign, $onDelete, $onUpdate);
+    }
+
+    /**
+     * Gets the local-foreign column mapping.
+     * @return array array( [0] => array([0] => local ColumnInfo object, [1] => foreign ColumnInfo object, [2] => onDelete, [3] => onUpdate) )
+     */
+    public function getReferences()
+    {
+        return $this->references;
+    }
+
+    /**
+     * @return string
+     */
+    public function toString()
+    {
+        return $this->name;
+    }
+
+}
+
+--- NEW FILE: IndexInfo.php ---
+<?php
+/*
+ *  $Id: IndexInfo.php,v 1.1 2005/02/27 16:16:04 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+/**
+ * Represents an index.
+ * 
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.metadata 
+ */
+class IndexInfo {
+
+    /** name of the index */
+    private $name;
+    
+    /** columns in this index */
+    private $columns = array();
+
+    function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function addColumn($column)
+    {
+        $this->columns[] = $column;
+    }
+
+    public function getColumns()
+    {
+        return $this->columns;
+    }
+
+    public function toString()
+    {
+        return $this->name;
+    }
+}
+
+--- NEW FILE: PrimaryKeyInfo.php ---
+<?php
+/*
+ *  $Id: PrimaryKeyInfo.php,v 1.1 2005/02/27 16:16:04 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+/**
+ * Represents a PrimaryKey
+ *
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.metadata 
+ */
+class PrimaryKeyInfo {
+    
+    /** name of the primary key */
+    private $name;
+    
+    /** columns in the primary key */
+    private $columns = array();
+
+    /**
+     * @param string $name The name of the foreign key.
+     */
+    function __construct($name)
+    {
+        $this->name = $name;
+    }
+    
+    /**
+     * Get foreign key name.
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param Column $column
+     * @return void
+     */
+    public function addColumn($column)
+    {
+        $this->columns[] = $column;
+    }
+
+    /**
+     * @return array Column[]
+     */ 
+    public function getColumns()
+    {
+        return $this->columns;
+    }
+
+    /**
+     * @return string
+     */
+    public function toString()
+    {
+        return $this->name;
+    }
+}
+
+--- NEW FILE: TableInfo.php ---
+<?php
+
+/*
+ *  $Id: TableInfo.php,v 1.1 2005/02/27 16:16:04 mblaschke Exp $
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software consists of voluntary contributions made by many individuals
+ * and is licensed under the LGPL. For more information please see
+ * <http://creole.phpdb.org>.
+ */
+
+/**
+ * Represents a table.
+ * 
+ * @author    Hans Lellelid <hans at xmpl.org>
+ * @version   $Revision: 1.1 $
+ * @package   creole.metadata 
+ */
+abstract class TableInfo {
+
+     // FIXME
+     //    - Currently all member attributes are public.  This should be fixed
+     // when PHP's magic __sleep() and __wakeup() functions & serialization support
+     // handles protected/private members. (if ever)
+
+    protected $name;
+    protected $columns = array();
+    protected $foreignKeys = array();
+    protected $indexes = array();
+    protected $primaryKey;
+
+    protected $pkLoaded = false;
+    protected $fksLoaded = false;
+    protected $indexesLoaded = false;
+    protected $colsLoaded = false;
+    
+    /**
+     * Database Connection.
+     * @var Connection
+     */   
+    protected $conn;
+        
+    /**
+     * The parent DatabaseInfo object.
+     * @var DatabaseInfo
+     */
+    protected $database;
+    
+    /** Shortcut to db resource link id (needed by drivers for queries). */
+    protected $dblink;
+     
+    /** Shortcut to db name (needed by many drivers for queries). */
+    protected $dbname;
+    
+    /**
+     * @param string $table The table name.
+     * @param string $database The database name.
+     * @param resource $dblink The db connection resource.
+     */
+    function __construct(DatabaseInfo $database, $name) {
+        $this->database = $database;
+        $this->name = $name;
+        $this->conn = $database->getConnection(); // shortcut because all drivers need this for the queries    
+        $this->dblink = $this->conn->getResource();
+        $this->dbname = $database->getName();    
+    }
+
+    /**
+     * This "magic" method is invoked upon serialize().
+     * Because the Info class hierarchy is recursive, we must handle
+     * the serialization and unserialization of this object.
+     * @return array The class variables that should be serialized (all must be public!).
+     */
+    function __sleep()
+    {
+        return array('name', 'columns', 'foreignKeys', 'indexes', 'primaryKey');
+    }
+    
+    /**
+     * This "magic" method is invoked upon unserialize().
+     * This method re-hydrates the object and restores the recursive hierarchy.
+     */
+    function __wakeup() 
+    {
+        // restore chaining
+        foreach($this->columns as $col) {
+            $col->table = $this;
+        }
+    }
+
+    /**
+     * Loads the columns.
+     * @return void
+     */ 
+    abstract protected function initColumns();    
+    
+    /**
+     * Loads the primary key information for this table.
+     * @return void
+     */ 
+    abstract protected function initPrimaryKey();
+
+    /**
+     * Loads the foreign keys for this table.
+     * @return void
+     */ 
+    abstract protected function initForeignKeys();
+
+    /**
+     * Loads the indexes information for this table.
+     * @return void
+     */ 
+    abstract protected function initIndexes();
+    
+
+    /**
+     * Get parimary key in this table.
+     * @throws Exception - if foreign keys are unsupported by DB.
+     * @return array ForeignKeyInfo[]
+     */
+    public function getPrimaryKey()
+    {
+        if(!$this->pkLoaded) $this->initPrimaryKey();
+        return $this->primaryKey;
+    }    
+    
+    /**
+     * Get the ColumnInfo object for specified column.
+     * @param string $name The column name.
+     * @return ColumnInfo
+     * @throws SQLException - if column does not exist for this table.
+     */
+    public function getColumn($name)
+    {
+        if(!$this->colsLoaded) $this->initColumns();
+        if (!isset($this->columns[$name])) {
+            throw new SQLException("Table `".$this->name."` has no column `".$name."`");
+        }
+        return $this->columns[$name];
+    }
+    
+    /**
+     * Get array of columns for this table.
+     * @return array ColumnInfo[]
+     */
+    public function getColumns()
+    {
+        if(!$this->colsLoaded) $this->initColumns();
+        return array_values($this->columns); // re-key numerically
+    }
+    
+    /**
+     * Get specified fk for this table.
+     * @param string $name The foreign key name to retrieve.
+     * @return ForeignKeyInfo
+     * @throws SQLException - if fkey does not exist for this table.
+     */
+    public function getForeignKey($name)
+    {
+        if(!$this->fksLoaded) $this->initForeignKeys();
+        if (!isset($this->foreignKeys[$name])) {
+            throw new SQLException("Table `".$this->name."` has no foreign key `".$name."`");
+        }
+        return $this->foreignKeys[$name];
+    }
+    
+    /**
+     * Get all foreign keys.
+     * @return array ForeignKeyInfo[]
+     */
+    public function getForeignKeys()
+    {
+        if(!$this->fksLoaded) $this->initForeignKeys();
+        return array_values($this->foreignKeys);
+    }
+    
+    /**
+     * Gets the IndexInfo object for a specified index.
+     * @param string $name The index name to retrieve.
+     * @return IndexInfo
+     * @throws SQLException - if index does not exist for this table.
+     */ 
+    public function getIndex($name)
+    {
+        if(!$this->indexesLoaded) $this->initIndexes();
+        if (!isset($this->indexes[$name])) {
+            throw new SQLException("Table `".$this->name."` has no index `".$name."`");
+        }
+        return @$this->indexes[$name];
+    }
+
+    /**
+     * Get array of IndexInfo objects for this table.
+     * @return array IndexInfo[]
+     */
+    public function getIndexes()
+    {
+        if(!$this->indexesLoaded) $this->initIndexes();
+        return array_values($this->indexes);
+    }
+    
+    /**
+     * Alias for getIndexes() method.
+     * @return array
+     */
+    public function getIndices()
+    {
+        return $this->getIndexes();
+    }
+    
+    /**
+     * Get table name.
+     * @return string
+     */ 
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    /**
+     * @return string
+     */ 
+    public function toString()
+    {
+        return $this->name;
+    }
+    
+    /** Have foreign keys been loaded? */
+    public function foreignKeysLoaded()
+    {
+        return $this->fksLoaded;
+    }
+    
+    /** Has primary key info been loaded? */
+    public function primaryKeyLoaded()
+    {
+        return $this->pkLoaded;
+    }
+    
+    /** Have columns been loaded? */    
+    public function columnsLoaded()
+    {
+        return $this->colsLoaded;
+    }
+    
+    /** Has index information been loaded? */
+    public function indexesLoaded()
+    {
+        return $this->indexesLoaded;
+    }
+    
+    /** Adds a column to this table. */
+    public function addColumn(ColumnInfo $column)
+    {
+        $this->columns[$column->getName()] = $column;
+    }
+    
+    /** Get the parent DatabaseInfo object. */
+    public function getDatabase()
+    {
+        return $this->database;
+    }
+}
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:19:21 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:19:21 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole CallableStatement.php,1.1,NONE Connection.php,1.1,NONE Creole.php,1.1,NONE CreoleTypes.php,1.1,NONE IdGenerator.php,1.1,NONE PreparedStatement.php,1.1,NONE ResultSet.php,1.1,NONE ResultSetIterator.php,1.1,NONE SQLException.php,1.1,NONE Statement.php,1.1,NONE
+Message-ID: <200502271619.j1RGJLN19135@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole
+In directory sheep:/tmp/cvs-serv16120/_source/tier.lib/creole
+
+Removed Files:
+	CallableStatement.php Connection.php Creole.php 
+	CreoleTypes.php IdGenerator.php PreparedStatement.php 
+	ResultSet.php ResultSetIterator.php SQLException.php 
+	Statement.php 
+Log Message:
+* Removed creole - manuall install, not needed in CVS.. sorry
+
+--- CallableStatement.php DELETED ---
+
+--- Connection.php DELETED ---
+
+--- Creole.php DELETED ---
+
+--- CreoleTypes.php DELETED ---
+
+--- IdGenerator.php DELETED ---
+
+--- PreparedStatement.php DELETED ---
+
+--- ResultSet.php DELETED ---
+
+--- ResultSetIterator.php DELETED ---
+
+--- SQLException.php DELETED ---
+
+--- Statement.php DELETED ---
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:19:22 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:19:22 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/metadata ColumnInfo.php,1.1,NONE DatabaseInfo.php,1.1,NONE ForeignKeyInfo.php,1.1,NONE IndexInfo.php,1.1,NONE PrimaryKeyInfo.php,1.1,NONE TableInfo.php,1.1,NONE
+Message-ID: <200502271619.j1RGJMN19139@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/metadata
+In directory sheep:/tmp/cvs-serv16120/_source/tier.lib/creole/metadata
+
+Removed Files:
+	ColumnInfo.php DatabaseInfo.php ForeignKeyInfo.php 
+	IndexInfo.php PrimaryKeyInfo.php TableInfo.php 
+Log Message:
+* Removed creole - manuall install, not needed in CVS.. sorry
+
+--- ColumnInfo.php DELETED ---
+
+--- DatabaseInfo.php DELETED ---
+
+--- ForeignKeyInfo.php DELETED ---
+
+--- IndexInfo.php DELETED ---
+
+--- PrimaryKeyInfo.php DELETED ---
+
+--- TableInfo.php DELETED ---
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:19:22 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:19:22 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util Blob.php,1.1,NONE Clob.php,1.1,NONE Lob.php,1.1,NONE
+Message-ID: <200502271619.j1RGJMN19143@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util
+In directory sheep:/tmp/cvs-serv16120/_source/tier.lib/creole/util
+
+Removed Files:
+	Blob.php Clob.php Lob.php 
+Log Message:
+* Removed creole - manuall install, not needed in CVS.. sorry
+
+--- Blob.php DELETED ---
+
+--- Clob.php DELETED ---
+
+--- Lob.php DELETED ---
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:19:22 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:19:22 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/creole/util/sql SQLStatementExtractor.php,1.1,NONE
+Message-ID: <200502271619.j1RGJMN19150@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/creole/util/sql
+In directory sheep:/tmp/cvs-serv16120/_source/tier.lib/creole/util/sql
+
+Removed Files:
+	SQLStatementExtractor.php 
+Log Message:
+* Removed creole - manuall install, not needed in CVS.. sorry
+
+--- SQLStatementExtractor.php DELETED ---
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 17:19:22 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 17:19:22 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib/jargon DataSet.php,1.1,NONE DataSetException.php,1.1,NONE KeyDef.php,1.1,NONE PagedQuery.php,1.1,NONE Query.php,1.1,NONE QueryDataSet.php,1.1,NONE Record.php,1.1,NONE TableDataSet.php,1.1,NONE
+Message-ID: <200502271619.j1RGJMN19154@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib/jargon
+In directory sheep:/tmp/cvs-serv16120/_source/tier.lib/jargon
+
+Removed Files:
+	DataSet.php DataSetException.php KeyDef.php PagedQuery.php 
+	Query.php QueryDataSet.php Record.php TableDataSet.php 
+Log Message:
+* Removed creole - manuall install, not needed in CVS.. sorry
+
+--- DataSet.php DELETED ---
+
+--- DataSetException.php DELETED ---
+
+--- KeyDef.php DELETED ---
+
+--- PagedQuery.php DELETED ---
+
+--- Query.php DELETED ---
+
+--- QueryDataSet.php DELETED ---
+
+--- Record.php DELETED ---
+
+--- TableDataSet.php DELETED ---
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 22:48:22 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 22:48:22 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.4,1.5
+Message-ID: <200502272148.j1RLmMN26753@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source
+In directory sheep:/tmp/cvs-serv4689/_source
+
+Modified Files:
+	phpmediadb.php 
+Log Message:
+* Added tier.lib with smarty and creole
+
+Index: phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/phpmediadb.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- phpmediadb.php	9 Feb 2005 20:27:19 -0000	1.4
++++ phpmediadb.php	27 Feb 2005 21:48:19 -0000	1.5
+@@ -10,6 +10,10 @@
+ require_once( 'tier.configuration/config.business.php' );
+ require_once( 'tier.configuration/config.presentation.php' );
+ 
++/* include tier.lib */
++require_once( 'tier.lib/smarty/Smarty.class.php' );
++require_once( 'tier.lib/creole/Creole.php' );
++
+ /* include tier.global */
+ require_once( 'tier.global/class.phpmediadb_exception.php' );
+ require_once( 'tier.global/class.phpmediadb.php' );
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 22:48:47 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 22:48:47 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.configuration config.preinit.php,1.1,1.2
+Message-ID: <200502272148.j1RLmlN26757@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration
+In directory sheep:/tmp/cvs-serv4725/_source/tier.configuration
+
+Modified Files:
+	config.preinit.php 
+Log Message:
+* Added include_path (needed by creole)
+
+Index: config.preinit.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.configuration/config.preinit.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -u -d -r1.1 -r1.2
+--- config.preinit.php	9 Feb 2005 16:16:22 -0000	1.1
++++ config.preinit.php	27 Feb 2005 21:48:44 -0000	1.2
+@@ -2,10 +2,18 @@
+ // phpMediaDB :: Licensed under GNU-GPL :: http://phpmediadb.berlios.de/
+ /* $Id $ */
+ 
+-/*
+- * Initalize phpMediaDbConfig
++/**
++ * Configuration initalize
+  */
+ $phpMediaDbConfig = array();
++
++ 
++ /**
++  * Set path - creole need this!
++  */
++	$sourcePath = dirname(dirname(__FILE__) . '..' );
++	ini_set('include_path',  $sourcePath . DIRECTORY_SEPARATOR . 'tier.lib' . PATH_SEPARATOR . ini_get('include_path'));
++
+ 
+ //--- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF --- EOF ---
+ ?>
+
+
+
+From nobody at sheep.berlios.de  Sun Feb 27 23:03:18 2005
+From: nobody at sheep.berlios.de (mblaschke)
+Date: Sun, 27 Feb 2005 23:03:18 +0100
+Subject: [phpmediadb-cvs] phpmediadb-cvs/_source/tier.lib INSTALL,NONE,1.1
+Message-ID: <200502272203.j1RM3IN27522@bat.berlios.de>
+
+Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.lib
+In directory sheep:/tmp/cvs-serv5855/_source/tier.lib
+
+Added Files:
+	INSTALL 
+Log Message:
+* Initial release
+
+--- NEW FILE: INSTALL ---
+CVS Libraries Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Smarty - PHP Template
+---------------------
+1. Download Smarty
+   http://smarty.php.net/
+2. Unpack archive
+3. copy 'libs' to '_source/tier.lib'
+3. rename 'libs' to 'smarty'
+
+
+Creole - Database Access Layer
+-------------------------------
+1. Download Creole
+   http://creole.phpdb.org/wiki/
+2. Unpack archive
+3. Copy 'creole' and 'jargon' from 'classes/'
+   into '_source/tier.lib'
+
+$Id: INSTALL,v 1.1 2005/02/27 22:03:16 mblaschke Exp $
+
+

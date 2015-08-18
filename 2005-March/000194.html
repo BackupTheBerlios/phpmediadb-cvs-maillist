@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.4,1.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.global%20constants.phpmediadb.php%2C1.4%2C1.5&In-Reply-To=%3C200503242044.j2OKiXh12566%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000193.html">
+   <LINK REL="Next"  HREF="000195.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.4,1.5</H1>
+    <B>mblaschke</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.global%20constants.phpmediadb.php%2C1.4%2C1.5&In-Reply-To=%3C200503242044.j2OKiXh12566%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.global constants.phpmediadb.php,1.4,1.5">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Mar 24 21:44:33 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000193.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.4,1.5 class.phpmediadb_business_audios.php,1.5,1.6 class.phpmediadb_business_categories.php,1.4,1.5 class.phpmediadb_business_codecs.php,1.4,1.5 class.phpmediadb_business_formats.php,1.4,1.5 class.phpmediadb_business_inspector.php,1.4,1.5 class.phpmediadb_business_prints.php,1.4,1.5 class.phpmediadb_business_videos.php,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000195.html">[phpmediadb-cvs] phpmediadb-cvs/install create-tables.sql,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global
+In directory sheep:/tmp/cvs-serv3006/_source/tier.global
+
+Modified Files:
+	constants.phpmediadb.php 
+Log Message:
+* Added PHPMEDIADB_ITEMINFO_AGERESTRICTION, PHPMEDIADB_ITEMINFO_CATEGORIES, PHPMEDIADB_ITEMINFO_CODECS, PHPMEDIADB_ITEMINFO_FORMATS and PHPMEDIADB_ITEMINFO_STATUS
+
+Index: constants.phpmediadb.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.global/constants.phpmediadb.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -u -d -r1.4 -r1.5
+--- constants.phpmediadb.php	24 Mar 2005 17:12:48 -0000	1.4
++++ constants.phpmediadb.php	24 Mar 2005 20:44:31 -0000	1.5
+@@ -16,6 +16,7 @@
+      * Constant that indicates that the content is already HTML
+      */
+ 	define( 'PHPMEDIADB_NODEFORMAT_HTML', 1 );
++	
+     /**
+      * Constant that indicates that the content is only text
+      * and should be converted. XML/XHTML ruleset is used.
+@@ -26,15 +27,42 @@
+     /**
+      * Constant that indicated that the item is an audio-media
+      */
++     
+ 	define( 'PHPMEDIADB_ITEM_AUDIO', 1 );
+     /**
+      * Constant that indicated that the item is an video-media
+      */
+ 	define( 'PHPMEDIADB_ITEM_VIDEO', 2 );
++	
+     /**
+      * Constant that indicated that the item is an print-media
+      */
+ 	define( 'PHPMEDIADB_ITEM_PRINT', 3 );
++	
++    /**
++     * Constant that indicated that the iteminfo is a agerestriction-info
++     */	
++	define( 'PHPMEDIADB_ITEMINFO_AGERESTRICTION', 900 );
++
++    /**
++     * Constant that indicated that the iteminfo is a category
++     */	
++	define( 'PHPMEDIADB_ITEMINFO_CATEGORIES', 901 );
++	
++    /**
++     * Constant that indicated that the iteminfo is a codec
++     */	
++	define( 'PHPMEDIADB_ITEMINFO_CODECS', 902 );
++	
++    /**
++     * Constant that indicated that the iteminfo is a format
++     */	
++	define( 'PHPMEDIADB_ITEMINFO_FORMATS', 903 );
++	
++    /**
++     * Constant that indicated that the iteminfo is a status
++     */	
++	define( 'PHPMEDIADB_ITEMINFO_STATUS', 904 );
+ 
+ // --- tier.data ---
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000193.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.business class.phpmediadb_business_agerestrictions.php,1.4,1.5 class.phpmediadb_business_audios.php,1.5,1.6 class.phpmediadb_business_categories.php,1.4,1.5 class.phpmediadb_business_codecs.php,1.4,1.5 class.phpmediadb_business_formats.php,1.4,1.5 class.phpmediadb_business_inspector.php,1.4,1.5 class.phpmediadb_business_prints.php,1.4,1.5 class.phpmediadb_business_videos.php,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000195.html">[phpmediadb-cvs] phpmediadb-cvs/install create-tables.sql,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_categories.php,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_categories.php%2C1.5%2C1.6&In-Reply-To=%3C200503300950.j2U9oAL07640%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000198.html">
+   <LINK REL="Next"  HREF="000200.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_categories.php,1.5,1.6</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data_categories.php%2C1.5%2C1.6&In-Reply-To=%3C200503300950.j2U9oAL07640%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_categories.php,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Mar 30 11:50:10 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000198.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.7,1.8
+</A></li>
+        <LI>Next message: <A HREF="000200.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.9,1.10
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#199">[ date ]</a>
+              <a href="thread.html#199">[ thread ]</a>
+              <a href="subject.html#199">[ subject ]</a>
+              <a href="author.html#199">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv19227/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data_categories.php 
+Log Message:
+* Fixed syntax mistakes
+
+Index: class.phpmediadb_data_categories.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data_categories.php,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -u -d -r1.5 -r1.6
+--- class.phpmediadb_data_categories.php	26 Mar 2005 11:38:14 -0000	1.5
++++ class.phpmediadb_data_categories.php	30 Mar 2005 09:50:06 -0000	1.6
+@@ -66,25 +66,24 @@
+ 	 * @access public
+ 	 * @param Integer $id contains specified id for the sql statement
+ 	 * @return Mixed array $rs contains result of database query
+-	 * @return Mixed rollbackTransaction() returns the error message
++	 * @return Mixed getMessage() returns the error message
+ 	 */
+ 	public function get( $id )
+ 	{
+ 		try
+ 		{
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-			$this-&gt;DATA-&gt;SQL-&gt;openTransaction( $conn );
+ 			$stmt = $conn-&gt;prepareStatement(	'SELECT *
+-												FROM Categories,
++												FROM Categories
+ 												WHERE Categories.CategoryID = ?' );
+ 			$stmt-&gt;setString( 1, $id );
+ 			$rs = $stmt-&gt;executeQuery();
+-			$this-&gt;DATA-&gt;SQL-&gt;commitTransaction( $conn );
++			
+ 			return $rs;
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $this-&gt;DATA-&gt;SQL-&gt;rollbackTransaction( $conn, $e );
++			return $e-&gt;getMessage();
+ 		}
+ 	}
+ 
+@@ -94,24 +93,22 @@
+ 	 *
+ 	 * @access public
+ 	 * @return Mixed array $rs contains result of database query
+-	 * @return Mixed rollbackTransaction() returns the error message
++	 * @return Mixed getMessage() returns the error message
+ 	 */
+ 	public function getList()
+ 	{
+ 		try
+ 		{
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-			$this-&gt;DATA-&gt;SQL-&gt;openTransaction( $conn );
+ 			$stmt = $conn-&gt;prepareStatement(	'SELECT *
+-												FROM Categories,
+-												WHERE Categories.CategoryID LIKE &quot;%&quot;' );
++												FROM Categories' );
+ 			$rs = $stmt-&gt;executeQuery();
+-			$this-&gt;DATA-&gt;SQL-&gt;commmitTransaction( $conn );
++			
+ 			return $rs;
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $this-&gt;DATA-&gt;SQL-&gt;rollbackTransaction( $conn, $e );
++			return $e-&gt;getMessage();
+ 		}
+ 	}
+ 
+@@ -205,7 +202,7 @@
+ 	 * @access public
+ 	 * @param Integer $id contains specified id for the sql statement
+ 	 * @return Boolean $returnValue returns whether the specified record exists
+-	 * @return Mixed rollbackTransaction() returns the error message
++	 * @return Mixed getMessage() returns the error message
+ 	 */
+ 	public function exist( $id )
+ 	{
+@@ -215,9 +212,8 @@
+ 		try
+ 		{
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-			$this-&gt;DATA-&gt;SQL-&gt;openTransaction( $conn );
+ 			$stmt = $conn-&gt;prepareStatement(	'SELECT COUNT(*)
+-												FROM Categories,
++												FROM Categories
+ 												WHERE Categories.CategoryID = ?' );
+ 			$stmt-&gt;setString( 1, $id );
+ 			$rs = $stmt-&gt;executeQuery( ResultSet::FETCHMODE_NUM );
+@@ -227,12 +223,11 @@
+ 			if( $rs-&gt;get(1) &gt;= 1 )
+ 				$returnValue = true;
+ 			
+-			$this-&gt;DATA-&gt;SQL-&gt;commitTransaction( $conn );
+ 			return $returnValue;
+ 		}
+ 		catch( Exception $e )
+ 		{
+-			return $this-&gt;DATA-&gt;SQL-&gt;rollbackTransaction( $conn, $e );
++			return $e-&gt;getMessage();
+ 		}
+ 	}
+ 
+@@ -278,7 +273,6 @@
+ 		try
+ 		{
+ 			$conn = $this-&gt;DATA-&gt;SQL-&gt;getConnection();
+-			$this-&gt;DATA-&gt;SQL-&gt;openTransaction( $conn );
+ 			$stmt = $conn-&gt;prepareStatement(	'DELETE FROM Categories_has_Items
+ 												WHERE Categories_has_Items.ItemID = ?' );
+ 			$stmt-&gt;setString( 1, $id );
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000198.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_audios.php,1.7,1.8
+</A></li>
+	<LI>Next message: <A HREF="000200.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_codecs.php,1.9,1.10
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#199">[ date ]</a>
+              <a href="thread.html#199">[ thread ]</a>
+              <a href="subject.html#199">[ subject ]</a>
+              <a href="author.html#199">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>

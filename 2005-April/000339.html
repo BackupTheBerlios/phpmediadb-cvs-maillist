@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.10,1.11
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/phpmediadb-cvs/2005-April/index.html" >
+   <LINK REL="made" HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data.php%2C1.10%2C1.11&In-Reply-To=%3C200504171025.j3HAP9m09938%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000338.html">
+   <LINK REL="Next"  HREF="000340.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.10,1.11</H1>
+    <B>bruf</B> 
+    <A HREF="mailto:phpmediadb-cvs%40lists.berlios.de?Subject=Re%3A%20%5Bphpmediadb-cvs%5D%20phpmediadb-cvs/_source/tier.data%20class.phpmediadb_data.php%2C1.10%2C1.11&In-Reply-To=%3C200504171025.j3HAP9m09938%40bat.berlios.de%3E"
+       TITLE="[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data.php,1.10,1.11">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Apr 17 12:25:09 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000338.html">[phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.11,1.12
+</A></li>
+        <LI>Next message: <A HREF="000340.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_binarydatas.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#339">[ date ]</a>
+              <a href="thread.html#339">[ thread ]</a>
+              <a href="subject.html#339">[ subject ]</a>
+              <a href="author.html#339">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data
+In directory sheep:/tmp/cvs-serv9219/_source/tier.data
+
+Modified Files:
+	class.phpmediadb_data.php 
+Log Message:
+* Added class phpmediadb_data_binarydatas
+
+Index: class.phpmediadb_data.php
+===================================================================
+RCS file: /cvsroot/phpmediadb/phpmediadb-cvs/_source/tier.data/class.phpmediadb_data.php,v
+retrieving revision 1.10
+retrieving revision 1.11
+diff -u -d -r1.10 -r1.11
+--- class.phpmediadb_data.php	12 Apr 2005 17:58:05 -0000	1.10
++++ class.phpmediadb_data.php	17 Apr 2005 10:25:07 -0000	1.11
+@@ -44,6 +44,15 @@
+ 	public $AUDIOS = null;
+ 	
+ 	/**
++	 * Reference to class phpmediadb_data_binarydatas
++	 *
++	 * @access public
++	 * @see phpmediadb_data_audios
++	 * @var phpmediadb_data_audios
++	 */
++	public $BINARYDATAS = null;
++	
++	/**
+ 	 * Reference to class phpmediadb_data_categories
+ 	 *
+ 	 * @access public
+@@ -145,6 +154,7 @@
+ 		/* assign childs */
+ 		$this-&gt;AGERESTRICTIONS	= new phpmediadb_data_agerestrictions( $this );
+ 		$this-&gt;AUDIOS			= new phpmediadb_data_audios( $this );
++		$this-&gt;BINARYDATAS		= new phpmediadb_data_binarydatas( $this );
+ 		$this-&gt;CATEGORIES		= new phpmediadb_data_categories( $this );
+ 		$this-&gt;CODECS			= new phpmediadb_data_codecs( $this );
+ 		$this-&gt;FORMATS			= new phpmediadb_data_formats( $this );
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000338.html">[phpmediadb-cvs] phpmediadb-cvs/_source phpmediadb.php,1.11,1.12
+</A></li>
+	<LI>Next message: <A HREF="000340.html">[phpmediadb-cvs] phpmediadb-cvs/_source/tier.data class.phpmediadb_data_binarydatas.php,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#339">[ date ]</a>
+              <a href="thread.html#339">[ thread ]</a>
+              <a href="subject.html#339">[ subject ]</a>
+              <a href="author.html#339">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/phpmediadb-cvs">More information about the phpmediadb-cvs
+mailing list</a><br>
+</body></html>
